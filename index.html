@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Próximamente | GRUPO DIAE PERU</title>
+    <title>Próximamente | GRUPO DIAE PERÚ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -12,30 +12,25 @@
             --orb-1: rgba(58, 77, 106, 0.4);
             --orb-2: rgba(100, 110, 120, 0.3);
             
-            /* Materiales de Cristal Oscuro (Liquid Glass) */
             --glass-surface: rgba(20, 22, 28, 0.4);
+            --glass-surface-modal: rgba(25, 28, 36, 0.85);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-border-highlight: rgba(255, 255, 255, 0.15);
             
-            /* Sombras 3D */
             --shadow-ambient: 0 20px 50px rgba(0, 0, 0, 0.5);
             --shadow-inner: inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+            --shadow-modal: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2);
             
-            /* Tipografía */
             --text-primary: #f0f0f5;
             --text-secondary: #a0a4b8;
             --accent-glow: #5e81ac;
+            --warning-glow: #d08770;
             
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: var(--font-main);
@@ -48,7 +43,6 @@
             overflow: hidden;
             position: relative;
             padding: 20px;
-            perspective: 1000px;
         }
 
         .orb {
@@ -58,23 +52,8 @@
             z-index: 0;
             animation: floatOrb 20s infinite alternate ease-in-out;
         }
-
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: var(--orb-1);
-            top: 10%;
-            left: 20%;
-        }
-
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: var(--orb-2);
-            bottom: 10%;
-            right: 15%;
-            animation-delay: -10s;
-        }
+        .orb-1 { width: 400px; height: 400px; background: var(--orb-1); top: 10%; left: 20%; }
+        .orb-2 { width: 500px; height: 500px; background: var(--orb-2); bottom: 10%; right: 15%; animation-delay: -10s; }
 
         @keyframes floatOrb {
             0% { transform: translate(0, 0) scale(1); }
@@ -116,7 +95,6 @@
             text-transform: uppercase;
             color: var(--accent-glow);
             margin-bottom: 20px;
-            box-shadow: inset 0 1px 2px rgba(255,255,255,0.05);
         }
 
         h1 {
@@ -156,27 +134,49 @@
             transition: all 0.4s var(--spring-bounce);
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0,0,0,0.2), inset 0 1px 1px rgba(255,255,255,0.1);
-            -webkit-user-select: none;
-            user-select: none;
+            gap: 10px;
         }
 
         .btn:hover:not(.disabled) {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3), 0 0 20px rgba(94, 129, 172, 0.2), inset 0 1px 1px rgba(255,255,255,0.2);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3), 0 0 20px rgba(94, 129, 172, 0.2);
         }
 
-        .btn:active:not(.disabled) {
-            transform: translateY(2px) scale(0.98);
-        }
+        .btn:active:not(.disabled) { transform: translateY(2px) scale(0.98); }
 
         .btn.disabled {
-            background: rgba(94, 129, 172, 0.3);
-            border-color: rgba(94, 129, 172, 0.6);
+            background: rgba(94, 129, 172, 0.2);
+            border-color: rgba(94, 129, 172, 0.4);
+            color: #a0a4b8;
             cursor: default;
             pointer-events: none;
         }
+
+        .btn-wsp {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: rgba(37, 211, 102, 0.3);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-wsp:hover {
+            background: rgba(37, 211, 102, 0.25);
+            border-color: rgba(37, 211, 102, 0.5);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3), 0 0 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border-color: transparent;
+            box-shadow: none;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .btn-cancel:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
 
         .footer-brand {
             margin-top: 40px;
@@ -184,22 +184,56 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.85rem;
             color: rgba(160, 164, 184, 0.6);
-            font-weight: 500;
-            letter-spacing: 0.02em;
         }
 
-        .footer-brand strong {
-            color: rgba(255, 255, 255, 0.7);
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.4s ease;
+            padding: 20px;
         }
+
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .modal-content {
+            background: var(--glass-surface-modal);
+            border: 1px solid var(--glass-border-highlight);
+            border-radius: 28px;
+            padding: 40px;
+            max-width: 440px; width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-modal);
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.5s var(--spring-bounce);
+        }
+
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+        .modal-icon {
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px auto; color: #fff;
+        }
+
+        .icon-ios { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .icon-error { background: rgba(208, 135, 112, 0.15); border: 1px solid rgba(208, 135, 112, 0.4); color: var(--warning-glow); }
+        .modal-icon svg { width: 30px; height: 30px; }
+
+        .modal-content h3 { font-size: 1.4rem; margin-bottom: 12px; color: #fff; }
+        .modal-content p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
 
         @media (max-width: 768px) {
-            .glass-card {
-                padding: 35px 20px;
-                border-radius: 24px;
-            }
+            .glass-card { padding: 35px 20px; border-radius: 24px; }
             h1 { font-size: 1.7rem; }
             p.description { font-size: 1.05rem; }
             .btn { width: 100%; }
+            .modal-content { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -217,102 +251,134 @@
             Estamos construyendo el primer gran espacio de formación y especialización exclusivo para el magisterio peruano. Un entorno académico diseñado para que seas tú quien dirija a la Inteligencia Artificial, y no al revés. Prepárate para estudiar sus cimientos, alinearla al rigor del CNEB y convertirla en tu mejor aliado pedagógico.
         </p>
         
-        <!-- Botón principal para Notificaciones Nativas -->
-        <a href="#" class="btn" id="btn-notificar">Vincular dispositivo a la lista de espera</a>
+        <a href="#" class="btn" id="btn-principal">
+            <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Vincular dispositivo a la lista de espera
+        </a>
         
         <div class="footer-brand">
-            Respaldado por <strong>Grupo DIAE Perú</strong><br>WhatsApp: +51 966 387 995
+            Respaldado por <strong>Grupo DIAE Perú</strong><br>
+            WhatsApp: +51 966 387 995
         </div>
     </div>
+
+    <div class="modal-overlay" id="modal-dinamico">
+        <div class="modal-content">
+            <div class="modal-icon" id="modal-icono"></div>
+            <h3 id="modal-titulo"></h3>
+            <div id="modal-texto"></div>
+            
+            <button class="btn btn-wsp" id="btn-wsp">
+                <svg style="width: 22px; height: 22px;" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                </svg>
+                Continuar a WhatsApp
+            </button>
+            <button class="btn btn-cancel" id="btn-cerrar-modal">Cancelar</button>
+        </div>
+    </div>
+
     <script>
-        const btnNotificar = document.getElementById('btn-notificar');
-        const COOKIE_NAME = "diae_dispositivo_vinculado";
+        const btnPrincipal = document.getElementById('btn-principal');
+        const modal = document.getElementById('modal-dinamico');
+        const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+        const btnWsp = document.getElementById('btn-wsp');
+        const COOKIE_NAME = "diae_vinculacion_docente";
 
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-        }
+        const NUMERO_WSP = "51966387995";
+        const MENSAJE_WSP = "Hola, confirmo mi vinculación a la LISTA DE ESPERA para el espacio de formación en IA.";
 
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i=0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-            }
-            return null;
-        }
+        const iconApple = `<svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.15 2.95.92 3.78 2.12-3.17 1.83-2.6 6.13.37 7.32-.69 1.45-1.57 2.8-2.8 3.57zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.33 2.31-1.85 4.38-3.74 4.25z"/></svg>`;
+        const iconError = `<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>`;
 
-        // Función para verificar si el dispositivo ya fue vinculado
-        function verificarVinculacion() {
-            if (getCookie(COOKIE_NAME) || localStorage.getItem(COOKIE_NAME)) {
-                marcarBotonVinculado();
-                return true;
-            }
-            return false;
-        }
-
-        function marcarBotonVinculado() {
-            btnNotificar.innerHTML = `Dispositivo Vinculado <svg style="width: 18px; height: 18px; margin-left: 8px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
-            btnNotificar.classList.add('disabled');
-        }
-
-        function lanzarNotificacionReal() {
-            const titulo = "Sistema de Alertas Vinculado";
-            const opciones = {
-                body: "Colega, tu dispositivo ha sido agregado a la lista de espera con éxito. Te enviaremos una notificación con anticipación para que registres tu cuenta.",
-                icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", // Icono genérico de sistema/campana
-                requireInteraction: true // Mantiene la notificación visible hasta que el usuario interactúe
-            };
-
-            try {
-                const notificacion = new Notification(titulo, opciones);
-                
-                setCookie(COOKIE_NAME, "true", 365);
-                localStorage.setItem(COOKIE_NAME, "true");
-                
-                marcarBotonVinculado();
-            } catch (error) {
-                console.error("Error al lanzar la notificación nativa:", error);
-            }
+        function obtenerOS() {
+            const userAgent = window.navigator.userAgent || window.navigator.vendor || window.opera;
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return 'iOS';
+            if (/android/i.test(userAgent)) return 'Android';
+            return 'Desktop';
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            verificarVinculacion();
+            if (localStorage.getItem(COOKIE_NAME)) estadoVinculadoUI();
         });
 
-        btnNotificar.addEventListener('click', async function(e) {
+        function estadoVinculadoUI() {
+            btnPrincipal.innerHTML = `Dispositivo Vinculado Oficialmente <svg style="width: 18px; height: 18px; margin-left: 5px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+            btnPrincipal.classList.add('disabled');
+        }
+
+        btnPrincipal.addEventListener('click', async (e) => {
             e.preventDefault();
+            if (localStorage.getItem(COOKIE_NAME)) return;
 
-            if (verificarVinculacion()) {
-                alert("Tu dispositivo ya se encuentra vinculado de forma segura a nuestra lista de espera.");
-                return;
-            }
+            const os = obtenerOS();
 
-            if (!("Notification" in window)) {
-                alert("Tu navegador actual no soporta el sistema nativo de notificaciones. Intenta desde Google Chrome, Safari o Edge.");
-                return;
-            }
-
-            if (Notification.permission === "granted") {
-                lanzarNotificacionReal();
-            } else if (Notification.permission !== "denied") {
-                const permiso = await Notification.requestPermission();
-                
-                if (permiso === "granted") {
-                    lanzarNotificacionReal();
-                } else {
-                    alert("Permiso denegado. No podremos vincular este dispositivo para enviarte la notificación de acceso.");
-                }
+            if (os === 'iOS' || os === 'Android') {
+                abrirModalFallback(
+                    'ios', 
+                    'Vinculación Móvil', 
+                    `<p>Para asegurar tu acceso prioritario desde tu celular y evitar bloqueos técnicos, realizaremos tu registro directamente a través de nuestro canal seguro de WhatsApp.</p>`
+                );
             } else {
-                alert("Las notificaciones están bloqueadas en tu navegador. Por favor, habilítalas en la configuración para vincular tu dispositivo.");
+                if (!("Notification" in window)) {
+                    abrirModalFallback('error', 'Navegador No Compatible', '<p>Tu navegador actual no admite el sistema nativo de alertas.</p><p>Para asegurar tu lugar, hemos habilitado la vinculación alternativa vía WhatsApp.</p>');
+                    return;
+                }
+
+                if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+                    await Notification.requestPermission();
+                }
+
+                if (Notification.permission === "granted") {
+                    ejecutarNotificacionNativa();
+                } else {
+                    abrirModalFallback('error', 'Alertas Bloqueadas', '<p>Detectamos que tu navegador bloqueó el permiso para enviar la notificación del sistema.</p><p>Para no perder tu lugar en la lista de espera, finaliza la vinculación por WhatsApp.</p>');
+                }
             }
+        });
+
+        function ejecutarNotificacionNativa() {
+            try {
+                const osNotification = new Notification("✅ Acceso Confirmado", {
+                    body: "Colega, tu dispositivo ha sido vinculado con éxito a nuestra base de datos. Recibirás tu invitación por este medio.",
+                    icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+                    requireInteraction: true
+                });
+
+                osNotification.onclick = function() {
+                    window.focus();
+                    this.close();
+                };
+                
+                localStorage.setItem(COOKIE_NAME, "true");
+                estadoVinculadoUI();
+                
+            } catch(error) {
+                console.error(error);
+                abrirModalFallback('error', 'Error del Sistema Operativo', '<p>Hubo un conflicto técnico al intentar registrar la notificación en tu computadora.</p><p>Finalicemos tu registro de forma segura por WhatsApp.</p>');
+            }
+        }
+
+        function abrirModalFallback(tipo, titulo, htmlTexto) {
+            const iconoCont = document.getElementById('modal-icono');
+            iconoCont.className = `modal-icon ${tipo === 'ios' ? 'icon-ios' : 'icon-error'}`;
+            iconoCont.innerHTML = tipo === 'ios' ? iconApple : iconError;
+            document.getElementById('modal-titulo').innerText = titulo;
+            document.getElementById('modal-texto').innerHTML = htmlTexto;
+            modal.classList.add('active');
+        }
+
+        btnCerrarModal.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        btnWsp.addEventListener('click', () => {
+            localStorage.setItem(COOKIE_NAME, "true");
+            modal.classList.remove('active');
+            estadoVinculadoUI();
+            const linkWsp = `https://wa.me/${NUMERO_WSP}?text=${encodeURIComponent(MENSAJE_WSP)}`;
+            window.open(linkWsp, '_blank');
         });
     </script>
 </body>
