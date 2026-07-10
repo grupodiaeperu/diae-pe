@@ -9,7 +9,7 @@
     <meta name="author" content="Prof. Gonzalo Cateriano - DIAE">
     <meta property="og:title" content="Diseño Curricular y Optimización del Tiempo | DIAE">
     <meta property="og:description" content="Aprende a crear tus materiales educativos con criterio docente real, usando Inteligencia Artificial alineada al CNEB.">
-    <meta property="og:image" content="https://www.diae.pe/images/logo-diae.jpg">
+    <meta property="og:image" content="https://www.diae.pe/images/diae-logo.jpg">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_PE">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23090a0f'/%3E%3Cpath d='M30 70 L30 30 L48 30 Q70 30 70 50 Q70 70 48 70 Z' fill='none' stroke='%2310b981' stroke-width='8'/%3E%3C/svg%3E">
@@ -72,8 +72,8 @@
 
         /* SIDEBAR */
         .sidebar { width: var(--sidebar-width); background: var(--glass-surface); backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); border-right: 1px solid var(--glass-border); height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; padding: 35px 25px; z-index: 1000; transition: transform 0.4s var(--spring-bounce); }
-        .brand { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-title); margin-bottom: 45px; display: flex; align-items: center; gap: 14px; }
-        .brand i { color: var(--accent-glow); font-size: 1.6rem; }
+.brand { display: flex; align-items: center; margin-bottom: 45px; }
+.brand img { height: 80px; width: auto; display: block; }
         .nav-menu { display: flex; flex-direction: column; gap: 6px; flex: 1; }
         .nav-link { display: flex; align-items: center; gap: 16px; padding: 12px 18px; color: var(--text-secondary); text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; }
         .nav-link i { width: 20px; text-align: center; font-size: 1.1rem; opacity: 0.7; transition: all 0.3s ease; }
@@ -89,6 +89,11 @@
         .user-info h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-title); margin-bottom: 2px; }
         .user-info p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 2px; }
         .user-meta { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.02em; }
+
+.user-info h4 { display: flex; align-items: center; gap: 6px; }
+.user-info .ph-seal-check { color: var(--accent-glow); font-size: 1rem; }
+.badge-pro { background: var(--accent-gradient); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 6px; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
+.user-profile-mini { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 
         /* HEADER */
         .reader-header { position: fixed; top: 0; left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 75px; background: var(--glass-surface); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; z-index: 900; transition: all 0.4s; }
@@ -229,6 +234,7 @@
     background: rgba(245, 158, 11, 0.1);
 }
 
+        /* TIPOGRAFÍA EDITORIAL */
         .slide-content-wrapper { font-size: calc(1.05rem * var(--font-multiplier)); }
         .slide-title { font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--text-title); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 30px; text-transform: uppercase;}
         h3 { font-size: calc(1.35rem * var(--font-multiplier)); color: var(--text-title); font-weight: 700; margin: 40px 0 15px 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
@@ -239,6 +245,7 @@
         li { margin-bottom: 15px; position: relative; padding-left: 24px; line-height: 1.7; color: var(--text-secondary); }
         li::before { content: '→'; color: var(--accent-glow); position: absolute; left: 0; font-size: 0.9rem; top: 4px; font-weight: bold;}
 
+        /* TOOLTIPS VIVOS */
         .diae-tooltip { border-bottom: 1px dashed var(--accent-glow); cursor: pointer; position: relative; color: var(--text-primary); font-weight: 600; transition: all 0.2s; background: rgba(16, 185, 129, 0.08); padding: 0 4px; border-radius: 4px; }
         .diae-tooltip:hover { color: var(--accent-glow); background: rgba(16, 185, 129, 0.15); }
         .floating-tip-card { position: absolute; z-index: 10000; width: 280px; background: #0f1117; border: 1px solid var(--accent-glow); padding: 14px 18px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); pointer-events: none; opacity: 0; transform: translateY(10px); transition: opacity 0.2s ease, transform 0.2s ease; }
@@ -270,6 +277,7 @@
         .notes-input:focus { border-color: var(--accent-glow); }
         .notes-save-msg { font-size: 0.75rem; color: var(--success-soft); margin-top: 6px; display: none; }
 
+        /* FOOTER */
         .lms-footer { padding: 16px 40px; background: rgba(6, 7, 10, 0.85); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; z-index: 30; }
         .btn-lms { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-family: var(--font-main); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; border: none; outline: none; text-decoration: none; background: var(--accent-gradient); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);}
         .btn-lms:hover { filter: brightness(1.1); transform: translateY(-1px); }
@@ -277,13 +285,13 @@
         .btn-prev:hover:not(:disabled) { background: rgba(255,255,255,0.05); color: var(--text-title); }
         .btn-prev:disabled { opacity: 0.2; cursor: not-allowed; border-color: transparent; }
 
-span.mobile-text { display: none !important; }
         body {
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
+
 
         .terminal-body, .notes-input, .survey-text-input, input[type="text"] {
             -webkit-user-select: text;
@@ -292,9 +300,11 @@ span.mobile-text { display: none !important; }
             user-select: text;
         }
 
+
         @media print {
             html, body { display: none !important; }
         }
+
 
         .audio-controls { display: flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); padding: 2px;}
         .audio-controls .tool-btn { border: none; background: transparent; height: 32px; width: 32px;}
@@ -302,11 +312,12 @@ span.mobile-text { display: none !important; }
         .btn-speed { font-family: var(--font-code); font-size: 0.75rem; font-weight: 700; color: var(--accent-glow); padding: 0 10px; height: 32px; display: flex; align-items: center; cursor: pointer; border-radius: 6px; transition: all 0.2s; user-select: none;}
         .btn-speed:hover { background: rgba(16, 185, 129, 0.15); }
         
+
         .reading-highlight { 
             background: rgba(16, 185, 129, 0.12); 
             border-radius: 6px; 
             padding: 4px 8px; 
-            margin-left: -8px;
+            margin-left: -8px; /* Compensa el padding para que no se mueva el texto */
             transition: background 0.3s ease; 
             border-left: 3px solid var(--accent-glow); 
         }
@@ -333,6 +344,7 @@ span.mobile-text { display: none !important; }
         .btn-survey-submit { width: 100%; background: var(--accent-gradient); border: none; padding: 18px; border-radius: 14px; color: #fff; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);}
         .btn-survey-submit:hover { transform: translateY(-2px); filter: brightness(1.1); }
         .survey-thanks-msg { font-size: 0.9rem; color: var(--accent-glow); margin-top: 15px; text-align: center; font-weight: 700; display: none; }
+
 
         .success-pitch-container { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 10px 20px; max-width: 680px; margin: 0 auto;}
         .icon-crown-badge { width: 75px; height: 75px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; color: var(--accent-glow); margin-bottom: 16px; }
@@ -363,11 +375,12 @@ span.mobile-text { display: none !important; }
         .payment-step-num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: var(--accent-glow); font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
         .payment-step-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; padding-top: 3px; }
         .payment-step-text strong { color: #fff; }
+
 a.btn-whatsapp-cta, a.btn-whatsapp-cta:visited { 
     display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; 
-    background: var(--accent-gradient);
+    background: var(--accent-gradient); /* Remplaza el verde ajeno por nuestro degradado Esmeralda */
     border: 1px solid rgba(255, 255, 255, 0.25); 
-    color: #ffffff !important;
+    color: #ffffff !important; /* Letra blanca limpia en vez de negra */
     padding: 18px; border-radius: 14px; text-decoration: none !important; 
     font-weight: 800; font-size: 1.05rem; font-family: var(--font-main); 
     box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35); cursor: pointer; transition: all 0.2s; 
@@ -386,7 +399,7 @@ a.btn-whatsapp-cta:hover {
         @media (max-width: 1024px) {
             .sidebar { 
         position: fixed; top: 0; left: 0; 
-        width: max(280px, 72vw);
+        width: max(280px, 72vw); /* Deja un margen a la derecha para que se note el difuminado */
         height: 100dvh; 
         overflow-y: auto; 
         z-index: 1000; 
@@ -399,6 +412,7 @@ a.btn-whatsapp-cta:hover {
         box-shadow: 20px 0 50px rgba(0,0,0,0.9); 
     }
 
+
     .sidebar-overlay { 
         display: block; position: fixed; top: 0; left: 0; 
         width: 100vw; height: 100vh; 
@@ -409,6 +423,7 @@ a.btn-whatsapp-cta:hover {
         pointer-events: none;
         transition: opacity 0.3s ease; 
     }
+
 
     .sidebar-overlay.active { 
         opacity: 1; 
@@ -436,13 +451,16 @@ a.btn-whatsapp-cta:hover {
             .star-group { gap: 8px; font-size: 1.6rem; padding: 12px;}
         }
     </style>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      // No mandamos el page_view inicial aquí porque lo controlaremos por JS
       gtag('config', 'G-XXXXXXXXXX', { 'send_page_view': false });
     </script>
+
 
     <script>
         (function(h,o,t,j,a,r){
@@ -462,7 +480,7 @@ a.btn-whatsapp-cta:hover {
     <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMenu()"></div>
 
     <aside class="sidebar fade-in" id="sidebar">
-        <div class="brand"><i class="ph ph-cpu"></i> DIAE</div>
+<div class="brand"><img src="assets/diae-logo.png" alt="DIAE Educa"></div>
         <nav class="nav-menu">
             <a href="dashboard.html" class="nav-link active"><i class="ph ph-book-open-text"></i> Biblioteca Académica</a>
             <a href="progreso.html" class="nav-link"><i class="ph ph-trend-up"></i> Mi Progreso</a>
@@ -473,13 +491,13 @@ a.btn-whatsapp-cta:hover {
             </a>
         </nav>
         <div class="user-profile-mini">
-            <div class="avatar">GC</div>
-            <div class="user-info">
-                <h4>Gonzalo Cateriano</h4>
-                <p>Docente EBR Primaria</p>
-                <span class="user-meta">I.E. DIAE • 30 est.</span>
-            </div>
-        </div>
+    <div class="avatar">GC</div>
+    <div class="user-info">
+        <h4>Gonzalo <i class="ph-fill ph-seal-check"></i>     <span class="badge-pro">PRO</span></h4>
+        <p>Docente EBR Primaria</p>
+        <span class="user-meta">I.E. DIAE • 30 est.</span>
+    </div>
+</div>
     </aside>
 
     <header class="reader-header">
@@ -532,7 +550,6 @@ a.btn-whatsapp-cta:hover {
 
             <div class="lms-body" id="lms-body">
                 
-                <!-- SLIDE 0: PORTADA -->
                 <div class="lms-slide active" id="slide-0" data-title="Portada Oficial">
                     <div class="hero-canvas">
                         <div class="hero-pills-row">
@@ -557,7 +574,6 @@ a.btn-whatsapp-cta:hover {
                     </div>
                 </div>
 
-                <!-- SLIDE 1 -->
                 <div class="lms-slide" id="slide-1" data-title="Introducción Editorial">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 1</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
@@ -570,7 +586,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 2 -->
                 <div class="lms-slide" id="slide-2" data-title="La Revolución Silenciosa">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 2</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -582,7 +597,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 3 -->
                 <div class="lms-slide" id="slide-3" data-title="Límites Éticos de la IA">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 3</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -600,7 +614,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 4 -->
                 <div class="lms-slide" id="slide-4" data-title="Cómo Usar Este Libro">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 4</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -617,7 +630,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 5 -->
                 <div class="lms-slide" id="slide-5" data-title="Capítulo I: Respaldo Normativo">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 5</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -630,7 +642,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 6 -->
                 <div class="lms-slide" id="slide-6" data-title="1.1 Análisis Diagnóstico">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 6</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -646,7 +657,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 7 -->
                 <div class="lms-slide" id="slide-7" data-title="1.2 Privacidad y Ley 31814">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 7</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -684,7 +694,6 @@ a.btn-whatsapp-cta:hover {
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 8 -->
                 <div class="lms-slide" id="slide-8" data-title="1.3 Sincronización CNEB">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 8</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -717,7 +726,6 @@ para asegurar que cumples esta regla al 100 %.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 9 -->
                 <div class="lms-slide" id="slide-9" data-title="La Competencia 28">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 9</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -729,7 +737,6 @@ para asegurar que cumples esta regla al 100 %.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 10 -->
                 <div class="lms-slide" id="slide-10" data-title="Capítulo II: Prompts">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 10</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -753,7 +760,6 @@ para asegurar que cumples esta regla al 100 %.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 11 -->
                 <div class="lms-slide" id="slide-11" data-title="2.2 El Método RCOPE">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 11</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -799,7 +805,6 @@ logro (En inicio, En proceso, Logrado, Destacado) para evaluar la sesión.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 12 -->
                 <div class="lms-slide" id="slide-12" data-title="2.3 Clonación de Estilo">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 12</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -839,7 +844,6 @@ pasos nuevos ni alteres el formato. Clónalo aplicándolo al nuevo contenido.</d
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 13 -->
                 <div class="lms-slide" id="slide-13" data-title="Capítulo III: Fábrica Curricular">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 13</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -880,7 +884,6 @@ N° de Unidad, Título Retador, Tema Transversal y Competencias a Movilizar.</di
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 14 -->
                 <div class="lms-slide" id="slide-14" data-title="3.2 Matriz de Consistencia">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 14</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -922,7 +925,6 @@ Precisados, Evidencia de Aprendizaje, y Criterios de Evaluación.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 15 -->
                 <div class="lms-slide" id="slide-15" data-title="3.3 Dosificación de Sesión">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 15</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -962,7 +964,6 @@ alumnos.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 16 -->
                 <div class="lms-slide" id="slide-16" data-title="Capítulo IV: Identidad Peruana">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 16</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -1002,7 +1003,6 @@ listo para ser copiado en mi matriz de Unidad de Aprendizaje.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 17 -->
                 <div class="lms-slide" id="slide-17" data-title="4.2 El Reto Auténtico">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 17</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -1041,7 +1041,6 @@ Diseña 3 opciones de retos auténticos que exijan al estudiante:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 18 -->
                 <div class="lms-slide" id="slide-18" data-title="Capítulo V: Casos EBR">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 18</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -1083,7 +1082,6 @@ Diseña 3 opciones de retos auténticos que exijan al estudiante:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 19 -->
                 <div class="lms-slide" id="slide-19" data-title="Inclusión, EBA y CETPRO">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 19</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -1123,7 +1121,6 @@ Diseña 3 opciones de retos auténticos que exijan al estudiante:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 20 -->
                 <div class="lms-slide" id="slide-20" data-title="Anexos de Macros">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 20</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
                     <div class="slide-content-wrapper">
@@ -1217,7 +1214,6 @@ el documento antes de que lo presente a mi dirección.</div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 21: ENCUESTA -->
                 <div class="lms-slide" id="slide-21" data-title="Encuesta de Calidad">
                     <div class="survey-container">
                         <span class="promo-tag" style="margin-bottom:8px;">Control de Calidad DIAE</span>
@@ -1244,7 +1240,6 @@ el documento antes de que lo presente a mi dirección.</div>
                     </div>
                 </div>
 
-                <!-- SLIDE 22: PITCH PRO -->
                 <div class="lms-slide slide-completion" id="slide-22" data-title="Membresía PRO">
                     <div class="success-pitch-container">
                         <div class="icon-crown-badge"><i class="ph-fill ph-check-circle"></i></div>
@@ -1388,6 +1383,7 @@ el documento antes de que lo presente a mi dirección.</div>
         const savedSlideIndex = DiaeStorage.get('diae_last_slide'); if (savedSlideIndex !== null) { const parsed = parseInt(savedSlideIndex, 10); if(parsed < domSlides.length) currentSlide = parsed; }
 
         const readingTotal = domSlides.length - 3;
+
         const hitosLectura = [0.25, 0.5, 0.75, 1].map(p => Math.round(readingTotal * p));
 
         function dispararDopamina(slideIndex) {
@@ -1446,6 +1442,7 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
             progressBarFill.style.width = '95%';
         } else {
             btnNext.style.display = 'inline-flex';
+
             const percent = (currentSlide / readingTotal) * 90; 
             progressBarFill.style.width = percent + '%'; 
             progressIndicator.innerHTML = `${currentSlide} / ${readingTotal}`; 
@@ -1458,8 +1455,10 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
 
     DiaeStorage.set('diae_last_slide', currentSlide); 
             updateDrawerUI(currentSlide);
+            
             dispararDopamina(currentSlide);
 
+            // Le avisamos a Google Analytics en qué módulo exacto está el lector
             if (typeof gtag === 'function') {
                 const tituloModulo = domSlides[currentSlide].getAttribute('data-title') || 'Modulo ' + currentSlide;
                 
@@ -1468,6 +1467,7 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
                     page_location: window.location.origin + window.location.pathname + '?modulo=' + currentSlide
                 });
 
+                // Si llega a la venta PRO (Slide 22), disparamos un evento de alto valor
                 if (currentSlide === domSlides.length - 1) {
                     gtag('event', 'llego_a_oferta_pro');
                 }
@@ -1492,6 +1492,7 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
         function updateDrawerUI(currentIndex) { document.querySelectorAll('#toc-drawer-list li').forEach((item, idx) => { const realIndex = idx + 1; item.classList.remove('active'); if(!item.classList.contains('toc-item-chapter')) item.style.color = 'var(--text-secondary)'; if (realIndex === currentIndex && !item.classList.contains('toc-item-chapter')) item.classList.add('active'); }); }
 
         restoreNotes(); buildDrawerTOC(); updateUI();
+
         document.addEventListener('keydown', (e) => {
             const escribiendo = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
             if (e.key === 'Escape') {
@@ -1517,10 +1518,11 @@ function abrirMenuMovil() {
 function cerrarMenuMovil() {
     sidebar.classList.remove('active');
     overlay.classList.remove('active');
-    document.body.style.overflow = ''; // Libera el scroll
+    document.body.style.overflow = '';
 }
 
 if(menuBtn) menuBtn.addEventListener('click', abrirMenuMovil);
+
 if(overlay) overlay.addEventListener('click', cerrarMenuMovil);
 
 document.querySelectorAll('#sidebar a, #sidebar .user-profile-mini').forEach(item => {
@@ -1610,12 +1612,13 @@ window.addEventListener('resize', () => {
         });
 
         let velocidadAudio = 1.0;
-        const velocidades = [1.0, 1.25, 1.5, 0.85];
+        const velocidades = [1.0, 1.25, 1.5, 0.85]; // Ciclo de velocidades
         let velocidadIndex = 0;
 
         function cambiarVelocidad(btn) {
             velocidadIndex = (velocidadIndex + 1) % velocidades.length;
             velocidadAudio = velocidades[velocidadIndex];
+            
             document.querySelectorAll('.btn-speed').forEach(b => {
                 b.innerText = velocidadAudio + 'x';
             });
@@ -1633,6 +1636,7 @@ window.addEventListener('resize', () => {
         let reproduciendo = false;
         let elementosLectura = [];
         let indiceLectura = 0;
+
         function obtenerVozEspanol() {
             if (!vozSynth) return null;
             const voces = vozSynth.getVoices();
@@ -1661,6 +1665,7 @@ window.addEventListener('resize', () => {
             const elementoActual = elementosLectura[indiceLectura];
             limpiarHighlights();
             elementoActual.classList.add('reading-highlight');
+            
             elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
             const textoLimpio = elementoActual.textContent.trim();
@@ -1686,6 +1691,7 @@ window.addEventListener('resize', () => {
                 leerSiguienteElemento(btn);
             };
             
+
             mensaje.onerror = function() {
                 reproduciendo = false;
                 resetIconosAudio();
