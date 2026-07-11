@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap">
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
     <style>
 
         :root {
@@ -43,6 +44,10 @@
             --sidebar-width: 280px;
             --font-multiplier: 1; 
         }
+
+span.mobile-text {
+    display: none;
+}
 
         ::-webkit-scrollbar { width: 10px; height: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg-base); }
@@ -1289,6 +1294,13 @@ el documento antes de que lo presente a mi dirección.</div>
                             <a href="#" onclick="activarMembresiaPRO(); return false;" class="btn-whatsapp-cta"><i class="ph ph-whatsapp-logo" style="font-size:1.4rem;"></i> Inscribirme a DIAE PRO por WhatsApp</a>
                         </div>
                         <a href="index.html" class="btn-back-dashboard"><i class="ph ph-arrow-left"></i> Volver a la Biblioteca</a>
+<!-- Bloque Dinámico para Volver a Leer -->
+<div style="margin-top: 35px; padding-top: 25px; border-top: 1px dashed var(--glass-border); width: 100%;">
+    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px;">¿Deseas repasar los conceptos o prefieres iniciar la lectura desde cero?</p>
+    <button class="btn-lms btn-prev" onclick="confirmarReiniciarLectura()" style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); color: #fff; box-shadow: none;">
+        <i class="ph ph-arrow-counter-clockwise"></i> Reiniciar Lectura desde la Portada
+    </button>
+</div>
                     </div>
                 </div>
 
@@ -1298,127 +1310,133 @@ el documento antes de que lo presente a mi dirección.</div>
         </div>
     </main>
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    const glossaryData = [
+        { term: "CNEB", def: "Currículo Nacional de la Educación Básica. Documento rector del MINEDU que define los aprendizajes que se espera logren los estudiantes." },
+        { term: "MBDD", def: "Marco de Buen Desempeño Docente. Define los dominios, competencias y desempeños que caracterizan una buena docencia pública." },
+        { term: "UGEL", def: "Unidad de Gestión Educativa Local. Instancia de ejecución descentralizada del MINEDU con autonomía funcional en su jurisdicción." },
+        { term: "SIAGIE", def: "Sistema de Información de Apoyo a la Gestión de la Institución Educativa. Software oficial del MINEDU para registro de matrículas, asistencias y actas de evaluación." },
+        { term: "PCA", def: "Planificación Curricular Anual. Instrumento de gestión operativa a largo plazo que organiza las unidades y experiencias de todo el año escolar." },
+        { term: "Desempeño Precisado", def: "Descripción acotada y observable de lo que hace el estudiante respecto a una capacidad, contextualizada al tema exacto de la sesión." },
+        { term: "Matriz de Consistencia", def: "Esquema lógico que garantiza la coherencia absoluta e indivisible entre Competencia, Capacidad, Desempeño, Evidencia y Criterio de evaluación." },
+        { term: "Conflicto Cognitivo", def: "Desequilibrio generado en las estructuras mentales del estudiante al enfrentar un reto que no puede resolver con sus saberes previos." },
+        { term: "CNOF", def: "Catálogo Nacional de la Oferta Formativa. Referente normativo que define las competencias técnicas para la educación técnico-productiva (CETPRO)." },
+        { term: "SINEACE", def: "Sistema Nacional de Evaluación, Acreditación y Certificación de la Calidad Educativa." },
+        { term: "Candado Semántico", def: "Instrucción de ingeniería de prompts (IA) diseñada para restringir el vocabulario de la máquina a un marco normativo específico." },
+        { term: "MINEDU", def: "Ministerio de Educación del Perú. Ente rector del sector educativo a nivel nacional." },
+        { term: "EdA", def: "Experiencia de Aprendizaje. Conjunto de actividades didácticas que conducen a los estudiantes a enfrentar una situación significativa." },
+        { term: "Situación Significativa", def: "Problema, desafío o necesidad del contexto real de los estudiantes que moviliza sus competencias para buscar una solución." },
+        { term: "Prompt", def: "Instrucción, comando o texto que se introduce en una Inteligencia Artificial para solicitar la generación de un contenido." },
+        { term: "RCOPE", def: "Acrónimo metodológico de DIAE (Rol, Contexto, Objetivo, Pasos, Estructura) para estructurar prompts docentes de alta precisión." },
+        { term: "Few-Shot Prompting", def: "Técnica de Inteligencia Artificial que consiste en alimentar al modelo con 2 o 3 ejemplos previos para que clone un formato o estilo de redacción." },
+        { term: "Cadena de Pensamiento", def: "Instrucción que force a la IA a resolver un problema pedagógico dividiéndolo en pasos lógicos secuenciales." },
+        { term: "Alucinación Terminológica", def: "Error de los modelos de IA al inventar conceptos educativos o mezclar currículos de otros países (ej. usar 'objetivos' en lugar de 'propósitos')." },
+        { term: "SAANEE", def: "Servicio de Apoyo y Asesoramiento para la Atención de las Necesidades Educativas Especiales." },
+        { term: "NEE", def: "Necesidades Educativas Especiales. Requerimientos de apoyo o adaptaciones que precisa un estudiante para acceder al currículo." },
+        { term: "EBA", def: "Educación Básica Alternativa. Modalidad orientada a jóvenes y adultos que no culminaron la educación básica regular." },
+        { term: "CETPRO", def: "Centro de Educación Técnico-Productiva. Institución orientada a la adquisición de competencias laborales y de emprendimiento." }
+    ];
 
-    <script>
-        const glossaryData = [
-            { term: "CNEB", def: "Currículo Nacional de la Educación Básica. Documento rector del MINEDU que define los aprendizajes que se espera logren los estudiantes." },
-            { term: "MBDD", def: "Marco de Buen Desempeño Docente. Define los dominios, competencias y desempeños que caracterizan una buena docencia pública." },
-            { term: "UGEL", def: "Unidad de Gestión Educativa Local. Instancia de ejecución descentralizada del MINEDU con autonomía funcional en su jurisdicción." },
-            { term: "SIAGIE", def: "Sistema de Información de Apoyo a la Gestión de la Institución Educativa. Software oficial del MINEDU para registro de matrículas, asistencias y actas de evaluación." },
-            { term: "PCA", def: "Planificación Curricular Anual. Instrumento de gestión operativa a largo plazo que organiza las unidades y experiencias de todo el año escolar." },
-            { term: "Desempeño Precisado", def: "Descripción acotada y observable de lo que hace el estudiante respecto a una capacidad, contextualizada al tema exacto de la sesión." },
-            { term: "Matriz de Consistencia", def: "Esquema lógico que garantiza la coherencia absoluta e indivisible entre Competencia, Capacidad, Desempeño, Evidencia y Criterio de evaluación." },
-            { term: "Conflicto Cognitivo", def: "Desequilibrio generado en las estructuras mentales del estudiante al enfrentar un reto que no puede resolver con sus saberes previos." },
-            { term: "CNOF", def: "Catálogo Nacional de la Oferta Formativa. Referente normativo que define las competencias técnicas para la educación técnico-productiva (CETPRO)." },
-            { term: "SINEACE", def: "Sistema Nacional de Evaluación, Acreditación y Certificación de la Calidad Educativa." },
-            { term: "Candado Semántico", def: "Instrucción de ingeniería de prompts (IA) diseñada para restringir el vocabulario de la máquina a un marco normativo específico." },
-            { term: "MINEDU", def: "Ministerio de Educación del Perú. Ente rector del sector educativo a nivel nacional." },
-            { term: "EdA", def: "Experiencia de Aprendizaje. Conjunto de actividades didácticas que conducen a los estudiantes a enfrentar una situación significativa." },
-            { term: "Situación Significativa", def: "Problema, desafío o necesidad del contexto real de los estudiantes que moviliza sus competencias para buscar una solución." },
-            { term: "Prompt", def: "Instrucción, comando o texto que se introduce en una Inteligencia Artificial para solicitar la generación de un contenido." },
-            { term: "RCOPE", def: "Acrónimo metodológico de DIAE (Rol, Contexto, Objetivo, Pasos, Estructura) para estructurar prompts docentes de alta precisión." },
-            { term: "Few-Shot Prompting", def: "Técnica de Inteligencia Artificial que consiste en alimentar al modelo con 2 o 3 ejemplos previos para que clone un formato o estilo de redacción." },
-            { term: "Cadena de Pensamiento", def: "Instrucción que force a la IA a resolver un problema pedagógico dividiéndolo en pasos lógicos secuenciales." },
-            { term: "Alucinación Terminológica", def: "Error de los modelos de IA al inventar conceptos educativos o mezclar currículos de otros países (ej. usar 'objetivos' en lugar de 'propósitos')." },
-            { term: "SAANEE", def: "Servicio de Apoyo y Asesoramiento para la Atención de las Necesidades Educativas Especiales." },
-            { term: "NEE", def: "Necesidades Educativas Especiales. Requerimientos de apoyo o adaptaciones que precisa un estudiante para acceder al currículo." },
-            { term: "EBA", def: "Educación Básica Alternativa. Modalidad orientada a jóvenes y adultos que no culminaron la educación básica regular." },
-            { term: "CETPRO", def: "Centro de Educación Técnico-Productiva. Institución orientada a la adquisición de competencias laborales y de emprendimiento." }
-        ];
+    const DiaeStorage = {
+        get(key) { try { return localStorage.getItem(key); } catch (e) { return null; } },
+        set(key, value) { try { localStorage.setItem(key, value); return true; } catch (e) { return false; } }
+    };
 
-        const DiaeStorage = {
-            get(key) { try { return localStorage.getItem(key); } catch (e) { return null; } },
-            set(key, value) { try { localStorage.setItem(key, value); return true; } catch (e) { return false; } }
-        };
+    let currentFontSize = 1;
+    function changeFontSize(step) { currentFontSize += step; if(currentFontSize < 0.8) currentFontSize = 0.8; if(currentFontSize > 1.4) currentFontSize = 1.4; document.documentElement.style.setProperty('--font-multiplier', currentFontSize); }
+    function toggleBookmark(btn) { btn.classList.toggle('bookmarked'); btn.innerHTML = btn.classList.contains('bookmarked') ? '<i class="ph-fill ph-bookmark"></i>' : '<i class="ph ph-bookmark"></i>'; }
+    function shareWA(msg = "Estoy leyendo un libro buenísimo sobre IA y Diseño Curricular de DIAE 🎓📚") { window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'); }
 
-        let currentFontSize = 1;
-        function changeFontSize(step) { currentFontSize += step; if(currentFontSize < 0.8) currentFontSize = 0.8; if(currentFontSize > 1.4) currentFontSize = 1.4; document.documentElement.style.setProperty('--font-multiplier', currentFontSize); }
-        function toggleBookmark(btn) { btn.classList.toggle('bookmarked'); btn.innerHTML = btn.classList.contains('bookmarked') ? '<i class="ph-fill ph-bookmark"></i>' : '<i class="ph ph-bookmark"></i>'; }
-        function shareWA(msg = "Estoy leyendo un libro buenísimo sobre IA y Diseño Curricular de DIAE 🎓📚") { window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'); }
+    function activarMembresiaPRO() {
+        const numeroDiae = "51966387995";
+        const mensaje = "Hola, quiero inscribirme al Plan Fundador de DIAE PRO. ¿Me cuentan cómo continúo?";
+        window.open(`https://wa.me/${numeroDiae}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener');
+    }
 
-        function activarMembresiaPRO() {
-            const numeroDiae = "51966387995";
-            const mensaje = "Hola, quiero inscribirme al Plan Fundador de DIAE PRO. ¿Me cuentan cómo continúo?";
-            window.open(`https://wa.me/${numeroDiae}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener');
-        }
+    function saveNote(textarea) { const slideId = textarea.closest('.lms-slide').id; DiaeStorage.set('diae_note_' + slideId, textarea.value); if(textarea.value.trim() !== "") { const msgBox = textarea.nextElementSibling; msgBox.style.display = 'block'; setTimeout(() => { msgBox.style.display = 'none'; }, 2000); } }
+    function restoreNotes() { document.querySelectorAll('.lms-slide').forEach(slide => { const noteInput = slide.querySelector('.notes-input'); if (noteInput) { const saved = DiaeStorage.get('diae_note_' + slide.id); if (saved) noteInput.value = saved; } }); }
+    function copyPrompt(btn) { const body = btn.parentElement.nextElementSibling; if(body && body.classList.contains('terminal-body')) { navigator.clipboard.writeText(body.innerText).then(() => { const originalIcon = btn.innerHTML; btn.innerHTML = '<i class="ph ph-check"></i> Copiado'; btn.style.color = 'var(--success-soft)'; setTimeout(() => { btn.innerHTML = originalIcon; btn.style.color = 'var(--text-secondary)'; }, 2000); }); } }
 
-        function saveNote(textarea) { const slideId = textarea.closest('.lms-slide').id; DiaeStorage.set('diae_note_' + slideId, textarea.value); if(textarea.value.trim() !== "") { const msgBox = textarea.nextElementSibling; msgBox.style.display = 'block'; setTimeout(() => { msgBox.style.display = 'none'; }, 2000); } }
-        function restoreNotes() { document.querySelectorAll('.lms-slide').forEach(slide => { const noteInput = slide.querySelector('.notes-input'); if (noteInput) { const saved = DiaeStorage.get('diae_note_' + slide.id); if (saved) noteInput.value = saved; } }); }
-        function copyPrompt(btn) { const body = btn.parentElement.nextElementSibling; if(body && body.classList.contains('terminal-body')) { navigator.clipboard.writeText(body.innerText).then(() => { const originalIcon = btn.innerHTML; btn.innerHTML = '<i class="ph ph-check"></i> Copiado'; btn.style.color = 'var(--success-soft)'; setTimeout(() => { btn.innerHTML = originalIcon; btn.style.color = 'var(--text-secondary)'; }, 2000); }); } }
+    const glossaryModal = document.getElementById('glossary-modal');
+    function toggleGlossary() { glossaryModal.classList.toggle('active'); if(glossaryModal.classList.contains('active')) renderGlossary(); }
+    function filterGlossary(val) { renderGlossary(val); }
 
-        const glossaryModal = document.getElementById('glossary-modal');
-        function toggleGlossary() { glossaryModal.classList.toggle('active'); if(glossaryModal.classList.contains('active')) renderGlossary(); }
-        function filterGlossary(val) { renderGlossary(val); }
+    function renderGlossary(filter = "") {
+        const grid = document.getElementById('glossary-grid'); grid.innerHTML = '';
+        const filtered = glossaryData.filter(item => item.term.toLowerCase().includes(filter.toLowerCase()) || item.def.toLowerCase().includes(filter.toLowerCase()));
+        if(filtered.length === 0) { grid.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted)">No se hallaron coincidencias para "${filter}".</div>`; return; }
+        filtered.forEach(item => { const div = document.createElement('div'); div.className = 'term-card'; div.innerHTML = `<h5><span>${item.term}</span> <i class="ph ph-check" style="font-size:0.8rem; opacity:0.4"></i></h5><p>${item.def}</p>`; grid.appendChild(div); });
+    }
 
-        function renderGlossary(filter = "") {
-            const grid = document.getElementById('glossary-grid'); grid.innerHTML = '';
-            const filtered = glossaryData.filter(item => item.term.toLowerCase().includes(filter.toLowerCase()) || item.def.toLowerCase().includes(filter.toLowerCase()));
-            if(filtered.length === 0) { grid.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted)">No se hallaron coincidencias para "${filter}".</div>`; return; }
-            filtered.forEach(item => { const div = document.createElement('div'); div.className = 'term-card'; div.innerHTML = `<h5><span>${item.term}</span> <i class="ph ph-check" style="font-size:0.8rem; opacity:0.4"></i></h5><p>${item.def}</p>`; grid.appendChild(div); });
-        }
-
-        const tipCard = document.getElementById('floating-tip-card');
-        document.querySelectorAll('.diae-tooltip').forEach(elem => {
-            elem.addEventListener('mouseenter', () => {
-                const term = elem.getAttribute('data-term') || elem.innerText.trim();
-                const dictObj = glossaryData.find(d => d.term.toLowerCase() === term.toLowerCase());
-                tipCard.innerHTML = dictObj ? `<strong>${dictObj.term}</strong><p>${dictObj.def}</p>` : `<strong>${term}</strong><p>Definición indexada en el Glosario Oficial.</p>`;
-                const rect = elem.getBoundingClientRect(); tipCard.style.left = `${Math.max(20, rect.left + window.scrollX - 40)}px`; tipCard.style.top = `${rect.bottom + window.scrollY + 8}px`; tipCard.classList.add('show');
-            });
-            elem.addEventListener('mouseleave', () => { tipCard.classList.remove('show'); });
+    const tipCard = document.getElementById('floating-tip-card');
+    document.querySelectorAll('.diae-tooltip').forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+            const term = elem.getAttribute('data-term') || elem.innerText.trim();
+            const dictObj = glossaryData.find(d => d.term.toLowerCase() === term.toLowerCase());
+            tipCard.innerHTML = dictObj ? `<strong>${dictObj.term}</strong><p>${dictObj.def}</p>` : `<strong>${term}</strong><p>Definición indexada en el Glosario Oficial.</p>`;
+            const rect = elem.getBoundingClientRect(); tipCard.style.left = `${Math.max(20, rect.left + window.scrollX - 40)}px`; tipCard.style.top = `${rect.bottom + window.scrollY + 8}px`; tipCard.classList.add('show');
         });
+        elem.addEventListener('mouseleave', () => { tipCard.classList.remove('show'); });
+    });
 
-        const tocDrawer = document.getElementById('toc-drawer');
-        function toggleTOC() { tocDrawer.classList.toggle('active'); }
-        document.addEventListener('click', (e) => { if(!tocDrawer.contains(e.target) && !e.target.closest('.btn-toc') && tocDrawer.classList.contains('active')) { tocDrawer.classList.remove('active'); } if(e.target === glossaryModal) toggleGlossary(); });
+    const tocDrawer = document.getElementById('toc-drawer');
+    function toggleTOC() { tocDrawer.classList.toggle('active'); }
+    document.addEventListener('click', (e) => { if(!tocDrawer.contains(e.target) && !e.target.closest('.btn-toc') && tocDrawer.classList.contains('active')) { tocDrawer.classList.remove('active'); } if(e.target === glossaryModal) toggleGlossary(); });
 
-        const stars = document.querySelectorAll('#star-rating-box i');
-        const starHiddenInput = document.getElementById('user-star-val');
-        stars.forEach(star => { star.addEventListener('click', () => { const rating = parseInt(star.getAttribute('data-score')); starHiddenInput.value = rating; stars.forEach(s => { const val = parseInt(s.getAttribute('data-score')); s.className = val <= rating ? 'ph-fill ph-star active-star' : 'ph-fill ph-star'; }); }); });
+    const stars = document.querySelectorAll('#star-rating-box i');
+    const starHiddenInput = document.getElementById('user-star-val');
+    stars.forEach(star => { star.addEventListener('click', () => { const rating = parseInt(star.getAttribute('data-score')); starHiddenInput.value = rating; stars.forEach(s => { const val = parseInt(s.getAttribute('data-score')); s.className = val <= rating ? 'ph-fill ph-star active-star' : 'ph-fill ph-star'; }); }); });
 
-        function procesarEncuesta() { if(starHiddenInput.value === "0") { alert("Por favor, selecciona una calificación de estrellas antes de continuar."); return; } const msg = document.getElementById('survey-ok-check'); msg.style.display = 'block'; setTimeout(() => { nextSlide(); }, 1200); }
+    function procesarEncuesta() { if(starHiddenInput.value === "0") { alert("Por favor, selecciona una calificación de estrellas antes de continuar."); return; } const msg = document.getElementById('survey-ok-check'); msg.style.display = 'block'; setTimeout(() => { nextSlide(); }, 1200); }
 
-        let currentSlide = 0; const domSlides = document.querySelectorAll('.lms-slide'); const btnPrev = document.getElementById('btnPrev'); const btnNext = document.getElementById('btnNext'); const footer = document.getElementById('lms-footer'); const progressBarFill = document.getElementById('card-progress'); const progressIndicator = document.getElementById('progress-current');
-        const savedSlideIndex = DiaeStorage.get('diae_last_slide'); if (savedSlideIndex !== null) { const parsed = parseInt(savedSlideIndex, 10); if(parsed < domSlides.length) currentSlide = parsed; }
+    let currentSlide = 0; const domSlides = document.querySelectorAll('.lms-slide'); const btnPrev = document.getElementById('btnPrev'); const btnNext = document.getElementById('btnNext'); const footer = document.getElementById('lms-footer'); const progressBarFill = document.getElementById('card-progress'); const progressIndicator = document.getElementById('progress-current');
+    const savedSlideIndex = DiaeStorage.get('diae_last_slide'); if (savedSlideIndex !== null) { const parsed = parseInt(savedSlideIndex, 10); if(parsed < domSlides.length) currentSlide = parsed; }
 
-        const readingTotal = domSlides.length - 3;
+    const readingTotal = domSlides.length - 3; // EXACTO: Es 20
+    const hitosLectura = [5, 10, 15, 20]; // EXACTO: Los hitos correctos donde debe explotar
 
-        const hitosLectura = [0.25, 0.5, 0.75, 1].map(p => Math.round(readingTotal * p));
-
-        function dispararDopamina(slideIndex) {
-            if (hitosLectura.includes(slideIndex) && typeof confetti !== 'undefined') {
-                
-                const recompensaDada = DiaeStorage.get('diae_premio_slide_' + slideIndex);
-                
-                if (!recompensaDada) {
-                    const coloresDiae = ['#10b981', '#06b6d4', '#f59e0b', '#ffffff'];
-                    
-                    if (slideIndex === readingTotal) {
-                        const duration = 3000;
-                        const end = Date.now() + duration;
-                        (function frame() {
-                            confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
-                            confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
-                            if (Date.now() < end) requestAnimationFrame(frame);
-                        }());
-                    } else {
-                        confetti({
-                            particleCount: 120,
-                            spread: 80,
-                            origin: { y: 0.6 },
-                            colors: coloresDiae,
-                            zIndex: 9999
-                        });
-                    }
-                    
-                    DiaeStorage.set('diae_premio_slide_' + slideIndex, 'entregado');
+    function dispararDopamina(slideIndex) {
+        if (hitosLectura.includes(slideIndex)) {
+            const recompensaDada = DiaeStorage.get('diae_premio_slide_' + slideIndex);
+            
+            if (!recompensaDada) {
+                // Seguridad por si la red va lenta y confetti no se ha instanciado
+                if (typeof confetti === 'undefined') {
+                    setTimeout(() => dispararDopamina(slideIndex), 200);
+                    return;
                 }
+
+                const coloresDiae = ['#10b981', '#06b6d4', '#f59e0b', '#ffffff'];
+                
+                if (slideIndex === readingTotal) {
+                    const duration = 3000;
+                    const end = Date.now() + duration;
+                    (function frame() {
+                        confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
+                        confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
+                        if (Date.now() < end) requestAnimationFrame(frame);
+                    }());
+                } else {
+                    confetti({
+                        particleCount: 120,
+                        spread: 80,
+                        origin: { y: 0.6 },
+                        colors: coloresDiae,
+                        zIndex: 9999
+                    });
+                }
+                
+                DiaeStorage.set('diae_premio_slide_' + slideIndex, 'entregado');
             }
         }
+    }
 
-        function updateUI() {
-if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = false; typeof resetIconosAudio === 'function' && resetIconosAudio(); typeof limpiarHighlights === 'function' && limpiarHighlights(); }
+function updateUI() {
+    if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = false; typeof resetIconosAudio === 'function' && resetIconosAudio(); typeof limpiarHighlights === 'function' && limpiarHighlights(); }
+    
+    // RECOMPENSA INMEDIATA: Evaluamos el hito apenas el slide se vuelve activo
+    dispararDopamina(currentSlide);
+
     domSlides.forEach((slide, index) => { 
         slide.classList.remove('active', 'previous'); 
         if (index < currentSlide) slide.classList.add('previous'); 
@@ -1427,12 +1445,24 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
 
     domSlides[currentSlide].scrollTop = 0;
 
-    const indexEncuesta = domSlides.length - 2;
-    const indexPro = domSlides.length - 1;
+    const indexEncuesta = domSlides.length - 2; // Slide 21
+    const indexPro = domSlides.length - 1;      // Slide 22 (Membresía PRO)
 
-    if (currentSlide === 0 || currentSlide === indexPro) {
+    // ====================================================================
+    // LÓGICA DE CONTROL VISUAL CONSOLIDADA DE FOOTER Y TOP BAR
+    // ====================================================================
+    if (currentSlide === 0) {
+        // Portada: Ocultamos footer y seteamos el indicador inicial
         footer.style.display = 'none';
+        progressIndicator.innerHTML = '<span style="color:var(--text-title); font-weight:700;">Portada</span>';
+        progressBarFill.style.width = '0%';
+    } else if (currentSlide === indexPro) {
+        // Proceso Comercial PRO: Ocultamos footer y teñimos de celeste cyan de la identidad
+        footer.style.display = 'none';
+        progressIndicator.innerHTML = '<span style="color:#06b6d4"><i class="ph-fill ph-crown"></i> Invitación PRO</span>'; 
+        progressBarFill.style.width = '100%';
     } else {
+        // Flujo normal de lectura y evaluación (Módulos 1 al 21)
         footer.style.display = 'flex';
         btnPrev.disabled = false;
 
@@ -1441,6 +1471,7 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
             progressIndicator.innerHTML = '<span style="color:var(--accent-glow)"><i class="ph-fill ph-check-square"></i> Encuesta</span>'; 
             progressBarFill.style.width = '95%';
         } else {
+            // Módulos de lectura pura (Módulos 1 al 20)
             btnNext.style.display = 'inline-flex';
 
             const percent = (currentSlide / readingTotal) * 90; 
@@ -1454,292 +1485,308 @@ if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = f
     }
 
     DiaeStorage.set('diae_last_slide', currentSlide); 
-            updateDrawerUI(currentSlide);
-            
-            dispararDopamina(currentSlide);
+    updateDrawerUI(currentSlide);
 
-            // Le avisamos a Google Analytics en qué módulo exacto está el lector
-            if (typeof gtag === 'function') {
-                const tituloModulo = domSlides[currentSlide].getAttribute('data-title') || 'Modulo ' + currentSlide;
-                
-                gtag('event', 'page_view', {
-                    page_title: currentSlide + '. ' + tituloModulo,
-                    page_location: window.location.origin + window.location.pathname + '?modulo=' + currentSlide
-                });
-
-                // Si llega a la venta PRO (Slide 22), disparamos un evento de alto valor
-                if (currentSlide === domSlides.length - 1) {
-                    gtag('event', 'llego_a_oferta_pro');
-                }
-            }
-}
-
-        function nextSlide() { if (currentSlide < domSlides.length - 1) { currentSlide++; updateUI(); } }
-        function jumpToSlide(index) { if(index >= 0 && index < domSlides.length) { currentSlide = index; updateUI(); if(window.innerWidth <= 1024) { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; } } }
-        btnPrev.addEventListener('click', () => { if (currentSlide > 0) { currentSlide--; updateUI(); } });
-
-        function buildDrawerTOC() {
-            const list = document.getElementById('toc-drawer-list'); list.innerHTML = '';
-            domSlides.forEach((slide, index) => {
-                if(index === 0 || index === domSlides.length - 1) return;
-                const title = slide.getAttribute('data-title'); const isMajorChapter = title.toLowerCase().includes('capítulo') || title.toLowerCase().includes('anexos');
-                const li = document.createElement('li');
-                if(isMajorChapter) { li.className = 'toc-item-chapter'; li.innerHTML = `<span>${title}</span> <i class="ph ph-stack" style="font-size:0.75rem; opacity:0.5;"></i>`; } else { li.className = `toc-item-sub`; li.innerHTML = `<span>${title}</span>`; }
-                li.onclick = () => { jumpToSlide(index); toggleTOC(); }; list.appendChild(li);
-            });
-        }
-
-        function updateDrawerUI(currentIndex) { document.querySelectorAll('#toc-drawer-list li').forEach((item, idx) => { const realIndex = idx + 1; item.classList.remove('active'); if(!item.classList.contains('toc-item-chapter')) item.style.color = 'var(--text-secondary)'; if (realIndex === currentIndex && !item.classList.contains('toc-item-chapter')) item.classList.add('active'); }); }
-
-        restoreNotes(); buildDrawerTOC(); updateUI();
-
-        document.addEventListener('keydown', (e) => {
-            const escribiendo = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
-            if (e.key === 'Escape') {
-                if (glossaryModal.classList.contains('active')) toggleGlossary();
-                if (tocDrawer.classList.contains('active')) toggleTOC();
-                return;
-            }
-            if (escribiendo) return;
-            if (e.key === 'ArrowRight' && !btnNext.disabled && btnNext.style.display !== 'none') { nextSlide(); }
-            if (e.key === 'ArrowLeft' && currentSlide > 0) { currentSlide--; updateUI(); }
+    if (typeof gtag === 'function') {
+        const tituloModulo = domSlides[currentSlide].getAttribute('data-title') || 'Modulo ' + currentSlide;
+        gtag('event', 'page_view', {
+            page_title: currentSlide + '. ' + tituloModulo,
+            page_location: window.location.origin + window.location.pathname + '?modulo=' + currentSlide
         });
-
-const menuBtn = document.getElementById('mobile-menu-btn'); 
-const sidebar = document.getElementById('sidebar'); 
-const overlay = document.getElementById('sidebar-overlay');
-
-function abrirMenuMovil() {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function cerrarMenuMovil() {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-if(menuBtn) menuBtn.addEventListener('click', abrirMenuMovil);
-
-if(overlay) overlay.addEventListener('click', cerrarMenuMovil);
-
-document.querySelectorAll('#sidebar a, #sidebar .user-profile-mini').forEach(item => {
-    item.addEventListener('click', () => {
-        if(window.innerWidth <= 1024) cerrarMenuMovil();
-    });
-});
-
-window.addEventListener('resize', () => {
-    if(window.innerWidth > 1024) cerrarMenuMovil();
-});
-
-        function descargarMisApuntes() {
-            let contenidoTxt = "=================================================\n";
-            contenidoTxt += "MIS APUNTES - DIAE PRO\n";
-            contenidoTxt += "Libro: Diseño Curricular y Optimización del Tiempo\n";
-            contenidoTxt += "=================================================\n\n";
-
-            let hayNotas = false;
-
-            document.querySelectorAll('.lms-slide').forEach(slide => {
-                const tituloModulo = slide.getAttribute('data-title');
-                const notaGuardada = DiaeStorage.get('diae_note_' + slide.id);
-
-                if (notaGuardada && notaGuardada.trim() !== "") {
-                    hayNotas = true;
-                    contenidoTxt += "📌 " + tituloModulo.toUpperCase() + "\n";
-                    contenidoTxt += "-------------------------------------------------\n";
-                    contenidoTxt += notaGuardada + "\n\n";
-                }
-            });
-
-            if (!hayNotas) {
-                alert("Aún no has escrito ningún apunte en los módulos. ¡Escribe algo primero para poder descargarlo!");
-                return;
-            }
-
-            const blob = new Blob([contenidoTxt], { type: "text/plain;charset=utf-8" });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "Mis_Apuntes_Curriculares_DIAE.txt";
-            link.click();
+        if (currentSlide === domSlides.length - 1) {
+            gtag('event', 'llego_a_oferta_pro');
         }
+    }
+}
 
-    </script>
+    function nextSlide() { if (currentSlide < domSlides.length - 1) { currentSlide++; updateUI(); } }
+    function jumpToSlide(index) { if(index >= 0 && index < domSlides.length) { currentSlide = index; updateUI(); if(window.innerWidth <= 1024) { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; } } }
+    btnPrev.addEventListener('click', () => { if (currentSlide > 0) { currentSlide--; updateUI(); } });
 
-<script>
-        document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && !e.target.closest('.terminal-body')) {
-                e.preventDefault();
-            }
-        });
-</script>
-
-<script>
-        document.querySelectorAll('.slide-header-actions').forEach(header => {
-            if (!header.querySelector('.slide-actions-group')) {
-                const group = document.createElement('div');
-                group.className = 'slide-actions-group';
-                group.innerHTML =
-                    '<button class="tool-btn" onclick="toggleBookmark(this)" title="Guardar" aria-label="Guardar este módulo"><i class="ph ph-bookmark"></i></button>' +
-                    '<button class="tool-btn" onclick="shareWA()" title="Compartir" aria-label="Compartir por WhatsApp"><i class="ph ph-whatsapp-logo"></i></button>';
-                header.appendChild(group);
-            }
+// Función interactiva para reiniciar progreso de lectura y vaciar candados de confetti
+function confirmarReiniciarLectura() {
+    const respuesta = confirm("¿Deseas reiniciar tu progreso? Volverás a la portada y podrás repasar todos los módulos.");
+    if (respuesta) {
+        // 1. Limpiamos los premios guardados en el LocalStorage para que el confetti vuelva a sonar
+        hitosLectura.forEach(hito => {
+            localStorage.removeItem('diae_premio_slide_' + hito);
         });
         
-        document.querySelectorAll('.slide-actions-group').forEach(group => {
-            const audioWrapper = document.createElement('div');
-            audioWrapper.className = 'audio-controls';
-            
-            const btnSpeed = document.createElement('div');
-            btnSpeed.className = 'btn-speed';
-            btnSpeed.title = 'Velocidad de lectura';
-            btnSpeed.innerText = '1x';
-            btnSpeed.onclick = function() { cambiarVelocidad(this); };
+        // 2. Reseteamos el slide actual en almacenamiento y en memoria
+        DiaeStorage.set('diae_last_slide', 0);
+        currentSlide = 0;
+        
+        // 3. Actualizamos la interfaz
+        updateUI();
+    }
+}
 
-            const btnAudio = document.createElement('button');
-            btnAudio.className = 'tool-btn btn-audio';
-            btnAudio.title = 'Escuchar Módulo guiado';
-            btnAudio.innerHTML = '<i class="ph-fill ph-speaker-high"></i>';
-            btnAudio.onclick = function() { toggleAudiolibro(this); };
+    function buildDrawerTOC() {
+        const list = document.getElementById('toc-drawer-list'); list.innerHTML = '';
+        domSlides.forEach((slide, index) => {
+            if(index === 0 || index === domSlides.length - 1) return;
+            const title = slide.getAttribute('data-title'); const isMajorChapter = title.toLowerCase().includes('capítulo') || title.toLowerCase().includes('anexos');
+            const li = document.createElement('li');
+            if(isMajorChapter) { li.className = 'toc-item-chapter'; li.innerHTML = `<span>${title}</span> <i class="ph ph-stack" style="font-size:0.75rem; opacity:0.5;"></i>`; } else { li.className = `toc-item-sub`; li.innerHTML = `<span>${title}</span>`; }
+            li.onclick = () => { jumpToSlide(index); toggleTOC(); }; list.appendChild(li);
+        });
+    }
 
-            audioWrapper.appendChild(btnSpeed);
-            audioWrapper.appendChild(btnAudio);
-            
-            group.insertBefore(audioWrapper, group.firstChild); 
+    function updateDrawerUI(currentIndex) { document.querySelectorAll('#toc-drawer-list li').forEach((item, idx) => { const realIndex = idx + 1; item.classList.remove('active'); if(!item.classList.contains('toc-item-chapter')) item.style.color = 'var(--text-secondary)'; if (realIndex === currentIndex && !item.classList.contains('toc-item-chapter')) item.classList.add('active'); }); }
+
+    restoreNotes(); buildDrawerTOC(); updateUI();
+
+    document.addEventListener('keydown', (e) => {
+        const escribiendo = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+        if (e.key === 'Escape') {
+            if (glossaryModal.classList.contains('active')) toggleGlossary();
+            if (tocDrawer.classList.contains('active')) toggleTOC();
+            return;
+        }
+        if (escribiendo) return;
+        if (e.key === 'ArrowRight' && !btnNext.disabled && btnNext.style.display !== 'none') { nextSlide(); }
+        if (e.key === 'ArrowLeft' && currentSlide > 0) { currentSlide--; updateUI(); }
+    });
+
+    const menuBtn = document.getElementById('mobile-menu-btn'); 
+    const sidebar = document.getElementById('sidebar'); 
+    const overlay = document.getElementById('sidebar-overlay');
+
+    function abrirMenuMovil() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarMenuMovil() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if(menuBtn) menuBtn.addEventListener('click', abrirMenuMovil);
+
+    if(overlay) overlay.addEventListener('click', cerrarMenuMovil);
+
+    document.querySelectorAll('#sidebar a, #sidebar .user-profile-mini').forEach(item => {
+        item.addEventListener('click', () => {
+            if(window.innerWidth <= 1024) cerrarMenuMovil();
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if(window.innerWidth > 1024) cerrarMenuMovil();
+    });
+
+    function descargarMisApuntes() {
+        let contenidoTxt = "=================================================\n";
+        contenidoTxt += "MIS APUNTES - DIAE PRO\n";
+        contenidoTxt += "Libro: Diseño Curricular y Optimización del Tiempo\n";
+        contenidoTxt += "=================================================\n\n";
+
+        let hayNotas = false;
+
+        document.querySelectorAll('.lms-slide').forEach(slide => {
+            const tituloModulo = slide.getAttribute('data-title');
+            const notaGuardada = DiaeStorage.get('diae_note_' + slide.id);
+
+            if (notaGuardada && notaGuardada.trim() !== "") {
+                hayNotas = true;
+                contenidoTxt += "📌 " + tituloModulo.toUpperCase() + "\n";
+                contenidoTxt += "-------------------------------------------------\n";
+                contenidoTxt += notaGuardada + "\n\n";
+            }
         });
 
-        let velocidadAudio = 1.0;
-        const velocidades = [1.0, 1.25, 1.5, 0.85]; // Ciclo de velocidades
-        let velocidadIndex = 0;
-
-        function cambiarVelocidad(btn) {
-            velocidadIndex = (velocidadIndex + 1) % velocidades.length;
-            velocidadAudio = velocidades[velocidadIndex];
-            
-            document.querySelectorAll('.btn-speed').forEach(b => {
-                b.innerText = velocidadAudio + 'x';
-            });
-
-            if (reproduciendo) {
-                const btnActivo = document.querySelector('.ph-stop-circle').closest('.btn-audio');
-                if(btnActivo) {
-                    toggleAudiolibro(btnActivo);
-                    setTimeout(() => toggleAudiolibro(btnActivo), 50);
-                }
-            }
+        if (!hayNotas) {
+            alert("Aún no has escrito ningún apunte en los módulos. ¡Escribe algo primero para poder descargarlo!");
+            return;
         }
 
-        const vozSynth = window.speechSynthesis;
-        let reproduciendo = false;
-        let elementosLectura = [];
-        let indiceLectura = 0;
+        const blob = new Blob([contenidoTxt], { type: "text/plain;charset=utf-8" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "Mis_Apuntes_Curriculares_DIAE.txt";
+        link.click();
+    }
+</script>
 
-        function obtenerVozEspanol() {
-            if (!vozSynth) return null;
-            const voces = vozSynth.getVoices();
-            if (!voces || voces.length === 0) return null;
-            return voces.find(v => v.lang === 'es-PE')
-                || voces.find(v => v.lang === 'es-419')
-                || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es') && v.lang.toLowerCase() !== 'es-es')
-                || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es'))
-                || null;
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && !e.target.closest('.terminal-body')) {
+            e.preventDefault();
         }
+    });
+</script>
 
-        function limpiarHighlights() {
-            document.querySelectorAll('.reading-highlight').forEach(el => {
-                el.classList.remove('reading-highlight');
-            });
+<script>
+    document.querySelectorAll('.slide-header-actions').forEach(header => {
+        if (header && !header.querySelector('.slide-actions-group')) {
+            const group = document.createElement('div');
+            group.className = 'slide-actions-group';
+            group.innerHTML =
+                '<button class="tool-btn" onclick="toggleBookmark(this)" title="Guardar" aria-label="Guardar este módulo"><i class="ph ph-bookmark"></i></button>' +
+                '<button class="tool-btn" onclick="shareWA()" title="Compartir" aria-label="Compartir por WhatsApp"><i class="ph ph-whatsapp-logo"></i></button>';
+            header.appendChild(group);
         }
+    });
+    
+    document.querySelectorAll('.slide-actions-group').forEach(group => {
+        // FIX: Validación de seguridad para que no intente renderizarse en slides sin Header (ej. Portada)
+        if (group.parentElement && group.parentElement.classList.contains('slide-header-actions')) {
+            if (!group.querySelector('.audio-controls')) {
+                const audioWrapper = document.createElement('div');
+                audioWrapper.className = 'audio-controls';
+                
+                const btnSpeed = document.createElement('div');
+                btnSpeed.className = 'btn-speed';
+                btnSpeed.title = 'Velocidad de lectura';
+                btnSpeed.innerText = '1x';
+                btnSpeed.onclick = function() { cambiarVelocidad(this); };
 
-        function leerSiguienteElemento(btn) {
-            if (!reproduciendo || indiceLectura >= elementosLectura.length) {
-                reproduciendo = false;
-                resetIconosAudio();
-                limpiarHighlights();
-                return;
+                const btnAudio = document.createElement('button');
+                btnAudio.className = 'tool-btn btn-audio';
+                btnAudio.title = 'Escuchar Módulo guiado';
+                btnAudio.innerHTML = '<i class="ph-fill ph-speaker-high"></i>';
+                btnAudio.onclick = function() { toggleAudiolibro(this); };
+
+                audioWrapper.appendChild(btnSpeed);
+                audioWrapper.appendChild(btnAudio);
+                
+                group.insertBefore(audioWrapper, group.firstChild); 
             }
-
-            const elementoActual = elementosLectura[indiceLectura];
-            limpiarHighlights();
-            elementoActual.classList.add('reading-highlight');
-            
-            elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            const textoLimpio = elementoActual.textContent.trim();
-            
-            if (!textoLimpio) {
-                indiceLectura++;
-                leerSiguienteElemento(btn);
-                return;
-            }
-
-            const mensaje = new SpeechSynthesisUtterance(textoLimpio);
-            const vozPreferida = obtenerVozEspanol();
-            if (vozPreferida) {
-                mensaje.voice = vozPreferida;
-                mensaje.lang = vozPreferida.lang;
-            } else {
-                mensaje.lang = 'es-419';
-            }
-            mensaje.rate = velocidadAudio;
-
-            mensaje.onend = function() {
-                indiceLectura++;
-                leerSiguienteElemento(btn);
-            };
-            
-
-            mensaje.onerror = function() {
-                reproduciendo = false;
-                resetIconosAudio();
-                limpiarHighlights();
-            };
-
-            vozSynth.speak(mensaje);
         }
+    });
 
-        function toggleAudiolibro(btn) {
-            const icon = btn.querySelector('i');
+    let velocidadAudio = 1.0;
+    const velocidades = [1.0, 1.25, 1.5, 0.85];
+    let velocidadIndex = 0;
 
-            if (reproduciendo) {
-                vozSynth.cancel();
-                reproduciendo = false;
-                resetIconosAudio();
-                limpiarHighlights();
-                return;
+    function cambiarVelocidad(btn) {
+        velocidadIndex = (velocidadIndex + 1) % velocidades.length;
+        velocidadAudio = velocidades[velocidadIndex];
+        
+        document.querySelectorAll('.btn-speed').forEach(b => {
+            b.innerText = velocidadAudio + 'x';
+        });
+
+        if (reproduciendo) {
+            const btnActivo = document.querySelector('.ph-stop-circle').closest('.btn-audio');
+            if(btnActivo) {
+                toggleAudiolibro(btnActivo);
+                setTimeout(() => toggleAudiolibro(btnActivo), 50);
             }
+        }
+    }
 
-            vozSynth.cancel(); 
+    const vozSynth = window.speechSynthesis;
+    let reproduciendo = false;
+    let elementosLectura = [];
+    let indiceLectura = 0;
+
+    function obtenerVozEspanol() {
+        if (!vozSynth) return null;
+        const voces = vozSynth.getVoices();
+        if (!voces || voces.length === 0) return null;
+        return voces.find(v => v.lang === 'es-PE')
+            || voces.find(v => v.lang === 'es-419')
+            || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es') && v.lang.toLowerCase() !== 'es-es')
+            || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es'))
+            || null;
+    }
+
+    function limpiarHighlights() {
+        document.querySelectorAll('.reading-highlight').forEach(el => {
+            el.classList.remove('reading-highlight');
+        });
+    }
+
+    function leerSiguienteElemento(btn) {
+        if (!reproduciendo || indiceLectura >= elementosLectura.length) {
+            reproduciendo = false;
             resetIconosAudio();
             limpiarHighlights();
+            return;
+        }
 
-            const slide = btn.closest('.lms-slide');
-            const content = slide.querySelector('.slide-content-wrapper');
-            if (!content) return;
+        const elementoActual = elementosLectura[indiceLectura];
+        limpiarHighlights();
+        elementoActual.classList.add('reading-highlight');
+        
+        elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            const todosElementos = Array.from(content.querySelectorAll('h2, h3, h4, p, li'));
-            elementosLectura = todosElementos.filter(el => !el.closest('.terminal-box'));
-            
-            if (elementosLectura.length === 0) return;
-
-            indiceLectura = 0;
-            reproduciendo = true;
-            
-            icon.className = 'ph-fill ph-stop-circle';
-            icon.style.color = '#f43f5e';
-
+        const textoLimpio = elementoActual.textContent.trim();
+        
+        if (!textoLimpio) {
+            indiceLectura++;
             leerSiguienteElemento(btn);
+            return;
         }
 
-        function resetIconosAudio() {
-            document.querySelectorAll('.btn-audio i').forEach(i => {
-                i.className = 'ph-fill ph-speaker-high';
-                i.style.color = ''; 
-            });
+        const mensaje = new SpeechSynthesisUtterance(textoLimpio);
+        const vozPreferida = obtenerVozEspanol();
+        if (vozPreferida) {
+            mensaje.voice = vozPreferida;
+            mensaje.lang = vozPreferida.lang;
+        } else {
+            mensaje.lang = 'es-419';
         }
+        mensaje.rate = velocidadAudio;
+
+        mensaje.onend = function() {
+            indiceLectura++;
+            leerSiguienteElemento(btn);
+        };
+        
+        mensaje.onerror = function() {
+            reproduciendo = false;
+            resetIconosAudio();
+            limpiarHighlights();
+        };
+
+        vozSynth.speak(mensaje);
+    }
+
+    function toggleAudiolibro(btn) {
+        const icon = btn.querySelector('i');
+
+        if (reproduciendo) {
+            vozSynth.cancel();
+            reproduciendo = false;
+            resetIconosAudio();
+            limpiarHighlights();
+            return;
+        }
+
+        vozSynth.cancel(); 
+        resetIconosAudio();
+        limpiarHighlights();
+
+        const slide = btn.closest('.lms-slide');
+        const content = slide.querySelector('.slide-content-wrapper');
+        if (!content) return;
+
+        const todosElementos = Array.from(content.querySelectorAll('h2, h3, h4, p, li'));
+        elementosLectura = todosElementos.filter(el => !el.closest('.terminal-box'));
+        
+        if (elementosLectura.length === 0) return;
+
+        indiceLectura = 0;
+        reproduciendo = true;
+        
+        icon.className = 'ph-fill ph-stop-circle';
+        icon.style.color = '#f43f5e';
+
+        leerSiguienteElemento(btn);
+    }
+
+    function resetIconosAudio() {
+        document.querySelectorAll('.btn-audio i').forEach(i => {
+            i.className = 'ph-fill ph-speaker-high';
+            i.style.color = ''; 
+        });
+    }
 </script>
+
 </body>
 </html>
