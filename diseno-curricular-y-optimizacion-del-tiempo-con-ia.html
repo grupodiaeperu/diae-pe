@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Curricular y Optimización del Tiempo | DIAE</title>
+    <meta name="description" content="Descubre el método para dominar a la Inteligencia Artificial y no al revés: planifica, evalúa y diseña sesiones alineadas al CNEB en minutos.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Prof. Gonzalo Cateriano - DIAE">
+    <meta property="og:title" content="Diseño Curricular y Optimización del Tiempo | DIAE">
+    <meta property="og:description" content="Aprende a crear tus materiales educativos con criterio docente real, usando Inteligencia Artificial alineada al CNEB.">
+    <meta property="og:image" content="https://www.diae.pe/images/diae-logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PE">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23090a0f'/%3E%3Cpath d='M30 70 L30 30 L48 30 Q70 30 70 50 Q70 70 48 70 Z' fill='none' stroke='%2310b981' stroke-width='8'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap">
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <style>
+
+        :root {
+            --bg-base: #090a0f; 
+            --orb-1: rgba(16, 185, 129, 0.18); 
+            --orb-2: rgba(6, 182, 212, 0.15);  
+            --glass-surface: rgba(15, 17, 23, 0.75);
+            --glass-card: rgba(19, 22, 31, 0.65); 
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --glass-border-highlight: rgba(16, 185, 129, 0.3);
+            --shadow-ambient: 0 25px 60px rgba(0, 0, 0, 0.8);
+            --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+            --text-title: #ffffff;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-glow: #10b981;  
+            --accent-hover: #059669; 
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            --success-soft: #10b981;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-code: 'Fira Code', monospace;
+            --spring-bounce: cubic-bezier(0.16, 1, 0.3, 1); 
+            --sidebar-width: 280px;
+            --font-multiplier: 1; 
+        }
+
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 8px; border: 2px solid var(--bg-base); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+        html, body { height: 100dvh; overflow: hidden; font-family: var(--font-main); background-color: var(--bg-base); color: var(--text-primary); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+
+        .orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: 0; animation: floatOrb 28s infinite alternate ease-in-out; pointer-events: none; }
+        .orb-1 { width: 500px; height: 500px; background: var(--orb-1); top: -5%; left: 15%; }
+        .orb-2 { width: 600px; height: 600px; background: var(--orb-2); bottom: -10%; right: 10%; animation-delay: -14s; }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(80px, 50px) scale(1.15); } }
+
+        .fade-in { animation: popIn 0.8s var(--spring-bounce) backwards; }
+        .delay-1 { animation-delay: 0.1s; } 
+        @keyframes popIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .orb { animation: none; }
+            .fade-in { animation: none; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+        }
+
+        /* SIDEBAR */
+        .sidebar { width: var(--sidebar-width); background: var(--glass-surface); backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); border-right: 1px solid var(--glass-border); height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; padding: 35px 25px; z-index: 1000; transition: transform 0.4s var(--spring-bounce); }
+.brand { display: flex; align-items: center; margin-bottom: 45px; }
+.brand img { height: 80px; width: auto; display: block; }
+        .nav-menu { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+        .nav-link { display: flex; align-items: center; gap: 16px; padding: 12px 18px; color: var(--text-secondary); text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 0.95rem; transition: all 0.3s ease; }
+        .nav-link i { width: 20px; text-align: center; font-size: 1.1rem; opacity: 0.7; transition: all 0.3s ease; }
+        .nav-link:hover { color: var(--text-title); background: rgba(255, 255, 255, 0.03); }
+        .nav-link:hover i { opacity: 1; transform: scale(1.1); }
+        .nav-link.active { color: var(--text-title); background: rgba(255, 255, 255, 0.06); border: 1px solid var(--glass-border); box-shadow: var(--shadow-inner); }
+        .nav-link.active i { color: var(--accent-glow); opacity: 1; }
+        .user-profile-mini { display: flex; align-items: center; gap: 14px; padding: 16px; background: rgba(255, 255, 255, 0.02); border-radius: 16px; border: 1px solid transparent; margin-top: auto; cursor: pointer; transition: all 0.3s ease; overflow: hidden; }
+        .user-profile-mini:hover { border-color: var(--glass-border); background: rgba(255, 255, 255, 0.04); }
+        .avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 1rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); flex-shrink: 0; }
+        .user-info { display: flex; flex-direction: column; overflow: hidden; width: 100%; }
+        .user-info h4, .user-info p, .user-meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+        .user-info h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-title); margin-bottom: 2px; }
+        .user-info p { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 2px; }
+        .user-meta { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.02em; }
+
+.user-info h4 { display: flex; align-items: center; gap: 6px; }
+.user-info .ph-seal-check { color: var(--accent-glow); font-size: 1rem; }
+.badge-pro { background: var(--accent-gradient); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 6px; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
+.user-profile-mini { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+        /* HEADER */
+        .reader-header { position: fixed; top: 0; left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 75px; background: var(--glass-surface); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; z-index: 900; transition: all 0.4s; }
+        .header-left { display: flex; align-items: center; gap: 15px; min-width: 0; }
+        .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--glass-border); color: var(--text-title); font-size: 1.2rem; cursor: pointer; width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; flex-shrink: 0;}
+        .header-title-stack { display: flex; flex-direction: column; justify-content: center; min-width: 0; line-height: 1.3; }
+        .header-title-stack strong { font-size: 0.95rem; color: var(--text-title); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; max-width: 450px;}
+        .header-title-stack span { font-size: 0.8rem; color: var(--accent-glow); font-weight: 500; display: block; }
+        .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+        .header-tools { display: flex; align-items: center; gap: 8px; }
+        .tool-btn { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); color: var(--text-primary); height: 36px; padding: 0 12px; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); font-weight: 600; font-size: 0.85rem; }
+        .tool-btn-icon { width: 36px; padding: 0; font-family: var(--font-code); }
+        .tool-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
+        .btn-glossary { border-color: rgba(6, 182, 212, 0.4); color: #06b6d4; background: rgba(6, 182, 212, 0.05); }
+        .btn-glossary:hover { background: #06b6d4; color: #000; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+        .btn-toc { border-color: var(--glass-border-highlight); color: var(--accent-glow); background: rgba(16, 185, 129, 0.05); }
+        .btn-toc:hover { background: var(--accent-glow); color: #000; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+        .progress-indicator { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); font-family: var(--font-code); padding-left: 8px; border-left: 1px solid var(--glass-border); }
+
+        /* CAJÓN ÍNDICE */
+        .toc-drawer { position: fixed; top: 75px; right: -380px; width: 360px; height: calc(100vh - 75px); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(40px) saturate(150%); border-left: 1px solid var(--glass-border); z-index: 850; transition: right 0.4s var(--spring-bounce); padding: 25px 20px; overflow-y: auto; box-shadow: -25px 0 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; }
+        .toc-drawer.active { right: 0; }
+        .toc-drawer-brand { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; padding-left: 5px; }
+        .toc-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .toc-item-chapter { margin-top: 16px; margin-bottom: 4px; padding: 10px 14px; background: rgba(16, 185, 129, 0.12); border-left: 4px solid var(--accent-glow); border-radius: 0 8px 8px 0; color: #ffffff; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: space-between; }
+        .toc-item-sub { padding: 8px 12px 8px 20px; border-radius: 8px; color: var(--text-secondary); font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 10px; border: 1px solid transparent; position: relative; }
+        .toc-item-sub::before { content: ''; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); transition: all 0.2s; }
+        .toc-item-sub:hover { background: rgba(255,255,255,0.03); color: var(--text-title); transform: translateX(4px); }
+        .toc-item-sub:hover::before { background: var(--accent-glow); transform: translateY(-50%) scale(1.5); }
+        .toc-item-sub.active { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-glow); font-weight: 600; }
+        .toc-item-sub.active::before { background: var(--accent-glow); width: 6px; height: 6px; }
+
+        /* MODAL GLOSARIO */
+        .glossary-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: 9999; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s var(--spring-bounce); }
+        .glossary-modal.active { opacity: 1; pointer-events: auto; }
+        .glossary-box { width: 100%; max-width: 750px; max-height: 85vh; background: var(--glass-surface); border: 1px solid var(--glass-border-highlight); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-ambient), var(--shadow-inner); transform: translateY(25px); transition: transform 0.3s var(--spring-bounce); }
+        .glossary-modal.active .glossary-box { transform: translateY(0); }
+        .glossary-box-header { padding: 20px 30px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); }
+        .glossary-search-bar { padding: 15px 30px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.01); }
+        .glossary-search-bar input { width: 100%; background: transparent; border: none; color: #fff; font-size: 0.95rem; outline: none; font-family: var(--font-main); }
+        .glossary-grid { padding: 25px 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+        .term-card { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 16px 20px; border-radius: 14px; transition: all 0.2s; }
+        .term-card:hover { border-color: var(--accent-glow); background: rgba(255,255,255,0.04); transform: translateX(2px); }
+        .term-card h5 { color: var(--accent-glow); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; display: flex; justify-content: space-between;}
+        .term-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+        /* ENTORNO CENTRAL */
+        .main-content { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 10; padding: 95px 40px 25px 40px; transition: all 0.4s; }
+        .lms-card { width: 100%; max-width: 950px; height: 100%; background: var(--glass-card); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--shadow-ambient), var(--shadow-inner); display: flex; flex-direction: column; overflow: hidden; position: relative; }
+        .card-top-progress-track { width: 100%; height: 3px; background: rgba(255,255,255,0.04); position: relative; z-index: 50; }
+        .card-top-progress-fill { height: 100%; width: 0%; background: var(--accent-glow); box-shadow: 0 0 12px var(--accent-glow); transition: width 0.4s var(--spring-bounce); }
+        .lms-body { flex: 1; position: relative; overflow: hidden; }
+        .lms-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 45px 70px 80px 70px; overflow-y: auto; opacity: 0; transform: translateX(40px); pointer-events: none; transition: transform 0.4s var(--spring-bounce), opacity 0.4s ease; }
+        .lms-slide::-webkit-scrollbar { width: 8px; }
+        .lms-slide::-webkit-scrollbar-track { background: transparent; }
+        .lms-slide::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+        .lms-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+        .lms-slide.previous { transform: translateX(-40px); }
+
+        /* PORTADA MODERNA */
+        .hero-canvas { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; text-align: center; max-width: 760px; margin: 0 auto; padding: 10px 20px;}
+        .hero-pills-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
+        .hero-pill { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .hero-h1 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 800; color: var(--text-title); line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.03em; text-transform: uppercase; }
+        .hero-subtitle { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 35px; font-weight: 400; line-height: 1.6; text-wrap: balance; }
+        .hero-subtitle strong { color: var(--accent-glow); font-weight: 600; }
+        .hero-mockup-container { width: 100%; background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; margin-bottom: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.2); position: relative; overflow: hidden; border-top-color: var(--accent-glow); border-top-width: 2px; }
+        .hero-mockup-container::before { content:''; position:absolute; top:-50px; left:50%; transform:translateX(-50%); width:200px; height:100px; background:var(--accent-glow); filter:blur(50px); opacity:0.15; pointer-events:none; }
+        .mockup-quote { font-size: 1.05rem; font-style: italic; color: var(--text-primary); font-weight: 500; line-height: 1.6; margin-bottom: 18px; }
+        .mockup-quote-author { font-size: 0.85rem; font-family: var(--font-code); color: var(--accent-glow); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+        .hero-author-box { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 35px; text-align: left; background: rgba(255,255,255,0.02); padding: 6px 18px 6px 6px; border-radius: 50px; border: 1px solid var(--glass-border); }
+        .hero-author-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--accent-gradient); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: 0.9rem; flex-shrink: 0; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+        .hero-author-meta h5 { margin: 0; color: #fff; font-size: 0.9rem; font-weight: 700; line-height: 1.2; }
+        .hero-author-meta span { color: var(--accent-glow); font-size: 0.75rem; font-weight: 500; display: block; line-height: 1.2; margin-top:2px; }
+        .btn-hero-start { background: var(--accent-gradient); color: #fff; border: 1px solid rgba(255,255,255,0.25); padding: 18px 46px; border-radius: 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s var(--spring-bounce); display: inline-flex; align-items: center; gap: 14px; box-shadow: 0 12px 30px -5px rgba(16, 185, 129, 0.6), inset 0 1px 0 rgba(255,255,255,0.4); font-family: var(--font-main); }
+        .btn-hero-start:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 35px -5px rgba(16, 185, 129, 0.8), inset 0 1px 0 rgba(255,255,255,0.6); border-color: #fff; }
+        .hero-social-proof { margin-top: 25px; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .hero-social-proof i { color: var(--accent-glow); }
+
+.slide-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 28px;
+}
+.chunk-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.meta-tag {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.meta-time {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.slide-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.slide-actions-group .tool-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+.slide-actions-group .tool-btn:hover {
+    background: var(--accent-glow);
+    color: #000;
+    border-color: var(--accent-glow);
+    transform: translateY(-2px);
+}
+.slide-actions-group .tool-btn.bookmarked {
+    color: #f59e0b;
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+        /* TIPOGRAFÍA EDITORIAL */
+        .slide-content-wrapper { font-size: calc(1.05rem * var(--font-multiplier)); }
+        .slide-title { font-size: clamp(1.8rem, 3.5vw, 2.4rem); color: var(--text-title); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 30px; text-transform: uppercase;}
+        h3 { font-size: calc(1.35rem * var(--font-multiplier)); color: var(--text-title); font-weight: 700; margin: 40px 0 15px 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
+        h4 { font-size: calc(1.15rem * var(--font-multiplier)); color: var(--accent-glow); font-weight: 600; margin: 30px 0 10px 0; }
+        p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+        strong { color: var(--text-title); font-weight: 600; }
+        ul { margin-bottom: 24px; padding-left: 0; list-style: none; }
+        li { margin-bottom: 15px; position: relative; padding-left: 24px; line-height: 1.7; color: var(--text-secondary); }
+        li::before { content: '→'; color: var(--accent-glow); position: absolute; left: 0; font-size: 0.9rem; top: 4px; font-weight: bold;}
+
+        /* TOOLTIPS VIVOS */
+        .diae-tooltip { border-bottom: 1px dashed var(--accent-glow); cursor: pointer; position: relative; color: var(--text-primary); font-weight: 600; transition: all 0.2s; background: rgba(16, 185, 129, 0.08); padding: 0 4px; border-radius: 4px; }
+        .diae-tooltip:hover { color: var(--accent-glow); background: rgba(16, 185, 129, 0.15); }
+        .floating-tip-card { position: absolute; z-index: 10000; width: 280px; background: #0f1117; border: 1px solid var(--accent-glow); padding: 14px 18px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); pointer-events: none; opacity: 0; transform: translateY(10px); transition: opacity 0.2s ease, transform 0.2s ease; }
+        .floating-tip-card.show { opacity: 1; transform: translateY(0); }
+        .floating-tip-card strong { color: var(--accent-glow); display: block; font-size: 0.9rem; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em;}
+        .floating-tip-card p { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; margin: 0; }
+
+        .pull-quote { background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, transparent 100%); border-left: 4px solid var(--accent-glow); padding: 30px 40px; border-radius: 0 16px 16px 0; margin: 35px 0; position: relative; }
+        .pull-quote i { position: absolute; top: -12px; left: 20px; font-size: 2.2rem; color: rgba(16, 185, 129, 0.3); background: var(--bg-base); padding: 0 10px; }
+        .pull-quote p { font-size: calc(1.15rem * var(--font-multiplier)); font-weight: 500; font-style: italic; color: var(--text-title); line-height: 1.6; margin-bottom: 0; }
+
+        .terminal-box { background: #050608; border: 1px solid var(--glass-border); border-radius: 14px; margin: 30px 0; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
+        .terminal-header { background: rgba(255, 255, 255, 0.03); padding: 12px 18px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; }
+        .terminal-header-left { display: flex; align-items: center; gap: 12px; }
+        .terminal-dots { display: flex; gap: 6px; }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot.r { background: #ff5f56; } .dot.y { background: #ffbd2e; } .dot.g { background: #27c93f; }
+        .terminal-title { font-family: var(--font-code); font-size: 0.85rem; color: var(--text-primary); }
+        .btn-copy { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); color: var(--text-secondary); border-radius: 8px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-copy:hover { background: var(--accent-glow); color: #000; border-color: var(--accent-glow); }
+        .terminal-body { padding: 25px; font-family: var(--font-code); font-size: calc(0.85rem * var(--font-multiplier)); color: #e2e8f0; line-height: 1.7; overflow-x: auto; white-space: pre-wrap; }
+        .keyword { color: var(--accent-glow); font-weight: 600; }
+        .string { color: #34d399; }
+        .error-text { color: #f43f5e; font-weight: bold; }
+
+        .personal-notes { margin-top: 40px; padding-top: 25px; border-top: 1px solid var(--glass-border); }
+        .personal-notes h4 { margin: 0 0 12px 0; color: var(--text-secondary); font-size: 0.85rem; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.05em;}
+        .notes-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-primary); font-family: var(--font-main); font-size: 0.95rem; resize: vertical; outline: none; padding: 14px 18px; transition: border-color 0.3s; min-height: 70px;}
+        .notes-input:focus { border-color: var(--accent-glow); }
+        .notes-save-msg { font-size: 0.75rem; color: var(--success-soft); margin-top: 6px; display: none; }
+
+        /* FOOTER */
+        .lms-footer { padding: 16px 40px; background: rgba(6, 7, 10, 0.85); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; z-index: 30; }
+        .btn-lms { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-family: var(--font-main); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; border: none; outline: none; text-decoration: none; background: var(--accent-gradient); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);}
+        .btn-lms:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-prev { background: transparent; border: 1px solid var(--glass-border); color: var(--text-secondary); box-shadow: none; }
+        .btn-prev:hover:not(:disabled) { background: rgba(255,255,255,0.05); color: var(--text-title); }
+        .btn-prev:disabled { opacity: 0.2; cursor: not-allowed; border-color: transparent; }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+
+        .terminal-body, .notes-input, .survey-text-input, input[type="text"] {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+
+        @media print {
+            html, body { display: none !important; }
+        }
+
+
+        .audio-controls { display: flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); padding: 2px;}
+        .audio-controls .tool-btn { border: none; background: transparent; height: 32px; width: 32px;}
+        .audio-controls .tool-btn:hover { background: rgba(255,255,255,0.1); border-color: transparent;}
+        .btn-speed { font-family: var(--font-code); font-size: 0.75rem; font-weight: 700; color: var(--accent-glow); padding: 0 10px; height: 32px; display: flex; align-items: center; cursor: pointer; border-radius: 6px; transition: all 0.2s; user-select: none;}
+        .btn-speed:hover { background: rgba(16, 185, 129, 0.15); }
+        
+
+        .reading-highlight { 
+            background: rgba(16, 185, 129, 0.12); 
+            border-radius: 6px; 
+            padding: 4px 8px; 
+            margin-left: -8px; /* Compensa el padding para que no se mueva el texto */
+            transition: background 0.3s ease; 
+            border-left: 3px solid var(--accent-glow); 
+        }
+
+@media (max-width: 1024px) {
+    span.desktop-text { display: none !important; }
+    span.mobile-text { display: inline !important; }
+}
+
+        .survey-container { max-width: 650px; margin: 0 auto; text-align: center; padding: 10px 20px; }
+        .survey-card { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 35px; border-radius: 20px; text-align: left; box-shadow: var(--shadow-ambient); margin-top: 25px;}
+        .survey-q { margin-bottom: 25px; }
+        .survey-q label { font-size: 0.95rem; color: #fff; font-weight: 600; display: block; margin-bottom: 12px; }
+        .star-group { display: flex; gap: 12px; font-size: 2rem; color: rgba(255,255,255,0.15); cursor: pointer; justify-content: center; background: rgba(0,0,0,0.3); padding: 16px; border-radius: 14px; border: 1px solid var(--glass-border);}
+        .star-group i { transition: all 0.2s; }
+        .star-group i:hover { transform: scale(1.2); }
+        .active-star { color: #f59e0b !important; }
+        .radio-options { display: flex; flex-direction: column; gap: 10px; }
+        .radio-pill { background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); padding: 14px 18px; border-radius: 12px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; color: var(--text-secondary); }
+        .radio-pill:hover { border-color: var(--accent-glow); color: #fff; }
+        .radio-pill input[type="radio"] { accent-color: var(--accent-glow); transform: scale(1.2); }
+        .survey-text-input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); padding: 14px 18px; border-radius: 12px; color: #fff; outline: none; font-family: var(--font-main); font-size: 0.9rem; }
+        .survey-text-input:focus { border-color: var(--accent-glow); }
+        .btn-survey-submit { width: 100%; background: var(--accent-gradient); border: none; padding: 18px; border-radius: 14px; color: #fff; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 12px; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);}
+        .btn-survey-submit:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .survey-thanks-msg { font-size: 0.9rem; color: var(--accent-glow); margin-top: 15px; text-align: center; font-weight: 700; display: none; }
+
+
+        .success-pitch-container { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 10px 20px; max-width: 680px; margin: 0 auto;}
+        .icon-crown-badge { width: 75px; height: 75px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; color: var(--accent-glow); margin-bottom: 16px; }
+        .pitch-title { font-size: 1.9rem; font-weight: 800; color: var(--text-title); margin-bottom: 6px; letter-spacing: -0.02em;}
+        .pitch-sub { color: var(--text-secondary); font-size: 1.02rem; margin-bottom: 25px; line-height: 1.5; text-wrap: balance;}
+        .premium-card-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 20px; padding: 35px; width: 100%; text-align: left; box-shadow: var(--shadow-ambient); backdrop-filter: blur(20px); margin-bottom: 25px; position:relative;}
+        .vip-scarcity-dock { position:absolute; top:25px; right:35px; background:rgba(255,255,255,0.03); border:1px solid var(--glass-border); padding:6px 14px; border-radius:50px; font-size:0.8rem; color:var(--text-secondary); font-weight:600; display:flex; align-items:center; gap:8px; }
+        .vip-scarcity-dock i { color:#f59e0b; }
+        .premium-box-header { margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px;}
+        .premium-box-header h4 { margin: 0; color: var(--text-title); font-size: 1.35rem; font-weight: 800; }
+        .promo-tag { background: rgba(16, 185, 129, 0.2); color: var(--accent-glow); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3); text-transform: uppercase; display:inline-block; margin-bottom:6px;}
+        .price-block { font-size: 2.4rem; font-weight: 800; color: var(--text-title); display: flex; align-items: baseline; gap: 10px;}
+        .old-price { font-size: 1.1rem; color: var(--text-muted); text-decoration: line-through; font-weight: 500; }
+        .new-price { color: var(--accent-glow); }
+        .price-recurrence { font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; display:block;}
+        .commercial-cta-text { font-size: 1.05rem; color: #fff; font-weight: 700; margin-bottom: 15px; }
+        .pro-benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px; }
+        .pro-benefit-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 14px; padding: 18px; }
+        .pro-benefit-card i { font-size: 1.4rem; color: var(--accent-glow); margin-bottom: 10px; display: block; }
+        .pro-benefit-card h5 { color: #fff; font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+        .pro-benefit-card p { color: var(--text-secondary); font-size: 0.82rem; margin: 0; line-height: 1.5; }
+
+        .payment-flow-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 16px; padding: 26px; margin-bottom: 20px; }
+        .payment-flow-title { font-size: 0.78rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+        .payment-flow-title i { color: var(--accent-glow); }
+        .payment-step-list { list-style: none; padding: 0; margin: 0 0 22px 0; display: flex; flex-direction: column; gap: 16px; }
+        .payment-step-list li { display: flex; gap: 14px; align-items: flex-start; }
+        .payment-step-num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: var(--accent-glow); font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
+        .payment-step-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; padding-top: 3px; }
+        .payment-step-text strong { color: #fff; }
+
+a.btn-whatsapp-cta, a.btn-whatsapp-cta:visited { 
+    display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; 
+    background: var(--accent-gradient); /* Remplaza el verde ajeno por nuestro degradado Esmeralda */
+    border: 1px solid rgba(255, 255, 255, 0.25); 
+    color: #ffffff !important; /* Letra blanca limpia en vez de negra */
+    padding: 18px; border-radius: 14px; text-decoration: none !important; 
+    font-weight: 800; font-size: 1.05rem; font-family: var(--font-main); 
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35); cursor: pointer; transition: all 0.2s; 
+}
+a.btn-whatsapp-cta:hover { 
+    filter: brightness(1.15); transform: translateY(-2px); 
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.6);
+    border-color: #ffffff;
+}
+        a.btn-back-dashboard { display: inline-flex; align-items: center; gap: 10px; color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        a.btn-back-dashboard:hover { color: var(--text-title); }
+
+        .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 5, 8, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 950; opacity: 0; transition: opacity 0.3s ease; }
+        .sidebar-overlay.active { display: block; opacity: 1; }
+
+        @media (max-width: 1024px) {
+            .sidebar { 
+        position: fixed; top: 0; left: 0; 
+        width: max(280px, 72vw); /* Deja un margen a la derecha para que se note el difuminado */
+        height: 100dvh; 
+        overflow-y: auto; 
+        z-index: 1000; 
+        transform: translateX(-100%); 
+        box-shadow: none;
+    }
+
+    .sidebar.active { 
+        transform: translateX(0); 
+        box-shadow: 20px 0 50px rgba(0,0,0,0.9); 
+    }
+
+
+    .sidebar-overlay { 
+        display: block; position: fixed; top: 0; left: 0; 
+        width: 100vw; height: 100vh; 
+        background: rgba(4, 5, 8, 0.85); 
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        z-index: 950; 
+        opacity: 0; 
+        pointer-events: none;
+        transition: opacity 0.3s ease; 
+    }
+
+
+    .sidebar-overlay.active { 
+        opacity: 1; 
+        pointer-events: auto; 
+    }
+            .reader-header { left: 0; width: 100%; padding: 0 20px; }
+            .mobile-menu-btn { display: flex; }
+            .header-tools .tool-btn-icon { display: none; }
+            .btn-toc span, .btn-glossary span { display: none; } 
+            .btn-toc, .btn-glossary { padding: 0; width: 36px; justify-content: center; }
+            .header-title-stack { display: none; }
+            .toc-drawer { width: calc(100% - 40px); right: -100%; top: 75px; }
+            .main-content { margin-left: 0; width: 100%; padding: 75px 0 0 0; }
+            .lms-card { max-width: 100%; height: 100%; border-radius: 0; border: none; box-shadow: none; background: transparent; }
+            .lms-slide { padding: 30px 20px 120px 20px; }
+            .slide-title { font-size: 1.7rem; }
+            .pull-quote { padding: 20px 20px 20px 25px; margin: 25px 0;}
+            .lms-footer { position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px 20px; padding-bottom: max(15px, env(safe-area-inset-bottom)); }
+            .btn-lms { flex: 1; padding: 12px; font-size: 0.9rem; justify-content: center; }
+            .desktop-text { display: none; } .mobile-text { display: inline; }
+            .premium-card-box, .payment-flow-box, .survey-card { padding: 20px; }
+            .vip-scarcity-dock { position:relative; top:0; right:0; display:inline-flex; margin-bottom:15px;}
+            .pro-benefits-grid { grid-template-columns: 1fr; }
+            .price-block { font-size: 2rem; }
+            .star-group { gap: 8px; font-size: 1.6rem; padding: 12px;}
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // No mandamos el page_view inicial aquí porque lo controlaremos por JS
+      gtag('config', 'G-XXXXXXXXXX', { 'send_page_view': false });
+    </script>
+
+
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:0000000,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMenu()"></div>
+
+    <aside class="sidebar fade-in" id="sidebar">
+<div class="brand"><img src="diae-logo.png" alt="DIAE Educa"></div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link active"><i class="ph ph-book-open-text"></i> Biblioteca Académica</a>
+            <a href="progreso.html" class="nav-link"><i class="ph ph-trend-up"></i> Mi Progreso</a>
+            <a href="normativa.html" class="nav-link"><i class="ph ph-file-text"></i> Normativa CNEB</a>
+            <a href="soporte.html" class="nav-link"><i class="ph ph-headphones"></i> Soporte DIAE</a>
+<a href="#" class="nav-link" onclick="descargarMisApuntes(); return false;" style="color: var(--accent-glow);">
+                <i class="ph ph-download-simple"></i> Descargar mis Apuntes
+            </a>
+        </nav>
+        <div class="user-profile-mini">
+    <div class="avatar">GC</div>
+    <div class="user-info">
+        <h4>Gonzalo <i class="ph-fill ph-seal-check"></i>     <span class="badge-pro">PRO</span></h4>
+        <p>Docente EBR Primaria</p>
+        <span class="user-meta">I.E. DIAE • 30 est.</span>
+    </div>
+</div>
+    </aside>
+
+    <header class="reader-header">
+        <div class="header-left">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir menú de navegación"><i class="ph ph-list"></i></button>
+            <div class="header-title-stack hide-mobile">
+                <strong>Diseño Curricular y Optimización del Tiempo en el Aula Peruana</strong>
+                <span>Autor: Prof. Gonzalo Cateriano | DIAE</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-tools">
+                <button class="tool-btn tool-btn-icon" onclick="changeFontSize(-0.1)" title="Reducir tamaño de letra" aria-label="Reducir tamaño de letra">A-</button>
+                <button class="tool-btn tool-btn-icon" onclick="changeFontSize(0.1)" title="Aumentar tamaño de letra" aria-label="Aumentar tamaño de letra">A+</button>
+                <button class="tool-btn btn-glossary" onclick="toggleGlossary()" aria-label="Abrir glosario de términos"><i class="ph ph-books"></i> <span class="hide-mobile">Glosario</span></button>
+                <button class="tool-btn btn-toc" onclick="toggleTOC()" aria-label="Abrir índice del libro"><i class="ph ph-list-dashes"></i> <span class="hide-mobile">Índice</span></button>
+            </div>
+            <div class="progress-indicator"><span id="progress-current" style="color:var(--text-title); font-weight:700;">Portada</span></div>
+        </div>
+    </header>
+
+    <div class="toc-drawer" id="toc-drawer">
+        <div class="toc-drawer-brand">Estructura del Libro</div>
+        <ul class="toc-list" id="toc-drawer-list"></ul>
+    </div>
+
+    <div class="glossary-modal" id="glossary-modal">
+        <div class="glossary-box">
+            <div class="glossary-box-header">
+                <div>
+                    <span class="promo-tag" style="padding:2px 8px; font-size:0.7rem; margin:0;">Oficial MINEDU</span>
+                    <h3 style="margin:0; font-size:1.15rem;">Glosario Técnico Curricular</h3>
+                </div>
+                <button class="tool-btn" onclick="toggleGlossary()" style="width:32px; height:32px; padding:0;" aria-label="Cerrar glosario"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="glossary-search-bar">
+                <i class="ph ph-magnifying-glass" style="color:var(--accent-glow)" aria-hidden="true"></i>
+                <label for="glossary-search-input" class="sr-only">Buscar término en el glosario</label>
+                <input type="text" id="glossary-search-input" placeholder="Buscar término (Ej. SIAGIE, Desempeño, UGEL, CNEB)..." onkeyup="filterGlossary(this.value)">
+            </div>
+            <div class="glossary-grid" id="glossary-grid"></div>
+        </div>
+    </div>
+
+    <div class="floating-tip-card" id="floating-tip-card"></div>
+
+    <main class="main-content">
+        <div class="lms-card fade-in delay-1">
+            <div class="card-top-progress-track"><div class="card-top-progress-fill" id="card-progress"></div></div>
+
+            <div class="lms-body" id="lms-body">
+                
+                <div class="lms-slide active" id="slide-0" data-title="Portada Oficial">
+                    <div class="hero-canvas">
+                        <div class="hero-pills-row">
+                            <span class="hero-pill"><i class="ph ph-books" style="color:var(--accent-glow)"></i> 1ra Edición Oficial</span>
+                            <span class="hero-pill"><i class="ph ph-stack" style="color:#06b6d4"></i> Para todos los niveles y especialidades</span>
+                        </div>
+                        <h1 class="hero-h1">Diseño Curricular y Optimización del Tiempo en el Aula Peruana</h1>
+                        <p class="hero-subtitle">Una guía práctica y directa para delegar la carga administrativa a la Inteligencia Artificial y <strong>recuperar tu vocación (y tus domingos).</strong></p>
+                        <div class="hero-mockup-container">
+                            <div class="mockup-quote">«La burocracia escolar no va a cambiar mañana. Pero la cantidad de horas que tú le dedicas a resolverla puede cambiar hoy».</div>
+                            <span class="mockup-quote-author">Libro de Escritorio • DIAE</span>
+                        </div>
+                        <div class="hero-author-box">
+                            <div class="hero-author-avatar">GC</div>
+                            <div class="hero-author-meta">
+                                <h5>Prof. Gonzalo Cateriano</h5>
+                                <span>Especialista en Tecnología Educativa • DIAE</span>
+                            </div>
+                        </div>
+                        <button class="btn-hero-start" onclick="nextSlide()"><span>Iniciar Lectura del Libro Ahora</span> <i class="ph ph-arrow-right"></i></button>
+                        <div class="hero-social-proof"><i class="ph ph-shield-check"></i> Fundamentado en el CNEB / MBDD vigente del MINEDU y adaptado a la realidad de las aulas peruanas</div>
+                    </div>
+                </div>
+
+                <div class="lms-slide" id="slide-1" data-title="Introducción Editorial">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 1</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min de lectura</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">INTRODUCCIÓN EDITORIAL</h2>
+                        <div class="pull-quote reveal active"><i class="ph-fill ph-quotes"></i><p>«Planificar tus clases, diseñar instrumentos de evaluación y adaptar una sesión para treinta o cuarenta estudiantes no tiene por qué significar el sacrificio de tus domingos o tu vida familiar. La tecnología no viene a enseñarte a ser maestro, viene a devolverte el tiempo que la burocracia te ha quitado».</p></div>
+                        <p>Si trabajas en las aulas peruanas, conoces esta realidad de primera mano. El profesorado vive atrapado entre dos exigencias: la vocación de conectar genuinamente con sus estudiantes y el peso, a menudo aplastante, de la carga administrativa. Las direcciones, las <span class="diae-tooltip" data-term="UGEL">UGEL</span> y el propio <span class="diae-tooltip" data-term="MINEDU">Ministerio de Educación (MINEDU)</span> exigen —con justa razón metodológica— una planificación impecable. Se nos pide un diseño curricular alineado estrictamente al enfoque por competencias, donde los estándares, las capacidades, los <span class="diae-tooltip" data-term="Desempeño Precisado">desempeños precisados</span> y los enfoques transversales dialoguen con absoluta coherencia.</p>
+                        <p>El problema no es la exigencia pedagógica. El problema es que el proceso de cruzar todas estas variables manualmente, frente a un documento de texto en blanco, resulta agotador, repetitivo y cognitivamente ineficiente.</p>
+                        <p>Desde DIAE, hemos concebido este libro para intervenir directamente sobre ese desgaste. La premisa es directa: la Inteligencia Artificial (IA) se convertirá en tu asistente pedagógico personal de escritorio. No necesitas saber de programación, ni ser un experto en sistemas. Solo necesitas aprender a dar las instrucciones correctas para que la tecnología redacte tus Unidades de Aprendizaje, dosifique tus Sesiones y estructure tus rúbricas en cuestión de minutos, respetando al pie de la letra nuestra normativa nacional.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-2" data-title="La Revolución Silenciosa">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 2</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">La revolución silenciosa en el aula: Cómo recuperar tu tiempo sin sacrificar la calidad educativa</h2>
+                        <p>Durante años, la única forma que tenía un maestro para cumplir con toda la documentación escolar y, al mismo tiempo, preparar clases interesantes, era restándole horas a su descanso. Esto ha generado un agotamiento crónico en el magisterio.</p>
+                        <p>Hoy, herramientas como ChatGPT, Claude o Gemini representan una revolución silenciosa que está cambiando las reglas del juego. Sin embargo, no se trata de hacer que la máquina haga nuestro trabajo para desentendernos, sino de delegar la tarea operativa para enfocarnos en la estrategia.</p>
+                        <p>Cuando le cedes a la IA la labor de armar la matriz, redactar el formato y organizar los tiempos, tú recuperas la energía para hacer lo que verdaderamente importa: pensar en cómo vas a motivar a tus estudiantes, cómo vas a atender al alumno que se está quedando atrás y cómo vas a generar un clima de confianza en tu salón. Al dominar las técnicas de este libro, transformarás decenas de horas de redacción mecánica en minutos de supervisión inteligente.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-3" data-title="Límites Éticos de la IA">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 3</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">Los límites éticos y funcionales de la Inteligencia Artificial</h2>
+                        <p>Es fundamental establecer reglas claras desde esta primera página. Una plataforma de IA no siente empatía. No sabe que uno de tus alumnos camina cuarenta minutos bajo el sol de Piura para llegar al colegio, ni entiende la dinámica social de un aula en la periferia urbana de Lima, ni percibe si un estudiante de la sierra sur llegó sin tomar desayuno. La máquina no educa.</p>
+                        <p>Lo que la Inteligencia Artificial sí hace, con una velocidad deslumbrante, es organizar grandes volúmenes de texto. Es un motor de procesamiento. Por lo tanto, el resultado que obtengas de ella dependerá exclusivamente de la calidad de tus <span class="diae-tooltip" data-term="Prompt">órdenes</span>.</p>
+                        <p>Si te sientas frente a la pantalla y le pides algo básico como: «Hazme una clase sobre el Tahuantinsuyo para secundaria», la IA te devolverá un texto escolar genérico, aburrido y desvinculado del <span class="diae-tooltip" data-term="CNEB">CNEB</span>. Ese es el error en el que cae la mayoría y por el cual muchos docentes creen que la herramienta no sirve para el colegio.</p>
+                        <p>El verdadero salto de calidad ocurre cuando aprendes a comunicarte con ella de forma profesional mediante una <span class="diae-tooltip" data-term="Situación Significativa">situación significativa</span>. Imagina pedirle lo siguiente al <span class="diae-tooltip" data-term="MINEDU">MINEDU</span> digital:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">✅ Prompt_Profesional.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body"><span class="keyword">«Actúa como un especialista del MINEDU.</span> Tengo treinta alumnos de segundo de secundaria en el Cusco. Tomando en cuenta la competencia 'Construye interpretaciones históricas', <span class="string">diséñame una situación significativa sobre la agricultura incaica que conecte con la economía actual de su comunidad.</span> Preséntalo en una tabla con los momentos de la sesión (Inicio, Desarrollo y Cierre) y añade una rúbrica de cuatro niveles».</div>
+                        </div>
+                        <p>En menos de veinte segundos, tendrás un documento sólido, respetuoso de nuestra realidad y listo para que tú, con tu criterio profesional de maestro, lo revises, lo ajustes y lo lleves a la práctica. El asistente tecnológico propone la estructura; el educador humano toma la decisión final.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-4" data-title="Cómo Usar Este Libro">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 4</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">El método de este libro: lectura directa y aplicación inmediata</h2>
+                        <p>No estás sosteniendo una novela, ni un ensayo teórico sobre el futuro de la educación. Este texto ha sido diseñado como una guía de aplicación directa. Su lugar no es el estante de una biblioteca, sino el escritorio, abierto al lado de tu teclado.</p>
+                        <p>A lo largo de los siguientes capítulos, abandonaremos la teoría abstracta para ir directo a la práctica. Descubrirás:</p>
+                        <ul>
+                            <li>Cómo proteger la privacidad de tus estudiantes para no infringir ninguna norma al usar estas plataformas.</li>
+                            <li>Cómo evitar que la IA invente términos raros o extranjeros que te traerían problemas en una supervisión de la <span class="diae-tooltip" data-term="UGEL">UGEL</span>.</li>
+                            <li>Las fórmulas exactas (plantillas listas para copiar y pegar) que obligarán a la máquina a pensar como un especialista en diseño curricular peruano.</li>
+                        </ul>
+                        <p>El propósito de esta obra es claro: empoderarte. Al finalizar la lectura del libro, tendrás el control absoluto sobre tus tiempos de planificación, elevando la calidad de tus materiales sin sacrificar tu vida personal.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-5" data-title="Capítulo I: Respaldo Normativo">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 5</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">CAPÍTULO I: EL RESPALDO NORMATIVO Y LA GESTIÓN DEL TIEMPO DOCENTE</h2>
+                        <p>Cuando un maestro peruano escucha hablar de Inteligencia Artificial para planificar sus clases, la primera duda no suele ser tecnológica, sino puramente administrativa: «¿Si presento una unidad hecha con IA, me la observará el director o el especialista de la UGEL? ¿Es válido frente al Ministerio de Educación?».<br><br>La respuesta directa es sí. La respuesta completa —y la que te dará tranquilidad profesional— es que la tecnología no solo es legal, sino que es la herramienta ideal para cumplir a cabalidad con lo que nos exige el sistema educativo, sin comprometer tu salud mental ni tus horas de descanso.</p>
+                        <h3>1.1. El Marco de Buen Desempeño Docente (MBDD) impulsado por IA</h3>
+                        <p>El <span class="diae-tooltip" data-term="MBDD">MBDD</span> es la brújula de nuestra profesión. El problema de este documento no es lo que pide, sino el tiempo que toma aplicarlo a mano. Tomemos el Dominio 1: Preparación para el aprendizaje de los estudiantes. Este dominio nos exige conocer a fondo las características de nuestros alumnos y sus contextos (Competencia 1) para poder planificar de forma pertinente (Competencia 2). En la vida real de una escuela, esto significa que a inicio de año recibes una avalancha de actas del <span class="diae-tooltip" data-term="SIAGIE">SIAGIE</span>, informes psicopedagógicos, fichas socioeconómicas y, por supuesto, los resultados de la Evaluación Diagnóstica.</p>
+                        <p>Procesar esa montaña de datos para 35 o 40 estudiantes, intentando armar perfiles reales de aprendizaje con lápiz y papel o en una hoja de Excel básica, es una tarea que desborda el tiempo asignado en las semanas de gestión. Aquí es donde tu asistente pedagógico entra en acción para transformar datos fríos en decisiones rápidas.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-6" data-title="1.1 Análisis Diagnóstico">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 6</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h3>Optimiza el análisis de tus estudiantes</h3>
+                        <p>La Inteligencia Artificial es excepcional encontrando patrones. En lugar de revisar examen por examen para ver qué falló a nivel de aula, puedes ingresar los resultados estadísticos (siempre de forma anónima) y pedirle a la máquina que agrupe a tus estudiantes por necesidades de aprendizaje.</p>
+                        <p>Ejemplo de aplicación: Análisis rápido de la Evaluación Diagnóstica. Imagina que eres docente de primaria y tienes los resultados de matemática. En lugar de pensar desde cero cómo nivelarlos, le das a la IA la siguiente instrucción:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">Analisis_Diagnostica.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body"><span class="keyword">«Actúa como un coordinador académico.</span> Tengo 35 estudiantes de cuarto grado de primaria. Tras la evaluación diagnóstica, <span class="string">el 60 % se encuentra en nivel de 'Inicio' en la competencia "Resuelve problemas de cantidad", fallando específicamente en el canje de decenas.</span> Un 30 % está en 'Proceso' y un 10 % en 'Logrado'. Propón tres dinámicas cortas de andamiaje para el grupo en 'Inicio' usando material Base 10, y dos retos de alta demanda cognitiva para que el grupo 'Logrado' no se aburra.»</div>
+                        </div>
+                        <p>En menos de un minuto, pasas de tener un problema estadístico a tener un plan de acción concreto para tu atención a la diversidad, listo para integrarse en tu <span class="diae-tooltip" data-term="PCA">PCA</span>.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-7" data-title="1.2 Privacidad y Ley 31814">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 7</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h3>Aligera tu carga en la planificación (Competencia 2)</h3>
+                        <p>La Competencia 2 del MBDD exige que exista una coherencia absoluta entre lo que quieres lograr, cómo lo vas a enseñar y cómo lo vas a evaluar. En el lenguaje técnico del MINEDU, esto se llama <span class="diae-tooltip" data-term="Matriz de Consistencia">matriz de consistencia</span>.</p>
+                        <p>Si armas tus carteles de alcance y secuencia o tus unidades didácticas escribiendo todo desde cero en Word, el riesgo de cometer errores de alineamiento es altísimo. Es muy común redactar un <span class="diae-tooltip" data-term="Desempeño Precisado">desempeño precisado</span> impecable, pero luego proponer un criterio de evaluación que mide otra cosa completamente distinta. Los especialistas de las UGEL suelen devolver las carpetas pedagógicas justamente por estos quiebres metodológicos.</p>
+                        <p>Al utilizar la IA, delegas esta verificación a un sistema informático que no se cansa ni se distrae. Si configuras correctamente tu instrucción, la máquina garantizará que el Estándar de Aprendizaje del ciclo, la Capacidad movilizada, el Desempeño Precisado y el Instrumento de Evaluación encajen como piezas de un rompecabezas perfecto. De esta forma, tu trabajo frente a la computadora deja de ser el de un digitador de formatos burocráticos. Te conviertes en un auditor pedagógico: dejas que la máquina construya la estructura pesada y tú te dedicas exclusivamente a validar que las actividades propuestas sean realistas, interesantes y útiles para tus estudiantes.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROTOCOLO_SEGURIDAD.cfg</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body"><span class="keyword">[PROTOCOLO DE SEGURIDAD DOCENTE FRENTE A LA IA]</span>
+
+<span class="string">1. Bloqueo de identidad (Cero datos personales):</span> 
+   Jamás ingreses nombres, apellidos, números de DNI o direcciones de 
+   tus estudiantes. Si necesitas analizar un caso puntual de 
+   comportamiento o aprendizaje, sustituye la identidad. Escribe: 
+   "Estudiante A", "Caso 1" o simplemente "un alumno de quinto grado".
+
+<span class="string">2. Agrupación estadística (El filtro del SIAGIE):</span> 
+   No subas bajo ninguna circunstancia archivos de Excel descargados de 
+   la plataforma del <span class="diae-tooltip" data-term="SIAGIE">SIAGIE</span> con tu nómina de matriculados. Si quieres 
+   que la IA te ayude a crear grupos de trabajo o a planificar una nivelación, 
+   aliméntala solo con porcentajes. 
+   Ejemplo correcto: "El 45 % de mi aula confunde el perímetro con el área".
+
+<span class="string">3. Traducción de diagnósticos (Informes SAANEE y NEE):</span> 
+   Si tienes estudiantes con <span class="diae-tooltip" data-term="NEE">Necesidades Educativas Especiales</span>, no copies 
+   el diagnóstico clínico o del <span class="diae-tooltip" data-term="SAANEE">SAANEE</span> en la plataforma. Traduce esa 
+   condición médica a una "necesidad funcional de aprendizaje". 
+   En lugar de escribir: "Juan Pérez tiene TDAH severo", ordénale a la IA: 
+   "Tengo un estudiante que requiere instrucciones divididas en tres pasos 
+   cortos, material visual de alto contraste y pausas activas cada 20 minutos. 
+   Adapta esta ficha de trabajo bajo esos parámetros".</div>
+                        </div>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-8" data-title="1.3 Sincronización CNEB">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 8</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">1.3. Sincronización con el CNEB: Técnicas para evitar que la IA "alucine" o invente términos extranjeros</h2>
+                        <p>La Inteligencia Artificial es una tecnología de alcance global. Cuando un modelo de lenguaje aprende a redactar textos, no lee únicamente las directivas del Ministerio de Educación del Perú. Es entrenado con millones de documentos provenientes de la UNESCO, las reformas educativas de México, las leyes de España (LOMLOE) y los estándares de Estados Unidos.</p>
+                        <p>Como consecuencia, si no le ponemos límites claros, la máquina mezclará todos estos sistemas educativos. A este fenómeno se le conoce como <span class="diae-tooltip" data-term="Alucinación Terminológica">alucinación terminológica</span>. Seguramente te ha pasado o has visto el caso de algún colega: le pides a la IA que te ayude con una unidad didáctica y el documento resultante habla de "objetivos de aprendizaje", "indicadores de logro", "competencias blandas" o "contenidos conceptuales". O peor aún, la máquina inventa una "capacidad" que suena muy convincente, pero que si la buscas en el currículo peruano, simplemente no existe.</p>
+                        <p>Si presentas una carpeta pedagógica con esa terminología, el director de tu Institución Educativa o el especialista de la UGEL la observará y te la devolverá de inmediato. En la administración pública, la precisión normativa no es negociable.</p>
+                        <h3>El "Candado Semántico": Obligando a la máquina a hablar en peruano</h3>
+                        <p>Para que tu asistente digital funcione correctamente en nuestro sistema, no basta con pedirle de forma amable: "Por favor, usa el Currículo Nacional". A las inteligencias artificiales se les programa mediante restricciones absolutas. Debes colocarle lo que llamaremos un <span class="diae-tooltip" data-term="Candado Semántico">candado semántico</span>, forzándola a descartar el vocabulario extranjero y obligándola a utilizar nuestra taxonomía oficial.</p>
+                        <p>Cada vez que inicies un chat para planificar, antes de pedirle tu sesión o tu unidad, debes inyectar esta instrucción de seguridad. Puedes copiarla y tenerla a la mano en un bloc de notas:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">FILTRO_CNEB.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[INSTRUCCIÓN DE SEGURIDAD: EL FILTRO CNEB]</span>
+
+Actúa como un Especialista Curricular del MINEDU (Perú). 
+Para este trabajo, tienes estrictamente PROHIBIDO utilizar jerga 
+educativa de otros países o normativas anteriores. Queda vetado el uso 
+de términos como "objetivos", "indicadores de logro", "contenidos" o 
+"saberes básicos". 
+
+Utiliza EXCLUSIVAMENTE el glosario oficial del Currículo Nacional 
+de la Educación Básica (CNEB): "Competencias", "Capacidades", 
+"Desempeños precisados", "Criterios de evaluación", "Evidencias" 
+y "Propósitos de aprendizaje". Audita tu texto antes de mostrármelo 
+para asegurar que cumples esta regla al 100 %.</div>
+                        </div>
+                        <p>Al incluir este párrafo al inicio de tu conversación, configuras el "cerebro" de la aplicación. La IA entenderá que se encuentra operando bajo las reglas del sistema peruano y bloqueará cualquier palabra que no pertenezca a nuestra matriz. Tus documentos saldrán limpios, coherentes y listos para cualquier revisión institucional.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-9" data-title="La Competencia 28">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 9</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">El nuevo nivel de la Competencia Transversal 28</h2>
+                        <p>Históricamente, en nuestras aulas, la Competencia Transversal 28 ("Se desenvuelve en los entornos virtuales generados por las TIC") se ha limitado a enseñar lo básico: usar un procesador de textos, armar diapositivas, buscar videos o enviar correos. Esa visión instrumentalista de la tecnología ha quedado obsoleta.</p>
+                        <p>Apropiarte de la Inteligencia Artificial no es hacer trampa ni evadir responsabilidades; es llevar la Competencia 28 a su máximo nivel profesional.</p>
+                        <p>El maestro que aprende a dar instrucciones precisas a un algoritmo, que filtra la información, que audita resultados y diseña herramientas automatizadas para atender la diversidad de su aula, está modelando el pensamiento digital avanzado. Ya no eres un simple "usuario de programas de oficina"; te has convertido en un gestor inteligente de la información. Y ese es, precisamente, el ejemplo de alfabetización digital que nuestros estudiantes necesitan ver en sus maestros hoy en día.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-10" data-title="Capítulo II: Prompts">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 10</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">CAPÍTULO II: INGENIERÍA DE PROMPTS: EL ARTE DE DAR INSTRUCCIONES EXACTAS</h2>
+                        <p>En el mundo de la Inteligencia Artificial, la palabra inglesa <span class="diae-tooltip" data-term="Prompt">prompt</span> asusta a muchos, pero su significado es sumamente simple: un prompt es la instrucción u orden que le escribes a la máquina para pedirle algo.</p>
+                        <p>El gran secreto que separa a un docente frustrado con la tecnología de un docente que ahorra quince horas de trabajo a la semana radica, precisamente, en cómo redacta esa orden. La IA es como un practicante brillante, con acceso a toda la información del mundo, pero que no tiene iniciativa propia ni conoce tu colegio. Si le das una instrucción vaga, intentará adivinar; y cuando la IA adivina, se equivoca.</p>
+                        <h3>2.1. La trampa del «Prompt» genérico: Por qué pedirle una "sesión" te dará resultados inservibles</h3>
+                        <p>El error más común ocurre cuando tratamos a plataformas como ChatGPT o Claude como si fueran el buscador de Google. Muchos profesores se sientan frente a la pantalla y escriben comandos imperativos, cortos y directos:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">❌ El Prompt Empírico (Lo que NO debes hacer)</div></div></div>
+                            <div class="terminal-body"><span class="error-text">"Hazme una sesión de aprendizaje sobre la célula para estudiantes de primero de secundaria. Que sea dinámica y tenga evaluación."</span></div>
+                        </div>
+                        <p>Si escribes esto, la máquina te responderá en segundos. Te entregará un documento que parece correcto a simple vista, pero que en realidad es una trampa. ¿Por qué?</p>
+                        <ul>
+                            <li><strong>No tiene norte pedagógico:</strong> La máquina no sabe qué competencia de Ciencia y Tecnología estás trabajando (¿Indaga mediante métodos científicos o Explica el mundo físico?).</li>
+                            <li><strong>Es un documento sin alma:</strong> Te propondrá actividades genéricas (como "ver un video" o "hacer un mapa conceptual") que servirían igual en Lima, en Madrid o en Tokio, ignorando por completo la realidad de tus estudiantes.</li>
+                            <li><strong>Falla en la evaluación:</strong> Te dará preguntas de opción múltiple para memorizar las partes de la célula, en lugar de un instrumento formativo alineado a los estándares de nuestro país.</li>
+                        </ul>
+                        <p>Ese material es inservible. Si lo presentas, te lo observarán. Y si lo llevas al aula, tus alumnos se aburrirán. Para que la máquina trabaje a un nivel verdaderamente profesional, debes dejar de hacerle "pedidos" y empezar a darle parámetros mediante el <span class="diae-tooltip" data-term="RCOPE">Método RCOPE</span>.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-11" data-title="2.2 El Método RCOPE">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 11</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">2.2. El Método R-C-O-P-E: La fórmula para exigir resultados profesionales</h2>
+                        <p>Para acabar con el problema de los resultados genéricos, en este libro utilizaremos una fórmula de redacción estructural. Es una receta de cinco pasos que obliga a la Inteligencia Artificial a pensar como un experto del MINEDU antes de escribir una sola palabra. La llamamos el Método <span class="diae-tooltip" data-term="RCOPE">R-C-O-P-E</span>.</p>
+                        <p>Cada vez que te sientes a planificar, tu instrucción debe contener estos cinco elementos en el siguiente orden:</p>
+                        <ul>
+                            <li><strong>1. R = ROL (¿Quién quieres que sea la IA?)</strong><br>Nunca asumas que la máquina sabe desde qué postura hablar. Tienes que asignarle una identidad técnica. En lugar de nada: "Actúa como un Especialista Senior en Diseño Curricular del Ministerio de Educación del Perú, experto en el enfoque por competencias".</li>
+                            <li><strong>2. C = CONTEXTO (¿Cuál es la realidad de tu aula?)</strong><br>Aquí inyectas la vida de tu escuela (siempre respetando el anonimato de tus alumnos). Ejemplo: "Tengo 32 estudiantes de tercer grado de secundaria en una escuela pública rural de Cajamarca. La principal actividad económica de sus familias es la agricultura".</li>
+                            <li><strong>3. O = OBJETIVO (¿Qué documento exacto necesitas?)</strong><br>Debes ser quirúrgico. No pidas "una clase"; pide el documento técnico específico y la competencia que vas a movilizar. Ejemplo: "Tu objetivo es diseñar la estructura de una sesión de aprendizaje de 90 minutos centrada en la competencia 'Resuelve problemas de regularidad, equivalencia y cambio'".</li>
+                            <li><strong>4. P = PASOS (¿Cómo debe pensar la máquina?)</strong><br>Este es el truco maestro. Si dejas que la IA escriba todo de golpe, cometerá errores. Oblígala a seguir una secuencia lógica (<span class="diae-tooltip" data-term="Cadena de Pensamiento">Cadena de Pensamiento</span>). Ejemplo: "Paso 1: Selecciona un desempeño precisado pertinente. Paso 2: Diseña un conflicto cognitivo basado en el contexto agrícola. Paso 3: Redacta la secuencia didáctica".</li>
+                            <li><strong>5. E = ESTRUCTURA (¿Cómo quieres que te entregue el resultado?)</strong><br>No dejes que te devuelva bloques de texto aburridos. Pídele formatos listos para copiar y pegar en tu Word institucional. Ejemplo: "Presenta el resultado en una tabla de doble entrada. En la primera columna pon los momentos (Inicio, Desarrollo y Cierre) y el tiempo asignado, y en la segunda columna las actividades del estudiante".</li>
+                        </ul>
+                        <h4 style="margin-top: 30px;">La Plantilla R-C-O-P-E en acción</h4>
+                        <p>Cuando unes estas cinco piezas, pasas de escribir una línea pobre a redactar un comando de ingeniería pedagógica. Así es como se ve la plantilla maestra que usarás a partir de hoy:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PLANTILLA_RCOPE.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PLANTILLA R-C-O-P-E PARA DISEÑO DE SESIONES]</span>
+
+<span class="string">[ROL]:</span> Actúa como un Especialista en Diseño Curricular del MINEDU (Perú). 
+
+<span class="string">[CONTEXTO]:</span> Diseñarás material para 35 estudiantes de &lt;Grado&gt; en una 
+Institución Educativa ubicada en &lt;Región/Distrito&gt;. Las familias se dedican 
+principalmente a &lt;Actividad del contexto&gt; y los estudiantes muestran mucho 
+interés en &lt;Tema de interés local&gt;.
+
+<span class="string">[OBJETIVO]:</span> Diseña una sesión de aprendizaje de &lt;Cantidad de minutos&gt; centrada 
+en la competencia &lt;Nombre de la Competencia&gt; del área de &lt;Área Curricular&gt;.
+
+<span class="string">[PASOS]:</span> Para lograrlo, sigue esta secuencia lógica:
+1. Define el propósito de aprendizaje alineado al estándar del ciclo.
+2. Plantea una Situación Significativa o <span class="diae-tooltip" data-term="Conflicto Cognitivo">conflicto cognitivo</span> que use el 
+   contexto local mencionado.
+3. Desarrolla la secuencia didáctica (Inicio, Desarrollo y Cierre).
+
+<span class="string">[ESTRUCTURA]:</span> Entrégame el resultado en una tabla limpia. Al final de la 
+tabla, añade una rúbrica de evaluación formativa de cuatro niveles de 
+logro (En inicio, En proceso, Logrado, Destacado) para evaluar la sesión.</div>
+                        </div>
+                        <p>Si copias este cuadro, rellenas los datos entre los símbolos &lt; &gt; con la información de tu aula y lo pegas en la plataforma de IA, el resultado que obtendrás será simplemente extraordinario. Estará contextualizado, cumplirá con las exigencias de tu UGEL y, lo más importante, te habrá tomado apenas cinco minutos de trabajo en lugar de tres horas.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-12" data-title="2.3 Clonación de Estilo">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 12</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">2.3. Clonando tu estilo docente: Cómo inyectar tus unidades pasadas para que la IA replique tu forma de trabajar</h2>
+                        <p>Si aplicas el Método R-C-O-P-E que acabamos de ver, el nivel de tus planificaciones superará al del noventa por ciento del magisterio. Sin embargo, sabemos que cada Institución Educativa es un mundo distinto. Quizás tu colegio tiene un formato específico avalado por la dirección, o tal vez a ti, como maestro, te gusta estructurar tus clases de una forma muy particular: prefieres usar dinámicas de inicio de diez minutos o te gusta que el cierre siempre termine con una pregunta metacognitiva en la pizarra.</p>
+                        <p>Si tienes que corregirle estas preferencias a la Inteligencia Artificial cada vez que le pides algo, estarás perdiendo tiempo. La solución técnica para este problema se llama <span class="diae-tooltip" data-term="Few-Shot Prompting">Few-Shot Prompting</span> (aprendizaje por ejemplos). En términos prácticos para el aula, significa enseñarle a la máquina a escribir exactamente como tú lo haces.</p>
+                        <h3>No le expliques, muéstrale</h3>
+                        <p>Las inteligencias artificiales aprenden imitando. Si quieres que la IA diseñe una sesión de aprendizaje bajo el esquema exacto que aprueba tu director, la forma más rápida de lograrlo no es dándole una lista de reglas larguísima, sino dándole un modelo previo que ya haya sido aprobado. El proceso de clonación de estilo se realiza en dos simples pasos dentro del mismo chat:</p>
+                        <ul>
+                            <li><strong>Paso 1: Alimentar a la máquina con tu estándar de calidad:</strong> Antes de pedirle tu nueva sesión de junio, vas a buscar en tus archivos de Word esa Unidad Didáctica o Sesión de Aprendizaje espectacular que hiciste en marzo (esa por la que te felicitaron en la supervisión) y se la vas a entregar como modelo.</li>
+                            <li><strong>Paso 2: La orden de clonación:</strong> Una vez que pegas tu documento antiguo, usas una instrucción de anclaje para que la IA calque esa misma estructura, pero aplicándola a un tema nuevo.</li>
+                        </ul>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">MACRO_CLONACION.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[MACRO DE CLONACIÓN DE ESTILO Y FORMATO]</span>
+
+Te voy a proporcionar un documento base. Es una sesión de aprendizaje 
+diseñada por mí y aprobada por la dirección de mi colegio. Quiero que 
+analices profundamente su tono, su nivel de detalle, la forma en la que 
+se distribuye el tiempo y, sobre todo, cómo redacto los criterios de 
+evaluación.
+
+<span class="string">[AQUÍ PEGAS TU SESIÓN ANTIGUA DE REFERENCIA]</span>
+
+Ahora que ya conoces mi estilo y mi formato institucional, tu objetivo 
+es redactar la SIGUIENTE sesión de la unidad. El tema nuevo será &lt;TEMA NUEVO&gt; 
+y la competencia a movilizar será &lt;COMPETENCIA NUEVA&gt;. 
+
+Debes mantener EXACTAMENTE la misma estructura de títulos, tablas y tono 
+profesional del documento que te acabo de dar como ejemplo. No inventes 
+pasos nuevos ni alteres el formato. Clónalo aplicándolo al nuevo contenido.</div>
+                        </div>
+                        <h3>El poder de la continuity institucional</h3>
+                        <p>Esta técnica es particularmente útil cuando trabajas en colegios privados, escuelas de la red Fe y Alegría, o los Colegios de Alto Rendimiento (COAR), donde suelen manejar matrices de planificación muy específicas que no siempre encajan en el modelo estándar del MINEDU. Al inyectar tus documentos previos como ejemplos, logras que tu asistente pedagógico digital se adapte a tu colegio, y no al revés. La IA se convierte en una extensión de tu propio intelecto: escribe con tu voz, respeta tus costumbres metodológicas y entrega formatos que puedes imprimir casi sin editar. Este es el punto exacto donde la tecnología deja de ser una novedad que consume tiempo para convertirse en una verdadera herramienta de libertad profesional.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-13" data-title="Capítulo III: Fábrica Curricular">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 13</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">CAPÍTULO III: LA FÁBRICA CURRICULAR: PLANIFICACIÓN A CORTO Y LARGO PLAZO</h2>
+                        <p>Hasta aquí hemos preparado el terreno. Ya sabes cómo proteger la privacidad de tus estudiantes, entiendes por qué la máquina necesita que le hables en "lenguaje MINEDU" y dominas la fórmula R-C-O-P-E para darle instrucciones precisas. Has configurado a tu asistente pedagógico.</p>
+                        <p>Ahora es momento de ponerlo a trabajar. En este capítulo, abandonaremos por completo la teoría y convertiremos tu computadora en una verdadera fábrica curricular. Vamos a descender desde lo más amplio (el año escolar completo) hasta el detalle más fino (los 90 minutos que pasas dentro del salón de clases).</p>
+                        <h3>3.1. Tu Planificación Curricular Anual (PCA) a un clic</h3>
+                        <p>La <span class="diae-tooltip" data-term="PCA">Planificación Curricular Anual (PCA)</span> es el mapa de ruta de todo tu año. Elaborarla a mano suele ser un dolor de cabeza logístico porque implica cruzar el calendario cívico, las famosas "semanas de gestión", las semanas lectivas y asegurar que, a lo largo de los cuatro bimestres (o tres trimestres), cubras todas las competencias de tu área sin dejar vacíos.</p>
+                        <p>Normalmente, cuadrar las fechas y distribuir los títulos de las <span class="diae-tooltip" data-term="EdA">Experiencias de Aprendizaje (EdA)</span> o Unidades toma varios días de reuniones colegiadas y borradores en papel. Tu asistente de IA puede resolver este rompecabezas de fechas y temáticas en menos de un minuto.</p>
+                        <p>Para lograrlo, no le pidas a la máquina que "haga la programación anual" de golpe. Entrégale los datos del calendario y pídele que estructure el esqueleto. Aquí tienes la instrucción exacta:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_PCA.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PROMPT PARA LA DISTRIBUCIÓN DE LA PCA]</span>
+
+<span class="string">[ROL Y SEGURIDAD]:</span> Actúa como Especialista en Planificación Curricular del 
+MINEDU. Utiliza exclusivamente la terminología del Currículo Nacional (CNEB).
+
+<span class="string">[CONTEXTO Y DATOS]:</span> Debo armar mi Planificación Curricular Anual para el 
+área de &lt;Tu Área&gt; en el &lt;Tu Grado&gt; grado de secundaria. Trabajaremos 
+en 4 bimestres. En mi región &lt;Tu Región&gt;, los temas transversales más 
+urgentes son &lt;Ej: el cuidado del agua, la prevención del dengue, 
+la identidad cultural&gt;.
+
+<span class="string">[OBJETIVO Y PASOS]:</span> Diseña el cuadro de distribución anual de las Unidades 
+de Aprendizaje. Para ello:
+1. Propón 8 posibles títulos atractivos y retadores para las Unidades 
+   (2 por bimestre).
+2. Asocia cada unidad a un tema transversal del contexto mencionado.
+3. Indica qué competencias del área se trabajarán principalmente en 
+   cada unidad, asegurando que a fin de año todas hayan sido movilizadas.
+
+<span class="string">[ESTRUCTURA]:</span> Preséntalo en una tabla limpia de 5 columnas: Bimestre, 
+N° de Unidad, Título Retador, Tema Transversal y Competencias a Movilizar.</div>
+                        </div>
+                        <p>Con esta tabla generada, ya tienes la columna vertebral de tu año escolar validada y lista para ser copiada en tu formato institucional. El trabajo pesado de cuadrar los temas ha desaparecido.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-14" data-title="3.2 Matriz de Consistencia">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 14</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">3.2. Unidades de Aprendizaje blindadas: Generación automática de la matriz de consistencia</h2>
+                        <p>Una vez que tienes el título de tu unidad, el siguiente paso normativo es construir la Matriz de Consistencia. Esta es, sin duda, la parte más delicada y donde más profesores sufren observaciones por parte de las direcciones.</p>
+                        <p>Una <span class="diae-tooltip" data-term="Matriz de Consistencia">matriz de consistencia</span> está "blindada" cuando existe una conexión matemática y lógica perfecta entre cuatro elementos:</p>
+                        <ul>
+                            <li>La Competencia y Capacidad (Lo que manda el CNEB).</li>
+                            <li>El <span class="diae-tooltip" data-term="Desempeño Precisado">Desempeño precisado</span> (La acción concreta adaptada a tu grado).</li>
+                            <li>La Evidencia de aprendizaje (El producto tangible, como un ensayo o una maqueta).</li>
+                            <li>El Criterio de evaluación (La regla con la que medirás ese producto).</li>
+                        </ul>
+                        <p>Si pides una maqueta (evidencia) pero tu criterio evalúa la ortografía, la matriz se quiebra y la unidad está mal diseñada. La Inteligencia Artificial es brillante para evitar este error humano, porque al no distraerse, ata los cuatro elementos con precisión quirúrgica. Usa esta instrucción para generar matrices a prueba de cualquier supervisor de UGEL:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_MATRIZ.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PROMPT PARA LA MATRIZ DE CONSISTENCIA DE LA UNIDAD]</span>
+
+<span class="string">[ROL Y SEGURIDAD]:</span> Actúa como Auditor Curricular del MINEDU. Bloquea 
+términos extranjeros; usa solo el glosario del CNEB.
+
+<span class="string">[CONTEXTO Y OBJETIVO]:</span> Voy a desarrollar la Unidad de Aprendizaje titulada 
+"&lt;Título de la Unidad que generaste en el paso anterior&gt;". La competencia 
+eje será "&lt;Competencia elegida&gt;". Mis alumnos son de &lt;Grado&gt;.
+
+<span class="string">[PASOS]:</span> 
+1. Toma la competencia indicada y selecciona 2 de sus capacidades.
+2. Redacta 1 desempeño precisado para cada capacidad, adaptado al grado.
+3. Propón 1 evidencia de aprendizaje integradora (un producto final realista 
+   que el alumno pueda hacer en clase).
+4. Redacta 3 criterios de evaluación formativa directamente ligados al 
+   producto y al desempeño precisado.
+
+<span class="string">[ESTRUCTURA]:</span> Entrégame el resultado en una matriz (tabla de doble entrada) 
+con los siguientes encabezados: Competencia, Capacidades, Desempeños 
+Precisados, Evidencia de Aprendizaje, y Criterios de Evaluación.</div>
+                        </div>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-15" data-title="3.3 Dosificación de Sesión">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 15</span><span class="meta-time"><i class="ph ph-clock"></i> 2 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">3.3. Diseño de Sesiones de Alta Fidelidad: Dosificación exacta del tiempo</h2>
+                        <p>El último eslabón de la fábrica curricular es el día a día: la sesión de aprendizaje. El mayor problema que enfrentamos aquí no es qué enseñar, sino el tiempo. Muchas veces planificamos actividades hermosas que, en la vida real, tomarían tres horas, pero el timbre suena a los 45 o 90 minutos exactos.</p>
+                        <p>Si dejas a la IA libre, te propondrá secuencias irreales. Tienes que enseñarle a mirar el reloj. Debes obligar a tu asistente a programar bajo la lógica de los procesos pedagógicos (Motivación, Saberes Previos, Conflicto Cognitivo) pero dándole una "camisa de fuerza" de minutos.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_DOSIFICACION.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PROMPT DE DOSIFICACIÓN DE SESIÓN]</span>
+
+<span class="string">[ROL Y SEGURIDAD]:</span> Actúa como Docente Mentor del MINEDU. Mantén el 
+rigor del CNEB.
+
+<span class="string">[CONTEXTO Y OBJETIVO]:</span> Basado en la matriz anterior, necesito la 
+secuencia didáctica paso a paso para la primera sesión de la unidad. 
+El tiempo total de mi clase es de EXACTAMENTE 90 minutos.
+
+<span class="string">[PASOS]:</span> 
+1. Estructura la clase en los tres momentos obligatorios: Inicio, 
+   Desarrollo y Cierre.
+2. En el Inicio, incluye el recojo de saberes previos y el propósito.
+3. En el Desarrollo, incluye el procesamiento de la información.
+4. En el Cierre, incluye dos preguntas breves de metacognición.
+
+<span class="string">[ESTRUCTURA]:</span> Presenta una tabla con tres columnas: 
+Columna 1: Momento de la clase (Inicio, Desarrollo, Cierre).
+Columna 2: Actividad detallada que hará el docente y el estudiante.
+Columna 3: Tiempo cronometrado en minutos.
+<span class="error-text">RESTRICCIÓN OBLIGATORIA:</span> La suma de la columna 3 debe dar 
+matemáticamente 90 minutos (Ej: Inicio 15m, Desarrollo 60m, Cierre 15m). 
+Sé realista con el tiempo que toma repartir materiales o agrupar a los 
+alumnos.</div>
+                        </div>
+                        <p>Al agregar la restricción de sumar matemáticamente los minutos, obligas a la inteligencia artificial a aterrizar sus ideas. El resultado es una sesión de alta fidelidad: un documento que no solo se ve bien en el papel para entregarlo a dirección, sino que funciona como un guion perfecto y aplicable para cuando pises el aula.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-16" data-title="Capítulo IV: Identidad Peruana">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 16</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">CAPÍTULO IV: SITUACIONES SIGNIFICATIVAS CON IDENTIDAD PERUANA</h2>
+                        <p>En el enfoque por competencias que rige nuestro sistema educativo, está prohibido iniciar una nueva Unidad de Aprendizaje dictando un concepto teórico en la pizarra. Todo proceso pedagógico debe nacer obligatoriamente de una <span class="diae-tooltip" data-term="Situación Significativa">Situación Significativa</span>: un escenario de la vida real, un problema de la comunidad o un desafío que despierte la curiosidad del estudiante.</p>
+                        <p>La teoría suena excelente, pero en la práctica nos encontramos con un obstáculo gigante: redactar una buena historia, que además contenga un problema alineado a la competencia que queremos enseñar, exige mucha creatividad y tiempo. Por agotamiento, muchos docentes terminan reciclando situaciones genéricas de libros de texto antiguos. El resultado es que tenemos a estudiantes en las zonas rurales de Puno resolviendo problemas matemáticos sobre cómo comprar boletos del tren eléctrico en Lima, o alumnos en Iquitos leyendo textos sobre la caída de nieve. Esa desconexión destruye la motivación.</p>
+                        <p>Tu asistente de Inteligencia Artificial puede resolver este problema de raíz. Las plataformas como Claude, Gemini o ChatGPT tienen almacenada información geográfica, climática, cultural y económica de casi todos los rincones del Perú. Vamos a utilizar esa base de datos para crear historias que resuenen con la vida real de tus alumnos.</p>
+                        <h3>4.1. Conectando con nuestro entorno: Transformando problemáticas locales en el motor de tus clases</h3>
+                        <p>La clave para que la IA redacte una Situación Significativa que atrape a tus estudiantes es la indexación regional. Esto significa que no le vas a pedir simplemente que "escriba una historia", sino que le vas a entregar los insumos de la realidad de tu zona: las festividades patronales, el clima actual, la principal fuente de trabajo de los padres o los problemas ambientales del barrio. Cuando cruzas la materia que enseñas con el contexto vivo de la comunidad, el aprendizaje cobra sentido automático para el alumno. Para lograrlo en segundos, utiliza el siguiente comando estructurado:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">SITUACION_SIGNIFICATIVA.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PROMPT PARA SITUACIÓN SIGNIFICATIVA REGIONALIZADA]</span>
+
+<span class="string">[ROL Y SEGURIDAD]:</span> Actúa como Especialista en Diseño Curricular del MINEDU. 
+Utiliza exclusivamente la terminología del Currículo Nacional (CNEB).
+
+<span class="string">[CONTEXTO Y DATOS]:</span> Soy docente de &lt;Área Curricular&gt; en &lt;Grado&gt; de secundaria. 
+Mi colegio está ubicado en &lt;Ciudad/Provincia/Región&gt;. En este momento del año, 
+nuestra comunidad está viviendo &lt;Menciona un evento real: ej. la llegada del 
+friaje, la festividad de la Virgen de la Candelaria, la cosecha de café, 
+el aumento del dengue, el comercio informal en el mercado central&gt;.
+
+<span class="string">[OBJETIVO Y PASOS]:</span> Redacta una Situación Significativa de máximo tres párrafos.
+1. Primer párrafo: Describe el contexto local mencionado de forma realista y 
+   cómo afecta o involucra a los estudiantes y sus familias.
+2. Segundo párrafo: Conecta esa realidad con la competencia &lt;Nombre de 
+   la Competencia a trabajar&gt;. 
+3. Tercer párrafo: Cierra con una pregunta retadora (Conflicto Cognitivo) 
+   que movilice al estudiante a investigar y actuar durante la unidad.
+
+<span class="string">[ESTRUCTURA]:</span> Redacta el texto en un tono motivador, en tercera persona, 
+listo para ser copiado en mi matriz de Unidad de Aprendizaje.</div>
+                        </div>
+                        <p>Al utilizar esta instrucción, la máquina te devolverá un texto impecable que el especialista de la UGEL validará de inmediato por su alta pertinencia contextual, y que tus estudiantes leerán sintiendo que se habla de su propio mundo.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-17" data-title="4.2 El Reto Auténtico">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 17</span><span class="meta-time"><i class="ph ph-clock"></i> 3 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">4.2. El reto auténtico: Fórmulas para redactar conflictos cognitivos antiplagio</h2>
+                        <p>El corazón de toda Situación Significativa es el <span class="diae-tooltip" data-term="Conflicto Cognitivo">conflicto cognitivo</span>, esa pregunta final que lanza el reto o desafío a los estudiantes. Aquí existe otro error frecuente en las aulas.</p>
+                        <p>Si al final de tu Situación Significativa escribes una pregunta como: "¿Cuáles son las causas de la contaminación del río?" o "¿Qué es la célula y cuáles son sus partes?", has matado el proceso de investigación. En la era del internet, el estudiante simplemente copiará esa pregunta, la pegará en Google, transcribirá el primer resultado en su cuaderno y sentirá que ya terminó la tarea sin haber razonado un solo segundo.</p>
+                        <p>A este tipo de preguntas las llamamos "preguntas googleables". Para evitar el famoso copiar y pegar que tanto frustra a los maestros al momento de calificar, debemos exigirle a nuestra IA que diseñe lo que denominamos un reto auténtico.</p>
+                        <p>Un reto auténtico obliga al estudiante a tomar una postura, a crear una solución local o a aplicar la teoría para resolver un problema de su entorno. La Inteligencia Artificial es la herramienta perfecta para diseñar estas preguntas de alta demanda cognitiva si le pones la restricción adecuada:</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">CONFLICTO_ANTIPLAGIO.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[PROMPT PARA EL CONFLICTO COGNITIVO ANTIPLAGIO]</span>
+
+<span class="string">[ROL Y SEGURIDAD]:</span> Actúa como Evaluador Formativo del MINEDU.
+
+<span class="string">[CONTEXTO Y OBJETIVO]:</span> Acabo de redactar una Situación Significativa sobre 
+&lt;Tema de tu unidad, ej. el impacto del fenómeno El Niño en la economía local&gt; 
+para mis alumnos de &lt;Grado&gt;. 
+
+<span class="string">[PASOS Y RESTRICCIÓN]:</span> Necesito formular la pregunta retadora o conflicto 
+cognitivo final. 
+<span class="error-text">RESTRICCIÓN ABSOLUTA:</span> Quedan prohibidas las preguntas teóricas, reproductivas 
+o literales que el estudiante pueda responder simplemente buscando en internet 
+(ej. prohibido preguntar "¿qué es?", "¿cuáles son las causas?").
+
+Diseña 3 opciones de retos auténticos que exijan al estudiante:
+- Analizar su entorno local.
+- Tomar una postura crítica.
+- Proponer un producto tangible o una solución aplicable a su comunidad.
+
+<span class="string">[ESTRUCTURA]:</span> Entrégame las 3 opciones en formato de pregunta directa.</div>
+                        </div>
+                        <p>Cuando aplicas esta técnica, la IA dejará de proponerte resúmenes aburridos y te entregará opciones desafiantes como: "Si tuvieras que organizar a los comerciantes del mercado central de nuestra ciudad para reducir los residuos sólidos en un 30% en un mes, ¿qué plan de acción diseñarías aplicando los principios matemáticos que aprenderemos?".</p>
+                        <p>Ese es un reto que ningún buscador de internet puede responder directamente. Obliga al estudiante a pensar, investigar y conectar los saberes del aula con la calle. Y a ti, como maestro, te garantiza evidencias de aprendizaje auténticas y fáciles de evaluar.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-18" data-title="Capítulo V: Casos EBR">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 18</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">CAPÍTULO V: LA IA EN ACCIÓN: CASOS REALES POR NIVEL Y MODALIDAD</h2>
+                        <p>En los capítulos anteriores hemos construido el motor del automóvil: ya sabes cómo armar los prompts, cómo blindar las matrices y cómo contextualizar las situaciones significativas. Pero como bien sabemos los maestros, la teoría de escritorio a veces choca con la realidad de las diferentes aulas.</p>
+                        <p>Las necesidades de una maestra de Inicial que debe evaluar la motricidad fina de niños de cinco años no son las mismas que las de un profesor de Secundaria que prepara debates de historia, ni mucho menos las de un docente de un CETPRO que forma a jóvenes para el trabajo técnico. En este capítulo final, vamos a llevar nuestro Método R-C-O-P-E a la práctica pura y dura. Te entregaré los comandos exactos y adaptados para cada nivel y modalidad de nuestro sistema educativo peruano, listos para que los uses mañana mismo.</p>
+                        <h3>5.1. Educación Básica Regular (EBR): De Inicial a Secundaria</h3>
+                        <p>La Educación Básica Regular es el pilar de nuestro sistema, y cada uno de sus niveles requiere un trato completamente distinto por parte de tu asistente pedagógico.</p>
+                        <h4>El Nivel Inicial (Ciclo II): Sistematizando la observación</h4>
+                        <p>En el nivel Inicial, el docente no corrige exámenes con nota; su labor es la observación constante y la evaluación formativa mediante registros anecdóticos. El problema es que transcribir y ordenar decenas de observaciones diarias en el cuaderno de campo consume horas incalculables. La Inteligencia Artificial puede transformar tus apuntes rápidos en informes descriptivos impecables, alineados a las competencias del área de Personal Social o Psicomotriz.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_INICIAL.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Maestra de Educación Inicial del MINEDU.
+<span class="string">[CONTEXTO]:</span> Tengo mis apuntes en borrador sobre un niño de 5 años. Hoy, durante el juego en el sector de construcción, armó una torre alta, un compañero se la tumbó de casualidad, él lloró un poco pero luego respiró, conversó con su amigo y volvieron a armarla juntos.
+<span class="string">[OBJETIVO]:</span> Transforma esta nota informal en un registro anecdótico técnico y profesional, vinculándolo a la competencia "Construye su identidad" y la capacidad de "Autorregula sus emociones".
+<span class="string">[ESTRUCTURA]:</span> Entrégalo en un formato corto, respetuoso y listo para adjuntarlo en la carpeta del estudiante.</div>
+                        </div>
+                        <h4>El Nivel Primaria (Ciclos III al V): Casuística matemática</h4>
+                        <p>En Primaria, uno de los mayores dolores de cabeza es diseñar problemas matemáticos que no sean repetitivos. Si usamos siempre los mismos ejemplos del libro, los niños mecanizan la operación (aprenden a sumar o restar de memoria) pero no logran la competencia de "Resuelve problemas de cantidad".</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_PRIMARIA.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Especialista de Primaria del MINEDU.
+<span class="string">[CONTEXTO]:</span> Enseño en un colegio de Huancayo (Junín) a alumnos de cuarto grado.
+<span class="string">[OBJETIVO]:</span> Diseña 3 problemas matemáticos de cambio y combinacion (adición y sustracción llevando y prestando) para trabajar la competencia "Resuelve problemas de cantidad".
+<span class="error-text">[RESTRICCIÓN Y ESTRUCTURA]:</span> No uses ejemplos genéricos como comprar manzanas o canicas. Usa contextos reales de mi región (ej. el peso de los sacos de papa en la cosecha, el costo de pasajes a Jauja, la elaboración de panes artesanales). Dame los problemas listos para imprimir en una ficha.</div>
+                        </div>
+                        <h4>El Nivel Secundaria (Ciclos VI y VII): Debates críticos</h4>
+                        <p>En Secundaria, el reto es sostener la atención de adolescentes sobreestimulados por el celular y las redes sociales. El asistente pedagógico te ayudará a diseñar actividades de alta demanda cognitiva, como rúbricas para debates.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_SECUNDARIA.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Docente de Ciencia y Tecnología del MINEDU.
+<span class="string">[CONTEXTO Y OBJETIVO]:</span> Mis alumnos de cuarto de secundaria debatirán sobre el uso de la Inteligencia Artificial frente a la pérdida de empleos. Esto se alinea a la competencia "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía".
+<span class="string">[ESTRUCTURA]:</span> Crea una rúbrica de evaluación formativa de cuatro niveles (En inicio, En proceso, Logrado, Destacado). Evalúa tres criterios específicos: argumentación científica, respeto del turno de palabra y uso de fuentes confiables. Preséntalo en una tabla clara.</div>
+                        </div>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-19" data-title="Inclusión, EBA y CETPRO">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 19</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">5.2. Inclusión y Andragogía (EBE y EBA)</h2>
+                        <p>Nuestro sistema también atiende realidades complejas que requieren una sensibilidad pedagógica extrema, donde la adaptación manual de materiales es un trabajo titánico.</p>
+                        <h4>Educación Básica Especial (EBE): Adecuaciones curriculares</h4>
+                        <p>Los docentes de aulas inclusivas o de los CEBE (Centros de Educación Básica Especial) deben adaptar las sesiones regulares para estudiantes con <span class="diae-tooltip" data-term="NEE">Necesidades Educativas Especiales (NEE)</span>. Aquí, la IA funciona como un experto en diversificación y accesibilidad.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_INCLUSION.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Especialista en Inclusión y Educación Básica Especial (EBE).
+<span class="string">[CONTEXTO]:</span> Tengo una ficha de lectura comprensiva sobre "El ciclo del agua" diseñada para tercer grado de primaria regular. En mi aula hay un estudiante con discapacidad visual parcial y otro con Trastorno del Espectro Autista (TEA) nivel 1.
+<span class="string">[OBJETIVO]:</span> Sugiere tres adecuaciones metodológicas y de formato precisas para que estos dos estudiantes puedan acceder al mismo contenido sin frustración, manteniendo el estándar de la competencia "Lee diversos tipos de textos".</div>
+                        </div>
+                        <h4>Educación Básica Alternativa (EBA): Educación de jóvenes y adultos</h4>
+                        <p>La andragogía (enseñanza a adultos) no puede infantilizar al estudiante. Los CEBA atienden a jóvenes y adultos que trabajan todo el día y estudian de noche; su material debe estar estrictamente enfocado en la vida laboral y el emprendimiento.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_EBA.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Especialista en Andragogía de la EBA (Perú).
+<span class="string">[CONTEXTO]:</span> Enseño Matemática en el ciclo Avanzado a un grupo de adultos comerciantes de un mercado en Lima Norte.
+<span class="string">[OBJETIVO]:</span> Diseña una actividad práctica de 40 minutos sobre "Porcentajes e Interés Simple" (Competencia: Resuelve problemas de cantidad).
+<span class="error-text">[RESTRICCIÓN]:</span> Prohibido usar ejemplos escolares. La actividad debe consistir en simular el cálculo de las cuotas de un préstamo bancario para comprar mercadería para sus negocios. Entrégame el caso práctico y la hoja de ruta para el profesor.</div>
+                        </div>
+                        <h3 style="margin-top: 40px;">5.3. Educación Técnico-Productiva y Superior (CETPRO)</h3>
+                        <p>En la educación técnica, el lenguaje cambia drásticamente. Ya no hablamos de desempeños precisados genéricos, sino de competencias técnicas alineadas al <span class="diae-tooltip" data-term="CNOF">Catálogo Nacional de la Oferta Formativa (CNOF)</span>. Los docentes de los <span class="diae-tooltip" data-term="CETPRO">CETPRO</span> y de los Institutos Superiores Tecnológicos invierten semanas armando sílabos y hojas de operación para sus talleres de peluquería, mecánica, gastronomía o computación. La IA puede estructurar estos formatos técnicos en segundos.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">PROMPT_CETPRO.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[ROL]:</span> Actúa como Especialista Técnico del MINEDU y <span class="diae-tooltip" data-term="SINEACE">SINEACE</span>.
+<span class="string">[CONTEXTO]:</span> Soy profesor en un CETPRO en la especialidad de Gastronomía. Tengo que enseñar el módulo de "Técnicas de Cortes de Vegetales".
+<span class="string">[OBJETIVO]:</span> Genera la estructura de una Hoja de Ejecución de Taller (Hoja de Operación) para esta clase.
+<span class="string">[ESTRUCTURA]:</span> Debe incluir: 1. Normas de seguridad e higiene (EPP necesarios). 2. Herramientas e insumos. 3. Secuencia de pasos técnicos (Mise en place, corte Juliana, corte Brunoise). 4. Criterios de control de calidad final.</div>
+                        </div>
+                        <p>Con este último comando, cubrimos el espectro completo del sistema educativo peruano. Sin importar en qué nivel, ciclo o modalidad te encuentres, ahora posees las herramientas para que la tecnología trabaje a tu favor.</p>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-20" data-title="Anexos de Macros">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 20</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min</span></div></div>
+                    <div class="slide-content-wrapper">
+                        <h2 class="slide-title">ANEXOS TÉCNICOS: TU BANCO DE MACROS Y PLANTILLAS</h2>
+                        <p>Has llegado a la sección más operativa del libro. Considera estas páginas como tu caja de herramientas diaria de "copiar y pegar". A lo largo de los capítulos anteriores hemos entendido la teoría y la lógica detrás de una buena instrucción. Ahora, te entrego las tres macros maestras (instrucciones avanzadas y preconfiguradas) que resolverán los tres nudos críticos que más tiempo le consumen a un docente peruano. Guarda estas plantillas en un bloc de notas en tu computadora o en tu celular, y utilízalas cada vez que te sientes a planificar.</p>
+                        <h3>Anexo A: El «Prompt Maestro» de Configuración CNEB</h3>
+                        <h4>¿Para qué sirve?</h4>
+                        <p>Este es el interruptor de encendido. Nunca le pidas a la Inteligencia Artificial que te haga una clase sin haberle enviado este texto primero. Este comando acts como un filtro de seguridad que bloquea la "alucinación" de la máquina, forzándola a olvidar el vocabulario extranjero (como el de México o España) y obligándola a pensar estrictamente con la normativa peruana. Inicia un chat nuevo en tu plataforma de IA (ChatGPT, Claude, Gemini) y pega este bloque de texto. Una vez que la máquina te responda que ha entendido, recién puedes empezar a pedirle tus sesiones o unidades.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">MACRO_CNEB_PERU.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[MACRO DE INICIALIZACIÓN: ENTORNO CNEB PERÚ]</span>
+
+A partir de este momento, actuarás EXCLUSIVAMENTE como un Especialista 
+Senior en Diseño Curricular del Ministerio de Educación del Perú (MINEDU). 
+Tu tarea es asistirme en la planificación y evaluación pedagógica.
+
+REGLAS ABSOLUTAS E INQUEBRANTABLES DE VOCABULARIO:
+1. Queda estrictamente PROHIBIDO usar términos foráneos o desactualizados 
+   como: "objetivos de aprendizaje", "indicadores de logro", "competencias 
+   blandas", "saberes básicos" o "contenidos conceptuales".
+2. Utilizarás ÚNICAMENTE la taxonomía oficial del Currículo Nacional (CNEB): 
+   "Propósitos de aprendizaje", "Competencias", "Capacidades", "Estándares 
+   de aprendizaje", "Desempeños precisados", "Criterios de evaluación", 
+   "Evidencias" y "Enfoques transversales".
+
+Antes de entregarme cualquier documento que te pida de ahora en adelante, 
+auditarás tu propia respuesta para asegurarte de que no se te haya filtrado 
+ninguna palabra prohibida. Responde "ENTENDIDO, ESTOY LISTO PARA PLANIFICAR 
+BAJO EL CNEB" para confirmar que has comprendido tus restricciones.</div>
+                        </div>
+                        <h3>Anexo B: El Desagregador de Desempeños Precisados</h3>
+                        <h4>¿Para qué sirve?</h4>
+                        <p>El CNEB nos entrega "Desempeños" generales que suelen ser muy largos y abarcar demasiadas acciones. El MINEDU nos pide que los "precisemos", es decir, que los acotemos al tema exacto y al contexto de nuestra sesión. Hacer esto manualmente sin perder el verbo rector o la condición de calidad suele ser un dolor de cabeza. Esta macro lo hace por ti en cinco segundos. Copia tu desempeño original del CNEB, define tu tema y deja que la IA haga la precisión técnica.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">MACRO_DESAGREGADOR.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[MACRO DE FRAGMENTACIÓN Y PRECISIÓN DE DESEMPEÑOS]</span>
+
+<span class="string">[ROL]:</span> Actúa como Asesor Curricular del MINEDU.
+
+<span class="string">[CONTEXTO]:</span> Tengo el siguiente Desempeño Original extraído directamente 
+del Programa Curricular Nacional para mi grado: 
+"&lt;Pega aquí el desempeño original completo del CNEB&gt;"
+
+El tema específico que voy a dictar en mi clase hoy es: "&lt;Escribe tu 
+tema, ej. Las causas económicas de la Guerra del Pacífico&gt;".
+
+<span class="string">[OBJETIVO Y PASOS]:</span> Necesito que redactes 3 opciones de DESEMPEÑO PRECISADO 
+basadas en el original. 
+Para hacerlo correctamente, respeta la estructura obligatoria: 
+Acción (verbo) + Contenido (precisado a mi tema) + Condición. 
+
+<span class="error-text">[RESTRICCIÓN]:</span> No cambies el nivel de exigencia cognitiva del verbo 
+original. Si el verbo es "Explica", no lo bajes a "Identifica" ni lo 
+subas a "Evalúa".
+
+<span class="string">[ESTRUCTURA]:</span> Entrégame las 3 opciones en una lista con viñetas para 
+que yo pueda elegir la que mejor se adapte a mi sesión.</div>
+                        </div>
+                        <h3>Anexo C: El «Prompt Auditor» de Control de Calidad</h3>
+                        <h4>¿Para qué sirve?</h4>
+                        <p>Esta es tu red de seguridad. Antes de imprimir tu Unidad de Aprendizaje y entregarla a la dirección de tu colegio o al especialista de la UGEL, pásala por esta auditoría digital. La máquina detectará de inmediato si pediste una maqueta como evidencia, pero te olvidaste de evaluarla, o si tu criterio de evaluación no tiene nada que ver con la competencia elegida. Copia la matriz de tu unidad (Competencia, Capacidad, Desempeño, Evidencia y Criterio) que hiciste en Word, pégala en la IA junto con esta instrucción y deja que te corrija antes de que lo haga tu director.</p>
+                        <div class="terminal-box">
+                            <div class="terminal-header"><div class="terminal-header-left"><div class="terminal-dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div><div class="terminal-title">MACRO_AUDITOR.md</div></div><button class="btn-copy" onclick="copyPrompt(this)"><i class="ph ph-copy"></i> Copiar</button></div>
+                            <div class="terminal-body">
+<span class="keyword">[MACRO DE AUDITORÍA Y CONTROL DE CALIDAD CURRICULAR]</span>
+
+<span class="string">[ROL]:</span> Actúa como un Especialista de Monitoreo y Acompañamiento Pedagógico 
+de la UGEL, extremadamente riguroso y analítico.
+
+<span class="string">[CONTEXTO Y OBJETIVO]:</span> A continuación, te pegaré la Matriz de Consistencia 
+de mi Unidad de Aprendizaje. Tu trabajo NO es reescribirla de cero, sino 
+AUDITARLA buscando errores de alineamiento o incoherencias pedagógicas.
+
+<span class="string">[AQUÍ PEGAS EL TEXTO DE TU MATRIZ DE CONSISTENCIA]</span>
+
+<span class="string">[PASOS DE LA AUDITORÍA]:</span> Revisa meticulosamente lo siguiente:
+1. ¿El Criterio de Evaluación responde directamente a la acción del Desempeño?
+2. ¿La Evidencia de Aprendizaje solicitada permite medir realmente el 
+   Criterio de Evaluación?
+3. ¿Se está utilizando el vocabulario oficial del CNEB?
+
+<span class="string">[ESTRUCTURA]:</span> Entrégame un "Informe Breve de Auditoría". 
+Primero, señala las FORTALEZAS de la matriz. 
+Segundo, señala las INCONGRUENCIAS (si las hay). 
+Tercero, propón las CORRECCIONES EXACTAS sugeridas para blindar metodológicamente 
+el documento antes de que lo presente a mi dirección.</div>
+                        </div>
+                    </div>
+                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o adaptaciones para tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
+                </div>
+
+                <div class="lms-slide" id="slide-21" data-title="Encuesta de Calidad">
+                    <div class="survey-container">
+                        <span class="promo-tag" style="margin-bottom:8px;">Control de Calidad DIAE</span>
+                        <h2 class="pitch-title">TU OPINIÓN MUEVE ESTE PROYECTO</h2>
+                        <p class="pitch-sub">Antes de marcar este libro como finalizado, ayúdanos a calibrar el contenido para diseñar el siguiente volumen:</p>
+                        <div class="survey-card">
+                            <div class="survey-q">
+                                <label>1. ¿Qué tan aplicable a tu realidad de aula sentiste el manual?</label>
+                                <div class="star-group" id="star-rating-box"><i class="ph-fill ph-star" data-score="1"></i><i class="ph-fill ph-star" data-score="2"></i><i class="ph-fill ph-star" data-score="3"></i><i class="ph-fill ph-star" data-score="4"></i><i class="ph-fill ph-star" data-score="5"></i></div>
+                                <input type="hidden" id="user-star-val" value="0">
+                            </div>
+                            <div class="survey-q">
+                                <label>2. ¿Cuál crees que será el mayor impacto en tu ejercicio docente?</label>
+                                <div class="radio-options">
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="tiempo"> <span>Recuperar mis domingos (Ahorro de tiempo)</span></label>
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="seguridad"> <span>Cero miedo a las revisiones de UGEL / Dirección</span></label>
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="creatividad"> <span>Sesiones mucho más creativas para mis alumnos</span></label>
+                                </div>
+                            </div>
+                            <div class="survey-q"><label>3. ¿Qué tema te urge que automaticemos en el Volumen II? (Opcional)</label><input type="text" class="survey-text-input" placeholder="Ej. Llenado de SIAGIE, tutoría, rúbricas de evaluación..."></div>
+                            <button class="btn-survey-submit" onclick="procesarEncuesta()"><span>Guardar mi respuesta y continuar</span> <i class="ph ph-arrow-right"></i></button>
+                            <div class="survey-thanks-msg" id="survey-ok-check"><i class="ph ph-check"></i> ¡Muchas gracias, colega! Registrando valoración...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lms-slide slide-completion" id="slide-22" data-title="Membresía PRO">
+                    <div class="success-pitch-container">
+                        <div class="icon-crown-badge"><i class="ph-fill ph-check-circle"></i></div>
+                        <h2 class="pitch-title">¡Felicidades, completaste tu primera entrega DIAE!</h2>
+                        <p class="pitch-sub">Este libro fue tu punto de partida: aprendiste a convertir la Inteligencia Artificial en una aliada real para planificar, evaluar y diseñar tus clases con criterio docente, sin sacrificar tus domingos. Y esto recién empieza — es la primera de una colección con <strong>8 títulos ya confirmados</strong> solo para este mes, pensada para que te empoderes por completo con la IA.</p>
+                        <div class="premium-card-box">
+                            <div class="vip-scarcity-dock"><i class="ph-fill ph-fire"></i> <span>Cupos Fundador: <strong>4 / 20</strong></span></div>
+                            <div class="premium-box-header">
+                                <div><span class="promo-tag">Plan Colegas Fundadores (2 primeros meses)</span><h4>Membresía DIAE PRO</h4></div>
+                                <div class="price-block" style="margin-top:8px;"><span class="old-price">S/ 29.90</span><span class="new-price">S/ 19.90</span><small>/ mes</small></div>
+                                <span class="price-recurrence">por los primeros 2 meses. Luego S/ 29.90 / mes regular. Puedes cancelar cuando quieras avisando por WhatsApp.</span>
+                            </div>
+
+                            <p class="commercial-cta-text">Qué obtienes al inscribirte a DIAE PRO:</p>
+                            <div class="pro-benefits-grid">
+                                <div class="pro-benefit-card">
+                                    <i class="ph-fill ph-books"></i>
+                                    <h5>4 libros nuevos cada 14 días</h5>
+                                    <p>Los 8 títulos de este mes ya están confirmados: cada uno creado con IA y validado personalmente por el Prof. Gonzalo antes de publicarse.</p>
+                                </div>
+                                <div class="pro-benefit-card">
+                                    <i class="ph-fill ph-headset"></i>
+                                    <h5>Soporte experto todo el día</h5>
+                                    <p>Escríbele directamente al Prof. Gonzalo por WhatsApp para resolver cualquier duda sobre IA aplicada a tu aula, cuando la necesites.</p>
+                                </div>
+                                <div class="pro-benefit-card">
+                                    <i class="ph-fill ph-chalkboard-teacher"></i>
+                                    <h5>Capacitaciones exclusivas</h5>
+                                    <p>De forma periódica, sesiones en vivo con el Prof. Gonzalo sobre un tema específico de IA para docentes: dudas, casos reales y práctica guiada.</p>
+                                </div>
+                                <div class="pro-benefit-card">
+                                    <i class="ph-fill ph-archive"></i>
+                                    <h5>Biblioteca ilimitada DIAE</h5>
+                                    <p>Acceso permanente a toda la colección de la editorial docente DIAE, enfocada 100% en que domines la IA en tu práctica pedagógica.</p>
+                                </div>
+                            </div>
+
+                            <div class="payment-flow-box">
+                                <div class="payment-flow-title"><i class="ph-fill ph-lightning"></i> Cómo inscribirte</div>
+                                <ol class="payment-step-list">
+                                    <li><span class="payment-step-num">1</span><span class="payment-step-text">Escríbenos por WhatsApp contándonos que quieres unirte al <strong>Plan Fundador</strong>.</span></li>
+                                    <li><span class="payment-step-num">2</span><span class="payment-step-text">Te compartimos ahí mismo los medios de pago disponibles y confirmamos tu inscripción.</span></li>
+                                    <li><span class="payment-step-num">3</span><span class="payment-step-text">Recibes acceso a toda la colección DIAE y al canal de soporte experto, normalmente el mismo día.</span></li>
+                                </ol>
+                            </div>
+
+                            <a href="#" onclick="activarMembresiaPRO(); return false;" class="btn-whatsapp-cta"><i class="ph ph-whatsapp-logo" style="font-size:1.4rem;"></i> Inscribirme a DIAE PRO por WhatsApp</a>
+                        </div>
+                        <a href="index.html" class="btn-back-dashboard"><i class="ph ph-arrow-left"></i> Volver al Dashboard</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="lms-footer" id="lms-footer"><button class="btn-lms btn-prev" id="btnPrev" disabled><i class="ph ph-arrow-left"></i> <span class="desktop-text">Anterior</span></button><button class="btn-lms btn-next" id="btnNext" onclick="nextSlide()"><span class="desktop-text">Guardar y Continuar</span><span class="mobile-text">Continuar</span> <i class="ph ph-arrow-right"></i></button></footer>
+        </div>
+    </main>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        const glossaryData = [
+            { term: "CNEB", def: "Currículo Nacional de la Educación Básica. Documento rector del MINEDU que define los aprendizajes que se espera logren los estudiantes." },
+            { term: "MBDD", def: "Marco de Buen Desempeño Docente. Define los dominios, competencias y desempeños que caracterizan una buena docencia pública." },
+            { term: "UGEL", def: "Unidad de Gestión Educativa Local. Instancia de ejecución descentralizada del MINEDU con autonomía funcional en su jurisdicción." },
+            { term: "SIAGIE", def: "Sistema de Información de Apoyo a la Gestión de la Institución Educativa. Software oficial del MINEDU para registro de matrículas, asistencias y actas de evaluación." },
+            { term: "PCA", def: "Planificación Curricular Anual. Instrumento de gestión operativa a largo plazo que organiza las unidades y experiencias de todo el año escolar." },
+            { term: "Desempeño Precisado", def: "Descripción acotada y observable de lo que hace el estudiante respecto a una capacidad, contextualizada al tema exacto de la sesión." },
+            { term: "Matriz de Consistencia", def: "Esquema lógico que garantiza la coherencia absoluta e indivisible entre Competencia, Capacidad, Desempeño, Evidencia y Criterio de evaluación." },
+            { term: "Conflicto Cognitivo", def: "Desequilibrio generado en las estructuras mentales del estudiante al enfrentar un reto que no puede resolver con sus saberes previos." },
+            { term: "CNOF", def: "Catálogo Nacional de la Oferta Formativa. Referente normativo que define las competencias técnicas para la educación técnico-productiva (CETPRO)." },
+            { term: "SINEACE", def: "Sistema Nacional de Evaluación, Acreditación y Certificación de la Calidad Educativa." },
+            { term: "Candado Semántico", def: "Instrucción de ingeniería de prompts (IA) diseñada para restringir el vocabulario de la máquina a un marco normativo específico." },
+            { term: "MINEDU", def: "Ministerio de Educación del Perú. Ente rector del sector educativo a nivel nacional." },
+            { term: "EdA", def: "Experiencia de Aprendizaje. Conjunto de actividades didácticas que conducen a los estudiantes a enfrentar una situación significativa." },
+            { term: "Situación Significativa", def: "Problema, desafío o necesidad del contexto real de los estudiantes que moviliza sus competencias para buscar una solución." },
+            { term: "Prompt", def: "Instrucción, comando o texto que se introduce en una Inteligencia Artificial para solicitar la generación de un contenido." },
+            { term: "RCOPE", def: "Acrónimo metodológico de DIAE (Rol, Contexto, Objetivo, Pasos, Estructura) para estructurar prompts docentes de alta precisión." },
+            { term: "Few-Shot Prompting", def: "Técnica de Inteligencia Artificial que consiste en alimentar al modelo con 2 o 3 ejemplos previos para que clone un formato o estilo de redacción." },
+            { term: "Cadena de Pensamiento", def: "Instrucción que force a la IA a resolver un problema pedagógico dividiéndolo en pasos lógicos secuenciales." },
+            { term: "Alucinación Terminológica", def: "Error de los modelos de IA al inventar conceptos educativos o mezclar currículos de otros países (ej. usar 'objetivos' en lugar de 'propósitos')." },
+            { term: "SAANEE", def: "Servicio de Apoyo y Asesoramiento para la Atención de las Necesidades Educativas Especiales." },
+            { term: "NEE", def: "Necesidades Educativas Especiales. Requerimientos de apoyo o adaptaciones que precisa un estudiante para acceder al currículo." },
+            { term: "EBA", def: "Educación Básica Alternativa. Modalidad orientada a jóvenes y adultos que no culminaron la educación básica regular." },
+            { term: "CETPRO", def: "Centro de Educación Técnico-Productiva. Institución orientada a la adquisición de competencias laborales y de emprendimiento." }
+        ];
+
+        const DiaeStorage = {
+            get(key) { try { return localStorage.getItem(key); } catch (e) { return null; } },
+            set(key, value) { try { localStorage.setItem(key, value); return true; } catch (e) { return false; } }
+        };
+
+        let currentFontSize = 1;
+        function changeFontSize(step) { currentFontSize += step; if(currentFontSize < 0.8) currentFontSize = 0.8; if(currentFontSize > 1.4) currentFontSize = 1.4; document.documentElement.style.setProperty('--font-multiplier', currentFontSize); }
+        function toggleBookmark(btn) { btn.classList.toggle('bookmarked'); btn.innerHTML = btn.classList.contains('bookmarked') ? '<i class="ph-fill ph-bookmark"></i>' : '<i class="ph ph-bookmark"></i>'; }
+        function shareWA(msg = "Estoy leyendo un libro buenísimo sobre IA y Diseño Curricular de DIAE 🎓📚") { window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'); }
+
+        function activarMembresiaPRO() {
+            const numeroDiae = "51966387995";
+            const mensaje = "Hola, quiero inscribirme al Plan Fundador de DIAE PRO. ¿Me cuentan cómo continúo?";
+            window.open(`https://wa.me/${numeroDiae}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener');
+        }
+
+        function saveNote(textarea) { const slideId = textarea.closest('.lms-slide').id; DiaeStorage.set('diae_note_' + slideId, textarea.value); if(textarea.value.trim() !== "") { const msgBox = textarea.nextElementSibling; msgBox.style.display = 'block'; setTimeout(() => { msgBox.style.display = 'none'; }, 2000); } }
+        function restoreNotes() { document.querySelectorAll('.lms-slide').forEach(slide => { const noteInput = slide.querySelector('.notes-input'); if (noteInput) { const saved = DiaeStorage.get('diae_note_' + slide.id); if (saved) noteInput.value = saved; } }); }
+        function copyPrompt(btn) { const body = btn.parentElement.nextElementSibling; if(body && body.classList.contains('terminal-body')) { navigator.clipboard.writeText(body.innerText).then(() => { const originalIcon = btn.innerHTML; btn.innerHTML = '<i class="ph ph-check"></i> Copiado'; btn.style.color = 'var(--success-soft)'; setTimeout(() => { btn.innerHTML = originalIcon; btn.style.color = 'var(--text-secondary)'; }, 2000); }); } }
+
+        const glossaryModal = document.getElementById('glossary-modal');
+        function toggleGlossary() { glossaryModal.classList.toggle('active'); if(glossaryModal.classList.contains('active')) renderGlossary(); }
+        function filterGlossary(val) { renderGlossary(val); }
+
+        function renderGlossary(filter = "") {
+            const grid = document.getElementById('glossary-grid'); grid.innerHTML = '';
+            const filtered = glossaryData.filter(item => item.term.toLowerCase().includes(filter.toLowerCase()) || item.def.toLowerCase().includes(filter.toLowerCase()));
+            if(filtered.length === 0) { grid.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted)">No se hallaron coincidencias para "${filter}".</div>`; return; }
+            filtered.forEach(item => { const div = document.createElement('div'); div.className = 'term-card'; div.innerHTML = `<h5><span>${item.term}</span> <i class="ph ph-check" style="font-size:0.8rem; opacity:0.4"></i></h5><p>${item.def}</p>`; grid.appendChild(div); });
+        }
+
+        const tipCard = document.getElementById('floating-tip-card');
+        document.querySelectorAll('.diae-tooltip').forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                const term = elem.getAttribute('data-term') || elem.innerText.trim();
+                const dictObj = glossaryData.find(d => d.term.toLowerCase() === term.toLowerCase());
+                tipCard.innerHTML = dictObj ? `<strong>${dictObj.term}</strong><p>${dictObj.def}</p>` : `<strong>${term}</strong><p>Definición indexada en el Glosario Oficial.</p>`;
+                const rect = elem.getBoundingClientRect(); tipCard.style.left = `${Math.max(20, rect.left + window.scrollX - 40)}px`; tipCard.style.top = `${rect.bottom + window.scrollY + 8}px`; tipCard.classList.add('show');
+            });
+            elem.addEventListener('mouseleave', () => { tipCard.classList.remove('show'); });
+        });
+
+        const tocDrawer = document.getElementById('toc-drawer');
+        function toggleTOC() { tocDrawer.classList.toggle('active'); }
+        document.addEventListener('click', (e) => { if(!tocDrawer.contains(e.target) && !e.target.closest('.btn-toc') && tocDrawer.classList.contains('active')) { tocDrawer.classList.remove('active'); } if(e.target === glossaryModal) toggleGlossary(); });
+
+        const stars = document.querySelectorAll('#star-rating-box i');
+        const starHiddenInput = document.getElementById('user-star-val');
+        stars.forEach(star => { star.addEventListener('click', () => { const rating = parseInt(star.getAttribute('data-score')); starHiddenInput.value = rating; stars.forEach(s => { const val = parseInt(s.getAttribute('data-score')); s.className = val <= rating ? 'ph-fill ph-star active-star' : 'ph-fill ph-star'; }); }); });
+
+        function procesarEncuesta() { if(starHiddenInput.value === "0") { alert("Por favor, selecciona una calificación de estrellas antes de continuar."); return; } const msg = document.getElementById('survey-ok-check'); msg.style.display = 'block'; setTimeout(() => { nextSlide(); }, 1200); }
+
+        let currentSlide = 0; const domSlides = document.querySelectorAll('.lms-slide'); const btnPrev = document.getElementById('btnPrev'); const btnNext = document.getElementById('btnNext'); const footer = document.getElementById('lms-footer'); const progressBarFill = document.getElementById('card-progress'); const progressIndicator = document.getElementById('progress-current');
+        const savedSlideIndex = DiaeStorage.get('diae_last_slide'); if (savedSlideIndex !== null) { const parsed = parseInt(savedSlideIndex, 10); if(parsed < domSlides.length) currentSlide = parsed; }
+
+        const readingTotal = domSlides.length - 3;
+
+        const hitosLectura = [0.25, 0.5, 0.75, 1].map(p => Math.round(readingTotal * p));
+
+        function dispararDopamina(slideIndex) {
+            if (hitosLectura.includes(slideIndex) && typeof confetti !== 'undefined') {
+                
+                const recompensaDada = DiaeStorage.get('diae_premio_slide_' + slideIndex);
+                
+                if (!recompensaDada) {
+                    const coloresDiae = ['#10b981', '#06b6d4', '#f59e0b', '#ffffff'];
+                    
+                    if (slideIndex === readingTotal) {
+                        const duration = 3000;
+                        const end = Date.now() + duration;
+                        (function frame() {
+                            confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
+                            confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1, y: 0.8 }, colors: coloresDiae, zIndex: 9999 });
+                            if (Date.now() < end) requestAnimationFrame(frame);
+                        }());
+                    } else {
+                        confetti({
+                            particleCount: 120,
+                            spread: 80,
+                            origin: { y: 0.6 },
+                            colors: coloresDiae,
+                            zIndex: 9999
+                        });
+                    }
+                    
+                    DiaeStorage.set('diae_premio_slide_' + slideIndex, 'entregado');
+                }
+            }
+        }
+
+        function updateUI() {
+if (window.speechSynthesis) { window.speechSynthesis.cancel(); reproduciendo = false; typeof resetIconosAudio === 'function' && resetIconosAudio(); typeof limpiarHighlights === 'function' && limpiarHighlights(); }
+    domSlides.forEach((slide, index) => { 
+        slide.classList.remove('active', 'previous'); 
+        if (index < currentSlide) slide.classList.add('previous'); 
+        else if (index === currentSlide) slide.classList.add('active'); 
+    });
+
+    domSlides[currentSlide].scrollTop = 0;
+
+    const indexEncuesta = domSlides.length - 2;
+    const indexPro = domSlides.length - 1;
+
+    if (currentSlide === 0 || currentSlide === indexPro) {
+        footer.style.display = 'none';
+    } else {
+        footer.style.display = 'flex';
+        btnPrev.disabled = false;
+
+        if (currentSlide === indexEncuesta) {
+            btnNext.style.display = 'none';
+            progressIndicator.innerHTML = '<span style="color:var(--accent-glow)"><i class="ph-fill ph-check-square"></i> Encuesta</span>'; 
+            progressBarFill.style.width = '95%';
+        } else {
+            btnNext.style.display = 'inline-flex';
+
+            const percent = (currentSlide / readingTotal) * 90; 
+            progressBarFill.style.width = percent + '%'; 
+            progressIndicator.innerHTML = `${currentSlide} / ${readingTotal}`; 
+
+            btnNext.innerHTML = (currentSlide === readingTotal) 
+                ? '<span class="desktop-text">Evaluar Libro</span><span class="mobile-text">Evaluar</span> <i class="ph ph-check"></i>' 
+                : '<span class="desktop-text">Guardar y Continuar</span><span class="mobile-text">Continuar</span> <i class="ph ph-arrow-right"></i>';
+        }
+    }
+
+    DiaeStorage.set('diae_last_slide', currentSlide); 
+            updateDrawerUI(currentSlide);
+            
+            dispararDopamina(currentSlide);
+
+            // Le avisamos a Google Analytics en qué módulo exacto está el lector
+            if (typeof gtag === 'function') {
+                const tituloModulo = domSlides[currentSlide].getAttribute('data-title') || 'Modulo ' + currentSlide;
+                
+                gtag('event', 'page_view', {
+                    page_title: currentSlide + '. ' + tituloModulo,
+                    page_location: window.location.origin + window.location.pathname + '?modulo=' + currentSlide
+                });
+
+                // Si llega a la venta PRO (Slide 22), disparamos un evento de alto valor
+                if (currentSlide === domSlides.length - 1) {
+                    gtag('event', 'llego_a_oferta_pro');
+                }
+            }
+}
+
+        function nextSlide() { if (currentSlide < domSlides.length - 1) { currentSlide++; updateUI(); } }
+        function jumpToSlide(index) { if(index >= 0 && index < domSlides.length) { currentSlide = index; updateUI(); if(window.innerWidth <= 1024) { sidebar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; } } }
+        btnPrev.addEventListener('click', () => { if (currentSlide > 0) { currentSlide--; updateUI(); } });
+
+        function buildDrawerTOC() {
+            const list = document.getElementById('toc-drawer-list'); list.innerHTML = '';
+            domSlides.forEach((slide, index) => {
+                if(index === 0 || index === domSlides.length - 1) return;
+                const title = slide.getAttribute('data-title'); const isMajorChapter = title.toLowerCase().includes('capítulo') || title.toLowerCase().includes('anexos');
+                const li = document.createElement('li');
+                if(isMajorChapter) { li.className = 'toc-item-chapter'; li.innerHTML = `<span>${title}</span> <i class="ph ph-stack" style="font-size:0.75rem; opacity:0.5;"></i>`; } else { li.className = `toc-item-sub`; li.innerHTML = `<span>${title}</span>`; }
+                li.onclick = () => { jumpToSlide(index); toggleTOC(); }; list.appendChild(li);
+            });
+        }
+
+        function updateDrawerUI(currentIndex) { document.querySelectorAll('#toc-drawer-list li').forEach((item, idx) => { const realIndex = idx + 1; item.classList.remove('active'); if(!item.classList.contains('toc-item-chapter')) item.style.color = 'var(--text-secondary)'; if (realIndex === currentIndex && !item.classList.contains('toc-item-chapter')) item.classList.add('active'); }); }
+
+        restoreNotes(); buildDrawerTOC(); updateUI();
+
+        document.addEventListener('keydown', (e) => {
+            const escribiendo = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+            if (e.key === 'Escape') {
+                if (glossaryModal.classList.contains('active')) toggleGlossary();
+                if (tocDrawer.classList.contains('active')) toggleTOC();
+                return;
+            }
+            if (escribiendo) return;
+            if (e.key === 'ArrowRight' && !btnNext.disabled && btnNext.style.display !== 'none') { nextSlide(); }
+            if (e.key === 'ArrowLeft' && currentSlide > 0) { currentSlide--; updateUI(); }
+        });
+
+const menuBtn = document.getElementById('mobile-menu-btn'); 
+const sidebar = document.getElementById('sidebar'); 
+const overlay = document.getElementById('sidebar-overlay');
+
+function abrirMenuMovil() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function cerrarMenuMovil() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if(menuBtn) menuBtn.addEventListener('click', abrirMenuMovil);
+
+if(overlay) overlay.addEventListener('click', cerrarMenuMovil);
+
+document.querySelectorAll('#sidebar a, #sidebar .user-profile-mini').forEach(item => {
+    item.addEventListener('click', () => {
+        if(window.innerWidth <= 1024) cerrarMenuMovil();
+    });
+});
+
+window.addEventListener('resize', () => {
+    if(window.innerWidth > 1024) cerrarMenuMovil();
+});
+
+        function descargarMisApuntes() {
+            let contenidoTxt = "=================================================\n";
+            contenidoTxt += "MIS APUNTES - DIAE PRO\n";
+            contenidoTxt += "Libro: Diseño Curricular y Optimización del Tiempo\n";
+            contenidoTxt += "=================================================\n\n";
+
+            let hayNotas = false;
+
+            document.querySelectorAll('.lms-slide').forEach(slide => {
+                const tituloModulo = slide.getAttribute('data-title');
+                const notaGuardada = DiaeStorage.get('diae_note_' + slide.id);
+
+                if (notaGuardada && notaGuardada.trim() !== "") {
+                    hayNotas = true;
+                    contenidoTxt += "📌 " + tituloModulo.toUpperCase() + "\n";
+                    contenidoTxt += "-------------------------------------------------\n";
+                    contenidoTxt += notaGuardada + "\n\n";
+                }
+            });
+
+            if (!hayNotas) {
+                alert("Aún no has escrito ningún apunte en los módulos. ¡Escribe algo primero para poder descargarlo!");
+                return;
+            }
+
+            const blob = new Blob([contenidoTxt], { type: "text/plain;charset=utf-8" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "Mis_Apuntes_Curriculares_DIAE.txt";
+            link.click();
+        }
+
+    </script>
+
+<script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA' && !e.target.closest('.terminal-body')) {
+                e.preventDefault();
+            }
+        });
+</script>
+
+<script>
+        document.querySelectorAll('.slide-header-actions').forEach(header => {
+            if (!header.querySelector('.slide-actions-group')) {
+                const group = document.createElement('div');
+                group.className = 'slide-actions-group';
+                group.innerHTML =
+                    '<button class="tool-btn" onclick="toggleBookmark(this)" title="Guardar" aria-label="Guardar este módulo"><i class="ph ph-bookmark"></i></button>' +
+                    '<button class="tool-btn" onclick="shareWA()" title="Compartir" aria-label="Compartir por WhatsApp"><i class="ph ph-whatsapp-logo"></i></button>';
+                header.appendChild(group);
+            }
+        });
+        
+        document.querySelectorAll('.slide-actions-group').forEach(group => {
+            const audioWrapper = document.createElement('div');
+            audioWrapper.className = 'audio-controls';
+            
+            const btnSpeed = document.createElement('div');
+            btnSpeed.className = 'btn-speed';
+            btnSpeed.title = 'Velocidad de lectura';
+            btnSpeed.innerText = '1x';
+            btnSpeed.onclick = function() { cambiarVelocidad(this); };
+
+            const btnAudio = document.createElement('button');
+            btnAudio.className = 'tool-btn btn-audio';
+            btnAudio.title = 'Escuchar Módulo guiado';
+            btnAudio.innerHTML = '<i class="ph-fill ph-speaker-high"></i>';
+            btnAudio.onclick = function() { toggleAudiolibro(this); };
+
+            audioWrapper.appendChild(btnSpeed);
+            audioWrapper.appendChild(btnAudio);
+            
+            group.insertBefore(audioWrapper, group.firstChild); 
+        });
+
+        let velocidadAudio = 1.0;
+        const velocidades = [1.0, 1.25, 1.5, 0.85]; // Ciclo de velocidades
+        let velocidadIndex = 0;
+
+        function cambiarVelocidad(btn) {
+            velocidadIndex = (velocidadIndex + 1) % velocidades.length;
+            velocidadAudio = velocidades[velocidadIndex];
+            
+            document.querySelectorAll('.btn-speed').forEach(b => {
+                b.innerText = velocidadAudio + 'x';
+            });
+
+            if (reproduciendo) {
+                const btnActivo = document.querySelector('.ph-stop-circle').closest('.btn-audio');
+                if(btnActivo) {
+                    toggleAudiolibro(btnActivo);
+                    setTimeout(() => toggleAudiolibro(btnActivo), 50);
+                }
+            }
+        }
+
+        const vozSynth = window.speechSynthesis;
+        let reproduciendo = false;
+        let elementosLectura = [];
+        let indiceLectura = 0;
+
+        function obtenerVozEspanol() {
+            if (!vozSynth) return null;
+            const voces = vozSynth.getVoices();
+            if (!voces || voces.length === 0) return null;
+            return voces.find(v => v.lang === 'es-PE')
+                || voces.find(v => v.lang === 'es-419')
+                || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es') && v.lang.toLowerCase() !== 'es-es')
+                || voces.find(v => v.lang && v.lang.toLowerCase().startsWith('es'))
+                || null;
+        }
+
+        function limpiarHighlights() {
+            document.querySelectorAll('.reading-highlight').forEach(el => {
+                el.classList.remove('reading-highlight');
+            });
+        }
+
+        function leerSiguienteElemento(btn) {
+            if (!reproduciendo || indiceLectura >= elementosLectura.length) {
+                reproduciendo = false;
+                resetIconosAudio();
+                limpiarHighlights();
+                return;
+            }
+
+            const elementoActual = elementosLectura[indiceLectura];
+            limpiarHighlights();
+            elementoActual.classList.add('reading-highlight');
+            
+            elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            const textoLimpio = elementoActual.textContent.trim();
+            
+            if (!textoLimpio) {
+                indiceLectura++;
+                leerSiguienteElemento(btn);
+                return;
+            }
+
+            const mensaje = new SpeechSynthesisUtterance(textoLimpio);
+            const vozPreferida = obtenerVozEspanol();
+            if (vozPreferida) {
+                mensaje.voice = vozPreferida;
+                mensaje.lang = vozPreferida.lang;
+            } else {
+                mensaje.lang = 'es-419';
+            }
+            mensaje.rate = velocidadAudio;
+
+            mensaje.onend = function() {
+                indiceLectura++;
+                leerSiguienteElemento(btn);
+            };
+            
+
+            mensaje.onerror = function() {
+                reproduciendo = false;
+                resetIconosAudio();
+                limpiarHighlights();
+            };
+
+            vozSynth.speak(mensaje);
+        }
+
+        function toggleAudiolibro(btn) {
+            const icon = btn.querySelector('i');
+
+            if (reproduciendo) {
+                vozSynth.cancel();
+                reproduciendo = false;
+                resetIconosAudio();
+                limpiarHighlights();
+                return;
+            }
+
+            vozSynth.cancel(); 
+            resetIconosAudio();
+            limpiarHighlights();
+
+            const slide = btn.closest('.lms-slide');
+            const content = slide.querySelector('.slide-content-wrapper');
+            if (!content) return;
+
+            const todosElementos = Array.from(content.querySelectorAll('h2, h3, h4, p, li'));
+            elementosLectura = todosElementos.filter(el => !el.closest('.terminal-box'));
+            
+            if (elementosLectura.length === 0) return;
+
+            indiceLectura = 0;
+            reproduciendo = true;
+            
+            icon.className = 'ph-fill ph-stop-circle';
+            icon.style.color = '#f43f5e';
+
+            leerSiguienteElemento(btn);
+        }
+
+        function resetIconosAudio() {
+            document.querySelectorAll('.btn-audio i').forEach(i => {
+                i.className = 'ph-fill ph-speaker-high';
+                i.style.color = ''; 
+            });
+        }
+</script>
+</body>
+</html>
