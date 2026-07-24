@@ -15,9 +15,6 @@
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     
     <style>
-        /* ====================================================================
-           1. ADN DIAE (Variables exactas de index.html)
-        ==================================================================== */
         :root {
             --bg-base: #090a0f; 
             --orb-1: rgba(16, 185, 129, 0.18); 
@@ -55,7 +52,7 @@
             font-family: var(--font-main); 
             background-color: var(--bg-base); 
             color: var(--text-primary); 
-            line-height: 1.8; /* RESTAURADO AL 100% PARA MATCH DE INTERLINEADO */
+            line-height: 1.8;
             -webkit-font-smoothing: antialiased; 
             min-height: 100vh;
             display: flex;
@@ -63,20 +60,15 @@
             position: relative;
         }
 
-        /* --- Orbes --- */
         .orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: 0; animation: floatOrb 28s infinite alternate ease-in-out; pointer-events: none; }
         .orb-1 { width: 500px; height: 500px; background: var(--orb-1); top: -5%; left: 15%; }
         .orb-2 { width: 600px; height: 600px; background: var(--orb-2); bottom: -10%; right: 10%; animation-delay: -14s; }
         @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(80px, 50px) scale(1.15); } }
 
-        /* --- Animaciones --- */
         .fade-in { animation: popIn 0.8s var(--spring-bounce) backwards; }
         .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
         @keyframes popIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
 
-        /* ====================================================================
-           2. NAVEGACIÓN Y SIDEBAR (Exacto a index.html)
-        ==================================================================== */
         .sidebar { 
             width: var(--sidebar-width); background: var(--glass-surface); 
             backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); 
@@ -105,7 +97,6 @@
         .user-info .ph-seal-check { color: var(--accent-glow); font-size: 1rem; }
         .badge-pro { background: var(--accent-gradient); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 6px; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
 
-        /* --- Estilos Menú Móvil --- */
         .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(4, 5, 8, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 950; opacity: 0; transition: opacity 0.3s ease; }
         .sidebar-overlay.active { display: block; opacity: 1; }
         @media (max-width: 1024px) {
@@ -115,9 +106,6 @@
             .sidebar-overlay.active { opacity: 1; pointer-events: auto; }
         }
 
-        /* ====================================================================
-           3. CONTENIDO PRINCIPAL (Layout de antiguo.html + Diseño Nuevo)
-        ==================================================================== */
         .mobile-header {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 70px;
             background: rgba(9, 10, 15, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -135,7 +123,6 @@
             transition: all 0.4s var(--spring-bounce);
         }
 
-        /* --- TOP HEADER (Buscador y Bienvenida) --- */
         .top-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 45px; gap: 30px;}
         .welcome-text { flex: 1; }
         .welcome-text h1 {
@@ -157,14 +144,12 @@
         .search-icon-btn { color: var(--text-secondary); font-size: 1.2rem; background: none; border: none; cursor: pointer; transition: color 0.3s; }
         .search-bar:focus-within .search-icon-btn { color: var(--accent-glow); }
 
-        /* --- VISTA DE ESTADO VACÍO (MOCKUP BÚSQUEDA) --- */
         #search-results-view { display: none; text-align: center; padding: 60px 20px; flex: 1; }
         .empty-icon { font-size: 4.5rem; color: rgba(255,255,255,0.05); margin-bottom: 25px; }
         .empty-title { font-size: 1.6rem; color: var(--text-title); font-weight: 800; margin-bottom: 15px; letter-spacing: -0.01em; }
         .empty-desc { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.6; max-width: 500px; margin: 0 auto 35px auto; }
         .query-highlight { color: var(--accent-glow); }
 
-        /* --- HERO BANNER (Estado de Lectura) --- */
         .hero-banner {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(19, 22, 31, 0.8) 100%);
             border: 1px solid var(--glass-border); border-top: 2px solid var(--accent-glow);
@@ -209,7 +194,6 @@
         .btn-retomar i { transition: transform 0.3s ease; }
         .btn-retomar:hover i { transform: translateX(5px); }
 
-        /* --- BANNER DELIVERY / INFO --- */
         .delivery-banner {
             background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border);
             border-radius: 18px; padding: 22px 30px; display: flex; align-items: center; gap: 22px;
@@ -219,11 +203,9 @@
         .delivery-text h3 { font-size: 1.05rem; color: var(--text-title); font-weight: 700; margin-bottom: 4px; }
         .delivery-text p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; margin: 0;}
 
-        /* --- TÍTULO DE SECCIÓN --- */
         .section-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 25px; color: var(--text-title); letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px;}
         .section-title i { color: var(--accent-glow); }
 
-        /* --- GRID EDITORIAL (EL DISEÑO DE LOS 8 LIBROS) --- */
         .editorial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; margin-bottom: 50px; }
 
         .glass-book {
@@ -276,7 +258,6 @@
         .action-link i { transition: transform 0.3s ease; }
         .glass-book:hover:not(.locked) .action-link i { transform: translateX(5px); }
 
-        /* --- ESTADO VACÍO (BÚSQUEDA) --- */
         #search-results-view { display: none; text-align: center; padding: 60px 20px; flex: 1; }
         .empty-icon { font-size: 4.5rem; color: rgba(255,255,255,0.05); margin-bottom: 25px; }
         .empty-title { font-size: 1.6rem; color: var(--text-title); font-weight: 800; margin-bottom: 15px; letter-spacing: -0.01em; }
@@ -298,7 +279,6 @@
         }
         .dashboard-footer span { font-weight: 600; color: var(--text-secondary); }
 
-        /* --- RESPONSIVE MOBILE --- */
         @media (max-width: 1200px) {
             .hero-icon { opacity: 0.1; right: -50px; }
         }
@@ -319,14 +299,11 @@
 </head>
 <body>
 
-    <!-- Orbes Exactos -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     
-    <!-- Overlay móvil -->
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- Smart Header Móvil -->
     <header class="mobile-header" id="mobile-header">
         <div class="mobile-brand">
             <a href="https://www.diae.pe">
@@ -336,7 +313,6 @@
         <button class="mobile-menu-toggle" id="mobile-menu-toggle"><i class="ph ph-list"></i></button>
     </header>
 
-    <!-- Sidebar Literal y Exacto -->
     <aside class="sidebar fade-in" id="sidebar">
         <div class="brand"><a href="https://www.diae.pe"><img src="https://www.diae.pe/diae-logo.png" alt="DIAE Educa"></a></div>
         <nav class="nav-menu">
@@ -358,7 +334,6 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
         
         <header class="top-header fade-in delay-1">
@@ -372,10 +347,8 @@
             </div>
         </header>
 
-        <!-- CONTENEDOR PRINCIPAL -->
         <div id="main-view">
             
-            <!-- Hero Banner -->
             <section class="hero-banner fade-in delay-2">
                 <div class="hero-content">
                     <div class="status-indicator">
@@ -396,7 +369,6 @@
                 <i class="ph-duotone ph-book-open-text hero-icon"></i>
             </section>
 
-            <!-- Banner Informativo -->
             <div class="delivery-banner fade-in delay-2">
                 <div class="delivery-icon"><i class="ph-fill ph-rocket-launch"></i></div>
                 <div class="delivery-text">
@@ -407,7 +379,6 @@
 
             <h3 class="section-title fade-in delay-3"><i class="ph-fill ph-books"></i> Repositorio Editorial DIAE</h3>
 
-            <!-- GRID DE 8 LIBROS -->
             <div class="editorial-grid">
                 
                 <!-- LIBRO 1 (DISPONIBLE) -->
@@ -449,17 +420,18 @@
                     </div>
                 </a>
 
-                <!-- LIBRO 4 (BLOQUEADO) -->
-                <article class="glass-book locked fade-in delay-4">
-                    <div class="book-badge"><i class="ph-fill ph-lock-key"></i> LIBRO 4</div>
+                <!-- LIBRO 4 (DISPONIBLE) -->
+                <a href="https://www.diae.pe/proyectos-de-innovacion-que-ganan-ingenieria-de-prompts-para-concursos-fondep.html" class="glass-book fade-in delay-4">
+                    <div class="book-badge">LIBRO 4</div>
                     <div class="book-icon"><i class="ph-duotone ph-trophy"></i></div>
                     <span class="book-subtitle">El Prestigio y Financiamiento</span>
                     <h3>Proyectos de Innovación que Ganan: Ingeniería de Prompts para Concursos FONDEP</h3>
                     <p>Todo director y docente peruano quiere ganar las subvenciones del FONDEP o destacar en ferias de ciencias (FENCYT). Estructurar el árbol de problemas, la justificación metodológica y el presupuesto es una barrera inmensa. Este libro convierte a la IA en un formulador de proyectos de inversión educativa, garantizando consistencia técnica para ganar los concursos.</p>
                     <div class="book-footer">
-                        <span>Próximamente</span>
+                        <span>Edición Completa</span>
+                        <div class="action-link">Leer ahora <i class="ph ph-arrow-right"></i></div>
                     </div>
-                </article>
+                </a>
 
                 <!-- LIBRO 5 (BLOQUEADO) -->
                 <article class="glass-book locked fade-in delay-4">
@@ -529,7 +501,6 @@
     </main>
 
     <script>
-        // --- FIX JS: Menú Móvil ---
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -564,7 +535,6 @@
             });
         });
 
-        // Ocultar/Mostrar el Smart Header al hacer Scroll (Anti-fatiga)
         let lastScrollY = window.scrollY;
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 1024) {
@@ -585,7 +555,6 @@
             }
         });
 
-        // --- LÓGICA DEL BUSCADOR MOCKUP ---
         const searchInput = document.getElementById('search-input');
         const searchBtn = document.getElementById('search-btn');
         const mainView = document.getElementById('main-view');
