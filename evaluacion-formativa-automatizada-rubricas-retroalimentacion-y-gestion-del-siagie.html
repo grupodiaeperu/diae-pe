@@ -69,7 +69,6 @@
             *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
         }
 
-        /* SIDEBAR */
         .sidebar { width: var(--sidebar-width); background: var(--glass-surface); backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); border-right: 1px solid var(--glass-border); height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; padding: 35px 25px; z-index: 1000; transition: transform 0.4s var(--spring-bounce); }
         .brand { display: flex; align-items: center; margin-bottom: 45px; }
         .brand img { height: 80px; width: auto; display: block; }
@@ -91,7 +90,6 @@
         .user-info .ph-seal-check { color: var(--accent-glow); font-size: 1rem; }
         .badge-pro { background: var(--accent-gradient); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 6px; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
 
-        /* HEADER */
         .reader-header { position: fixed; top: 0; left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 75px; background: var(--glass-surface); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; z-index: 900; transition: all 0.4s; }
         .header-left { display: flex; align-items: center; gap: 15px; min-width: 0; }
         .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--glass-border); color: var(--text-title); font-size: 1.2rem; cursor: pointer; width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; flex-shrink: 0;}
@@ -109,7 +107,6 @@
         .btn-toc:hover { background: var(--accent-glow); color: #000; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
         .progress-indicator { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); font-family: var(--font-code); padding-left: 8px; border-left: 1px solid var(--glass-border); }
 
-        /* CAJÓN ÍNDICE */
         .toc-drawer { position: fixed; top: 75px; right: -380px; width: 360px; height: calc(100vh - 75px); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(40px) saturate(150%); border-left: 1px solid var(--glass-border); z-index: 850; transition: right 0.4s var(--spring-bounce); padding: 25px 20px; overflow-y: auto; box-shadow: -25px 0 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; }
         .toc-drawer.active { right: 0; }
         .toc-drawer-brand { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; padding-left: 5px; }
@@ -122,7 +119,6 @@
         .toc-item-sub.active { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-glow); font-weight: 600; }
         .toc-item-sub.active::before { background: var(--accent-glow); width: 6px; height: 6px; }
 
-        /* MODAL GLOSARIO */
         .glossary-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: 9999; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s var(--spring-bounce); }
         .glossary-modal.active { opacity: 1; pointer-events: auto; }
         .glossary-box { width: 100%; max-width: 750px; max-height: 85vh; background: var(--glass-surface); border: 1px solid var(--glass-border-highlight); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-ambient), var(--shadow-inner); transform: translateY(25px); transition: transform 0.3s var(--spring-bounce); }
@@ -136,7 +132,6 @@
         .term-card h5 { color: var(--accent-glow); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; display: flex; justify-content: space-between;}
         .term-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
-        /* ENTORNO CENTRAL */
         .main-content { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 10; padding: 95px 40px 25px 40px; transition: all 0.4s; }
         .lms-card { width: 100%; max-width: 980px; height: 100%; background: var(--glass-card); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--shadow-ambient), var(--shadow-inner); display: flex; flex-direction: column; overflow: hidden; position: relative; }
         .card-top-progress-track { width: 100%; height: 3px; background: rgba(255,255,255,0.04); position: relative; z-index: 50; }
@@ -149,7 +144,6 @@
         .lms-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
         .lms-slide.previous { transform: translateX(-40px); }
 
-        /* PORTADA MODERNA */
         .hero-canvas { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; text-align: center; max-width: 760px; margin: 0 auto; padding: 10px 20px;}
         .hero-pills-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
         .hero-pill { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
@@ -178,7 +172,6 @@
         .slide-actions-group .tool-btn:hover { background: var(--accent-glow); color: #000; border-color: var(--accent-glow); transform: translateY(-2px); }
         .slide-actions-group .tool-btn.bookmarked { color: #f59e0b; border-color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
 
-        /* TIPOGRAFÍA EDITORIAL */
         .slide-content-wrapper { font-size: calc(1.05rem * var(--font-multiplier)); }
         .slide-title { font-size: clamp(1.6rem, 3.2vw, 2.2rem); color: var(--text-title); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 30px; text-transform: uppercase;}
         h3 { font-size: calc(1.35rem * var(--font-multiplier)); color: var(--text-title); font-weight: 700; margin: 40px 0 15px 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
@@ -192,7 +185,6 @@
         ol { counter-reset: list-counter; }
         ol li::before { content: counter(list-counter) "."; color: var(--accent-glow); position: absolute; left: 0; font-size: 0.95rem; top: 2px; font-weight: bold; font-family: var(--font-code);}
 
-        /* TABLAS ELEGANTES */
         .custom-table-container { width: 100%; overflow-x: auto; margin: 25px 0; border-radius: 14px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); box-shadow: var(--shadow-inner); }
         .custom-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
         .custom-table th { background: rgba(16, 185, 129, 0.15); color: #fff; padding: 14px 18px; font-weight: 700; border-bottom: 1px solid var(--glass-border-highlight); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; white-space: nowrap; }
@@ -200,7 +192,6 @@
         .custom-table tr:last-child td { border-bottom: none; }
         .custom-table tr:hover td { background: rgba(255,255,255,0.03); color: var(--text-primary); }
 
-        /* TOOLTIPS VIVOS */
         .diae-tooltip { border-bottom: 1px dashed var(--accent-glow); cursor: pointer; position: relative; color: var(--text-primary); font-weight: 600; transition: all 0.2s; background: rgba(16, 185, 129, 0.08); padding: 0 4px; border-radius: 4px; }
         .diae-tooltip:hover { color: var(--accent-glow); background: rgba(16, 185, 129, 0.15); }
         .floating-tip-card { position: absolute; z-index: 10000; width: 300px; background: #0f1117; border: 1px solid var(--accent-glow); padding: 14px 18px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); pointer-events: none; opacity: 0; transform: translateY(10px); transition: opacity 0.2s ease, transform 0.2s ease; }
@@ -232,7 +223,6 @@
         .notes-input:focus { border-color: var(--accent-glow); }
         .notes-save-msg { font-size: 0.75rem; color: var(--success-soft); margin-top: 6px; display: none; }
 
-        /* FOOTER */
         .lms-footer { padding: 16px 40px; background: rgba(6, 7, 10, 0.85); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; z-index: 30; }
         .btn-lms { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-family: var(--font-main); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; border: none; outline: none; text-decoration: none; background: var(--accent-gradient); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);}
         .btn-lms:hover { filter: brightness(1.1); transform: translateY(-1px); }
@@ -466,7 +456,7 @@
                         <p>El reloj marca las 2:30 de la madrugada en el comedor de una casa en Huancayo, en un departamento en el Callao o en una vivienda magisterial en la selva de Yurimaguas. Sobre la mesa ya no hay platos, sino altas torres de cuadernos, fólderes con evidencias, portafolios y una laptop con la pantalla brillando en medio de la oscuridad. El bimestre está cerrando; el trimestre ha llegado a su fin. En pocas horas, la Institución Educativa exigirá las notas en el registro, la Dirección revisará las carpetas pedagógicas y el sistema informático del Ministerio de Educación abrirá sus ventanas para el cargado oficial de datos.</p>
                         <p>Este es el verdadero nudo crítico del magisterio en el Perú del año 2026. Si bien la planificación curricular exige rigor, la <span class="diae-tooltip" data-term="Evaluación Formativa">evaluación formativa</span> representa la mayor carga de desgaste emocional y extenuación laboral para el educador. En nuestra realidad del sistema educativo nacional —donde las aulas de Educación Básica Regular (<span class="diae-tooltip" data-term="EBR">EBR</span>) albergan entre 30 y 40 estudiantes por sección, donde el docente de secundaria enseña a cientos de adolescentes en múltiples grados, y donde los profesionales de Educación Básica Especial (<span class="diae-tooltip" data-term="EBE">EBE</span>), Básica Alternativa (<span class="diae-tooltip" data-term="EBA">EBA</span>) y Técnico-Productiva (<span class="diae-tooltip" data-term="CETPRO">CETPRO</span>) enfrentan contextos de extrema diversidad—, evaluar se ha convertido para muchos en una condena burocrática que arrebata noches de sueño, fines de semana y el innegociable derecho al descanso familiar: los domingos.</p>
                         <p>El maestro de aula sabe perfectamente qué niño aprendió a resolver problemas de cantidad en segundo grado de primaria y qué estudiante de quinto de secundaria no logra argumentar su postura crítica en un ensayo. El dolor real radica en la obligación de redactar rúbricas analíticas de cuatro niveles para cada desempeño precisado, escribir valoraciones cualitativas personalizadas e ingresar conclusiones descriptivas al Sistema de Información de Apoyo a la Gestión de la Institución Educativa (<span class="diae-tooltip" data-term="SIAGIE">SIAGIE</span>), todo ello luchando contra un reloj implacable y una interfaz digital que no perdona errores.</p>
-                        <p>Esta obra nace con una premisa de rescate laboral y reivindicación profesional: el fin de los amaneceres corrigiendo. El docente no estudió en el Instituto Superior Pedagógico ni en la Universidad para convertirse en un procesador manual de datos nocturno. Esta carga burocrática ha saturado la mente del educador, restándole energía para lo verdaderamente importante: mirar a sus alumnos a los ojos, preparar clases inspiradoras, atender emergencias socioemocionales en el aula y, sobre todo, disfrutar de su vida personal y familiar con salud y dignidad.</p>
+                        <p>Esta obra nace con una premisa de rescate laboral y reivindicación profesional: el fin de los amaneceres corrigiendo. El docente no estudió en el Instituto Superior Pedagógico ni en la Universidad para convertirse en un procesador manual de datos nocturno. Esta carga burocrática ha saturado la mente del educador, restándole energía para lo verdaderamente importante: mirar a sus alumnos a los ojos, preparar clases inspiradoras, atender emergencias socioemocionales en el aula y, sobre todo, disfrutar de su vida personal y familiar con salud y dignity.</p>
                     </div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes o reflexiones sobre tu carga de evaluación..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
@@ -491,34 +481,9 @@
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre el rol del juez clínico docente..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 3: INTRODUCCIÓN GENERAL 0.3 -->
-                <div class="lms-slide" id="slide-3" data-title="0.3 Independencia editorial y método">
+                <!-- SLIDE 3: CAPÍTULO 1 - 1.1 -->
+                <div class="lms-slide" id="slide-3" data-title="Capítulo 1: Superando el promedio vigesimal">
                     <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 3</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
-                    <div class="slide-content-wrapper">
-                        <h2 class="slide-title">INTRODUCCIÓN GENERAL</h2>
-                        <h3>0.3. Independencia editorial: Cómo dominar las herramientas de evaluación formativa automatizada sin necesidad de haber leído el Volumen I</h3>
-                        <p>La colección editorial "La Inteligencia Artificial en el Magisterio Peruano" ha sido concebida bajo el principio de independencia editorial absoluta y autoconclusiva. Sabemos que la realidad de cada docente es vitalmente distinta: un educador puede adquirir este Libro 2 urgido por la necesidad de automatizar sus rúbricas y dominar el SIAGIE en la semana de cierre de notas, sin haber tenido la oportunidad de leer y aplicar el Libro 1 sobre Diseño Curricular y Planificación.</p>
-                        <p>Si este es su caso, tenga la absoluta certeza de que puede iniciar su lectura en la página siguiente con total confianza. No experimentará vacíos conceptuales ni se sentirá en desventaja técnica. En este volumen no asumiremos que usted ya domina la ingeniería de prompts o las estructuras de código presentadas en el libro anterior; todo lo necesario para automatizar su evaluación formativa se explica y estructura desde cero en las páginas que tiene en sus manos.</p>
-                        <p>Para garantizar este dominio autónomo, el presente libro implementa dos pilares metodológicos canónicos de la marca DIAE que usted aprenderá a utilizar en su máximo potencial operativo:</p>
-                        <h4>1. El Candado Semántico y la Taxonomía Oficial MINEDU</h4>
-                        <p>Para evitar que las plataformas de Inteligencia Artificial le entreguen rúbricas genéricas con términos extranjeros (como "indicadores de logro", "competencias blandas", "objetivos operacionales" o normativas de otros países), en este volumen incorporaremos en cada herramienta nuestro <span class="diae-tooltip" data-term="Candado Semántico">Candado Semántico</span>. Esta instrucción de estricto rigor normativo obligará a la máquina a utilizar exclusivamente el lenguaje del Marco de Buen Desempeño Docente (<span class="diae-tooltip" data-term="MBDD">MBDD</span> - Dominio 2) y del <span class="diae-tooltip" data-term="CNEB">CNEB</span>: Competencias, Capacidades, Estándares de Aprendizaje, Desempeños precisados, Criterios de evaluación, Evidencias de aprendizaje y la escala oficial de calificación descriptiva (AD, A, B, C).</p>
-                        <h4>2. La Metodología R-C-O-P-E en los Prompts de Código</h4>
-                        <p>A lo largo de los capítulos, usted no encontrará reflexiones abstractas sobre la tecnología, sino cajas de código y terminales informáticas listas para copiar, pegar y ejecutar en su computadora o teléfono móvil. Todas nuestras herramientas están parametrizadas bajo la metodología <span class="diae-tooltip" data-term="RCOPE">R-C-O-P-E</span>, la fórmula de alta precisión técnica que estructura las instrucciones para la IA en cinco bloques innegociables delimitados por corchetes [ ]:</p>
-                        <ul>
-                            <li><strong>[ROL]:</strong> Asignamos a la Inteligencia Artificial una identidad técnica e institucional de máxima autoridad pedagógica (ej. Especialista en Evaluación Formativa del MINEDU, Auditor Curricular de UGEL, Psicólogo Educational de Convivencia).</li>
-                            <li><strong>[CONTEXTO]:</strong> Introducimos las variables reales de su aula, grado, nivel (<span class="diae-tooltip" data-term="EBR">EBR</span>, <span class="diae-tooltip" data-term="EBE">EBE</span>, <span class="diae-tooltip" data-term="EBA">EBA</span>, <span class="diae-tooltip" data-term="CETPRO">CETPRO</span>), región sociocultural del Perú y las características del aprendizaje, siempre bajo el respeto irrestricto de la <span class="diae-tooltip" data-term="Ley N° 31814">Ley N° 31814</span> de Protección de Datos Personales (trabajando en estricto anonimato sin nombres ni apellidos de menores).</li>
-                            <li><strong>[OBJETIVO]:</strong> Definimos con precisión de cirujano el instrumento exacto que necesitamos generar y la competencia del currículo nacional que se está evaluando.</li>
-                            <li><strong>[PASOS]:</strong> Establecemos una secuencia lógica y obligatoria de razonamiento técnico (<span class="diae-tooltip" data-term="Cadena de Pensamiento">Chain of Thought o Cadena de Pensamiento</span>) para que el modelo no alucine, no invente datos y garantice la coherencia horizontal del instrumento.</li>
-                            <li><strong>[ESTRUCTURA] / [RESTRICCIÓN]:</strong> Exigimos el formato exacto de salida (ej. tabla de doble entrada en Markdown, listas analíticas, prohibición rotunda del lenguaje punitivo o sarcástico, y el corte matemático estricto de caracteres para el sistema oficial).</li>
-                        </ul>
-                        <p>Bienvenido al dominio técnico de la evaluación formativa. Es hora de encender su terminal digital, recuperar su fin de semana y transformar la evaluación escolar en el motor pedagógico y liberador que el sistema educativo peruano tanto necesita.</p>
-                    </div>
-                    <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre el método RCOPE y candados semánticos..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
-                </div>
-
-                <!-- SLIDE 4: CAPÍTULO 1 - 1.1 -->
-                <div class="lms-slide" id="slide-4" data-title="Capítulo 1: Superando el promedio vigesimal">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 4</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 1: LA TRANSICIÓN NORMATIVA Y EL FUNDAMENTO CURRICULAR EN EL CNEB</h2>
                         <h3>1.1. Superando el paradigma del promedio vigesimal: La evaluación formativa y la escala de calificación descriptiva del MINEDU (AD, A, B, C)</h3>
@@ -568,9 +533,9 @@
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus reflexiones sobre la transición al sistema de letras AD, A, B, C..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 5: CAPÍTULO 1 - 1.2 -->
-                <div class="lms-slide" id="slide-5" data-title="Capítulo 1: El Candado Semántico en la evaluación">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 5</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 4: CAPÍTULO 1 - 1.2 -->
+                <div class="lms-slide" id="slide-4" data-title="Capítulo 1: El Candado Semántico en la evaluación">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 4</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 1: LA TRANSICIÓN NORMATIVA Y EL FUNDAMENTO CURRICULAR EN EL CNEB</h2>
                         <h3>1.2. El Candado Semántico en la evaluación: Alineamiento estricto entre Propósitos de aprendizaje, Criterios de evaluación, Evidencias y Desempeños precisados según el MBDD (Dominio 2)</h3>
@@ -604,9 +569,9 @@
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre el alineamiento MBDD Dominio 2..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 6: CAPÍTULO 1 - 1.3 -->
-                <div class="lms-slide" id="slide-6" data-title="Capítulo 1: Ética y legalidad en IA (Ley N° 31814)">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 6</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 5: CAPÍTULO 1 - 1.3 -->
+                <div class="lms-slide" id="slide-5" data-title="Capítulo 1: Ética y legalidad en IA (Ley N° 31814)">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 5</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 1: LA TRANSICIÓN NORMATIVA Y EL FUNDAMENTO CURRICULAR EN EL CNEB</h2>
                         <h3>1.3. Ética y legalidad en la evaluación asistida por IA: Protección de la privacidad de los datos del estudiante (Ley N° 31814) en el procesamiento de calificaciones y observaciones en aulas rurales, urbanas y periféricas</h3>
@@ -626,9 +591,9 @@
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus protocolos de anonimización y protección de datos en tu aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 7: CAPÍTULO 2 - 2.1 y 2.2 -->
-                <div class="lms-slide" id="slide-7" data-title="Capítulo 2: Del estándar a la rúbrica analítica">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 7</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 6: CAPÍTULO 2 - 2.1 y 2.2 -->
+                <div class="lms-slide" id="slide-6" data-title="Capítulo 2: Del estándar a la rúbrica analítica">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 6</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 2: INGENIERÍA DE INSTRUMENTOS: DEL ESTÁNDAR A LA RÚBRICA ANALÍTICA</h2>
                         <h3>2.1. Anatomía técnica de una rúbrica formativa CNEB: El Nivel "A" (Logro Esperado) como estándar base innegociable para la graduación curricular</h3>
@@ -711,9 +676,9 @@
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus reflexiones sobre el ancla del Nivel A y la progresión descriptiva..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 8: CAPÍTULO 2 - 2.3 -->
-                <div class="lms-slide" id="slide-8" data-title="Capítulo 2: Macro MACRO_RUBRICA_CNEB">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 8</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 7: CAPÍTULO 2 - 2.3 -->
+                <div class="lms-slide" id="slide-7" data-title="Capítulo 2: Macro MACRO_RUBRICA_CNEB">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 7</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 2: INGENIERÍA DE INSTRUMENTOS: DEL ESTÁNDAR A LA RÚBRICA ANALÍTICA</h2>
                         <h3>2.3. Macro de Ingeniería de Rúbricas Analíticas (MACRO_RUBRICA_CNEB): Estructura R-C-O-P-E para la creación instantánea de matrices evaluativas por área curricular</h3>
@@ -804,9 +769,9 @@ Evidencia de Aprendizaje: [Insertar el producto o actuación observable del alum
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre la ejecución de la MACRO_RUBRICA_CNEB..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 9: CAPÍTULO 2 - 2.4 -->
-                <div class="lms-slide" id="slide-9" data-title="Capítulo 2: Parametrización en Letras y CCSS">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 9</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 8: CAPÍTULO 2 - 2.4 -->
+                <div class="lms-slide" id="slide-8" data-title="Capítulo 2: Parametrización en Letras y CCSS">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 8</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 2: INGENIERÍA DE INSTRUMENTOS: DEL ESTÁNDAR A LA RÚBRICA ANALÍTICA (Cont.)</h2>
                         <h3>2.4. Parametrización de la subjetividad en Letras y Ciencias Sociales: Rúbricas especializadas para ensayos, artículos de opinión y debates argumentativos</h3>
@@ -838,7 +803,7 @@ Diseñar una Rúbrica Analítica especializada de 4 niveles (AD, A, B, C) que el
 
 <span class="string">[PASOS]:</span>
 1. CANDADO SEMÁNTICO: Audita el léxico normativo MINEDU (CNEB/MBDD). Bloquea adjetivos vacíos ("excelente", "bueno", "regular", "malo") y reemplázalos por indicadores de frecuencia, complejidad relacional y grado de mediación docente.
-2. CRITERIO 1 - POSTURA CRÍTICA: La columna A (Logro Esperado) debe exigir la formulación de una tesis clara respecto al problema de la Situación Significativa. El nivel AD exige innovación y originalidad en la propuesta; el nivel B, dependencia de preguntas guía; el nivel C, identificación inicial de opiniones libres.
+2. CRITERIO 1 - POSTURA CRÍTICA: La columna A (Logro Esperado) debe exigir la formulación de una tesis clara respecto al problema de la Situación Significativa. El nivel AD exige innovación y originalidad en la propuesta; el nivel B, dependencia de preguntas guía; el nivel C, identificación inicial de opinions libres.
 3. CRITERIO 2 - MANEJO DE FUENTES: Exige el cruce verificable de fuentes (primarias, normativas o periodísticas locales). En AD, audita el contraste de autores antagónicos; en A, la citación correcta; en B, el uso de fuentes sin contraste; en C, el uso del sentido común o saber cotidiano sin respaldo documental.
 4. CRITERIO 3 - COHERENCIA ARGUMENTATIVA: Parametriza la estructura gramatical (párrafos de introducción, nudo y desenlace). En AD valora la progresión temática sin falacias; en A, la estructura lógica completa; en B, saltos argumentativos leves; en C, ideas aisladas pero cohesionables.
 5. CRITERIO 4 - RIGOR ORTOGRÁFICO: Aplica un criterio formativo, no punitivo. En AD y A valora la limpieza formal del texto; en B y C identifica la necesidad de talleres de edición asistida por el docente sin estigmatizar la producción del autor.
@@ -856,9 +821,9 @@ Desempeño Precisado Base (Ancla Nivel A): [Pegar el desempeño normativo de su 
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre cómo eliminar la subjetividad en ensayos y debates..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 10: CAPÍTULO 2 - 2.5 -->
-                <div class="lms-slide" id="slide-10" data-title="Capítulo 2: Heurística en Matemática y CyT">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 10</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 9: CAPÍTULO 2 - 2.5 -->
+                <div class="lms-slide" id="slide-9" data-title="Capítulo 2: Heurística en Matemática y CyT">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 9</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 2: INGENIERÍA DE INSTRUMENTOS: DEL ESTÁNDAR A LA RÚBRICA ANALÍTICA (Cont.)</h2>
                         <h3>2.5. Evaluación de procesos heurísticos en Matemática y Ciencia y Tecnología: Listas de cotejo analíticas para resolución de problemas algebraicos, de cantidad y método científico</h3>
@@ -900,7 +865,7 @@ Diseñar una Matriz de Evaluación Formativa Heurística basada en el CNEB (4 ni
 
 <span class="error-text">[ESTRUCTURA Y RESTRICCIÓN]:</span>
 * Genera la matriz exclusivamente en formato de TABLA DE DOBLE ENTRADA en Markdown bajo el orden de columnas: | CRITERIOS HEURÍSTICOS | LOGRO DESTACADO (AD) | LOGRO ESPERADO (A) [ANCLA] | EN PROCESO (B) | EN INICIO (C) |.
-* Todos los descriptores deben enfocarse en actions observables y verificables en el cuaderno de trabajo, informe científico o exposición del alumno.
+* Todos los descriptores deben enfocarse en acciones observables y verificables en el cuaderno de trabajo, informe científico o exposición del alumno.
 
 --- INSUMOS DEL DOCENTE PARA EJECUTAR LA MACRO ---
 Competencia CNEB: [Resuelve problemas de cantidad / Indaga mediante métodos científicos]
@@ -930,7 +895,7 @@ Desempeño Precisado Base (Ancla Nivel A): [Pegar el desempeño normativo de su 
                                 <tbody>
                                     <tr>
                                         <td><strong>1. Comprensión del Problema (Decodificación de variables)</strong></td>
-                                        <td>Identifica de forma autónoma capitales, tasas temporales y plazos en el caso del préstamo, reformulated el reto y proponiendo una variable económica adicional (inflación o riesgo informal) sobre la familia emprendedora.</td>
+                                        <td>Identifica de forma autónoma capitales, tasas temporales y plazos en el caso del préstamo, reformulando el reto y proponiendo una variable económica adicional (inflación o riesgo informal) sobre la familia emprendedora.</td>
                                         <td>Identifica con precisión los datos pertinentes (capital, tasa de interés y tiempo) en los dos escenarios financieros, discriminando correctamente la incógnita según lo previsto en el estándar.</td>
                                         <td>Identifica los montos de capital y tiempo, pero presenta dificultades o requiere preguntas guía del docente para discriminar las tasas de interés mensual, anual y diario de cada opción crediticia.</td>
                                         <td>Reconoce los montos de dinero o nociones generales del problema familiar, pero requiere modelado pedagógico directo para organizar los datos numéricos en un esquema de trabajo.</td>
@@ -964,9 +929,9 @@ Desempeño Precisado Base (Ancla Nivel A): [Pegar el desempeño normativo de su 
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre la evaluación de procesos heurísticos..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 11: CAPÍTULO 3 - 3.1 -->
-                <div class="lms-slide" id="slide-11" data-title="Capítulo 3: Traducción pedagógica de instrumentos">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 11</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 10: CAPÍTULO 3 - 3.1 -->
+                <div class="lms-slide" id="slide-10" data-title="Capítulo 3: Traducción pedagógica de instrumentos">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 10</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 3: DEMOCRATIZACIÓN CURRICULAR: AUTOEVALUACIÓN, COEVALUACIÓN E INSTRUMENTOS EN VIVO</h2>
                         <h3>3.1. Traducción pedagógica de instrumentos: Cómo transformar rúbricas técnicas del docente a un lenguaje empático, claro y accesible para niños y adolescentes</h3>
@@ -983,9 +948,9 @@ Desempeño Precisado Base (Ancla Nivel A): [Pegar el desempeño normativo de su 
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus reflexiones sobre cómo democratizar tu evaluación en el aula..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 12: CAPÍTULO 3 - 3.2 -->
-                <div class="lms-slide" id="slide-12" data-title="Capítulo 3: Macro PROMPT_DEMOCRATIZACION">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 12</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 11: CAPÍTULO 3 - 3.2 -->
+                <div class="lms-slide" id="slide-11" data-title="Capítulo 3: Macro PROMPT_DEMOCRATIZACION">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 11</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 3: DEMOCRATIZACIÓN CURRICULAR: AUTOEVALUACIÓN, COEVALUACIÓN E INSTRUMENTOS EN VIVO</h2>
                         <h3>3.2. Macro de Traducción para el Estudiante (PROMPT_DEMOCRATIZACION): Creación de fichas de autoevaluación y coevaluación en lenguaje amigable orientadas a la metacognición</h3>
@@ -1085,9 +1050,9 @@ Criterios Técnicos Docentes (Nivel A): [Pegar aquí los 3 o 4 criterios de su r
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre la autoevaluación y coevaluación en tu colegio..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 13: CAPÍTULO 3 - 3.3 y 3.4 -->
-                <div class="lms-slide" id="slide-13" data-title="Capítulo 3: Evaluación ágil en vivo (PROMPT_REACCION_VIVO)">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 13</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 12: CAPÍTULO 3 - 3.3 y 3.4 -->
+                <div class="lms-slide" id="slide-12" data-title="Capítulo 3: Evaluación ágil en vivo (PROMPT_REACCION_VIVO)">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 12</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 3: DEMOCRATIZACIÓN CURRICULAR: AUTOEVALUACIÓN, COEVALUACIÓN E INSTRUMENTOS EN VIVO</h2>
                         <h3>3.3. Evaluación ágil en aulas dinámicas: Diseño de instrumentos de reacción rápida en formatos binarios y escalados (Sí / No / En Proceso)</h3>
@@ -1210,9 +1175,9 @@ Enfoque específico del proyecto a evaluar: [Insertar resumen, ej. Proyecto que 
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre la evaluación ágil en ferias y exposiciones..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 14: CAPÍTULO 4 - 4.1 y 4.2 -->
-                <div class="lms-slide" id="slide-14" data-title="Capítulo 4: Método Wilson y automatización">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 14</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 13: CAPÍTULO 4 - 4.1 y 4.2 -->
+                <div class="lms-slide" id="slide-13" data-title="Capítulo 4: Método Wilson y automatización">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 13</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 4: MASIFICACIÓN DE LA RETROALIMENTACIÓN ESCRITA (MÉTODO WILSON)</h2>
                         <h3>4.1. La Escalera de la Retroalimentación de Daniel Wilson: Metodología formativa para transformar la corrección punitiva en un diálogo pedagógico de mejora continua</h3>
@@ -1251,9 +1216,9 @@ Enfoque específico del proyecto a evaluar: [Insertar resumen, ej. Proyecto que 
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre los 4 peldaños de Wilson y notas en crudo..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 15: CAPÍTULO 4 - 4.3 -->
-                <div class="lms-slide" id="slide-15" data-title="Capítulo 4: Macro PROMPT_RETRO_WILSON">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 15</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 14: CAPÍTULO 4 - 4.3 -->
+                <div class="lms-slide" id="slide-14" data-title="Capítulo 4: Macro PROMPT_RETRO_WILSON">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 14</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 4: MASIFICACIÓN DE LA RETROALIMENTACIÓN ESCRITA (MÉTODO WILSON)</h2>
                         <h3>4.3. Macro de Retroalimentación Masiva Wilson (PROMPT_RETRO_WILSON): Procesamiento de notas de campo para generar comentarios formativos individuales para carpetas pedagógicas</h3>
@@ -1311,7 +1276,7 @@ Listado de Apuntes Telegráficos del Maestro en Crudo:
                         <h4>RETROALIMENTACIÓN FORMATIVA — [ESTUDIANTE E-01]</h4>
                         <p><strong>Evidencia evaluada:</strong> Monografía escolar sobre el Ferrocarril Central y el comercio en Huancayo.</p>
                         <ul>
-                            <li><strong>1. Clarificar:</strong> Cuando decidiste incluir la historia histórica sobre el funcionamiento técnico de las antiguas locomotoras de vapor en el desarrollo de tu texto, ¿qué fuente consultaste para obtener esos datos tan exactos sobre su año de fabricación?</li>
+                            <li><strong>1. Clarificar:</strong> Cuando decidiste incluir la reseña histórica sobre el funcionamiento técnico de las antiguas locomotoras de vapor en el desarrollo de tu texto, ¿qué fuente consultaste para obtener esos datos tan exactos sobre su año de fabricación?</li>
                             <li><strong>2. Valorar:</strong> Valoro muchísimo el testimonio familiar que incluiste en tu introducción sobre tu abuelo ferroviario; esa anécdota le otorga una voz cálida, original y de profundo valor cultural e histórico a tu monografía. Además, te felicito por tu impecable ortografía y el orden de tus párrafos.</li>
                             <li><strong>3. Expresar inquietudes:</strong> Me preocupa que en el segundo párrafo del desarrollo encontré información técnica que proviene directamente de una enciclopedia virtual sin el uso de comillas ni la cita del autor original. Recuerda que en una investigación escolar, transcribir información de terceros sin citar no nos permite apreciar tu propia voz ni tu análisis crítico sobre el tema.</li>
                             <li><strong>4. Hacer sugerencias (Tu próximo reto):</strong> Te sugiero regresar al segundo párrafo de tu trabajo y colocar entre comillas las líneas que tomaste de internet. Luego, al pie de página o al final del texto, añade la referencia de la fuente y escribe dos oraciones con tus propias palabras explicando qué opinaba tu abuelo sobre esa locomotora en su trabajo diario.</li>
@@ -1329,9 +1294,9 @@ Listado de Apuntes Telegráficos del Maestro en Crudo:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre la automatización masiva con Wilson..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 16: CAPÍTULO 4 - 4.4 -->
-                <div class="lms-slide" id="slide-16" data-title="Capítulo 4: Casuística diferencial por modalidades">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 16</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 15: CAPÍTULO 4 - 4.4 -->
+                <div class="lms-slide" id="slide-15" data-title="Capítulo 4: Casuística diferencial por modalidades">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 15</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 4: MASIFICACIÓN DE LA RETROALIMENTACIÓN ESCRITA (MÉTODO WILSON)</h2>
                         <h3>4.4. Casuística diferencial por modalidades: Modelado de retroalimentación en EBR, EBE, EBA y CETPRO</h3>
@@ -1364,10 +1329,9 @@ Listado de Apuntes Telegráficos del Maestro en Crudo:
                     </div>
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus adaptaciones para tu modalidad (EBR, EBE, EBA o CETPRO)..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
-
-                <!-- SLIDE 17: CAPÍTULO 5 - 5.1 y 5.2 -->
-                <div class="lms-slide" id="slide-17" data-title="Capítulo 5: Rescate Nivel C y Sándwich Pedagógico">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 17</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+<!-- SLIDE 16: CAPÍTULO 5 - 5.1 y 5.2 -->
+                <div class="lms-slide" id="slide-16" data-title="Capítulo 5: Rescate Nivel C y Sándwich Pedagógico">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 16</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 5: RETROALIMENTACIÓN DE RESCATE PARA EL NIVEL "C" (EN INICIO)</h2>
                         <h3>5.1. Enfoque de Mentalidad de Crecimiento (Growth Mindset de Carol Dweck): El error como paso transitorio y el rechazo absoluto al lenguaje punitivo, sarcástico o estigmatizante en el aula peruana</h3>
@@ -1380,8 +1344,8 @@ Listado de Apuntes Telegráficos del Maestro en Crudo:
                             <table class="custom-table">
                                 <thead>
                                     <tr>
-                                        <th>Enfoque Tradicional Punitivo (VETADO EN EL AULA)</th>
-                                        <th>Enfoque DIAE / Mentalidad de Crecimiento (OBLIGATORIO)</th>
+                                        <th>Enfoque Tradicional Punitivo (Proscrito en el aula)</th>
+                                        <th>Enfoque DIAE / Mentalidad de Crecimiento (Mandato Normativo)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1434,9 +1398,9 @@ Listado de Apuntes Telegráficos del Maestro en Crudo:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre cómo comunicas el Nivel C a familias difíciles..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 18: CAPÍTULO 5 - 5.3 -->
-                <div class="lms-slide" id="slide-18" data-title="Capítulo 5: Macro PROMPT_RESCATE_GROWTH">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 18</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 17: CAPÍTULO 5 - 5.3 -->
+                <div class="lms-slide" id="slide-17" data-title="Capítulo 5: Macro PROMPT_RESCATE_GROWTH">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 17</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 5: RETROALIMENTACIÓN DE RESCATE PARA EL NIVEL "C" (EN INICIO)</h2>
                         <h3>5.3. Macro de Rescate Pedagógico Nivel C (PROMPT_RESCATE_GROWTH): Generación automática de planes de apoyo grupal o individual con micro-pasos de acción inmediata y metas a corto plazo</h3>
@@ -1522,9 +1486,9 @@ Listado de Apuntes Clínicos en Crudo de Estudiantes en Nivel C:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre la aplicación de planes de rescate..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 19: CAPÍTULO 6 - 6.1, 6.2 y 6.3 -->
-                <div class="lms-slide" id="slide-19" data-title="Capítulo 6: SIAGIE y Fórmula L+D+R en 300 caracteres">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 19</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 18: CAPÍTULO 6 - 6.1, 6.2 y 6.3 -->
+                <div class="lms-slide" id="slide-18" data-title="Capítulo 6: SIAGIE y Fórmula L+D+R en 300 caracteres">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 18</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 6: SUPERACIÓN DEL SIAGIE: CONCLUSIONES DESCRIPTIVAS EN 300 CARACTERES</h2>
                         <h3>6.1. El cuello de botella del registro oficial: Rigor normativo del MINEDU frente a las limitaciones informáticas de la plataforma SIAGIE</h3>
@@ -1538,7 +1502,7 @@ Listado de Apuntes Clínicos en Crudo de Estudiantes en Nivel C:
                         <ul>
                             <li><strong>El corte amputador:</strong> El sistema bloquea el ingreso del texto en el carácter número 300 o, peor aún, permite pegar un párrafo largo y al momento de presionar el botón "Guardar", trunca la frase por la mitad, borrando el final del mensaje y arrojando mensajes de error por saturación o caracteres inválidos.</li>
                             <li><strong>El síndrome de la madrugada perdida:</strong> El docente se ve obligado a reescribir manualmente conclusión por conclusión, borrando conectores, cortando palabras importantes o recurriendo a abreviaturas informales incomprensibles (ej. "El alum. pre. dif. en arg. por falta de acom. ped."), degradando la calidad formal de su documento oficial ante una auditoría de la UGEL.</li>
-                            <li><strong>El colapso de fin de bimestre:</strong> Multiplique el esfuerzo de comprimir textos a 300 caracteres por los 35 estudiantes de un aula de primaria, o por los 150 alumnos que tiene a su cargo un docente de secundaria en diversas áreas curriculares. El resultado es un cuello de botella burocrático que mantiene al maestro despierto hasta altas horas de la madrugada, sacrificando su descanso de fin de semana en una lucha desigual contra un formulario web.</li>
+                            <li><strong>El colapso de fin de bimestre:</strong> Multiplique el effort de comprimir textos a 300 caracteres por los 35 estudiantes de un aula de primaria, o por los 150 alumnos que tiene a su cargo un docente de secundaria en diversas áreas curriculares. El resultado es un cuello de botella burocrático que mantiene al maestro despierto hasta altas horas de la madrugada, sacrificando su descanso de fin de semana en una lucha desigual contra un formulario web.</li>
                         </ul>
                         <p>Esta obra interviene directamente para resolver esta fractura operativa. En DIAE sostenemos que el docente no debe modificar su juicio pedagógico para adecuarlo a un software anticuado; lo que debemos hacer es utilizar la potencia matemática de la Inteligencia Artificial para comprimir sintácticamente nuestra observación clínica en un bloque blindado que encaje milimétricamente en la plataforma estatal.</p>
                         
@@ -1586,9 +1550,9 @@ Listado de Apuntes Clínicos en Crudo de Estudiantes en Nivel C:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus reflexiones sobre cómo superar el límite de 300 caracteres del SIAGIE..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 20: CAPÍTULO 6 - 6.4 -->
-                <div class="lms-slide" id="slide-20" data-title="Capítulo 6: Macro MACRO_SIAGIE_300">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 20</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 19: CAPÍTULO 6 - 6.4 -->
+                <div class="lms-slide" id="slide-19" data-title="Capítulo 6: Macro MACRO_SIAGIE_300">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 19</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 6: SUPERACIÓN DEL SIAGIE: CONCLUSIONES DESCRIPTIVAS EN 300 CARACTERES</h2>
                         <h3>6.4. Macro de Conclusiones Descriptivas SIAGIE (MACRO_SIAGIE_300): Conversor instantáneo de observaciones dispersas a bloques de texto listos para copiar, pegar y auditar sin rechazo del sistema</h3>
@@ -1603,7 +1567,7 @@ Actúa estrictamente como un Auditor Curricular y Especialista en Sistemas Infor
 Modalidad y Nivel: [EBR Inicial / Primaria / Secundaria / EBE / EBA / CETPRO]
 Grado / Ciclo / Módulo: [Insertar Grado o Ciclo, ej. 5to Grado de Educación Secundaria - Ciclo VII]
 Área Curricular: [Insertar Área, ej. Comunicación / Matemática / Ciencia y Tecnología / DPCC]
-Realidad Sociocultural: [Insertar contexto regional, ej. Institución Educativa de convenio en el Callao / I.E. rural en el Cusco]
+Realidad Sociocultural: [Insertar contexto regional, ej. Institución Educativa en el Callao / I.E. rural en el Cusco]
 
 <span class="string">[OBJETIVO]:</span>
 Tomar un listado de observaciones docentes dispersas, notas en crudo o reportes informales de múltiples estudiantes (identificados bajo estricto código anónimo por Ley N° 31814) y convertir cada uno en una Conclusión Descriptiva Oficial para SIAGIE que cumpla con dos mandatos innegociables: 1. Estar estructurada bajo la fórmula canónica L + D + R (Logro + Dificultad + Recomendación), y 2. Respetar el límite informático estricto de máximo 300 caracteres (incluyendo espacios en blanco y signos de puntuación).
@@ -1666,9 +1630,9 @@ Listado de Observaciones o Apuntes Dispersos del Maestro en Crudo:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre el control de calidad en SIAGIE..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 21: CAPÍTULO 7 - 7.1 y 7.2 -->
-                <div class="lms-slide" id="slide-21" data-title="Capítulo 7: Bancos de frases y Ensamblaje">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 21</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
+                <!-- SLIDE 20: CAPÍTULO 7 - 7.1 y 7.2 -->
+                <div class="lms-slide" id="slide-20" data-title="Capítulo 7: Bancos de frases y Ensamblaje">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 20</span><span class="meta-time"><i class="ph ph-clock"></i> 5 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 7: ENSAMBLAJE MODULAR Y BANCOS DE FRASES SALVAVIDAS</h2>
                         <h3>7.1. Curaduría y organización del repositorio de aula: Cómo construir un banco de descriptores institucional para aligerar la carga administrativa del equipo docente</h3>
@@ -1726,9 +1690,9 @@ Listado de Observaciones o Apuntes Dispersos del Maestro en Crudo:
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus ideas para implementar tu propio banco de frases..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 22: CAPÍTULO 7 - 7.3 -->
-                <div class="lms-slide" id="slide-22" data-title="Capítulo 7: Macro PROMPT_BANCO_FRASES">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 22</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 21: CAPÍTULO 7 - 7.3 -->
+                <div class="lms-slide" id="slide-21" data-title="Capítulo 7: Macro PROMPT_BANCO_FRASES">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 21</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">CAPÍTULO 7: ENSAMBLAJE MODULAR Y BANCOS DE FRASES SALVAVIDAS</h2>
                         <h3>7.3. Macro Generadora de Bancos Personalizados (PROMPT_BANCO_FRASES): Automatización de catálogos a medida según grado, ciclo y realidad sociocultural de la Institución Educativa</h3>
@@ -1793,7 +1757,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                         <ul>
                             <li>"Opera adecuadamente máquinas de costura recta en velocidad estándar; sin embargo, presenta dificultades para mantener la rectitud en costuras curvas complejas. Se sugiere practicar ejercicios de guiamiento sobre plantillas sin hilo en el taller." <em>[266 caracteres - Apto para SIAGIE]</em></li>
                             <li>"Interpreta las medidas principales de la ficha técnica de prendas; no obstante, se desorienta al calcular márgenes de costura y dobladillos. Se recomienda utilizar guías de imán milimetradas en la placa de la máquina de coser." <em>[238 caracteres - Apto para SIAGIE]</em></li>
-                            <li>"Ensambla piezas textiles siguiendo el orden del taller; sin embargo, evidencia inestabilidad al calibrar la tensión del hilo superior, generando puntadas flojas. Se sugiere revisar la guía visual de enhebrado antes de operar." <em>[236 caracteres - Apto para SIAGIE]</em></li>
+                            <li>"Ensambla piezas textiles siguiendo el orden del taller; sin embargo, evidencia inestabilidad al calibrar la tensión del hilo superior, generating puntadas flojas. Se sugiere revisar la guía visual de enhebrado antes de operar." <em>[236 caracteres - Apto para SIAGIE]</em></li>
                         </ul>
 
                         <p><strong>NIVEL C — EN INICIO (Mentalidad de Crecimiento / Rescate Laboral / L + D + R)</strong></p>
@@ -1807,9 +1771,9 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus apuntes sobre cómo generar catálogos modulares en tu escuela..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 23: ANEXO A -->
-                <div class="lms-slide" id="slide-23" data-title="Anexo A: Matriz de Verbos Cognitivos">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 23</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 22: ANEXO A -->
+                <div class="lms-slide" id="slide-22" data-title="Anexo A: Matriz de Verbos Cognitivos">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 22</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">ANEXOS TÉCNICOS DEL LIBRO 2</h2>
                         <h3>Anexo A: Matriz de Verbos Cognitivos y Descriptores CNEB para Rúbricas Analíticas</h3>
@@ -1832,7 +1796,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                                     <tr>
                                         <td><strong>AD</strong><br><span style="color:var(--accent-glow); font-size:0.8em;">(Logro Destacado)</span></td>
                                         <td>Innovación, Juicio Crítico y Transferencia Autónoma</td>
-                                        <td>Sintetiza, Evalúa, Contrasta, Extrapola, Formúla hipótesis, Argumenta críticamente, Transfiere, Reconstruye, Innova.</td>
+                                        <td>Sintetiza, Evalúa, Contrasta, Extrapola, Formula hipótesis, Argumenta críticamente, Transfiere, Reconstruye, Innova.</td>
                                         <td>Contrasta las interpretaciones de tres fuentes históricas divergentes y evalúa de forma autónoma su pertinencia para explicar los conflictos sociales actuales de su región.</td>
                                     </tr>
                                     <tr>
@@ -1942,9 +1906,9 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre la taxonomía de verbos..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 24: ANEXO B -->
-                <div class="lms-slide" id="slide-24" data-title="Anexo B: Guía de Auditoría SIAGIE">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 24</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
+                <!-- SLIDE 23: ANEXO B -->
+                <div class="lms-slide" id="slide-23" data-title="Anexo B: Guía de Auditoría SIAGIE">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 23</span><span class="meta-time"><i class="ph ph-clock"></i> 4 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">ANEXOS TÉCNICOS DEL LIBRO 2</h2>
                         <h3>Anexo B: Guía Rápida de Auditoría y Control de Calidad para Conclusiones Descriptivas en SIAGIE</h3>
@@ -1973,36 +1937,36 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                         <p>Observemos la diferencia abismal entre una redacción improvisada que es rechazada en auditoría pedagógica y una conclusión blindada por la metodología canónica de nuestra colección DIAE:</p>
 
                         <h5>CASO 1: EBR PRIMARIA (Área: Matemática — Nivel de Logro: C - En Inicio)</h5>
-                        <p><i class="ph-fill ph-x-circle" style="color:#f43f5e;"></i> <strong>CONCLUSIÓN RECHAZADA POR AUDITORÍA (Incorrecta):</strong><br>
+                        <p><strong>Expediente Observado en Auditoría Pedagógica (Proscrito por UGEL):</strong><br>
                         "El alumno Juan Pérez tiene nivel C porque no sabe resolver problemas de multiplicar ni dividir en el cuaderno de trabajo. Es muy flojo para leer los números grandes y se distrae a cada rato en el aula conversando. Se le recomienda a su mamá que lo haga estudiar más las tablas en su casa porque si no va a repetir el año."</p>
                         <ul>
                             <li><strong>Fallo Técnico:</strong> Mide 321 caracteres (rechazado por el sistema SIAGIE que corta en 300). Utiliza lenguaje punitivo y humillante ("flojo", "no sabe", "va a repetir"). Carece de la fórmula <span class="diae-tooltip" data-term="Fórmula L+D+R">L + D + R</span> (no reconoce ningún logro previo).</li>
                         </ul>
-                        <p><i class="ph-fill ph-check-circle" style="color:var(--accent-glow);"></i> <strong>CONCLUSIÓN BLINDADA DIAE (Apta para SIAGIE):</strong><br>
+                        <p><strong>Expediente Blindado por Técnica DIAE (Apto y Seguro para SIAGIE):</strong><br>
                         "Demuestra excelente agilidad en el cálculo mental con material concreto; sin embargo, evidencia dificultades al transcribir el algoritmo de multiplicación por dos cifras en el cuaderno. Se recomienda realizar juegos diarios de compras familiares con dinero didáctico en casa para afianzar el proceso."</p>
                         <ul>
-                            <li><strong>Auditoría DIAE:</strong> 300 caracteres exactos? No, mide 284 caracteres con espacios (¡Apto y seguro!). Aplica fórmula L + D + R. Enfoque Growth Mindset impecable y recomendación lúdica ejecutable.</li>
+                            <li><strong>Auditoría DIAE:</strong> ¿300 caracteres exactos? No, mide 284 caracteres con espacios (¡Apto y seguro!). Aplica fórmula L + D + R. Enfoque Growth Mindset impecable y recomendación lúdica ejecutable.</li>
                         </ul>
 
                         <h5>CASO 2: EBR SECUNDARIA (Área: DPCC — Nivel de Logro: B - En Proceso)</h5>
-                        <p><i class="ph-fill ph-x-circle" style="color:#f43f5e;"></i> <strong>CONCLUSIÓN RECHAZADA POR AUDITORÍA (Incorrecta):</strong><br>
+                        <p><strong>Expediente Observado en Auditoría Pedagógica (Proscrito por UGEL):</strong><br>
                         "La alumna presenta buenos objetivos de aprendizaje en la clase y tiene excelentes competencias blandas cuando trabaja en grupo con sus compañeros. Sin embargo no alcanza los indicadores de logro al momento de hacer debates porque le falta argumentar con normativas legales. Que lea más la constitución en su tiempo libre."</p>
                         <ul>
                             <li><strong>Fallo Técnico:</strong> Violación del <span class="diae-tooltip" data-term="Candado Semántico">Candado Semántico</span>. Utiliza jerga extranjera o proscrita en el magisterio peruano ("objetivos de aprendizaje", "competencias blandas", "indicadores de logro"). Recomendación vaga y poco didáctica.</li>
                         </ul>
-                        <p><i class="ph-fill ph-check-circle" style="color:var(--accent-glow);"></i> <strong>CONCLUSIÓN BLINDADA DIAE (Apta para SIAGIE):</strong><br>
+                        <p><strong>Expediente Blindado por Técnica DIAE (Apto y Seguro para SIAGIE):</strong><br>
                         "Participa democráticamente en los diálogos de aula respetando las normas de convivencia; sin embargo, requiere mayor rigor para sustentar su postura en fuentes legales y derechos ciudadanos durante los debates. Se sugiere elaborar fichas resumen de la Constitución antes de intervenir."</p>
                         <ul>
                             <li><strong>Auditoría DIAE:</strong> 281 caracteres con espacios. Cero jerga extranjera; alineamiento estricto al CNEB (Desempeños y Capacidades). Estructura L + D + R clara y académica.</li>
                         </ul>
 
                         <h5>CASO 3: CETPRO (Módulo Técnico: Mecánica Automotriz — Nivel de Logro: A - Logro Esperado)</h5>
-                        <p><i class="ph-fill ph-x-circle" style="color:#f43f5e;"></i> <strong>CONCLUSIÓN RECHAZADA POR AUDITORÍA (Incorrecta):</strong><br>
+                        <p><strong>Expediente Observado en Auditoría Pedagógica (Proscrito por UGEL):</strong><br>
                         "El estudiante aprobó el módulo con buena nota. Hace bien los trabajos del taller de motores y no falta a clases. Todo bien con el alumno en este periodo."</p>
                         <ul>
                             <li><strong>Fallo Técnico:</strong> Redacción pobre, genérica y carente de sustento técnico. No menciona la competencia del Catálogo Nacional de la Oferta Formativa (<span class="diae-tooltip" data-term="CNOF">CNOF</span>) ni especifica el estándar laboral alcanzado.</li>
                         </ul>
-                        <p><i class="ph-fill ph-check-circle" style="color:var(--accent-glow);"></i> <strong>CONCLUSIÓN BLINDADA DIAE (Apta para SIAGIE):</strong><br>
+                        <p><strong>Expediente Blindado por Técnica DIAE (Apto y Seguro para SIAGIE):</strong><br>
                         "Ejecuta el despiece y calibración de motores de combustión interna respetando estrictamente las hojas de operación del fabricante y las normas de bioseguridad industrial; asimismo, demuestra autonomía para diagnosticar fallas mecánicas utilizando instrumentos de medición de alta precisión en el taller."</p>
                         <ul>
                             <li><strong>Auditoría DIAE:</strong> 285 caracteres con espacios. Lenguaje técnico, profesional y dignificante que respalda la certificación laboral técnica ante el SINEACE y el MINEDU.</li>
@@ -2011,14 +1975,14 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre la auditoría SIAGIE..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 25: ANEXO C -->
-                <div class="lms-slide" id="slide-25" data-title="Anexo C: Compendio Canónico de Macros">
-                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 25</span><span class="meta-time"><i class="ph ph-clock"></i> 8 min de lectura</span></div></div>
+                <!-- SLIDE 24: ANEXO C -->
+                <div class="lms-slide" id="slide-24" data-title="Anexo C: Compendio Canónico de Macros">
+                    <div class="slide-header-actions"><div class="chunk-meta"><span class="meta-tag">Módulo 24</span><span class="meta-time"><i class="ph ph-clock"></i> 8 min de lectura</span></div></div>
                     <div class="slide-content-wrapper">
                         <h2 class="slide-title">ANEXOS TÉCNICOS DEL LIBRO 2</h2>
                         <h3>Anexo C: Compendio Canónico de Macros R-C-O-P-E del Libro 2</h3>
-                        <p>Este anexo constituye el Repositorio de Terminales de Código del docente. Aquí se compilan las 9 macros informáticas canónicas desarrolladas a lo largo de los siete capítulos del Libro 2, estructuradas estrictamente bajo el Método <span class="diae-tooltip" data-term="RCOPE">R-C-O-P-E</span> y el <span class="diae-tooltip" data-term="Candado Semántico">Candado Semántico CNEB</span>.</p>
-                        <p>El docente, coordinador o director solo debe copiar el bloque de código de la herramienta que necesite, pegarlo en su plataforma de Inteligencia Artificial (ChatGPT, Claude o Gemini) y rellenar los datos entre corchetes [ ] para automatizar su labor de escritorio escolar en segundos.</p>
+                        <p>Este anexo constituye el Repositorio Canónico de Terminales de Código del Libro 2. Aquí se compilan las nueve (9) macros informáticas desarrolladas a lo largo de los siete capítulos del volumen, maquetadas y parametrizadas estrictamente bajo el método <span class="diae-tooltip" data-term="RCOPE">R-C-O-P-E</span> y el <span class="diae-tooltip" data-term="Candado Semántico">Candado Semántico CNEB/SAANEE</span>.</p>
+                        <p>El profesor de aula regular, tutor de EBR, especialista de CEBE o instructor de CETPRO solo debe copiar el bloque de código de la herramienta que necesite, pegarlo en su plataforma de Inteligencia Artificial (ChatGPT, Claude o Gemini) y rellenar los datos entre corchetes [ ] para automatizar su labor de escritorio escolar en segundos.</p>
 
                         <h4>1. MACRO DE INGENIERÍA DE RÚBRICAS ANALÍTICAS (MACRO_RUBRICA_CNEB)</h4>
                         <p><em>Capítulo 2 — Para crear matrices evaluativas de 4 niveles ancladas en el Nivel A.</em></p>
@@ -2054,7 +2018,7 @@ Diseñar y estructurar una Rúbrica Analítica de Evaluación Formativa basada e
 --- INSUMOS DEL DOCENTE PARA EJECUTAR LA MACRO ---
 Competencia CNEB: [Pegar aquí la competencia del currículo]
 Desempeño Precisado Base (Ancla para Nivel A): [Pegar aquí el desempeño precisado adaptado a su sesión o unidad]
-Evidencia de Aprendizaje: [Insertar el producto o actuación observable del alumno, ej. Ensayo argumentativo, maqueta interactiva, etc.]</div>
+Evidencia de Aprendizaje: [Insertar el producto o actuación observable del alumno, ej. Ensayo argumentativo, maqueta interactiva, presupuesto financiero, etc.]</div>
                         </div>
 
                         <h4>2. MACRO DE PARAMETRIZACIÓN HUMANÍSTICA (PROMPT_LETRAS_SUBJETIVIDAD)</h4>
@@ -2068,7 +2032,7 @@ Actúa estrictamente como un Especialista en Didáctica de la Lengua y las Cienc
 Institución Educativa: [EBR Secundaria - Ciclo VI / Ciclo VII / EBA Avanzado]
 Grado y Sección: [Insertar Grado, ej. 5to Grado de Educación Secundaria]
 Área Curricular: [Comunicación / Ciencias Sociales / DPCC]
-Realidad Sociocultural: [Insertar contexto regional, ej. I.E. en la Amazonía de Tarapoto / colegio en Lima Sur]
+Realidad Sociocultural: [Insertar contexto regional, ej. I.E. en la Amazonía de Tarapoto / colegio urbano marginal en Lima Sur]
 Evidencia Evaluada: [Ensayo argumentativo / Artículo de opinión / Debate parlamentario oral]
 
 <span class="string">[OBJETIVO]:</span>
@@ -2077,8 +2041,8 @@ Diseñar una Rúbrica Analítica especializada de 4 niveles (AD, A, B, C) que el
 <span class="string">[PASOS]:</span>
 1. CANDADO SEMÁNTICO: Audita el léxico normativo MINEDU (CNEB/MBDD). Bloquea adjetivos vacíos ("excelente", "bueno", "regular", "malo") y reemplázalos por indicadores de frecuencia, complejidad relacional y grado de mediación docente.
 2. CRITERIO 1 - POSTURA CRÍTICA: La columna A (Logro Esperado) debe exigir la formulación de una tesis clara respecto al problema de la Situación Significativa. El nivel AD exige innovación y originalidad en la propuesta; el nivel B, dependencia de preguntas guía; el nivel C, identificación inicial de opiniones libres.
-3. CRITERIO 2 - MANEJO DE FUENTES: Exige el cruce verificable de fuentes (primarias, normativas o periodísticas locales). En AD, audita el contraste de autores antagónicos; en A, la citación correcta; en B, el uso de fuentes sin contraste; en C, el uso del sentido común sin respaldo documental.
-4. CRITERIO 3 - COHERENCIA ARGUMENTATIVA: Parametriza la structure gramatical (párrafos de introducción, nudo y desenlace). En AD valora la progresión temática sin falacias; en A, la estructura lógica completa; en B, saltos argumentativos leves; en C, ideas aisladas pero cohesionables.
+3. CRITERIO 2 - MANEJO DE FUENTES: Exige el cruce verificable de fuentes (primarias, normativas o periodísticas locales). En AD, audita el contraste de autores antagónicos; en A, la citación correcta; en B, el uso de fuentes sin contraste; en C, el uso del sentido común o saber cotidiano sin respaldo documental.
+4. CRITERIO 3 - COHERENCIA ARGUMENTATIVA: Parametriza la estructura gramatical (párrafos de introducción, nudo y desenlace). En AD valora la progresión temática sin falacias; en A, la estructura lógica completa; en B, saltos argumentativos leves; en C, ideas aisladas pero cohesionables.
 5. CRITERIO 4 - RIGOR ORTOGRÁFICO: Aplica un criterio formativo, no punitivo. En AD y A valora la limpieza formal del texto; en B y C identifica la necesidad de talleres de edición asistida por el docente sin estigmatizar la producción del autor.
 
 <span class="error-text">[ESTRUCTURA Y RESTRICCIÓN]:</span>
@@ -2108,7 +2072,7 @@ Realidad Productiva o Ambiental: [Insertar contexto local, ej. Cálculo de inter
 Diseñar una Matriz de Evaluación Formativa Heurística basada en el CNEB (4 niveles: AD, A, B, C) que evalúe el proceso de resolución y pensamiento lógico del estudiante en 4 criterios innegociables: Comprensión del Problema, Estrategia Heurística, Precisión Operativa/Experimental y Justificación Argumentativa.
 
 <span class="string">[PASOS]:</span>
-1. CANDADO SEMÁNTICO: Audita el léxico curricular oficial. Prohibido calificar al alumno bajo el enfoque binario ("respuesta correcta / incorrecta"). La evaluación debe centrarse en la movilización progresiva de las capacidades matemáticas y científicas del MBDD.
+1. CANDADO SEMÁNTICO: Audita el léxico curricular oficial. Prohibido calificar al alumno bajo el enfoque binario ("respuesta correcta / incorrecta"). La evaluación debe centrarse en la movilización progresiva de las capacities matemáticas y científicas del MBDD.
 2. CRITERIO 1 - COMPRENSIÓN DEL PROBLEMA: En A, audita la identificación clara de datos e incógnitas; en AD, la capacidad de reformular el reto; en B, la necesidad de apoyo para aislar datos relevantes; en C, el reconocimiento inicial de cantidades en un contexto.
 3. CRITERIO 2 - ESTRATEGIA HEURÍSTICA: Valora la elección del modelo (gráfico, algebraico, indagatorio). En AD el estudiante combina múltiples estrategias por autonomía; en A utiliza el modelo previsto; en B requiere sugerencias didácticas; en C intenta esquemas intuitivos.
 4. CRITERIO 3 - PRECISIÓN OPERATIVA / EXPERIMENTAL: Valora el cálculo o la medición. Si en el nivel A o B existe un error de cálculo aritmético menor que no altera la lógica heurística del plan, el descriptor debe señalar que el alumno "mantiene coherencia en el procedimiento pese a leves desajustes de cálculo solucionables con revisión autogestionada".
@@ -2351,87 +2315,85 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                     <div class="personal-notes"><h4><i class="ph-fill ph-pencil-simple" style="color:var(--accent-glow)"></i> Notas de este módulo</h4><textarea class="notes-input" aria-label="Notas de este módulo" placeholder="Escribe aquí tus observaciones sobre el Compendio de Macros..." onblur="saveNote(this)"></textarea><div class="notes-save-msg"><i class="ph ph-check"></i> Apunte guardado en tu navegador</div></div>
                 </div>
 
-                <!-- SLIDE 26: ENCUESTA DE CALIDAD -->
-                <div class="lms-slide" id="slide-26" data-title="Encuesta de Calidad">
+                <!-- SLIDE 25: ENCUESTA DE CALIDAD (MICRO-COMPROMISO VIP) -->
+                <div class="lms-slide" id="slide-25" data-title="Encuesta de Calidad">
                     <div class="survey-container">
-                        <span class="promo-tag" style="margin-bottom:8px;">Control de Calidad DIAE</span>
-                        <h2 class="pitch-title">TU OPINIÓN MUEVE ESTE PROYECTO</h2>
-                        <p class="pitch-sub">Antes de marcar este Libro 2 como finalizado, ayúdanos a calibrar el contenido para diseñar el siguiente volumen:</p>
+                        <span class="promo-tag" style="margin-bottom:8px;">Calibrador Editorial DIAE</span>
+                        <h2 class="pitch-title">TU OPINIÓN GUÍA LA SIGUIENTE COLECCIÓN</h2>
+                        <p class="pitch-sub">Antes de cerrar este manual, responde con 1 clic para priorizar las herramientas informáticas de las próximas entregas:</p>
                         <div class="survey-card">
                             <div class="survey-q">
-                                <label>1. ¿Qué tan aplicable a tu realidad de evaluación sentiste el manual?</label>
+                                <label>1. ¿Qué tan aplicables a tu realidad escolar sentiste las terminales de este libro?</label>
                                 <div class="star-group" id="star-rating-box"><i class="ph-fill ph-star" data-score="1"></i><i class="ph-fill ph-star" data-score="2"></i><i class="ph-fill ph-star" data-score="3"></i><i class="ph-fill ph-star" data-score="4"></i><i class="ph-fill ph-star" data-score="5"></i></div>
                                 <input type="hidden" id="user-star-val" value="0">
                             </div>
-                            <div class="survey-q">
-                                <label>2. ¿Cuál crees que será el mayor impacto en tu evaluación este bimestre?</label>
+                            <div class="survey-q" style="margin-bottom: 20px;">
+                                <label>2. ¿Cuál es el mayor dolor administrativo que te urge resolver el próximo mes?</label>
                                 <div class="radio-options">
-                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="tiempo"> <span>Recuperar madrugadas optimizando el SIAGIE</span></label>
-                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="seguridad"> <span>Rúbricas blindadas y sin subjetividad (UGEL)</span></label>
-                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="creatividad"> <span>Retroalimentación más empática para los alumnos</span></label>
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="siagie"> <span>Redacción de conclusiones descriptivas en el SIAGIE</span></label>
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="monitoreo"> <span>Instrumentos para superar el monitoreo y acompañamiento directivo</span></label>
+                                    <label class="radio-pill"><input type="radio" name="impact-doc" value="sesiones"> <span>Diversificación rápida de sesiones y unidades de aprendizaje</span></label>
                                 </div>
                             </div>
-                            <div class="survey-q"><label>3. ¿Qué tema te urge que automaticemos en el Volumen III? (Opcional)</label><input type="text" class="survey-text-input" placeholder="Ej. Proyectos de Emprendimiento, TOECE, Informes EBE..."></div>
-                            <button class="btn-survey-submit" onclick="procesarEncuesta()"><span>Guardar mi respuesta y continuar</span> <i class="ph ph-arrow-right"></i></button>
-                            <div class="survey-thanks-msg" id="survey-ok-check"><i class="ph ph-check"></i> ¡Muchas gracias, colega! Registrando valoración...</div>
+                            <button class="btn-survey-submit" onclick="procesarEncuesta()"><span>Registrar y ver mi beneficio de finalización</span> <i class="ph ph-arrow-right"></i></button>
+                            <div class="survey-thanks-msg" id="survey-ok-check"><i class="ph ph-check"></i> ¡Listo, colega! Calibrando tu acceso especial...</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- SLIDE 27: MEMBRESÍA PRO -->
-                <div class="lms-slide slide-completion" id="slide-27" data-title="Membresía PRO">
+                <!-- SLIDE 26: MEMBRESÍA PRO -->
+                <div class="lms-slide slide-completion" id="slide-26" data-title="Membresía PRO">
                     <div class="success-pitch-container">
                         <div class="icon-crown-badge"><i class="ph-fill ph-check-circle"></i></div>
-                        <h2 class="pitch-title">¡Felicidades, completaste tu Libro 2 DIAE!</h2>
-                        <p class="pitch-sub">Este libro fue tu salto cualitativo: aprendiste a delegar la parte más pesada y desgastante de la labor docente —la evaluación— para recuperar tu energía. Y esto no termina aquí — es el segundo de una colección con <strong>títulos avanzados</strong> solo para este año, pensada para que te empoderes por completo con la IA.</p>
+                        <h2 class="pitch-title">TU TIEMPO LIBRE ES INNEGOCIABLE</h2>
+                        <p class="pitch-sub">Has dado el paso más importante: entender que la Inteligencia Artificial no reemplaza tu vocación, sino que asume la carga burocrática del escritorio. No te detengas aquí. Únete a la comunidad magisterial más avanzada del Perú.</p>
                         <div class="premium-card-box">
-                            <div class="vip-scarcity-dock"><i class="ph-fill ph-fire"></i> <span>Cupos Fundador: <strong>4 / 20</strong></span></div>
                             <div class="premium-box-header">
-                                <div><span class="promo-tag">Plan Colegas Fundadores (2 primeros meses)</span><h4>Membresía DIAE PRO</h4></div>
-                                <div class="price-block" style="margin-top:8px;"><span class="old-price">S/ 29.90</span><span class="new-price">S/ 19.90</span><small>/ mes</small></div>
-                                <span class="price-recurrence">por los primeros 2 meses. Luego S/ 29.90 / mes regular. Puedes cancelar cuando quieras avisando por WhatsApp.</span>
+                                <div><span class="promo-tag">Tarifa Especial de Bienvenida — Mes 1</span><h4>Membresía DIAE PRO</h4></div>
+                                <div class="price-block" style="margin-top:8px;"><span class="old-price">S/ 29.90</span><span class="new-price">S/ 19.90</span><small>/ 1er mes</small></div>
+                                <span class="price-recurrence">Pruébalo tu primer mes completo por solo S/ 19.90. A partir del segundo mes, tu tarifa será la regular de S/ 29.90 mensuales.<br><br><strong>Cero letras chicas ni tarjetas amarradas:</strong> no hacemos débitos automáticos. Pagas mes a mes por Yape, Plin o transferencia, y cancelas cuando quieras con un simple mensaje de WhatsApp.</span>
                             </div>
 
-                            <p class="commercial-cta-text">Qué obtienes al inscribirte a DIAE PRO:</p>
+                            <p class="commercial-cta-text">Todo lo que se activa hoy en tu biblioteca profesional:</p>
                             <div class="pro-benefits-grid">
                                 <div class="pro-benefit-card">
                                     <i class="ph-fill ph-books"></i>
-                                    <h5>Libros nuevos cada 14 días</h5>
-                                    <p>Títulos avanzados confirmados: cada uno creado con IA y validado personalmente por el Prof. Gonzalo antes de publicarse.</p>
+                                    <h5>8 Libros nuevos cada mes</h5>
+                                    <p>Recibes 4 entregas prácticas cada dos semanas. Nuevas colecciones temáticas creadas con IA y validadas al 100% por el Prof. Gonzalo.</p>
                                 </div>
                                 <div class="pro-benefit-card">
                                     <i class="ph-fill ph-headset"></i>
-                                    <h5>Soporte experto todo el día</h5>
-                                    <p>Escríbele directamente al Prof. Gonzalo por WhatsApp para resolver cualquier duda sobre IA aplicada a tu evaluación, cuando la necesites.</p>
+                                    <h5>Línea directa por WhatsApp</h5>
+                                    <p>No estás solo en el escritorio. Consulta tus dudas sobre prompts y casos complejos en vivo directamente con el Prof. Gonzalo.</p>
                                 </div>
                                 <div class="pro-benefit-card">
                                     <i class="ph-fill ph-chalkboard-teacher"></i>
-                                    <h5>Capacitaciones exclusivas</h5>
-                                    <p>De forma periódica, sesiones en vivo con el Prof. Gonzalo sobre un tema específico de IA para docentes: dudas, casos reales y práctica guiada.</p>
+                                    <h5>Talleres y mentoría en vivo</h5>
+                                    <p>Acceso a sesiones cerradas de actualización para blindar tus documentos legales, dominar la norma MINEDU y preparar tu ascenso.</p>
                                 </div>
                                 <div class="pro-benefit-card">
                                     <i class="ph-fill ph-archive"></i>
-                                    <h5>Biblioteca ilimitada DIAE</h5>
-                                    <p>Acceso permanente a toda la colección de la editorial docente DIAE, enfocada 100% en que domines la IA en tu práctica pedagógica.</p>
+                                    <h5>Repositorio Canónico DIAE</h5>
+                                    <p>Acceso ilimitado a todas las macros R-C-O-P-E, plantillas de marco lógico y herramientas informáticas de la editorial.</p>
                                 </div>
                             </div>
 
                             <div class="payment-flow-box">
-                                <div class="payment-flow-title"><i class="ph-fill ph-lightning"></i> Cómo inscribirte</div>
+                                <div class="payment-flow-title"><i class="ph-fill ph-lightning"></i> Activación inmediata en 3 pasos</div>
                                 <ol class="payment-step-list">
-                                    <li><span class="payment-step-num">1</span><span class="payment-step-text">Escríbenos por WhatsApp contándonos que quieres unirte al <strong>Plan Fundador</strong>.</span></li>
-                                    <li><span class="payment-step-num">2</span><span class="payment-step-text">Te compartimos ahí mismo los medios de pago disponibles y confirmamos tu inscripción.</span></li>
-                                    <li><span class="payment-step-num">3</span><span class="payment-step-text">Recibes acceso a toda la colección DIAE y al canal de soporte experto, normalmente el mismo día.</span></li>
+                                    <li><span class="payment-step-num">1</span><span class="payment-step-text">Toca el botón verde para abrir una conversación directa en nuestro WhatsApp oficial.</span></li>
+                                    <li><span class="payment-step-num">2</span><span class="payment-step-text">Solicita tu <strong>Mes de Prueba a S/ 19.90</strong> y realiza tu abono rápido (Yape, Plin o transferencia bancaria).</span></li>
+                                    <li><span class="payment-step-num">3</span><span class="payment-step-text">En minutos activamos tu acceso permanente a la biblioteca y al canal de soporte privado.</span></li>
                                 </ol>
                             </div>
 
-                            <a href="#" onclick="activarMembresiaPRO(); return false;" class="btn-whatsapp-cta"><i class="ph ph-whatsapp-logo" style="font-size:1.4rem;"></i> Inscribirme a DIAE PRO por WhatsApp</a>
+                            <a href="#" onclick="activarMembresiaPRO(); return false;" class="btn-whatsapp-cta"><i class="ph ph-whatsapp-logo" style="font-size:1.4rem;"></i> Activar mi Mes de Prueba a S/ 19.90 por WhatsApp</a>
                         </div>
-                        <a href="index.html" class="btn-back-dashboard"><i class="ph ph-arrow-left"></i> Volver a la Biblioteca</a>
+                        <a href="index.html" class="btn-back-dashboard"><i class="ph ph-arrow-left"></i> Volver a mi Biblioteca DIAE</a>
                         
-                        <!-- Bloque Dinámico para Volver a Leer -->
+                        <!-- Bloque Dinámico para Repasar el Manual -->
                         <div style="margin-top: 35px; padding-top: 25px; border-top: 1px dashed var(--glass-border); width: 100%;">
-                            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px;">¿Deseas repasar los conceptos o prefieres iniciar la lectura desde cero?</p>
+                            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 15px;">¿Deseas repasar las terminales de código o prefieres iniciar la lectura desde cero?</p>
                             <button class="btn-lms btn-prev" onclick="confirmarReiniciarLectura()" style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); color: #fff; box-shadow: none;">
                                 <i class="ph ph-arrow-counter-clockwise"></i> Reiniciar Lectura desde la Portada
                             </button>
@@ -2490,7 +2452,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
 
     function activarMembresiaPRO() {
         const numeroDiae = "51966387995";
-        const mensaje = "Hola, acabo de terminar el Libro 2 y quiero inscribirme al Plan Fundador de DIAE PRO. ¿Me cuentan cómo continúo?";
+        const mensaje = "Hola, acabo de terminar mi manual y quiero activar mi primer mes de prueba en DIAE PRO por S/ 19.90. ¿Me brindan los datos de Yape/Plin?";
         window.open(`https://wa.me/${numeroDiae}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener');
     }
 
@@ -2534,7 +2496,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
     const savedSlideIndex = DiaeStorage.get('diae_book2_last_slide'); if (savedSlideIndex !== null) { const parsed = parseInt(savedSlideIndex, 10); if(parsed < domSlides.length) currentSlide = parsed; }
 
     const readingTotal = domSlides.length - 3; 
-    const hitosLectura = [5, 12, 19, 25]; // Puntos de recompensa (ajustados a este libro)
+    const hitosLectura = [5, 12, 19, 26]; 
 
     function dispararDopamina(slideIndex) {
         if (hitosLectura.includes(slideIndex)) {
@@ -2548,7 +2510,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
 
                 const coloresDiae = ['#10b981', '#06b6d4', '#f59e0b', '#ffffff'];
                 
-                if (slideIndex === readingTotal || slideIndex === 25) {
+                if (slideIndex === readingTotal || slideIndex === 26) {
                     const duration = 3000;
                     const end = Date.now() + duration;
                     (function frame() {
@@ -2609,7 +2571,7 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
                 progressBarFill.style.width = percent + '%'; 
                 progressIndicator.innerHTML = `${currentSlide} / ${readingTotal}`; 
 
-                btnNext.innerHTML = (currentSlide === readingTotal || currentSlide === 25) 
+                btnNext.innerHTML = (currentSlide === readingTotal || currentSlide === 26) 
                     ? '<span class="desktop-text">Evaluar Libro</span><span class="mobile-text">Evaluar</span> <i class="ph ph-check"></i>' 
                     : '<span class="desktop-text">Guardar y Continuar</span><span class="mobile-text">Continuar</span> <i class="ph ph-arrow-right"></i>';
             }
@@ -2757,9 +2719,16 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
         }
     });
 
+    const vozSynth = window.speechSynthesis;
+    let reproduciendo = false;
+    let elementosLectura = [];
+    let indiceLectura = 0;
+    let offsetBase = 0;
+    let charOffsetActual = 0;
     let velocidadAudio = 1.0;
     const velocidades = [1.0, 1.25, 1.5, 0.85];
     let velocidadIndex = 0;
+    let cambiandoVelocidad = false;
 
     function cambiarVelocidad(btn) {
         velocidadIndex = (velocidadIndex + 1) % velocidades.length;
@@ -2769,19 +2738,166 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
             b.innerText = velocidadAudio + 'x';
         });
 
-        if (reproduciendo) {
-            const btnActivo = document.querySelector('.ph-stop-circle').closest('.btn-audio');
-            if(btnActivo) {
-                toggleAudiolibro(btnActivo);
-                setTimeout(() => toggleAudiolibro(btnActivo), 50);
-            }
+        if (reproduciendo && vozSynth.speaking) {
+            cambiandoVelocidad = true;
+            vozSynth.cancel();
+            setTimeout(() => {
+                cambiandoVelocidad = false;
+                offsetBase = charOffsetActual;
+                leerElementoActual(true);
+            }, 50);
         }
     }
 
-    const vozSynth = window.speechSynthesis;
-    let reproduciendo = false;
-    let elementosLectura = [];
-    let indiceLectura = 0;
+    function toggleAudiolibro(btn) {
+        const icon = btn.querySelector('i');
+
+        if (reproduciendo) {
+            detenerAudioTotal();
+            return;
+        }
+
+        vozSynth.cancel();
+        resetIconosAudio();
+        limpiarHighlights();
+
+        const slide = btn.closest('.lms-slide');
+        const content = slide.querySelector('.slide-content-wrapper');
+        if (!content) return;
+
+        const todosElementos = Array.from(content.querySelectorAll('h2, h3, h4, p, li, td'));
+        elementosLectura = todosElementos.filter(el => !el.closest('.terminal-box') && el.textContent.trim().length > 0);
+        
+        if (elementosLectura.length === 0) return;
+
+        reproduciendo = true;
+        icon.className = 'ph-fill ph-stop-circle';
+        icon.style.color = '#f43f5e';
+
+        elementosLectura.forEach((el, idx) => {
+            el.style.cursor = 'pointer';
+            el.title = 'Haz clic en cualquier palabra para leer desde ahí';
+            
+            el.onclick = (e) => {
+                if (!reproduciendo) return;
+                e.stopPropagation();
+                
+                let range = null;
+                if (document.caretRangeFromPoint) {
+                    range = document.caretRangeFromPoint(e.clientX, e.clientY);
+                } else if (document.caretPositionFromPoint) {
+                    const pos = document.caretPositionFromPoint(e.clientX, e.clientY);
+                    if (pos) {
+                        range = document.createRange();
+                        range.setStart(pos.offsetNode, pos.offset);
+                        range.collapse(true);
+                    }
+                }
+
+                if (range && el.contains(range.startContainer)) {
+                    const preRange = document.createRange();
+                    preRange.setStart(el, 0);
+                    preRange.setEnd(range.startContainer, range.startOffset);
+                    let clickIndex = preRange.toString().length;
+
+                    const fullText = el.textContent;
+                    while (clickIndex > 0 && !/\s/.test(fullText[clickIndex - 1])) {
+                        clickIndex--;
+                    }
+
+                    cambiandoVelocidad = true;
+                    vozSynth.cancel();
+                    indiceLectura = idx;
+                    offsetBase = clickIndex;
+                    charOffsetActual = clickIndex;
+                    limpiarHighlights();
+                    
+                    setTimeout(() => {
+                        cambiandoVelocidad = false;
+                        leerElementoActual(true);
+                    }, 50);
+                } else {
+                    cambiandoVelocidad = true;
+                    vozSynth.cancel();
+                    indiceLectura = idx;
+                    offsetBase = 0;
+                    charOffsetActual = 0;
+                    limpiarHighlights();
+                    setTimeout(() => {
+                        cambiandoVelocidad = false;
+                        leerElementoActual(false);
+                    }, 50);
+                }
+            };
+        });
+
+        indiceLectura = 0;
+        offsetBase = 0;
+        charOffsetActual = 0;
+        leerElementoActual(false);
+    }
+
+    function leerElementoActual(continuarDesdeOffset = false) {
+        if (!reproduciendo || indiceLectura >= elementosLectura.length) {
+            detenerAudioTotal();
+            return;
+        }
+
+        const elementoActual = elementosLectura[indiceLectura];
+        limpiarHighlights();
+        
+        elementoActual.classList.add('reading-highlight');
+        elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const textoOriginal = elementoActual.textContent.trim();
+        let textoALeer = textoOriginal;
+        
+        if (continuarDesdeOffset && offsetBase > 0 && offsetBase < textoOriginal.length) {
+            textoALeer = textoOriginal.substring(offsetBase);
+        } else {
+            offsetBase = 0;
+            charOffsetActual = 0;
+        }
+
+        if (!textoALeer) {
+            indiceLectura++;
+            leerElementoActual(false);
+            return;
+        }
+
+        const mensaje = new SpeechSynthesisUtterance(textoALeer);
+        const vozPreferida = obtenerVozEspanol();
+        if (vozPreferida) {
+            mensaje.voice = vozPreferida;
+            mensaje.lang = vozPreferida.lang;
+        } else {
+            mensaje.lang = 'es-419';
+        }
+        mensaje.rate = velocidadAudio;
+
+        mensaje.onboundary = function(event) {
+            if (event.name === 'word' || event.name === 'sentence') {
+                charOffsetActual = offsetBase + event.charIndex;
+            }
+        };
+
+        mensaje.onend = function() {
+            if (!cambiandoVelocidad) {
+                indiceLectura++;
+                offsetBase = 0;
+                charOffsetActual = 0;
+                leerElementoActual(false);
+            }
+        };
+        
+        mensaje.onerror = function() {
+            if (!cambiandoVelocidad) {
+                detenerAudioTotal();
+            }
+        };
+
+        vozSynth.speak(mensaje);
+    }
 
     function obtenerVozEspanol() {
         if (!vozSynth) return null;
@@ -2800,89 +2916,24 @@ Competencias del Área a Catalogar: [Pegar aquí las 1, 2 o 3 competencias ofici
         });
     }
 
-    function leerSiguienteElemento(btn) {
-        if (!reproduciendo || indiceLectura >= elementosLectura.length) {
-            reproduciendo = false;
-            resetIconosAudio();
-            limpiarHighlights();
-            return;
-        }
-
-        const elementoActual = elementosLectura[indiceLectura];
-        limpiarHighlights();
-        elementoActual.classList.add('reading-highlight');
-        
-        elementoActual.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        const textoLimpio = elementoActual.textContent.trim();
-        
-        if (!textoLimpio) {
-            indiceLectura++;
-            leerSiguienteElemento(btn);
-            return;
-        }
-
-        const mensaje = new SpeechSynthesisUtterance(textoLimpio);
-        const vozPreferida = obtenerVozEspanol();
-        if (vozPreferida) {
-            mensaje.voice = vozPreferida;
-            mensaje.lang = vozPreferida.lang;
-        } else {
-            mensaje.lang = 'es-419';
-        }
-        mensaje.rate = velocidadAudio;
-
-        mensaje.onend = function() {
-            indiceLectura++;
-            leerSiguienteElemento(btn);
-        };
-        
-        mensaje.onerror = function() {
-            reproduciendo = false;
-            resetIconosAudio();
-            limpiarHighlights();
-        };
-
-        vozSynth.speak(mensaje);
-    }
-
-    function toggleAudiolibro(btn) {
-        const icon = btn.querySelector('i');
-
-        if (reproduciendo) {
-            vozSynth.cancel();
-            reproduciendo = false;
-            resetIconosAudio();
-            limpiarHighlights();
-            return;
-        }
-
-        vozSynth.cancel(); 
-        resetIconosAudio();
-        limpiarHighlights();
-
-        const slide = btn.closest('.lms-slide');
-        const content = slide.querySelector('.slide-content-wrapper');
-        if (!content) return;
-
-        const todosElementos = Array.from(content.querySelectorAll('h2, h3, h4, p, li, td'));
-        elementosLectura = todosElementos.filter(el => !el.closest('.terminal-box'));
-        
-        if (elementosLectura.length === 0) return;
-
-        indiceLectura = 0;
-        reproduciendo = true;
-        
-        icon.className = 'ph-fill ph-stop-circle';
-        icon.style.color = '#f43f5e';
-
-        leerSiguienteElemento(btn);
-    }
-
     function resetIconosAudio() {
         document.querySelectorAll('.btn-audio i').forEach(i => {
             i.className = 'ph-fill ph-speaker-high';
             i.style.color = ''; 
+        });
+    }
+
+    function detenerAudioTotal() {
+        reproduciendo = false;
+        cambiandoVelocidad = false;
+        vozSynth.cancel();
+        resetIconosAudio();
+        limpiarHighlights();
+        
+        elementosLectura.forEach(el => {
+            el.style.cursor = '';
+            el.title = '';
+            el.onclick = null;
         });
     }
 </script>
