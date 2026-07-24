@@ -69,7 +69,6 @@
             *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
         }
 
-        /* SIDEBAR */
         .sidebar { width: var(--sidebar-width); background: var(--glass-surface); backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); border-right: 1px solid var(--glass-border); height: 100vh; position: fixed; top: 0; left: 0; display: flex; flex-direction: column; padding: 35px 25px; z-index: 1000; transition: transform 0.4s var(--spring-bounce); }
         .brand { display: flex; align-items: center; margin-bottom: 45px; }
         .brand img { height: 80px; width: auto; display: block; }
@@ -91,7 +90,6 @@
         .user-info .ph-seal-check { color: var(--accent-glow); font-size: 1rem; }
         .badge-pro { background: var(--accent-gradient); color: #ffffff; font-size: 0.65rem; font-weight: 700; padding: 1px 5px; border-radius: 6px; letter-spacing: 0.05em; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); }
 
-        /* HEADER */
         .reader-header { position: fixed; top: 0; left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 75px; background: var(--glass-surface); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; z-index: 900; transition: all 0.4s; }
         .header-left { display: flex; align-items: center; gap: 15px; min-width: 0; }
         .mobile-menu-btn { display: none; background: transparent; border: 1px solid var(--glass-border); color: var(--text-title); font-size: 1.2rem; cursor: pointer; width: 40px; height: 40px; border-radius: 10px; align-items: center; justify-content: center; flex-shrink: 0;}
@@ -109,7 +107,6 @@
         .btn-toc:hover { background: var(--accent-glow); color: #000; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
         .progress-indicator { font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); font-family: var(--font-code); padding-left: 8px; border-left: 1px solid var(--glass-border); }
 
-        /* CAJÓN ÍNDICE */
         .toc-drawer { position: fixed; top: 75px; right: -380px; width: 360px; height: calc(100vh - 75px); background: rgba(9, 10, 15, 0.95); backdrop-filter: blur(40px) saturate(150%); border-left: 1px solid var(--glass-border); z-index: 850; transition: right 0.4s var(--spring-bounce); padding: 25px 20px; overflow-y: auto; box-shadow: -25px 0 50px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; }
         .toc-drawer.active { right: 0; }
         .toc-drawer-brand { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; padding-left: 5px; }
@@ -122,7 +119,6 @@
         .toc-item-sub.active { background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-glow); font-weight: 600; }
         .toc-item-sub.active::before { background: var(--accent-glow); width: 6px; height: 6px; }
 
-        /* MODAL GLOSARIO */
         .glossary-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); z-index: 9999; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; padding: 20px; transition: all 0.3s var(--spring-bounce); }
         .glossary-modal.active { opacity: 1; pointer-events: auto; }
         .glossary-box { width: 100%; max-width: 750px; max-height: 85vh; background: var(--glass-surface); border: 1px solid var(--glass-border-highlight); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-ambient), var(--shadow-inner); transform: translateY(25px); transition: transform 0.3s var(--spring-bounce); }
@@ -136,7 +132,6 @@
         .term-card h5 { color: var(--accent-glow); font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; display: flex; justify-content: space-between;}
         .term-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: 0; }
 
-        /* ENTORNO CENTRAL */
         .main-content { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); height: 100dvh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 10; padding: 95px 40px 25px 40px; transition: all 0.4s; }
         .lms-card { width: 100%; max-width: 980px; height: 100%; background: var(--glass-card); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--shadow-ambient), var(--shadow-inner); display: flex; flex-direction: column; overflow: hidden; position: relative; }
         .card-top-progress-track { width: 100%; height: 3px; background: rgba(255,255,255,0.04); position: relative; z-index: 50; }
@@ -149,7 +144,6 @@
         .lms-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
         .lms-slide.previous { transform: translateX(-40px); }
 
-        /* PORTADA MODERNA */
         .hero-canvas { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; text-align: center; max-width: 760px; margin: 0 auto; padding: 10px 20px;}
         .hero-pills-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 25px; }
         .hero-pill { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); padding: 5px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
@@ -178,7 +172,6 @@
         .slide-actions-group .tool-btn:hover { background: var(--accent-glow); color: #000; border-color: var(--accent-glow); transform: translateY(-2px); }
         .slide-actions-group .tool-btn.bookmarked { color: #f59e0b; border-color: #f59e0b; background: rgba(245, 158, 11, 0.1); }
 
-        /* TIPOGRAFÍA EDITORIAL */
         .slide-content-wrapper { font-size: calc(1.05rem * var(--font-multiplier)); }
         .slide-title { font-size: clamp(1.6rem, 3.2vw, 2.2rem); color: var(--text-title); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 30px; text-transform: uppercase;}
         h3 { font-size: calc(1.35rem * var(--font-multiplier)); color: var(--text-title); font-weight: 700; margin: 40px 0 15px 0; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
@@ -192,7 +185,6 @@
         ol { counter-reset: list-counter; }
         ol li::before { content: counter(list-counter) "."; color: var(--accent-glow); position: absolute; left: 0; font-size: 0.95rem; top: 2px; font-weight: bold; font-family: var(--font-code);}
 
-        /* TABLAS ELEGANTES */
         .custom-table-container { width: 100%; overflow-x: auto; margin: 25px 0; border-radius: 14px; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.3); box-shadow: var(--shadow-inner); }
         .custom-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
         .custom-table th { background: rgba(16, 185, 129, 0.15); color: #fff; padding: 14px 18px; font-weight: 700; border-bottom: 1px solid var(--glass-border-highlight); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; white-space: nowrap; }
@@ -200,7 +192,6 @@
         .custom-table tr:last-child td { border-bottom: none; }
         .custom-table tr:hover td { background: rgba(255,255,255,0.03); color: var(--text-primary); }
 
-        /* TOOLTIPS VIVOS */
         .diae-tooltip { border-bottom: 1px dashed var(--accent-glow); cursor: pointer; position: relative; color: var(--text-primary); font-weight: 600; transition: all 0.2s; background: rgba(16, 185, 129, 0.08); padding: 0 4px; border-radius: 4px; }
         .diae-tooltip:hover { color: var(--accent-glow); background: rgba(16, 185, 129, 0.15); }
         .floating-tip-card { position: absolute; z-index: 10000; width: 300px; background: #0f1117; border: 1px solid var(--accent-glow); padding: 14px 18px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.9); pointer-events: none; opacity: 0; transform: translateY(10px); transition: opacity 0.2s ease, transform 0.2s ease; }
@@ -232,7 +223,6 @@
         .notes-input:focus { border-color: var(--accent-glow); }
         .notes-save-msg { font-size: 0.75rem; color: var(--success-soft); margin-top: 6px; display: none; }
 
-        /* FOOTER */
         .lms-footer { padding: 16px 40px; background: rgba(6, 7, 10, 0.85); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; z-index: 30; }
         .btn-lms { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 26px; border-radius: 12px; font-family: var(--font-main); font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; border: none; outline: none; text-decoration: none; background: var(--accent-gradient); color: #fff; box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);}
         .btn-lms:hover { filter: brightness(1.1); transform: translateY(-1px); }
@@ -438,7 +428,7 @@
                             <span class="hero-pill"><i class="ph ph-books" style="color:var(--accent-glow)"></i> Libro 4 — Colección Editorial IA</span>
                             <span class="hero-pill"><i class="ph ph-stack" style="color:#06b6d4"></i> EBR • EBE • EBA • CETPRO</span>
                         </div>
-                        <h1 class="hero-h1">LIBRO 4: PROYECTOS DE INNOVACIÓN QUE GANAN: INGENIERÍA DE PROMPTS PARA CONCURSOS FONDEP</h1>
+                        <h1 class="hero-h1">PROYECTOS DE INNOVACIÓN QUE GANAN: INGENIERÍA DE PROMPTS PARA CONCURSOS FONDEP</h1>
                         <p class="hero-subtitle">El maestro como ideólogo y líder de la innovación; <strong>la Inteligencia Artificial como formulador de proyectos y auditor de consistencia lógica.</strong></p>
                         <div class="hero-mockup-container">
                             <div class="mockup-quote">«El prestigio académico y el financiamiento dejarán de ser un monopolio de las consultoras especializadas para convertirse en un logro cotidiano y accesible de su propia institución educativa.»</div>
