@@ -572,82 +572,67 @@
 
     </div>
 
-    <script>
-        // 1. Mostrar fecha actual en el header (Estilo Terminal DIAE)
-        const hoy = new Date();
-        document.getElementById('fecha-actual').textContent = hoy.toLocaleDateString('es-PE', {
-            year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute:'2-digit'
-        });
+<script>
+    const hoy = new Date();
+    document.getElementById('fecha-actual').textContent = hoy.toLocaleDateString('es-PE', {
+        year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute:'2-digit'
+    });
 
-        // 2. Lógica para habilitar/deshabilitar campo de apoderado
-        function toggleApoderado(isMinor) {
-            const group = document.getElementById('apoderado-group');
-            const input = document.getElementById('nombre_apoderado');
-            if (isMinor) {
-                group.style.display = 'block';
-                input.setAttribute('required', 'required');
-                group.style.animation = 'popIn 0.3s ease';
-            } else {
-                group.style.display = 'none';
-                input.removeAttribute('required');
-                input.value = '';
-            }
+    function toggleApoderado(isMinor) {
+        const group = document.getElementById('apoderado-group');
+        const input = document.getElementById('nombre_apoderado');
+        if (isMinor) {
+            group.style.display = 'block';
+            input.setAttribute('required', 'required');
+            group.style.animation = 'popIn 0.3s ease';
+        } else {
+            group.style.display = 'none';
+            input.removeAttribute('required');
+            input.value = '';
         }
+    }
 
-        // 3. Conexión a Google Spreadsheet (vía Google Apps Script)
-        // REEMPLAZAR GOOGLE_SCRIPT_URL con la URL de tu App Script
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxztePx8DTwepz8d83nx3ThixcTl1QKsoa7SVMVRZP9lKDUqHI-GS9nZ6FoCBzhjT3U/exec"; 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxztePx8DTwepz8d83nx3ThixcTl1QKsoa7SVMVRZP9lKDUqHI-GS9nZ6FoCBzhjT3U/exec"; 
 
-        const form = document.getElementById('libroReclamaciones');
-        const submitBtn = document.getElementById('submitBtn');
-        const alertBox = document.getElementById('form-alert');
+    const form = document.getElementById('libroReclamaciones');
+    const submitBtn = document.getElementById('submitBtn');
+    const alertBox = document.getElementById('form-alert');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Si no has puesto tu URL real, evitamos que falle el ejemplo
-            if(GOOGLE_SCRIPT_URL.includes("TU_SCRIPT_ID")) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        formData.set('fecha_registro', new Date().toLocaleString('es-PE'));
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ph ph-spinner ph-spin"></i> <span>Procesando...</span>';
+        alertBox.style.display = 'none';
+
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
                 alertBox.className = 'alert success';
-                alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: DEMOSTRACIÓN] <i class="ph-fill ph-check-circle" style="color:#34d399"></i>                                      │<br>│ Formulario validado. Reemplaza "TU_SCRIPT_ID" por la URL de      │<br>│ tu Google Apps Script para guardar los datos reales en el Sheet. │<br>└──────────────────────────────────────────────────────────────────┘';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                return;
+                alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: REGISTRADO] <i class="ph-fill ph-check-circle" style="color:#34d399"></i>                                        │<br>│ Su reclamación ha sido registrada formalmente en DIAE.           │<br>│ Nos comunicaremos a la brevedad dentro del plazo legal.          │<br>└──────────────────────────────────────────────────────────────────┘';
+                form.reset();
+                toggleApoderado(false);
+            } else {
+                throw new Error("Error en el servidor");
             }
-
-            // Preparar datos
-            const formData = new FormData(form);
-            formData.set('fecha_registro', new Date().toLocaleString('es-PE'));
-
-            // UI Loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="ph ph-spinner ph-spin"></i> <span>Procesando...</span>';
-            alertBox.style.display = 'none';
-
-            // Petición a Google Apps Script
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    alertBox.className = 'alert success';
-                    alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: REGISTRADO] <i class="ph-fill ph-check-circle" style="color:#34d399"></i>                                        │<br>│ Su reclamación ha sido registrada formalmente en DIAE.           │<br>│ Nos comunicaremos a la brevedad dentro del plazo legal.          │<br>└──────────────────────────────────────────────────────────────────┘';
-                    form.reset();
-                    toggleApoderado(false);
-                } else {
-                    throw new Error("Error en el servidor");
-                }
-            })
-            .catch(error => {
-                alertBox.className = 'alert error';
-                alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: ERROR] <i class="ph-fill ph-warning-circle" style="color:#f87171"></i>                                             │<br>│ Hubo un problema de conexión. No se pudo enviar la información.  │<br>│ Por favor, intente nuevamente en unos minutos.                   │<br>└──────────────────────────────────────────────────────────────────┘';
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Enviar Reclamación Formal</span> <i class="ph-fill ph-paper-plane-right"></i>';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+        })
+        .catch(error => {
+            alertBox.className = 'alert error';
+            alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: ERROR] <i class="ph-fill ph-warning-circle" style="color:#f87171"></i>                                             │<br>│ Hubo un problema de conexión. No se pudo enviar la información.  │<br>│ Por favor, intente nuevamente en unos minutos.                   │<br>└──────────────────────────────────────────────────────────────────┘';
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Enviar Reclamación Formal</span> <i class="ph-fill ph-paper-plane-right"></i>';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
