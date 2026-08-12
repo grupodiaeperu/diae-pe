@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Reclamaciones Virtual | DIAE Educa</title>
+    <meta name="description" content="Libro de Reclamaciones Virtual de DIAE, conforme al Código de Protección y Defensa del Consumidor, Ley N° 29571.">
+    
+    <!-- Meta tags DIAE -->
+    <meta property="og:title" content="Libro de Reclamaciones Virtual | DIAE">
+    <meta property="og:image" content="https://www.diae.pe/diae-logo.png">
+    
+    <!-- Favicon DIAE -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23090a0f'/%3E%3Cpath d='M30 70 L30 30 L48 30 Q70 30 70 50 Q70 70 48 70 Z' fill='none' stroke='%2310b981' stroke-width='8'/%3E%3C/svg%3E">
+    
+    <!-- Fuentes DIAE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* Paleta de colores DIAE */
+        :root {
+            --bg-base: #090a0f; 
+            --orb-1: rgba(16, 185, 129, 0.18); 
+            --orb-2: rgba(6, 182, 212, 0.15);  
+            --glass-surface: rgba(15, 17, 23, 0.75);
+            --glass-card: rgba(19, 22, 31, 0.65); 
+            --glass-border: rgba(255, 255, 255, 0.07);
+            --glass-border-highlight: rgba(16, 185, 129, 0.3);
+            --shadow-ambient: 0 25px 60px rgba(0, 0, 0, 0.8);
+            --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+            --text-title: #ffffff;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-glow: #10b981;  
+            --accent-hover: #059669; 
+            --accent-gradient: linear-gradient(135deg, #10b981 0%, #047857 100%);
+            --error-glow: #ef4444;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-code: 'Fira Code', monospace;
+            --spring-bounce: cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+        }
+
+        /* Efectos de fondo DIAE */
+        .orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; animation: floatOrb 28s infinite alternate ease-in-out; pointer-events: none; }
+        .orb-1 { width: 500px; height: 500px; background: var(--orb-1); top: -5%; left: 15%; }
+        .orb-2 { width: 600px; height: 600px; background: var(--orb-2); bottom: -10%; right: 10%; animation-delay: -14s; }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(80px, 50px) scale(1.15); } }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Encabezado DIAE */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: popIn 0.8s var(--spring-bounce) backwards;
+        }
+
+        .brand-logo {
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .brand-logo img {
+            height: 80px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            color: var(--text-title);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Info DIAE */
+        .company-info {
+            background: rgba(255,255,255,0.02);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            box-shadow: var(--shadow-ambient);
+            backdrop-filter: blur(20px);
+            animation: popIn 0.8s var(--spring-bounce) backwards;
+            animation-delay: 0.1s;
+        }
+
+        .company-info div {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .company-info strong {
+            display: block;
+            color: var(--accent-glow);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Formulario DIAE Glassmorphism */
+        .form-card {
+            background: var(--glass-card);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border-radius: 20px;
+            box-shadow: var(--shadow-ambient), var(--shadow-inner);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            animation: popIn 0.8s var(--spring-bounce) backwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes popIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+
+        .section-header {
+            background: rgba(0,0,0,0.4);
+            color: var(--text-title);
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--glass-border);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.95rem;
+        }
+        
+        .section-header i {
+            font-size: 1.35rem;
+            color: var(--accent-glow);
+        }
+
+        .section-body {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        label span.required {
+            color: var(--error-glow);
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background-color: rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        /* Asegurar que las opciones del select se vean bien en modo oscuro en algunos navegadores */
+        select option {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            border-color: var(--accent-glow);
+            color: var(--text-primary);
+        }
+
+        .radio-option input[type="radio"] {
+            accent-color: var(--accent-glow);
+            transform: scale(1.2);
+        }
+
+        .help-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: block;
+            background: rgba(16, 185, 129, 0.08);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-glow);
+        }
+
+        .help-text strong {
+            color: var(--accent-glow);
+        }
+
+        /* Botón Submit DIAE */
+        .submit-area {
+            padding: 2rem 1.5rem;
+            background: rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .btn-submit {
+            background: var(--accent-gradient);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s var(--spring-bounce);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+            font-family: var(--font-main);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6), inset 0 1px 0 rgba(255,255,255,0.6);
+            border-color: #fff;
+        }
+        
+        .btn-submit:disabled {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            border-color: var(--glass-border);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Legal / Footer */
+        .legal-notice {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: justify;
+            background: rgba(255,255,255,0.02);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+        }
+        
+        .legal-notice p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Modal/Alertas Terminal DIAE */
+        .alert {
+            display: none;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            animation: popIn 0.3s ease;
+        }
+        .alert.success {
+            display: block;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid var(--accent-glow);
+        }
+        .alert.error {
+            display: block;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            border: 1px solid var(--error-glow);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .brand-logo img {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Orbes de fondo DIAE -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="container">
+        
+        <!-- Encabezado DIAE -->
+        <div class="header">
+            <div class="brand-logo">
+                <a href="https://www.diae.pe/">
+                    <img src="https://www.diae.pe/diae-logo.png" alt="DIAE Educa">
+                </a>
+            </div>
+            <h1>Libro de Reclamaciones</h1>
+            <p>Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, Ley N° 29571. <br><strong>DIAE</strong></p>
+        </div>
+
+        <!-- Información de la Empresa -->
+        <div class="company-info">
+            <div>
+                <strong>Razón Social:</strong>
+                DIAE
+            </div>
+            <div>
+                <strong>RUC:</strong>
+                10706951011
+            </div>
+            <div>
+                <strong>Sede Digital:</strong>
+                www.diae.pe
+            </div>
+            <div>
+                <strong>Fecha de Registro:</strong>
+                <span id="fecha-actual" style="font-family: var(--font-code);"></span>
+            </div>
+        </div>
+
+        <div id="form-alert" class="alert"></div>
+
+        <!-- Formulario (Listo para Google Apps Script) -->
+        <form id="libroReclamaciones" class="form-card">
+            
+            <!-- 1. Identificación del Consumidor -->
+            <div class="section-header">
+                <i class="ph-fill ph-user-circle"></i> 1. Identificación del Consumidor Reclamante
+            </div>
+            <div class="section-body">
+                
+                <div class="form-group">
+                    <label><i class="ph ph-identification-card"></i> Nombre(s) y Apellidos / Razón Social <span class="required">*</span></label>
+                    <input type="text" name="nombres" required placeholder="Ej. Juan Pérez / Empresa SAC">
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><i class="ph ph-hash"></i> Tipo de Documento <span class="required">*</span></label>
+                        <select name="tipo_documento" required>
+                            <option value="" disabled selected>Seleccione...</option>
+                            <option value="DNI">DNI</option>
+                            <option value="CE">Carné de Extranjería (CE)</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="RUC">RUC</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="ph ph-barcode"></i> Número de Documento <span class="required">*</span></label>
+                        <input type="text" name="numero_documento" required placeholder="Ej. 70123456">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="ph ph-map-pin"></i> Domicilio (Dirección exacta) <span class="required">*</span></label>
+                    <input type="text" name="domicilio" required placeholder="Av. / Calle / Mz. / Distrito / Provincia / Departamento">
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><i class="ph ph-phone"></i> Teléfono / Celular <span class="required">*</span></label>
+                        <input type="tel" name="telefono" required placeholder="Ej. 987654321">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="ph ph-envelope-simple"></i> Correo Electrónico <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="correo@ejemplo.com">
+                    </div>
+                </div>
+
+                <!-- Campo para menores de edad -->
+                <div class="form-group">
+                    <label><i class="ph ph-baby"></i> ¿El reclamante es menor de edad?</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="es_menor" value="NO" checked onchange="toggleApoderado(false)"> No
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="es_menor" value="SI" onchange="toggleApoderado(true)"> Sí
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="apoderado-group" style="display: none; background: rgba(16, 185, 129, 0.05); padding: 1rem; border-radius: 12px; border: 1px dashed var(--accent-glow);">
+                    <label><i class="ph ph-users"></i> Nombre del Padre, Madre o Apoderado <span class="required">*</span></label>
+                    <input type="text" name="nombre_apoderado" id="nombre_apoderado" placeholder="Obligatorio si el reclamante es menor de edad">
+                </div>
+            </div>
+
+            <!-- 2. Identificación del Bien Contratado -->
+            <div class="section-header">
+                <i class="ph-fill ph-package"></i> 2. Identificación del Bien Contratado (Cursos / Suscripciones)
+            </div>
+            <div class="section-body">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label><i class="ph ph-tag"></i> Tipo de Bien <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="tipo_bien" value="Producto" required> Producto
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tipo_bien" value="Servicio" required> Servicio
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="ph ph-currency-circle-dollar"></i> Monto Reclamado (S/) <span class="required">*</span></label>
+                        <input type="number" name="monto_reclamado" step="0.01" min="0" required placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="ph ph-text-aa"></i> Descripción del Producto o Servicio <span class="required">*</span></label>
+                    <input type="text" name="descripcion_bien" required placeholder="Ej. Suscripción DIAE Pro / Curso de IA / Libro Digital">
+                </div>
+            </div>
+
+            <!-- 3. Detalle de la Reclamación -->
+            <div class="section-header">
+                <i class="ph-fill ph-warning-circle"></i> 3. Detalle de la Reclamación y Pedido del Consumidor
+            </div>
+            <div class="section-body">
+                
+                <div class="form-group">
+                    <label><i class="ph ph-flag"></i> Tipo de Inconformidad <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="tipo_inconformidad" value="Reclamo" required> Reclamo
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="tipo_inconformidad" value="Queja" required> Queja
+                        </label>
+                    </div>
+                    <span class="help-text">
+                        <strong>RECLAMO:</strong> Disconformidad relacionada a los productos o servicios educativos.<br>
+                        <strong>QUEJA:</strong> Disconformidad no relacionada a los productos/servicios; o, malestar respecto a la atención recibida.
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="ph ph-file-text"></i> Detalle de lo ocurrido <span class="required">*</span></label>
+                    <textarea name="detalle_ocurrido" required placeholder="Describa de forma clara y detallada el motivo de su reclamo o queja ante DIAE..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="ph ph-hand-palm"></i> Pedido concreto del consumidor <span class="required">*</span></label>
+                    <textarea name="pedido_consumidor" required placeholder="¿Qué solución espera obtener? (Ej. Devolución, soporte técnico, mejora en atención...)"></textarea>
+                </div>
+
+            </div>
+
+            <div class="submit-area">
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    * Al enviar este formulario, declaro que los datos consignados son correctos y fieles a la verdad, aceptando las políticas de privacidad de DIAE (Ley N° 29733).
+                </p>
+                <!-- Input oculto con la fecha/hora de registro -->
+                <input type="hidden" name="fecha_registro" id="fecha_registro">
+                
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span>Enviar Reclamación Formal</span> <i class="ph-fill ph-paper-plane-right"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="legal-notice">
+            <p><strong><i class="ph-fill ph-scales"></i> INFORMACIÓN LEGAL IMPORTANTE:</strong> La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.</p>
+            <p>DIAE deberá dar respuesta al reclamo en un plazo no mayor a quince (15) días hábiles improrrogables, de acuerdo con la normativa vigente (Ley N° 29571 y sus modificatorias recientes).</p>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Mostrar fecha actual en el header (Estilo Terminal DIAE)
+        const hoy = new Date();
+        document.getElementById('fecha-actual').textContent = hoy.toLocaleDateString('es-PE', {
+            year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute:'2-digit'
+        });
+
+        // 2. Lógica para habilitar/deshabilitar campo de apoderado
+        function toggleApoderado(isMinor) {
+            const group = document.getElementById('apoderado-group');
+            const input = document.getElementById('nombre_apoderado');
+            if (isMinor) {
+                group.style.display = 'block';
+                input.setAttribute('required', 'required');
+                group.style.animation = 'popIn 0.3s ease';
+            } else {
+                group.style.display = 'none';
+                input.removeAttribute('required');
+                input.value = '';
+            }
+        }
+
+        // 3. Conexión a Google Spreadsheet (vía Google Apps Script)
+        // REEMPLAZAR GOOGLE_SCRIPT_URL con la URL de tu App Script
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxztePx8DTwepz8d83nx3ThixcTl1QKsoa7SVMVRZP9lKDUqHI-GS9nZ6FoCBzhjT3U/exec"; 
+
+        const form = document.getElementById('libroReclamaciones');
+        const submitBtn = document.getElementById('submitBtn');
+        const alertBox = document.getElementById('form-alert');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Si no has puesto tu URL real, evitamos que falle el ejemplo
+            if(GOOGLE_SCRIPT_URL.includes("TU_SCRIPT_ID")) {
+                alertBox.className = 'alert success';
+                alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: DEMOSTRACIÓN] <i class="ph-fill ph-check-circle" style="color:#34d399"></i>                                      │<br>│ Formulario validado. Reemplaza "TU_SCRIPT_ID" por la URL de      │<br>│ tu Google Apps Script para guardar los datos reales en el Sheet. │<br>└──────────────────────────────────────────────────────────────────┘';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            // Preparar datos
+            const formData = new FormData(form);
+            formData.set('fecha_registro', new Date().toLocaleString('es-PE'));
+
+            // UI Loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="ph ph-spinner ph-spin"></i> <span>Procesando...</span>';
+            alertBox.style.display = 'none';
+
+            // Petición a Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    alertBox.className = 'alert success';
+                    alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: REGISTRADO] <i class="ph-fill ph-check-circle" style="color:#34d399"></i>                                        │<br>│ Su reclamación ha sido registrada formalmente en DIAE.           │<br>│ Nos comunicaremos a la brevedad dentro del plazo legal.          │<br>└──────────────────────────────────────────────────────────────────┘';
+                    form.reset();
+                    toggleApoderado(false);
+                } else {
+                    throw new Error("Error en el servidor");
+                }
+            })
+            .catch(error => {
+                alertBox.className = 'alert error';
+                alertBox.innerHTML = '┌──────────────────────────────────────────────────────────────────┐<br>│ [ESTADO: ERROR] <i class="ph-fill ph-warning-circle" style="color:#f87171"></i>                                             │<br>│ Hubo un problema de conexión. No se pudo enviar la información.  │<br>│ Por favor, intente nuevamente en unos minutos.                   │<br>└──────────────────────────────────────────────────────────────────┘';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Enviar Reclamación Formal</span> <i class="ph-fill ph-paper-plane-right"></i>';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
