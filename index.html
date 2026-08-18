@@ -303,6 +303,206 @@ body.modal-open{overflow:hidden!important}
 .curricular-note{border-left:3px solid var(--brand);padding-left:12px;color:var(--muted);font-size:.78rem;line-height:1.55}
 .badge.curriculum{background:rgba(91,192,235,.09);border-color:rgba(91,192,235,.22);color:var(--info)}
 </style>
+
+<style id="diae-v552-experience">
+/* Navegación */
+.sidebar{overscroll-behavior:contain}
+.sidebar-close{display:none;position:absolute;right:14px;top:14px;width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--text);place-items:center;z-index:3}
+.sidebar-backdrop{display:none;position:fixed;inset:0;background:rgba(3,12,8,.48);backdrop-filter:blur(2px);z-index:98}
+.profile-banner{margin:18px 0 22px!important}
+.page-head p{max-width:850px;line-height:1.62}
+
+/* Cuaderno */
+.notebook-toolbar{display:grid!important;grid-template-columns:minmax(170px,.72fr) minmax(210px,1fr) minmax(260px,1.35fr);gap:10px!important;align-items:stretch}
+.notebook-toolbar select,.notebook-toolbar input{width:100%;min-width:0;min-height:44px;font-size:.78rem}
+
+/* Calendario */
+.calendar-scroll{width:100%;overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.calendar-scroll-inner{min-width:780px}
+.calendar-grid{grid-template-columns:repeat(7,minmax(104px,1fr))!important;gap:8px!important}
+.cal-head{position:sticky;top:0;z-index:2;background:var(--surface);border-radius:9px;font-size:.72rem!important;padding:9px!important}
+.cal-day{min-height:118px!important;padding:10px!important}
+.cal-num{font-size:.82rem!important}.cal-event{font-size:.65rem!important;line-height:1.42!important;padding:6px 7px!important}
+.calendar-month-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.calendar-legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.calendar-legend span{font-size:.67rem;border:1px solid var(--line);padding:6px 9px;border-radius:999px}
+
+/* Evaluaciones: mobile viewport estable */
+.exam-shell{height:100dvh!important;max-height:100dvh!important}
+.exam-body{min-height:0}
+.question-pane{padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}
+.exam-bottom{position:absolute!important;left:0;right:0;bottom:0;z-index:60;min-height:70px;padding:10px 18px calc(10px + env(safe-area-inset-bottom))!important;background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.exam-bottom .btn{min-height:46px}
+.exam-bottom .save-state{white-space:nowrap}
+.exam-topbar{padding-top:max(10px,env(safe-area-inset-top))}
+.exam-tools{min-width:0}.exam-title{min-width:0}.exam-title strong,.exam-title span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Loader */
+.experience-loader{position:fixed;inset:0;z-index:450;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);display:grid;place-items:center;opacity:0;pointer-events:none;transition:.18s ease}
+.experience-loader.active{opacity:1;pointer-events:auto}
+.experience-loader-card{text-align:center;max-width:420px;padding:28px}.experience-loader-card>strong{display:block;font:800 1.05rem Manrope;margin-top:16px}.experience-loader-card>small{display:block;color:var(--muted);font-size:.72rem;margin-top:5px;line-height:1.45}
+.loader-orbit{position:relative;width:76px;height:76px;margin:auto;display:grid;place-items:center}.loader-orbit .brand-mark{width:42px;height:42px;border-radius:13px}.loader-orbit>span{position:absolute;inset:0;border:2px solid transparent;border-top-color:var(--brand);border-radius:50%;animation:diaeOrbit 1.2s linear infinite}.loader-orbit>span:nth-child(2){inset:8px;border-top-color:var(--info);animation-direction:reverse;animation-duration:1.6s}.loader-orbit>span:nth-child(3){inset:-8px;border-top-color:var(--warn);animation-duration:2s}
+@keyframes diaeOrbit{to{transform:rotate(360deg)}}
+
+/* Tutorial / glosario */
+.guide-modal{width:min(980px,100%)}.guide-tabs{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}.guide-tabs button{border:1px solid var(--line);background:var(--surface-2);color:var(--text);padding:9px 12px;border-radius:10px;font-weight:750}.guide-section{display:grid;gap:10px}.guide-item{border:1px solid var(--line);background:var(--surface-2);border-radius:13px;padding:13px}.guide-item strong{display:block;font-size:.82rem}.guide-item p{font-size:.72rem;color:var(--muted);line-height:1.52;margin:5px 0 0}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.glossary-term{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--surface-2)}.glossary-term strong{font-size:.76rem}.glossary-term p{font-size:.68rem;color:var(--muted);line-height:1.45;margin:5px 0 0}
+.tour-layer{position:fixed;inset:0;z-index:430;pointer-events:none}.tour-dim{position:absolute;inset:0;background:rgba(0,0,0,.55)}.tour-highlight{position:fixed;border:3px solid var(--brand);border-radius:14px;box-shadow:0 0 0 9999px rgba(0,0,0,.52);transition:.22s ease;z-index:431}.tour-card{position:fixed;z-index:432;width:min(380px,calc(100vw - 28px));background:var(--surface);border:1px solid var(--brand-line);border-radius:16px;padding:17px;box-shadow:0 22px 60px rgba(0,0,0,.25);pointer-events:auto}.tour-card strong{font:800 .95rem Manrope}.tour-card p{font-size:.73rem;color:var(--muted);line-height:1.52;margin:7px 0 12px}.tour-actions{display:flex;justify-content:space-between;gap:8px}.tour-progress{font-size:.65rem;color:var(--muted);margin-bottom:8px}
+
+/* Historial */
+.history-chart-wrap{overflow-x:auto;padding:8px 0}.history-chart-svg{width:100%;min-width:520px;height:210px;display:block}.history-point{cursor:pointer}.history-card{cursor:default}.history-card .btn{white-space:nowrap}
+.readonly-question{border:1px solid var(--line);border-radius:13px;padding:12px;margin-top:9px;background:var(--surface-2)}.readonly-question summary{cursor:pointer;font-weight:800;font-size:.75rem}.readonly-answer{display:grid;gap:5px;margin-top:9px;font-size:.71rem}.readonly-answer span{padding:7px 9px;border-radius:8px;border:1px solid var(--line)}.readonly-answer .chosen{border-color:var(--info);background:rgba(91,192,235,.08)}.readonly-answer .correct{border-color:var(--brand-line);background:var(--brand-soft)}
+
+/* Premium */
+.plan-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.plan-table{min-width:720px;display:grid;grid-template-columns:1.5fr repeat(3,1fr);border:1px solid var(--line);border-radius:15px;overflow:hidden}.plan-table>div{padding:11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.71rem}.plan-table>div:nth-child(4n){border-right:0}.plan-table .head{background:var(--surface-2);font-weight:850}.plan-table .yes{color:var(--brand);font-weight:850}.plan-table .campaign{background:var(--brand-soft)}
+
+/* Responsive docente primero */
+@media(max-width:1000px){
+  .view{padding:28px 20px 110px!important}
+  .sidebar{z-index:100!important}.sidebar-backdrop.active{display:block}.sidebar-close{display:grid}
+  .sidebar.open{box-shadow:24px 0 60px rgba(0,0,0,.24)}
+  .notebook-toolbar{grid-template-columns:1fr 1fr!important}.notebook-toolbar input{grid-column:1/-1}
+}
+@media(max-width:720px){
+  html{font-size:17px}
+  body{font-size:1rem}
+  .view{padding:22px 16px 112px!important}
+  .topbar{padding-inline:12px!important}.top-title span{display:none}
+  .page-head{gap:12px!important;margin-bottom:20px!important}.page-head h1{font-size:1.85rem!important;line-height:1.08}.page-head p{font-size:.88rem!important;line-height:1.6}
+  .card{border-radius:16px!important}.card p,.feature,.task small,.learning-signal p{font-size:.8rem!important}
+  .notebook-toolbar{grid-template-columns:1fr!important}.notebook-toolbar input{grid-column:auto}
+  .calendar-scroll{margin-inline:-4px;width:calc(100% + 8px)}.calendar-scroll-inner{min-width:742px}.calendar-grid{grid-template-columns:repeat(7,100px)!important}
+  .exam-topbar{padding:8px 10px!important;gap:8px}.exam-brand .brand-mark{display:none}.exam-title strong{font-size:.74rem}.exam-title span{font-size:.61rem}.exam-tools{gap:5px}.exam-tools .timer{font-size:.7rem;padding:7px 8px}.exam-tools .btn-danger{padding:8px 9px;font-size:.67rem}.exam-tools .btn-danger i{display:none}
+  .question-pane{padding:18px 14px calc(96px + env(safe-area-inset-bottom))!important}.question-wrap{max-width:100%!important}.source-content,.shared-context{font-size:1rem!important;line-height:1.7!important}.option{font-size:.94rem!important;line-height:1.5;padding:14px 12px!important}
+  .q-head{gap:10px}.q-mark{font-size:.68rem!important;padding:8px!important}
+  .exam-bottom{padding-inline:10px!important;display:grid!important;grid-template-columns:1fr auto 1fr;gap:7px}.exam-bottom .btn{padding:10px 11px!important;font-size:.76rem}.exam-bottom .save-state{font-size:.58rem;text-align:center;max-width:82px;overflow:hidden;text-overflow:ellipsis}.exam-bottom #prev-btn{justify-self:stretch}.exam-bottom #next-btn{justify-self:stretch}
+  .lectura-dock{bottom:calc(12px + env(safe-area-inset-bottom));flex-direction:column;align-items:stretch;gap:8px}.lectura-controls{justify-content:space-between}.lectura-rate{flex:1;justify-content:center}
+  .glossary-grid{grid-template-columns:1fr}.guide-modal{max-height:88dvh;overflow:auto}
+  .personal-hero-main{padding:20px!important}.personal-stat strong{font-size:1.3rem!important}
+}
+@media(max-width:420px){
+  html{font-size:17.5px}
+  .view{padding-inline:13px!important}.top-actions .icon-btn:nth-of-type(n+3){display:none}
+  .exam-bottom{grid-template-columns:1fr 1fr}.exam-bottom .save-state{display:none}.exam-bottom .btn{font-size:.79rem}
+  .exam-tools .mobile-grid{display:grid}.exam-tools .icon-btn:first-child{display:none}
+}
+@media(prefers-reduced-motion:reduce){.loader-orbit>span{animation:none}.tour-highlight,.lectura-dock,.experience-loader{transition:none}}
+</style>
+
+<style id="diae-v553-polish">
+.nav-compact{gap:7px!important}
+.nav-home{min-height:44px}
+.nav-group{border:1px solid transparent;border-radius:14px}
+.nav-group.open{background:var(--surface-2);border-color:var(--line)}
+.nav-group-toggle{width:100%;justify-content:space-between!important;min-height:44px;font-weight:800!important;color:var(--text)!important}
+.nav-group-toggle>span{display:flex;align-items:center;gap:11px}
+.nav-caret{font-size:.9rem!important;transition:transform .18s ease}
+.nav-group.open .nav-caret{transform:rotate(180deg)}
+.nav-submenu{display:grid;gap:3px;padding:0 5px 6px 13px}
+.nav-submenu[hidden]{display:none!important}
+.nav-submenu button{min-height:39px;padding:8px 10px!important;font-size:.78rem!important}
+.nav-submenu button i{font-size:1.05rem!important}
+.sidebar-user{margin-top:12px!important}
+.sidebar .campaign-mini{margin-bottom:10px!important}
+.sidebar{padding-bottom:14px!important}
+
+/* Carga deliberada y estable */
+.experience-loader{transition:opacity .26s ease!important}
+.experience-loader-card{width:min(420px,calc(100vw - 36px));padding:30px 24px!important}
+.loader-progress-track{height:4px;border-radius:999px;background:var(--surface-3);overflow:hidden;margin:18px auto 0;max-width:260px}
+.loader-progress-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--info));animation:diaeLoadProgress 1.75s cubic-bezier(.2,.7,.25,1) forwards}
+@keyframes diaeLoadProgress{0%{width:4%}45%{width:58%}78%{width:84%}100%{width:100%}}
+.loader-pulse{display:flex;justify-content:center;gap:6px;margin-top:13px}
+.loader-pulse i{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:diaePulse 1.05s infinite ease-in-out}
+.loader-pulse i:nth-child(2){animation-delay:.14s}.loader-pulse i:nth-child(3){animation-delay:.28s}
+@keyframes diaePulse{0%,70%,100%{opacity:.25;transform:translateY(0)}35%{opacity:1;transform:translateY(-5px)}}
+
+/* Tutorial más amplio y legible */
+.tour-card{width:min(430px,calc(100vw - 24px))!important;padding:20px!important}
+.tour-card strong{font-size:1.02rem!important}.tour-card p{font-size:.79rem!important;line-height:1.58!important}
+.tour-progress-bar{height:4px;background:var(--surface-3);border-radius:999px;overflow:hidden;margin:8px 0 14px}
+.tour-progress-bar span{display:block;height:100%;background:var(--brand)}
+.tour-tip{padding:9px 10px;border:1px solid var(--brand-line);background:var(--brand-soft);border-radius:10px;margin:10px 0;font-size:.7rem;line-height:1.45}
+.tour-actions .btn{min-height:40px}
+.tour-chapter{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brand);font-weight:850;margin-bottom:4px}
+
+/* Evaluación: jerarquía y legibilidad */
+.exam-shell{background:var(--bg)}
+.exam-topbar{min-height:76px;height:auto!important;padding-block:10px!important}
+.exam-title strong{font-size:.88rem!important}.exam-title span{font-size:.7rem!important}
+.question-wrap{max-width:900px!important}
+.source-content{font-size:calc(1.12rem * var(--font-scale))!important;line-height:1.76!important}
+.shared-context{padding:20px!important}.shared-context p{font-size:1rem;line-height:1.76!important}
+.options{gap:14px!important;margin-top:30px!important}
+.option{min-height:64px;padding:17px!important;font-size:1rem;line-height:1.58!important}
+.opt-letter{width:38px!important;height:38px!important}
+.q-head{margin-bottom:20px!important}.q-count{font-size:.82rem!important}
+.exam-bottom{box-shadow:0 -14px 36px color-mix(in srgb,var(--bg) 72%,transparent)}
+.exam-bottom .btn{font-weight:800}
+.exam-nav{width:320px}.qdot{min-height:40px}
+.nav-summary{padding:15px 17px!important}
+
+/* Responsive reforzado */
+@media(max-width:1100px){
+  .tour-card{left:14px!important;right:14px!important;top:auto!important;bottom:14px!important;width:auto!important;max-width:500px!important;max-height:46dvh;overflow:auto}
+  .tour-actions{position:sticky;bottom:-20px;background:var(--surface);padding-top:8px}
+}
+@media(max-width:1000px){
+  .sidebar{width:min(330px,88vw)!important}
+  .tour-card{left:14px!important;right:14px!important;top:auto!important;bottom:14px!important;width:auto!important;max-width:500px!important;max-height:46dvh;overflow:auto}
+  .tour-actions{position:sticky;bottom:-20px;background:var(--surface);padding-top:8px}
+
+  .nav-submenu button{font-size:.84rem!important;min-height:43px}
+}
+@media(max-width:720px){
+  html{font-size:17.5px!important}
+  .grid>*{min-width:0}
+  .history-chart-wrap{max-width:100%}
+  .tour-card{left:10px!important;right:10px!important;top:auto!important;bottom:10px!important;width:auto!important;max-height:48dvh;overflow:auto;padding:15px!important}
+  .tour-card strong{font-size:.94rem!important}.tour-card p{font-size:.73rem!important;line-height:1.48!important}.tour-tip{font-size:.66rem!important;margin:8px 0!important}
+  .tour-actions{position:sticky;bottom:-15px;background:var(--surface);padding-top:8px}
+  .tour-progress-bar{margin-bottom:10px!important}
+
+  .sidebar{padding:18px 13px!important}
+  .main{padding-top:64px!important}
+  .topbar{height:64px!important}
+  .view{padding:20px 14px 108px!important}
+  .page-head{align-items:flex-start!important;flex-direction:column!important}
+  .page-head h1{font-size:1.78rem!important}
+  .page-head p{font-size:.9rem!important;line-height:1.62!important}
+  .exam-topbar{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:7px;padding:8px 10px!important}
+  .exam-tools{justify-content:flex-end;flex-wrap:nowrap!important}
+  .exam-tools .timer{font-size:.75rem!important;min-width:78px;text-align:center}
+  .exam-tools .btn-danger{min-width:auto!important}
+  .question-pane{padding:18px 14px calc(98px + env(safe-area-inset-bottom))!important}
+  .shared-context{padding:16px!important;border-radius:14px!important}
+  .source-content{font-size:1.04rem!important;line-height:1.72!important}
+  .shared-context p{font-size:1rem!important}
+  .option{grid-template-columns:40px 1fr!important;gap:11px!important;padding:15px 13px!important;font-size:.98rem!important}
+  .exam-bottom{min-height:76px!important;grid-template-columns:1fr 1fr!important;gap:9px!important}
+  .exam-bottom .save-state{display:none!important}
+  .exam-bottom .btn{font-size:.82rem!important;min-height:48px!important}
+  .exam-nav{position:fixed!important;left:10px!important;right:10px!important;bottom:calc(86px + env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;max-height:58dvh;border:1px solid var(--line)!important;border-radius:18px!important;box-shadow:0 20px 60px rgba(0,0,0,.3);transform:translateY(calc(100% + 120px));transition:transform .22s ease;z-index:80}
+  .exam-nav.open{transform:translateY(0)!important}
+  .q-grid{grid-template-columns:repeat(6,1fr)!important;max-height:42dvh!important}
+  .mobile-grid{display:grid!important}
+}
+@media(max-width:390px){
+  html{font-size:18px!important}
+  .exam-title span{display:none!important}
+  .exam-tools .icon-btn:first-child{display:none!important}
+  .exam-tools .btn-danger{font-size:.65rem!important;padding-inline:8px!important}
+  .exam-tools .timer{font-size:.7rem!important;padding:7px!important}
+  .q-grid{grid-template-columns:repeat(5,1fr)!important}
+  .source-content{font-size:1.02rem!important}
+  .option{font-size:.96rem!important}
+}
+@media(max-height:700px) and (max-width:720px){
+  .exam-topbar{min-height:60px!important}
+  .question-pane{padding-top:12px!important}
+  .exam-bottom{min-height:68px!important}
+}
+</style>
+
 </head>
 <body><a class="skip-link" href="#view-home">Ir al contenido principal</a>
 <div class="app-bg"></div>
@@ -321,35 +521,76 @@ body.modal-open{overflow:hidden!important}
     <div class="auth-panel">
       <div class="brand-lockup" style="margin-bottom:28px"><div class="brand-mark">D</div><div><div class="brand-name">DIAE</div><div class="brand-tag">Plataforma docente</div></div></div>
       <h2>Ingresa a tu preparación</h2>
-      <p>Para esta plataforma utilizamos acceso personalizado. Tus avances se conservan únicamente en este navegador.</p>
+      <p>Ingresa para continuar con tu preparación personalizada.</p>
       <div class="field"><label for="dni">DNI</label><input id="dni" inputmode="numeric" maxlength="8" value="71234567" autocomplete="username"></div>
       <div class="field"><label for="pass">Contraseña</label><input id="pass" type="password" value="diae2026" autocomplete="current-password"></div>
       <button class="btn btn-primary btn-block" onclick="sistemaLogin()"><i class="ph-bold ph-sign-in"></i> Entrar a DIAE</button>
-      <div class="auth-note"><strong>Acceso:</strong> puedes usar los datos precargados. Tus avances se conservan en este dispositivo mientras utilizas esta versión.</div>
+      <div class="auth-note">Tu progreso se guardará en este dispositivo para que puedas continuar donde lo dejaste.</div>
     </div>
   </div>
 </section>
 
 <div id="app" class="app hidden">
-  <aside id="sidebar" class="sidebar">
+  <div id="sidebar-backdrop" class="sidebar-backdrop" onclick="closeSidebar()" aria-hidden="true"></div><aside id="sidebar" class="sidebar"><button type="button" class="sidebar-close" onclick="closeSidebar()" aria-label="Cerrar menú"><i class="ph ph-x"></i></button>
     <div class="brand-lockup"><div class="brand-mark">D</div><div><div class="brand-name">DIAE</div><div class="brand-tag">Ascenso 2026</div></div></div>
     <div class="campaign-mini"><strong><i class="ph-fill ph-gift"></i> Acceso total habilitado</strong><span>Durante la campaña de Ascenso 2026 todas las funciones de DIAE están desbloqueadas.</span></div>
-    <nav class="nav" aria-label="Navegación principal">
-      <button data-view="home" class="active" onclick="go('home',this)"><i class="ph ph-house"></i> Inicio</button>
+    <nav class="nav nav-compact" aria-label="Navegación principal">
+  <button data-view="home" class="nav-home active" onclick="go('home',this)"><i class="ph ph-house"></i><span>Inicio</span></button>
+
+  <div class="nav-group" data-nav-group="prepare">
+    <button type="button" class="nav-group-toggle" onclick="toggleNavGroup('prepare')" aria-expanded="true">
+      <span><i class="ph ph-compass"></i> Mi preparación</span><i class="ph ph-caret-down nav-caret"></i>
+    </button>
+    <div class="nav-submenu">
+      <button data-view="today" onclick="go('today',this)"><i class="ph ph-sun-horizon"></i> DIAE Hoy</button>
+      <button data-view="plan" onclick="go('plan',this)"><i class="ph ph-calendar-check"></i> Plan de estudio</button>
+      <button data-view="calendar" onclick="go('calendar',this)"><i class="ph ph-calendar-dots"></i> Calendario</button>
+    </div>
+  </div>
+
+  <div class="nav-group" data-nav-group="train">
+    <button type="button" class="nav-group-toggle" onclick="toggleNavGroup('train')" aria-expanded="false">
+      <span><i class="ph ph-pencil-line"></i> Entrenar</span><i class="ph ph-caret-down nav-caret"></i>
+    </button>
+    <div class="nav-submenu" hidden>
       <button data-view="exams" onclick="go('exams',this)"><i class="ph ph-exam"></i> Simulacros</button>
       <button data-view="practice" onclick="go('practice',this)"><i class="ph ph-lightning"></i> Práctica</button>
-      <button data-view="errors" onclick="go('errors',this)"><i class="ph ph-target"></i> Necesidades de aprendizaje</button>
-      <button data-view="plan" onclick="go('plan',this)"><i class="ph ph-calendar-check"></i> Plan de estudio</button>
-      <button data-view="progress" onclick="go('progress',this)"><i class="ph ph-chart-line-up"></i> Rendimiento</button>
-      <button data-view="resources" onclick="go('resources',this)"><i class="ph ph-books"></i> Recursos</button>
-      <button data-view="today" onclick="go('today',this)"><i class="ph ph-sun-horizon"></i> DIAE Hoy</button>
-      <button data-view="history" onclick="go('history',this)"><i class="ph ph-clock-counter-clockwise"></i> Historial</button>
+    </div>
+  </div>
+
+  <div class="nav-group" data-nav-group="learn">
+    <button type="button" class="nav-group-toggle" onclick="toggleNavGroup('learn')" aria-expanded="false">
+      <span><i class="ph ph-brain"></i> Aprender de mis resultados</span><i class="ph ph-caret-down nav-caret"></i>
+    </button>
+    <div class="nav-submenu" hidden>
+      <button data-view="errors" onclick="go('errors',this)"><i class="ph ph-target"></i> Necesidades</button>
       <button data-view="notebook" onclick="go('notebook',this)"><i class="ph ph-notebook"></i> Cuaderno de aprendizaje</button>
-      <button data-view="calendar" onclick="go('calendar',this)"><i class="ph ph-calendar-dots"></i> Calendario</button>
+    </div>
+  </div>
+
+  <div class="nav-group" data-nav-group="progress">
+    <button type="button" class="nav-group-toggle" onclick="toggleNavGroup('progress')" aria-expanded="false">
+      <span><i class="ph ph-chart-line-up"></i> Mi progreso</span><i class="ph ph-caret-down nav-caret"></i>
+    </button>
+    <div class="nav-submenu" hidden>
+      <button data-view="progress" onclick="go('progress',this)"><i class="ph ph-chart-line-up"></i> Rendimiento</button>
+      <button data-view="history" onclick="go('history',this)"><i class="ph ph-clock-counter-clockwise"></i> Historial</button>
       <button data-view="achievements" onclick="go('achievements',this)"><i class="ph ph-medal"></i> Logros</button>
+    </div>
+  </div>
+
+  <div class="nav-group" data-nav-group="more">
+    <button type="button" class="nav-group-toggle" onclick="toggleNavGroup('more')" aria-expanded="false">
+      <span><i class="ph ph-squares-four"></i> Más herramientas</span><i class="ph ph-caret-down nav-caret"></i>
+    </button>
+    <div class="nav-submenu" hidden>
+      <button data-view="resources" onclick="go('resources',this)"><i class="ph ph-books"></i> Recursos</button>
       <button data-view="premium" onclick="go('premium',this)"><i class="ph ph-crown"></i> DIAE Premium</button>
-      <button data-view="profile" onclick="go('profile',this)"><i class="ph ph-user-circle"></i> Perfil</button>
-    </nav>
+      <button data-view="profile" onclick="go('profile',this)"><i class="ph ph-user-circle"></i> Perfil y accesibilidad</button>
+      <button type="button" onclick="openGuideCenter()"><i class="ph ph-question"></i> Ayuda y guía</button>
+    </div>
+  </div>
+</nav>
     <div class="sidebar-user"><div class="avatar" id="avatar">GD</div><div><strong id="side-name">Docente DIAE</strong><small id="side-meta">Nivel Inicial · Ascenso 2026</small></div></div>
   </aside>
 
@@ -358,7 +599,7 @@ body.modal-open{overflow:hidden!important}
       <button class="icon-btn menu-btn" onclick="toggleSidebar()" aria-label="Abrir menú"><i class="ph ph-list"></i></button>
       <div class="top-title"><strong id="top-title">Inicio</strong><span id="top-subtitle">Tu preparación para Ascenso Magisterial 2026</span></div>
     </div>
-    <div class="top-actions">
+    <div class="top-actions"><button type="button" class="icon-btn" onclick="openGuideCenter()" title="Ayuda y guía" aria-label="Abrir ayuda"><i class="ph ph-question"></i></button>
       <button class="icon-btn desktop-only" onclick="changeFont(-.05)" title="Reducir texto" aria-label="Reducir tamaño de texto">A−</button>
       <button class="icon-btn desktop-only" onclick="changeFont(.05)" title="Aumentar texto" aria-label="Aumentar tamaño de texto">A+</button>
       <button class="icon-btn desktop-only" onclick="openGlobalSearch()" title="Buscar" aria-label="Buscar"><i class="ph ph-magnifying-glass"></i></button>
@@ -425,6 +666,14 @@ body.modal-open{overflow:hidden!important}
   </div>
 </section>
 
+
+<div id="experience-loader" class="experience-loader" aria-live="polite" aria-hidden="true">
+  <div class="experience-loader-card">
+    <div class="loader-orbit"><span></span><span></span><span></span><div class="brand-mark">D</div></div>
+    <strong id="loader-message">Preparando tu experiencia…</strong>
+    <small id="loader-submessage">DIAE está organizando lo necesario para ti.</small>
+  </div>
+</div>
 <div id="generic-overlay" class="overlay" aria-hidden="true"></div>
 <div id="results-overlay" class="overlay" aria-hidden="true"></div>
 <div id="review-overlay" class="overlay" aria-hidden="true"></div>
@@ -556,7 +805,7 @@ function currentBookmark(set,id){return set.has(questionScopedKey(id))||set.has(
 function bankByKey(key){return EXAM_BANKS[key]||EXAM_BANKS.inicial2018}
 function setActiveBank(key,persist=true){
   const bank=bankByKey(key);activeBankKey=bank.key;QUESTIONS=bank.questions;SHARED_CONTEXTS=bank.contexts;
-  CONFIG.examId=bank.examId;CONFIG.examName=`Ascenso de Escala 2018 · ${bank.title}`;CONFIG.level=bank.level;CONFIG.code=bank.code;
+  CONFIG.examId=bank.examId;CONFIG.examName=`Ascenso de Escala ${bank.year} · ${bank.title}`;CONFIG.level=bank.level;CONFIG.code=bank.code;
   if(persist)localStorage.setItem("diae_active_bank",bank.key);
   return bank;
 }
@@ -639,7 +888,7 @@ function renderErrors(){
 function renderPlan(){
   const last=getLast(), topics=topicStats(last);
   const first=topics[0]?.topic||"Diagnóstico inicial", second=topics[1]?.topic||"Práctica rápida";
-  document.getElementById("view-plan").innerHTML=`<div class="page-head"><div><div class="eyebrow">Ruta dinámica</div><h1>Plan de estudio</h1><p>Una agenda sistema que prioriza acciones concretas según tu desempeño. En la versión conectada se sincronizará con tu cuenta.</p></div><span class="badge green">Semana activa</span></div>
+  document.getElementById("view-plan").innerHTML=`<div class="page-head"><div><div class="eyebrow">Ruta dinámica</div><h1>Plan de estudio</h1><p>Una agenda dinámica que prioriza acciones concretas según tu desempeño, tus necesidades y el tiempo disponible.</p></div><span class="badge green">Semana activa</span></div>
   <div class="grid grid-2"><div class="card"><h3>Hoy · Recuperación</h3><div class="task"><div class="task-icon"><i class="ph ph-target"></i></div><div><strong>${esc(first)}</strong><small>${last?"Revisa errores y resuelve 5 preguntas del área de menor precisión.":"Realiza el diagnóstico inicial."}</small></div></div><div class="task"><div class="task-icon"><i class="ph ph-clock"></i></div><div><strong>Sesión corta · 15 min</strong><small>Prioriza consistencia antes que volumen.</small></div></div><button class="btn btn-primary" onclick="${last?"startTargetedPractice()":"openExamIntro()"}">Comenzar sesión</button></div>
   <div class="card"><h3>Próxima sesión</h3><div class="task"><div class="task-icon"><i class="ph ph-brain"></i></div><div><strong>${esc(second)}</strong><small>Practica y vuelve a explicar por qué la alternativa correcta satisface el propósito del enunciado.</small></div></div><div class="task"><div class="task-icon"><i class="ph ph-arrow-counter-clockwise"></i></div><div><strong>Revisión espaciada</strong><small>DIAE volverá a mostrar preguntas recuperadas para comprobar que el aprendizaje se sostiene.</small></div></div></div></div>
   <div class="card" style="margin-top:16px"><h3>Meta semanal</h3><p style="margin:7px 0 14px">3 sesiones de práctica + 1 simulacro o revisión extensa.</p><div class="progress"><span style="width:${Math.min(100,(getHistory().length||0)*25)}%"></span></div></div>`;
@@ -654,7 +903,7 @@ function renderProgress(){
 function renderResources(){document.getElementById("view-resources").innerHTML=`<div class="page-head"><div><div class="eyebrow">Biblioteca y referentes DIAE</div><h1>Recursos</h1><p>La plataforma muestra cómo convivirán materiales de apoyo, documentos y herramientas sin mezclarlos con el contenido oficial de las preguntas.</p></div></div><div class="grid grid-3">
 <div class="card"><i class="ph ph-file-text" style="font-size:1.7rem;color:var(--brand)"></i><h3 style="margin-top:12px">Guía de estrategia de examen</h3><p>Gestión del tiempo, preguntas marcadas y cierre responsable.</p><div class="exam-actions"><button class="btn btn-sm" onclick="toast('Recurso: contenido pendiente de edición.')">Abrir</button></div></div>
 <div class="card"><i class="ph ph-book-open" style="font-size:1.7rem;color:var(--info)"></i><h3 style="margin-top:12px">Cuaderno de recuperación</h3><p>Espacio futuro para consolidar conceptos derivados de tus errores.</p><div class="exam-actions"><button class="btn btn-sm" onclick="toast('Recurso: contenido pendiente de edición.')">Abrir</button></div></div>
-<div class="card"><i class="ph ph-headphones" style="font-size:1.7rem;color:var(--violet)"></i><h3 style="margin-top:12px">Lectura accesible</h3><p>DIAE puede leer preguntas y alternativas mediante la voz del navegador.</p><div class="exam-actions"><button class="btn btn-sm" onclick="speakCurrentPreview()">Probar</button></div></div></div>`}
+<div class="card"><i class="ph ph-compass-tool" style="font-size:1.7rem;color:var(--violet)"></i><h3 style="margin-top:12px">Estrategias de resolución</h3><p>Orientaciones para analizar propósito, evidencia y distractores antes de elegir una alternativa.</p><div class="exam-actions"><button class="btn btn-sm" onclick="openGuideCenter('guide')">Consultar guía</button></div></div></div>`}
 function renderAchievements(){const h=getHistory(),last=getLast();document.getElementById("view-achievements").innerHTML=`<div class="page-head"><div><div class="eyebrow">Constancia</div><h1>Logros</h1><p>Gamificación orientada a hábitos útiles, no a convertir la preparación docente en un videojuego.</p></div></div><div class="grid grid-3">
 ${achievement("Primer diagnóstico","Completa tu primer simulacro.","ph-flag-checkered",h.length>=1)}
 ${achievement("60 decisiones","Responde las 60 preguntas de un intento.","ph-check-square",!!last&&last.answered===60)}
@@ -664,11 +913,11 @@ ${achievement("Constancia semanal","Registra actividad en cuatro sesiones.","ph-
 ${achievement("Revisión completa","Revisa tus preguntas después del simulacro.","ph-book-open-text",false)}
 </div>`}
 function achievement(title,desc,icon,unlocked){return `<div class="card achievement ${unlocked?"":"locked"}"><div class="achievement-icon"><i class="ph ${icon}"></i></div><div><span class="badge ${unlocked?"green":""}">${unlocked?"Desbloqueado":"Pendiente"}</span><h3 style="margin-top:9px">${title}</h3><p>${desc}</p></div></div>`}
-function renderPremium(){document.getElementById("view-premium").innerHTML=`<div class="page-head"><div><div class="eyebrow">Modelo de acceso</div><h1>DIAE Premium</h1><p>Durante la campaña actual todo está desbloqueado. Esta página sirve para visualizar cómo podría evolucionar el modelo sin degradar la utilidad de la versión social.</p></div></div>
-<div class="card premium-highlight" style="margin-bottom:16px"><span class="campaign-pill"><i class="ph-fill ph-gift"></i> Este mes: todas las funciones abiertas</span><h2 style="font:800 1.7rem Manrope;margin:16px 0 8px">La primera experiencia debe demostrar valor antes de cobrarlo.</h2><p>En la plataforma no existe paywall efectivo. Los indicadores “futuro premium” son únicamente de producto.</p></div>
-<div class="grid grid-2"><div class="card"><span class="badge green">Acceso social futuro</span><h3 style="margin-top:12px">DIAE Esencial</h3><p>Una base accesible que debe seguir siendo realmente útil.</p><div class="feature-list">${["Simulacros seleccionados","Resultados y revisión básica","Prácticas breves","Progreso esencial","Accesibilidad completa"].map(x=>`<div class="feature"><i class="ph-fill ph-check-circle"></i>${x}</div>`).join("")}</div></div>
-<div class="card premium-highlight"><span class="badge">Futuro premium</span><h3 style="margin-top:12px">DIAE Pro</h3><p>Profundidad, personalización y acompañamiento; no bloqueo artificial de funciones básicas.</p><div class="feature-list">${["Ruta adaptativa completa","Banco ampliado por concurso y especialidad","Analítica histórica avanzada","Planes de estudio personalizados","Tutor y contenido DIAE validado"].map(x=>`<div class="feature"><i class="ph-fill ph-check-circle"></i>${x}</div>`).join("")}</div></div></div>`}
-function renderProfile(){const el=document.getElementById("view-profile");if(!el)return;el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Cuenta sistema</div><h1>Perfil y accesibilidad</h1><p>Preferencias persistentes en este navegador. En la versión conectada estos datos pertenecerán a una cuenta real y sincronizada.</p></div></div><div class="grid grid-2"><div class="card"><h3>Preparación</h3><div class="setting-row"><div><strong>Nombre</strong><span>Usuario de la plataforma</span></div><input value="${esc(user.name)}" onchange="updateUser('name',this.value)" style="max-width:190px"></div><div class="setting-row"><div><strong>Nivel</strong><span>Contenido principal</span></div><select onchange="updateUser('level',this.value)"><option ${user.level==="Nivel Inicial"?"selected":""}>Nivel Inicial</option><option>Primaria</option><option>Secundaria</option></select></div><div class="setting-row"><div><strong>Meta</strong><span>Umbral de referencia seleccionado</span></div><select onchange="updateUser('targetScale',this.value)">${CONFIG.thresholds.map(x=>`<option ${x.scale===user.targetScale?"selected":""}>${x.scale}</option>`).join("")}</select></div></div>
+function renderPremium(){document.getElementById("view-premium").innerHTML=`<div class="page-head"><div><div class="eyebrow">Modelo de acceso</div><h1>DIAE Premium</h1><p>Durante la campaña actual todo está desbloqueado. Aquí puedes conocer qué beneficios pertenecen al acceso esencial y cuáles forman parte del acompañamiento Premium.</p></div></div>
+<div class="card premium-highlight" style="margin-bottom:16px"><span class="campaign-pill"><i class="ph-fill ph-gift"></i> Este mes: todas las funciones abiertas</span><h2 style="font:800 1.7rem Manrope;margin:16px 0 8px">La primera experiencia debe demostrar valor antes de cobrarlo.</h2><p>Durante la campaña actual, las funciones de acompañamiento avanzado están habilitadas.</p></div>
+<div class="grid grid-2"><div class="card"><span class="badge green">Acceso esencial</span><h3 style="margin-top:12px">DIAE Esencial</h3><p>Una base accesible que debe seguir siendo realmente útil.</p><div class="feature-list">${["Simulacros seleccionados","Resultados y revisión básica","Prácticas breves","Progreso esencial","Accesibilidad completa"].map(x=>`<div class="feature"><i class="ph-fill ph-check-circle"></i>${x}</div>`).join("")}</div></div>
+<div class="card premium-highlight"><span class="badge">Premium</span><h3 style="margin-top:12px">DIAE Pro</h3><p>Profundidad, personalización y acompañamiento; no bloqueo artificial de funciones básicas.</p><div class="feature-list">${["Ruta adaptativa completa","Banco ampliado por concurso y especialidad","Analítica histórica avanzada","Planes de estudio personalizados","Tutor y contenido DIAE validado"].map(x=>`<div class="feature"><i class="ph-fill ph-check-circle"></i>${x}</div>`).join("")}</div></div></div>`}
+function renderProfile(){const el=document.getElementById("view-profile");if(!el)return;el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Cuenta</div><h1>Perfil y accesibilidad</h1><p>Ajusta tu preparación y accesibilidad. Tus preferencias se guardan en este dispositivo.</p></div></div><div class="grid grid-2"><div class="card"><h3>Preparación</h3><div class="setting-row"><div><strong>Nombre</strong><span>Usuario de la plataforma</span></div><input value="${esc(user.name)}" onchange="updateUser('name',this.value)" style="max-width:190px"></div><div class="setting-row"><div><strong>Nivel</strong><span>Contenido principal</span></div><select onchange="updateUser('level',this.value)"><option ${user.level==="Nivel Inicial"?"selected":""}>Nivel Inicial</option><option>Primaria</option><option>Secundaria</option></select></div><div class="setting-row"><div><strong>Meta</strong><span>Umbral de referencia seleccionado</span></div><select onchange="updateUser('targetScale',this.value)">${CONFIG.thresholds.map(x=>`<option ${x.scale===user.targetScale?"selected":""}>${x.scale}</option>`).join("")}</select></div></div>
 <div class="card"><h3>Accesibilidad</h3><div class="setting-row"><div><strong>Tamaño de texto</strong><span>${Math.round(prefs.fontScale*100)}%</span></div><div class="segment"><button onclick="changeFont(-.05)">A−</button><button onclick="prefs.fontScale=1;save(LS.prefs,prefs);applyPrefs();renderProfile()">A</button><button onclick="changeFont(.05)">A+</button></div></div><div class="setting-row"><div><strong>Apariencia</strong><span>Claro u oscuro</span></div><div class="segment"><button class="${prefs.theme==="light"?"active":""}" onclick="prefs.theme='light';save(LS.prefs,prefs);applyPrefs();renderProfile()">Claro</button><button class="${prefs.theme==="dark"?"active":""}" onclick="prefs.theme='dark';save(LS.prefs,prefs);applyPrefs();renderProfile()">Oscuro</button></div></div><div class="setting-row"><div><strong>Reducir movimiento</strong><span>Minimiza animaciones y transiciones</span></div><button class="btn btn-sm" onclick="setReducedMotion(!prefs.reducedMotion)">${prefs.reducedMotion?"Activado":"Desactivado"}</button></div></div></div><div style="margin-top:16px"><button class="btn btn-danger" onclick="resetSistema()"><i class="ph ph-trash"></i> Reiniciar datos locales</button> <button type="button" class="btn" onclick="logout()">Cerrar sesión</button></div>`}
 function updateUser(k,v){user[k]=v;save(LS.user,user);bootIdentity();renderAll();toast("Perfil actualizado en la plataforma.")}
 function resetSistema(){if(confirm("¿Eliminar intentos, historial y preferencias de DIAE?")){Object.values(LS).forEach(k=>localStorage.removeItem(k));location.reload()}}
@@ -836,8 +1085,6 @@ function renderReview(){
 /* -------- REPORTE / COMPARTIR -------- */
 function printReport(){const r=getLast();if(!r){toast("No hay un resultado para reportar.");return}const topics=topicStats(r);document.getElementById("print-report").innerHTML=`<h1>Reporte de Preparación DIAE</h1><p><strong>${esc(user.name)}</strong> · Ascenso Magisterial · ${esc(user.level)}</p><hr><h2>${r.score.toFixed(1)} / 90 puntos · ${r.precision}%</h2><p>Correctas: ${r.correct} · Incorrectas: ${r.incorrect} · Omitidas: ${r.omitted} · Tiempo registrado: ${formatTime(r.totalTime)}</p><h3>Áreas</h3>${topics.map(t=>`<p><strong>${esc(t.topic)}</strong>: ${t.precision}%</p>`).join("")}<h3>Preguntas a recuperar</h3>${r.details.filter(x=>x.status!=="correct").map(d=>{const q=QUESTIONS[d.id-1];return `<div class="print-question"><strong>Pregunta ${d.id}</strong><p>${q.stemText}</p><p>Tu respuesta: ${d.answer==null?"Omitida":String.fromCharCode(65+d.answer)} · Clave oficial: <strong>${q.correctLetter}</strong></p></div>`}).join("")}<p style="font-size:11px">El contenido de las preguntas y sus claves procede del cuadernillo oficial 2018. Las métricas y recomendaciones son parte de la experiencia DIAE.</p>`;window.print()}
 function shareResult(){const r=getLast();if(!r)return;const c=document.createElement("canvas");c.width=1080;c.height=1080;const x=c.getContext("2d");x.fillStyle="#07100d";x.fillRect(0,0,c.width,c.height);const g=x.createLinearGradient(0,0,1080,1080);g.addColorStop(0,"rgba(34,201,133,.28)");g.addColorStop(1,"rgba(7,16,13,0)");x.fillStyle=g;x.fillRect(0,0,1080,1080);x.fillStyle="#22c985";x.font="800 34px Inter";x.fillText("DIAE · INTELIGENCIA QUE EDUCA",80,100);x.fillStyle="#f4f8f6";x.font="800 66px Inter";x.fillText("Mi progreso",80,230);x.font="900 170px Inter";x.fillText(r.score.toFixed(1),80,470);x.font="700 44px Inter";x.fillStyle="#9fb1a9";x.fillText("de 90 puntos",500,460);x.fillStyle="#f4f8f6";x.font="700 38px Inter";x.fillText(`${r.correct} correctas · ${r.precision}% de precisión`,80,580);x.fillStyle="#9fb1a9";x.font="500 32px Inter";x.fillText(`Ascenso Magisterial · ${bankByKey(activeBankKey).level}`,80,660);x.fillStyle="#22c985";x.font="700 34px Inter";x.fillText("No solo practicar más. Prepararse mejor.",80,930);const a=document.createElement("a");a.download="Mi_progreso_DIAE.png";a.href=c.toDataURL("image/png");a.click();toast("Tarjeta de progreso generada.")}
-function speakCurrentPreview(){const q=QUESTIONS[0];if(!("speechSynthesis" in window)){toast("Tu navegador no ofrece lectura por voz.");return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(q.stemText+" Alternativa A. "+q.options[0]+" Alternativa B. "+q.options[1]+" Alternativa C. "+q.options[2]);u.lang="es-PE";speechSynthesis.speak(u);toast("Reproduciendo una muestra con la voz del navegador.")}
-
 /* -------- TECLADO Y CIERRES -------- */
 document.addEventListener("keydown",e=>{
  if(document.getElementById("exam-shell").classList.contains("active")&&attempt){
@@ -971,7 +1218,7 @@ openExamIntro=function(){genericModal(`<div class="modal" role="dialog" aria-mod
 function renderSmartExamAlert(){const holder=document.getElementById("shared-context-holder");if(!holder||!attempt)return;const answered=attempt.questionIds.filter(id=>attempt.answers[id]!=null).length,remaining=attempt.questionIds.length-answered,marked=attempt.marked.length;let msg=`${remaining} pendientes · ${marked} marcadas.`;if(attempt.mode==="exam"&&attempt.deadlineAt){const sec=Math.max(0,(attempt.deadlineAt-Date.now())/1000);const used=1-sec/CONFIG.durationSeconds;if(used>.75&&remaining>15)msg=`Atención de ritmo: queda menos del 25% del tiempo y aún hay ${remaining} pendientes.`}const existing=document.getElementById("pro-smart-alert");if(existing)existing.remove();const el=document.createElement("div");el.id="pro-smart-alert";el.className="smart-alert";el.innerHTML=`<i class="ph ph-info"></i><span>${msg} No se muestran claves ni juicio de desempeño durante el simulacro.</span>`;holder.parentNode.insertBefore(el,holder)}
 const _v2OldRenderQuestion=renderQuestion;
 renderQuestion=function(){_v2OldRenderQuestion();renderSmartExamAlert();addQuestionTools()};
-function addQuestionTools(){if(!attempt)return;const head=document.querySelector(".q-head");if(!head||document.getElementById("q-pro-tools"))return;const id=currentId(),book=currentBookmark(bookmarkSet(),id);const wrap=document.createElement("div");wrap.id="q-pro-tools";wrap.style.display="flex";wrap.style.gap="6px";wrap.innerHTML=`<button class="q-mark bookmark-btn ${book?"active":""}" onclick="toggleBookmark(${id});addQuestionToolsRefresh()"><i class="ph ${book?"ph-fill":""} ph-star"></i> Importante</button><button type="button" class="q-mark" onclick="editQuestionNote(${id})"><i class="ph ph-note-pencil"></i> Nota</button><button type="button" class="q-mark" onclick="speakQuestion(${id})" title="Leer pregunta"><i class="ph ph-speaker-high"></i></button>`;head.appendChild(wrap)}
+function addQuestionTools(){if(!attempt)return;const head=document.querySelector(".q-head");if(!head||document.getElementById("q-pro-tools"))return;const id=currentId(),book=currentBookmark(bookmarkSet(),id);const wrap=document.createElement("div");wrap.id="q-pro-tools";wrap.style.display="flex";wrap.style.gap="6px";wrap.innerHTML=`<button class="q-mark bookmark-btn ${book?"active":""}" onclick="toggleBookmark(${id});addQuestionToolsRefresh()"><i class="ph ${book?"ph-fill":""} ph-star"></i> Importante</button><button type="button" class="q-mark" onclick="editQuestionNote(${id})"><i class="ph ph-note-pencil"></i> Nota</button>`;head.appendChild(wrap)}
 function addQuestionToolsRefresh(){const e=document.getElementById("q-pro-tools");if(e)e.remove();addQuestionTools()}
 function toggleBookmark(id){
   const s=bookmarkSet(),key=questionScopedKey(id);
@@ -981,8 +1228,6 @@ function toggleBookmark(id){
 }
 function editQuestionNote(id){const notes=noteMap(),cur=currentNote(notes,id)?.text||"";genericModal(`<div class="modal modal-sm"><div class="modal-head"><div><h2>Nota · Pregunta ${id}</h2><p>Esta nota es personal y no modifica la pregunta oficial.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><textarea id="note-editor-${id}" class="note-editor" placeholder="Escribe qué confundiste, qué concepto quieres recordar o qué estrategia usarás...">${esc(cur)}</textarea><div class="result-actions"><button class="btn btn-primary" onclick="saveQuestionNote(${id})">Guardar nota</button><button type="button" class="btn" onclick="closeGeneric()">Cancelar</button></div></div>`)}
 function saveQuestionNote(id){const notes=noteMap(),el=document.getElementById(`note-editor-${id}`);notes[questionScopedKey(id)]={examId:CONFIG.examId,questionId:id,text:el.value.trim(),updatedAt:new Date().toISOString()};delete notes[id];save(PRO_KEYS.notes,notes);closeGeneric();toast("Nota guardada.");renderNotebook()}
-function speakQuestion(id){if(!("speechSynthesis" in window)){toast("La lectura por voz no está disponible en este navegador.");return}const q=QUESTIONS[id-1];speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(q.stemText+". Alternativa A. "+q.options[0]+". Alternativa B. "+q.options[1]+". Alternativa C. "+q.options[2]);u.lang="es-PE";speechSynthesis.speak(u)}
-
 /* Professional finish: session ledger + evidence + recovery; retain v1 result fields. */
 finishAttempt=function(){
   if(!attempt||attempt.finished)return;attempt.finished=true;clearInterval(timerHandle);
@@ -1224,7 +1469,7 @@ function renderMasteryCards(items){return `<div class="mastery-grid">${items.map
 
 function renderToday(){const p10=dynamicPlan(10),p20=dynamicPlan(20),p30=dynamicPlan(30),due=dueRecoveryIds(),weak=masteryByTopic()[0],days=daysUntilConfiguredExam();document.getElementById("view-today").innerHTML=`<div class="page-head"><div><div class="eyebrow">DIAE Hoy</div><h1>Tu siguiente mejor acción.</h1><p>El plan combina errores pendientes, evidencia acumulada, repetición espaciada, tiempo disponible y proximidad de la fecha que configures.</p></div>${days!==null?`<span class="badge ${days<=7?"warn":"green"}">${days>=0?days+" días para tu fecha":"Fecha configurada superada"}</span>`:""}</div><div class="grid grid-3">${[p10,p20,p30].map(p=>`<div class="card action-card"><span class="badge green">${p.minutes} minutos</span><h3 style="margin-top:12px">${esc(p.action)}</h3><p>${esc(p.reason)}</p><div class="exam-actions"><button class="btn btn-primary" onclick="startTimeSession(${p.minutes})">Comenzar</button></div></div>`).join("")}</div><div class="grid grid-2" style="margin-top:16px"><div class="card"><h3>Repetición espaciada</h3>${due.length?`<p>${due.length} pregunta(s) están listas para volver a aparecer.</p><div style="margin-top:13px">${due.slice(0,10).map(id=>`<span class="badge" style="margin:3px">P${id}</span>`).join("")}</div><button type="button" class="btn" style="margin-top:14px" onclick="startErrorPractice()">Recuperarlas ahora</button>`:`<div class="empty"><i class="ph ph-check-circle"></i><h3>Al día</h3><p>No hay errores vencidos para repaso en este momento.</p></div>`}</div><div class="card"><h3>Prioridad acumulada</h3>${weak?`<div class="metric"><div class="label">${esc(weak.topic)}</div><div class="value">${weak.mastery}%</div><div class="progress"><span style="width:${weak.mastery}%"></span></div><div class="trend">${weak.total} evidencias registradas.</div></div><button class="btn btn-primary" onclick="startTargetedPractice()">Entrenar esta área</button>`:`<div class="empty"><p>Necesitamos más evidencia.</p></div>`}</div></div>`}
 
-renderExams=function(){const saved=load(LS.attempt,null);document.getElementById("view-exams").innerHTML=`<div class="page-head"><div><div class="eyebrow">Motor profesional de intentos</div><h1>Simulacros y diagnóstico</h1><p>Cada tipo de sesión registra su propia métrica. Solo los simulacros alimentan el historial de puntaje y consistencia.</p></div></div><div class="session-type-grid"><div class="session-type premium-highlight"><div class="session-icon"><i class="ph ph-seal-check"></i></div><div><span class="badge green">Fuente oficial</span><h3>Simulacro oficial 2018</h3><p>60 preguntas, 3 horas, 90 puntos. Alimenta historial de simulacros.</p></div><button class="btn btn-primary" onclick="openExamIntro()">Iniciar</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-stethoscope"></i></div><div><span class="badge info">Diagnóstico</span><h3>Diagnóstico completo</h3><p>Usa el mismo banco para construir una línea base sin contaminar historial de simulacros.</p></div><button type="button" class="btn" onclick="startDiagnosis()">Diagnosticar</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-sparkle"></i></div><div><span class="badge">PRO</span><h3>Simulacro DIAE</h3><p>Sistema de un intento alternativo generado desde el banco disponible. Se contabiliza como simulacro DIAE.</p></div><button type="button" class="btn" onclick="startDiaeSimulation()">Iniciar DIAE</button></div></div>${saved&&!saved.finished?`<div class="card" style="margin-top:16px"><h3>Intento en curso</h3><p>Existe una sesión guardada localmente.</p><button class="btn btn-primary" onclick="resumeAttempt()">Retomar sesión</button></div>`:""}`}
+renderExams=function(){const saved=load(LS.attempt,null);document.getElementById("view-exams").innerHTML=`<div class="page-head"><div><div class="eyebrow">Motor profesional de intentos</div><h1>Simulacros y diagnóstico</h1><p>Cada tipo de sesión registra su propia métrica. Solo los simulacros alimentan el historial de puntaje y consistencia.</p></div></div><div class="session-type-grid"><div class="session-type premium-highlight"><div class="session-icon"><i class="ph ph-seal-check"></i></div><div><span class="badge green">Fuente oficial</span><h3>Simulacro oficial 2018</h3><p>60 preguntas, 3 horas, 90 puntos. Alimenta historial de simulacros.</p></div><button class="btn btn-primary" onclick="openExamIntro()">Iniciar</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-stethoscope"></i></div><div><span class="badge info">Diagnóstico</span><h3>Diagnóstico completo</h3><p>Usa el mismo banco para construir una línea base sin contaminar historial de simulacros.</p></div><button type="button" class="btn" onclick="startDiagnosis()">Diagnosticar</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-sparkle"></i></div><div><span class="badge">PRO</span><h3>Simulacro DIAE</h3><p>Intento elaborado por DIAE a partir del banco disponible y registrado como simulacro DIAE.</p></div><button type="button" class="btn" onclick="startDiaeSimulation()">Iniciar DIAE</button></div></div>${saved&&!saved.finished?`<div class="card" style="margin-top:16px"><h3>Intento en curso</h3><p>Existe una sesión guardada localmente.</p><button class="btn btn-primary" onclick="resumeAttempt()">Retomar sesión</button></div>`:""}`}
 renderPractice=function(){document.getElementById("view-practice").innerHTML=`<div class="page-head"><div><div class="eyebrow">Aprendizaje activo</div><h1>Práctica</h1><p>Todas estas sesiones actualizan evidencia de aprendizaje y recuperación, pero nunca reemplazan tu puntaje de simulacro.</p></div></div><div class="session-type-grid"><div class="session-type"><div class="session-icon"><i class="ph ph-lightning"></i></div><h3>Práctica rápida</h3><p>10 preguntas aleatorias.</p><button class="btn btn-primary" onclick="startQuickPractice()">10 preguntas</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-funnel"></i></div><h3>Práctica temática</h3><p>Trabaja un área específica.</p><button type="button" class="btn" onclick="openTopicPractice()">Elegir tema</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-arrow-counter-clockwise"></i></div><h3>Recuperación de errores</h3><p>${Object.values(recoveryMap()).filter(r=>r.stage<4).length} errores aún no consolidados.</p><button type="button" class="btn" onclick="startErrorPractice()">Recuperar</button></div><div class="session-type"><div class="session-icon"><i class="ph ph-brain"></i></div><h3>Repaso adaptativo</h3><p>Combina repetición espaciada y áreas de menor evidencia favorable.</p><button type="button" class="btn" onclick="startAdaptiveReview()">Crear sesión</button></div><div class="session-type premium-highlight"><div class="session-icon"><i class="ph ph-timer"></i></div><h3>Tengo poco tiempo</h3><p>DIAE construye la sesión según tu presupuesto de tiempo.</p><div class="time-buttons"><button class="time-choice" onclick="startTimeSession(10)">10</button><button class="time-choice" onclick="startTimeSession(20)">20</button><button class="time-choice" onclick="startTimeSession(30)">30 min</button></div></div></div>`}
 
 function renderHistory(){const sims=officialSessions(),all=proSessions();document.getElementById("view-history").innerHTML=`<div class="page-head"><div><div class="eyebrow">Historial separado</div><h1>Historial</h1><p>Los puntajes de simulacro se muestran aparte de diagnóstico y práctica. Así una sesión de 5 errores nunca altera tu 67,5/90.</p></div></div><div class="card"><div class="split-title" style="margin-top:0"><h2>Simulacros</h2><span class="badge green">${sims.length} intento(s)</span></div>${sims.length?`<div class="history-scroll"><table class="history-table"><thead><tr><th>#</th><th>Fecha</th><th>Tipo</th><th>Puntaje</th><th>Precisión</th><th>Tiempo</th><th>Umbral</th><th>Variación</th><th>Tendencia</th></tr></thead><tbody>${sims.map((s,i)=>{const prev=sims[i-1],delta=prev?+(s.score-prev.score).toFixed(1):null;return `<tr><td>${i+1}</td><td>${fmtDate(s.date)}</td><td>${esc(s.sessionLabel)}</td><td><strong>${s.score.toFixed(1)}</strong>/90</td><td>${s.precision}%</td><td>${formatTime(s.totalTime)}</td><td>${esc(thresholdLabel(s.correct))}</td><td class="${delta==null?"delta-flat":delta>0?"delta-up":delta<0?"delta-down":"delta-flat"}">${delta==null?"—":`${delta>0?"+":""}${delta}`}</td><td>${delta==null?"Línea base":delta>1.5?"↗ Mejora":delta<-1.5?"↘ Revisar":"→ Estable"}</td></tr>`}).join("")}</tbody></table></div>`:`<div class="empty"><i class="ph ph-chart-line-up"></i><p>Aún no hay simulacros finalizados.</p></div>`}</div><div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Otras sesiones</h2><span class="badge">${all.length-sims.length}</span></div>${all.filter(x=>!isSimulationSession(x)).slice().reverse().slice(0,20).map(s=>`<div class="task"><div class="task-icon"><i class="ph ${SESSION_TYPES[s.sessionType]?.icon||"ph-circle"}"></i></div><div><strong>${esc(s.sessionLabel)} · ${s.correct}/${s.questionCount}</strong><small>${fmtDate(s.date)} · ${s.precision}% · ${formatTime(s.totalTime)} · No modifica historial de simulacros.</small></div></div>`).join("")||`<p>No hay otras sesiones.</p>`}</div>`}
@@ -1234,7 +1479,7 @@ renderProgress=function(){const sims=officialSessions(),last=sims.at(-1),mastery
 function renderNotebook(){const map=recoveryMap(),notes=noteMap(),books=bookmarkSet(),topics=[...new Set(QUESTIONS.map(q=>q.topic))];let entries=Object.values(map).map(r=>({r,q:QUESTIONS[r.questionId-1]}));if(notebookFilter.status!=="all")entries=entries.filter(x=>String(x.r.stage)===notebookFilter.status);if(notebookFilter.topic!=="all")entries=entries.filter(x=>x.q.topic===notebookFilter.topic);if(notebookFilter.query)entries=entries.filter(x=>(x.q.stemText+" "+x.q.topic+" "+(notes[x.q.id]?.text||"")).toLowerCase().includes(notebookFilter.query.toLowerCase()));document.getElementById("view-notebook").innerHTML=`<div class="page-head"><div><div class="eyebrow">Cuaderno personal</div><h1>Cuaderno de aprendizaje</h1><p>Cada error conserva estado de recuperación, fecha de repaso, nota y marcador. El contenido oficial no se altera.</p></div><button class="btn btn-primary" onclick="startErrorPractice()">Practicar pendientes</button></div><div class="notebook-toolbar"><select onchange="notebookFilter.status=this.value;renderNotebook()"><option value="all">Todos los estados</option>${[0,1,2,3,4].map(i=>`<option value="${i}" ${notebookFilter.status==String(i)?"selected":""}>${recoveryStageName(i)}</option>`).join("")}</select><select onchange="notebookFilter.topic=this.value;renderNotebook()"><option value="all">Todos los temas</option>${topics.map(t=>`<option ${notebookFilter.topic===t?"selected":""}>${esc(t)}</option>`).join("")}</select><input placeholder="Buscar en errores y notas..." value="${esc(notebookFilter.query)}" oninput="notebookFilter.query=this.value;renderNotebook()"></div><div class="card">${entries.length?entries.sort((a,b)=>a.r.stage-b.r.stage).map(({r,q})=>`<div class="error-entry"><div class="q-square">${q.id}</div><div><h4>${esc(q.topic)} ${books.has(q.id)?'<i class="ph-fill ph-star" style="color:var(--warn)"></i>':""}</h4><p>${esc(q.stemText.slice(0,190))}${q.stemText.length>190?"…":""}</p>${notes[q.id]?.text?`<div class="note-preview">“${esc(notes[q.id].text.slice(0,130))}${notes[q.id].text.length>130?"…":""}”</div>`:""}<div style="margin-top:8px">${recoveryPipeline(r.stage)}</div><small style="color:var(--muted);display:block;margin-top:7px">Próximo repaso: ${fmtDate(r.nextReviewAt)}</small></div><div style="display:grid;gap:6px"><button class="btn btn-sm" onclick="openReviewAt(${q.id})">Revisar</button><button class="btn btn-sm" onclick="editQuestionNote(${q.id})">Nota</button></div></div>`).join(""):`<div class="empty"><i class="ph ph-notebook"></i><h3>No hay errores en este filtro</h3><p>Los errores de simulacros y diagnósticos aparecerán aquí automáticamente.</p></div>`}</div>`}
 
 function generateCalendarEvents(){const p=proProfile(),days=daysUntilConfiguredExam(),events={};for(let d=0;d<28;d++){const date=new Date();date.setDate(date.getDate()+d);const key=date.toISOString().slice(0,10);if(d%7===0&&d>0)events[key]={type:"sim",label:"Simulacro / diagnóstico"};else if(d%3===0)events[key]={type:"review",label:"Recuperación espaciada"};else if([1,4,6].includes(d%7))events[key]={type:"practice",label:"Práctica focalizada"}}if(p.examDate)events[p.examDate]={type:"sim",label:"Fecha objetivo configurada"};return events}
-function renderCalendar(){const events=generateCalendarEvents(),now=new Date(),year=now.getFullYear(),month=now.getMonth(),first=new Date(year,month,1),last=new Date(year,month+1,0),start=(first.getDay()+6)%7,cells=[];for(let i=0;i<start;i++)cells.push(null);for(let d=1;d<=last.getDate();d++)cells.push(new Date(year,month,d));document.getElementById("view-calendar").innerHTML=`<div class="page-head"><div><div class="eyebrow">Calendario automático</div><h1>${new Intl.DateTimeFormat("es-PE",{month:"long",year:"numeric"}).format(now)}</h1><p>La plataforma distribuye práctica, recuperación y simulacros. En la versión conectada podrá ajustarse a la fecha oficial y disponibilidad real del docente.</p></div><button type="button" class="btn" onclick="openPreparationSettings()"><i class="ph ph-calendar"></i> Configurar fecha y tiempo</button></div><div class="card"><div class="calendar-grid">${["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(x=>`<div class="cal-head">${x}</div>`).join("")}${cells.map(d=>{if(!d)return `<div class="cal-day empty"></div>`;const key=d.toISOString().slice(0,10),e=events[key],today=key===new Date().toISOString().slice(0,10);return `<div class="cal-day ${today?"today":""}"><div class="cal-num">${d.getDate()}</div>${e?`<div class="cal-event ${e.type}">${esc(e.label)}</div>`:""}</div>`}).join("")}</div></div><div class="card" style="margin-top:16px"><h3>Ruta de las próximas semanas</h3><div class="grid grid-4" style="margin-top:12px">${Array.from({length:Math.min(8,Math.max(4,daysUntilConfiguredExam()===null?4:Math.ceil(Math.max(1,daysUntilConfiguredExam())/7)))},(_,i)=>`<div class="mastery-card"><span class="badge">Semana ${i+1}</span><h3 style="margin-top:9px">${i%3===2?"Simular y medir":i%3===1?"Recuperar y consolidar":"Practicar prioridades"}</h3><p>${i%3===2?"Simulacro seguido de revisión profunda.":i%3===1?"Repetición espaciada y cuaderno de aprendizaje.":"Sesiones focalizadas sobre menor evidencia favorable."}</p></div>`).join("")}</div></div><div class="card" style="margin-top:16px"><h3>Lógica de planificación</h3><div class="feature-list"><div class="feature"><i class="ph-fill ph-check-circle"></i> Los errores vencidos tienen prioridad sobre contenido nuevo.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> El foco con menor evidencia favorable recibe sesiones focalizadas.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> Los simulacros se espacian para dejar tiempo de recuperación entre intentos.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> La fecha objetivo es configurada por el usuario; la plataforma no afirma una fecha oficial 2026.</div></div></div>`}
+function renderCalendar(){const events=generateCalendarEvents(),now=new Date(),year=now.getFullYear(),month=now.getMonth(),first=new Date(year,month,1),last=new Date(year,month+1,0),start=(first.getDay()+6)%7,cells=[];for(let i=0;i<start;i++)cells.push(null);for(let d=1;d<=last.getDate();d++)cells.push(new Date(year,month,d));document.getElementById("view-calendar").innerHTML=`<div class="page-head"><div><div class="eyebrow">Calendario automático</div><h1>${new Intl.DateTimeFormat("es-PE",{month:"long",year:"numeric"}).format(now)}</h1><p>La plataforma distribuye práctica, recuperación y simulacros. Puedes ajustar la fecha objetivo y tu disponibilidad desde Perfil.</p></div><button type="button" class="btn" onclick="openPreparationSettings()"><i class="ph ph-calendar"></i> Configurar fecha y tiempo</button></div><div class="card"><div class="calendar-grid">${["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(x=>`<div class="cal-head">${x}</div>`).join("")}${cells.map(d=>{if(!d)return `<div class="cal-day empty"></div>`;const key=d.toISOString().slice(0,10),e=events[key],today=key===new Date().toISOString().slice(0,10);return `<div class="cal-day ${today?"today":""}"><div class="cal-num">${d.getDate()}</div>${e?`<div class="cal-event ${e.type}">${esc(e.label)}</div>`:""}</div>`}).join("")}</div></div><div class="card" style="margin-top:16px"><h3>Ruta de las próximas semanas</h3><div class="grid grid-4" style="margin-top:12px">${Array.from({length:Math.min(8,Math.max(4,daysUntilConfiguredExam()===null?4:Math.ceil(Math.max(1,daysUntilConfiguredExam())/7)))},(_,i)=>`<div class="mastery-card"><span class="badge">Semana ${i+1}</span><h3 style="margin-top:9px">${i%3===2?"Simular y medir":i%3===1?"Recuperar y consolidar":"Practicar prioridades"}</h3><p>${i%3===2?"Simulacro seguido de revisión profunda.":i%3===1?"Repetición espaciada y cuaderno de aprendizaje.":"Sesiones focalizadas sobre menor evidencia favorable."}</p></div>`).join("")}</div></div><div class="card" style="margin-top:16px"><h3>Lógica de planificación</h3><div class="feature-list"><div class="feature"><i class="ph-fill ph-check-circle"></i> Los errores vencidos tienen prioridad sobre contenido nuevo.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> El foco con menor evidencia favorable recibe sesiones focalizadas.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> Los simulacros se espacian para dejar tiempo de recuperación entre intentos.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> La fecha objetivo es configurada por el usuario; la plataforma no afirma una fecha oficial 2026.</div></div></div>`}
 
 renderErrors=function(){const map=Object.values(recoveryMap()),pending=map.filter(r=>r.stage<3).length,recovered=map.filter(r=>r.stage>=3).length,consolidated=map.filter(r=>r.stage>=4).length;document.getElementById("view-errors").innerHTML=`<div class="page-head"><div><div class="eyebrow">Recuperación</div><h1>Necesidades de aprendizaje</h1><p>Resumen del ciclo de recuperación. El detalle, filtros, notas y marcadores viven en el Cuaderno de aprendizaje.</p></div><button class="btn btn-primary" onclick="startErrorPractice()">Practicar pendientes</button></div><div class="kpi-strip"><div class="kpi"><span>Detectados</span><strong>${map.length}</strong><small>errores registrados</small></div><div class="kpi"><span>Pendientes</span><strong>${pending}</strong><small>antes de Recuperado</small></div><div class="kpi"><span>Recuperados</span><strong>${recovered}</strong><small>al menos un acierto posterior</small></div><div class="kpi"><span>Consolidados</span><strong>${consolidated}</strong><small>recuperación repetida</small></div><div class="kpi"><span>Vencidos</span><strong>${dueRecoveryIds().length}</strong><small>listos para repetición</small></div></div><div class="card" style="margin-top:16px"><h3>Tu ciclo de recuperación</h3><div style="margin:14px 0">${recoveryPipeline(map.length?Math.round(mean(map.map(x=>x.stage))):0)}</div><p>DIAE conserva cada error hasta que la evidencia posterior permita moverlo de Revisado a Practicado, Recuperado y Consolidado.</p><button type="button" class="btn" style="margin-top:13px" onclick="go('notebook')"><i class="ph ph-notebook"></i> Abrir Cuaderno de aprendizaje</button></div>`}
 
@@ -1338,7 +1583,7 @@ function finishOnboarding(){const p=proProfile();p.onboarded=true;saveProProfile
 
 /* -------- Search + notifications -------- */
 function openGlobalSearch(){genericModal(`<div class="modal global-search-modal"><div class="modal-head"><div><h2>Buscar en DIAE</h2><p>Preguntas, temas, notas y recursos de la plataforma.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><input id="global-search-input" class="search-input" style="width:100%;margin-top:15px" placeholder="Ej. convivencia, autonomía, pregunta 18..." oninput="renderSearchResults(this.value)" autofocus><div class="search-results" id="search-results"><div class="empty"><i class="ph ph-magnifying-glass"></i><p>Escribe para buscar.</p></div></div></div>`)}
-function renderSearchResults(q){const box=document.getElementById("search-results");if(!box)return;const term=q.trim().toLowerCase();if(term.length<2){box.innerHTML=`<div class="empty"><p>Escribe al menos dos caracteres.</p></div>`;return}const notes=noteMap();const res=QUESTIONS.filter(x=>`${x.id} ${x.topic} ${x.stemText} ${x.options.join(" ")} ${notes[x.id]?.text||""}`.toLowerCase().includes(term)).slice(0,25);const resources=[{title:"Guía de estrategia de examen",text:"gestión del tiempo preguntas marcadas cierre responsable"},{title:"Cuaderno de recuperación",text:"errores conceptos repaso recuperación"},{title:"Lectura accesible",text:"audio voz lectura accesibilidad"}].filter(r=>(r.title+" "+r.text).toLowerCase().includes(term));const htmlQ=res.map(x=>`<button class="search-result" onclick="closeGeneric();openSearchQuestion(${x.id})"><i class="ph ph-exam"></i><div><strong>Pregunta ${x.id} · ${esc(x.topic)}</strong><span>${esc(x.stemText.slice(0,180))}${x.stemText.length>180?"…":""}</span></div></button>`).join("");const htmlR=resources.map(r=>`<button class="search-result" onclick="closeGeneric();go('resources')"><i class="ph ph-books"></i><div><strong>${esc(r.title)}</strong><span>Recurso DIAE · abrir biblioteca</span></div></button>`).join("");box.innerHTML=(htmlQ+htmlR)||`<div class="empty"><p>No encontramos coincidencias.</p></div>`}
+function renderSearchResults(q){const box=document.getElementById("search-results");if(!box)return;const term=q.trim().toLowerCase();if(term.length<2){box.innerHTML=`<div class="empty"><p>Escribe al menos dos caracteres.</p></div>`;return}const notes=noteMap();const res=QUESTIONS.filter(x=>`${x.id} ${x.topic} ${x.stemText} ${x.options.join(" ")} ${notes[x.id]?.text||""}`.toLowerCase().includes(term)).slice(0,25);const resources=[{title:"Guía de estrategia de examen",text:"gestión del tiempo preguntas marcadas cierre responsable"},{title:"Cuaderno de recuperación",text:"errores conceptos repaso recuperación"},{title:"Guía de estrategias",text:"análisis propósito distractores estrategias resolución"}].filter(r=>(r.title+" "+r.text).toLowerCase().includes(term));const htmlQ=res.map(x=>`<button class="search-result" onclick="closeGeneric();openSearchQuestion(${x.id})"><i class="ph ph-exam"></i><div><strong>Pregunta ${x.id} · ${esc(x.topic)}</strong><span>${esc(x.stemText.slice(0,180))}${x.stemText.length>180?"…":""}</span></div></button>`).join("");const htmlR=resources.map(r=>`<button class="search-result" onclick="closeGeneric();go('resources')"><i class="ph ph-books"></i><div><strong>${esc(r.title)}</strong><span>Recurso DIAE · abrir biblioteca</span></div></button>`).join("");box.innerHTML=(htmlQ+htmlR)||`<div class="empty"><p>No encontramos coincidencias.</p></div>`}
 function openSearchQuestion(id){const last=officialSessions().at(-1);if(last&&last.details.some(d=>d.id===id)){activeReviewResult=last;openReviewAt(id)}else{startTypedSession("thematic",[id],{source:"global-search"})}}
 function openNotifications(){const n=notificationData();genericModal(`<div class="modal modal-sm"><div class="modal-head"><div><h2>Notificaciones DIAE</h2><p>Generadas localmente a partir de tu estado de preparación.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><div style="margin-top:12px">${n.length?n.map(x=>`<div class="notification-item"><i class="ph ${x.icon}"></i><div><strong>${esc(x.title)}</strong><span>${esc(x.text)}</span></div></div>`).join(""):`<div class="empty"><p>No tienes novedades pendientes.</p></div>`}</div></div>`)}
 
@@ -1508,7 +1753,7 @@ function renderProfileV3(){
   el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Personalización</div><h1>Perfil y preparación</h1><p>Estos datos determinan el banco recomendado, la escala de referencia, el plan diario y el calendario.</p></div><button class="btn btn-primary" onclick="openPreparationSettings()"><i class="ph ph-sliders-horizontal"></i> Editar mi preparación</button></div>
   <div class="grid grid-2"><div class="card"><h3>Mi ruta</h3><div class="setting-row"><div><strong>${esc(user.name)}</strong><span>${esc(user.specialty)} · ${esc(user.currentScale)} → ${esc(user.targetScale)}</span></div><span class="badge green">${esc(user.level)}</span></div><div class="setting-row"><div><strong>Tiempo por sesión</strong><span>Preferencia para DIAE Hoy</span></div><strong>${user.dailyMinutes||20} min</strong></div><div class="setting-row"><div><strong>Fecha objetivo</strong><span>Utilizada por el calendario dinámico</span></div><strong>${user.targetDate?new Date(user.targetDate+"T12:00:00").toLocaleDateString("es-PE"):"Por definir"}</strong></div></div>
   <div class="card"><h3>Accesibilidad</h3><div class="setting-row"><div><strong>Tamaño de texto</strong><span>${Math.round(prefs.fontScale*100)}%</span></div><div class="segment"><button onclick="changeFont(-.05)">A−</button><button onclick="prefs.fontScale=1;save(LS.prefs,prefs);applyPrefs();renderProfileV3()">A</button><button onclick="changeFont(.05)">A+</button></div></div><div class="setting-row"><div><strong>Apariencia</strong><span>Claro u oscuro</span></div><div class="segment"><button class="${prefs.theme==="light"?"active":""}" onclick="prefs.theme='light';save(LS.prefs,prefs);applyPrefs();renderProfileV3()">Claro</button><button class="${prefs.theme==="dark"?"active":""}" onclick="prefs.theme='dark';save(LS.prefs,prefs);applyPrefs();renderProfileV3()">Oscuro</button></div></div><div class="setting-row"><div><strong>Reducir movimiento</strong><span>Minimiza transiciones</span></div><button class="btn btn-sm" onclick="setReducedMotion(!prefs.reducedMotion);renderProfileV3()">${prefs.reducedMotion?"Activado":"Desactivado"}</button></div><div class="setting-row"><div><strong>Alto contraste</strong><span>Refuerza legibilidad de texto y bordes</span></div><button class="btn btn-sm" onclick="setHighContrast(!prefs.highContrast)">${prefs.highContrast?"Activado":"Desactivado"}</button></div></div></div>
-  <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h3>Cuenta y privacidad</h3><span class="release-badge">DIAE 5.5 RC</span></div><p style="margin:7px 0 15px">Puedes exportar o eliminar la información almacenada en este dispositivo.</p><div class="exam-actions"><button type="button" class="btn" onclick="exportUserData()"><i class="ph ph-download-simple"></i> Exportar mis datos</button><button class="btn btn-danger" onclick="resetLocalData()"><i class="ph ph-trash"></i> Eliminar datos locales</button><button type="button" class="btn" onclick="logout()">Cerrar sesión</button></div></div>`;
+  <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h3>Cuenta y privacidad</h3></div><p style="margin:7px 0 15px">Puedes exportar o eliminar la información almacenada en este dispositivo.</p><div class="exam-actions"><button type="button" class="btn" onclick="exportUserData()"><i class="ph ph-download-simple"></i> Exportar mis datos</button><button class="btn btn-danger" onclick="resetLocalData()"><i class="ph ph-trash"></i> Eliminar datos locales</button><button type="button" class="btn" onclick="logout()">Cerrar sesión</button></div></div>`;
 }
 
 function normalizeModalState(){
@@ -1687,9 +1932,9 @@ renderExamsV3=function(){
   const el=document.getElementById("view-exams");if(!el)return;
   const bank=bankByKey(activeBankKey),q=validateActiveBank();
   const extra=document.createElement("div");extra.innerHTML=`
-    <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Disponibilidad de bancos · ${esc(user.level)}</h2><span class="release-badge"><i class="ph-fill ph-shield-check"></i> Control de integridad activo</span></div>
-    <p>Los bancos se habilitan únicamente después de validar 60 preguntas, numeración completa, tres alternativas y 60 claves.</p>${renderBankRoadmap()}</div>
-    <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Estado técnico del banco activo</h2><span class="badge ${q.ok?"green":"warn"}">${q.ok?"Validado":"Revisión necesaria"}</span></div>${renderBankQualityCard()}${q.issues.length?`<div class="smart-alert"><i class="ph ph-warning"></i><span>${esc(q.issues.join(" "))}</span></div>`:""}</div>`;
+    <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Disponibilidad de bancos · ${esc(user.level)}</h2></div>
+    <p>Nuevos bancos oficiales se incorporarán progresivamente para ampliar tus opciones de práctica y simulación.</p>${renderBankRoadmap()}</div>
+    <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Banco seleccionado</h2><span class="badge ${q.ok?"green":"warn"}">${q.ok?"Validado":"Revisión necesaria"}</span></div>${renderBankQualityCard()}${q.issues.length?`<div class="smart-alert"><i class="ph ph-warning"></i><span>${esc(q.issues.join(" "))}</span></div>`:""}</div>`;
   el.appendChild(extra);
 };
 
@@ -1848,7 +2093,7 @@ finishOnboarding=function(){
 /* =========================================================
    DIAE V5.5 · RELEASE CANDIDATE HARDENING
    ========================================================= */
-const RELEASE_INFO={version:"5.5 RC",build:"2026-08",banksExpected:16,banksReady:2};
+const RELEASE_INFO={version:"5.5",build:"2026-08",banksExpected:16,banksReady:4};
 const BANK_ROADMAP={
   inicial:[2018,2019,2020,2021,2022,2023,2024,2025],
   primaria:[2018,2019,2020,2021,2022,2023,2024,2025]
@@ -2273,5 +2518,410 @@ function diaeSelfTest(){
 }
 
 </script>
+
+<script id="diae-v552-experience">
+/* DIAE 5.5.2 — experiencia docente, accesibilidad y QA */
+
+/* --- Textos comprensibles de cada sección --- */
+const SECTION_COPY={
+ home:["Inicio","Tu ruta personal de preparación: qué hacer ahora, cómo vas y qué conviene reforzar."],
+ exams:["Simulacros","Resuelve pruebas oficiales completas y conserva cada intento para comparar tu evolución."],
+ practice:["Práctica","Entrena en sesiones más breves sin alterar el puntaje de tus simulacros."],
+ errors:["Necesidades de aprendizaje","Identifica respuestas que requieren revisión y sigue su proceso hasta recuperarlas y consolidarlas."],
+ plan:["Plan de estudio","Organiza los próximos días con acciones ajustadas a tu tiempo, evidencias y prioridades."],
+ progress:["Rendimiento","Observa tu evolución con cautela: puntajes, evidencia acumulada, consistencia y recuperación."],
+ resources:["Recursos","Accede a materiales de apoyo para comprender criterios, conceptos y estrategias de resolución."],
+ today:["DIAE Hoy","Recibe una recomendación concreta para estudiar hoy según tu tiempo y lo que DIAE ha observado."],
+ history:["Historial","Consulta tus sesiones anteriores y revisa exactamente qué respondiste, sin modificar intentos cerrados."],
+ notebook:["Cuaderno de aprendizaje","Reúne necesidades, notas y evidencias para entender qué debes revisar y cuándo volver a practicar."],
+ calendar:["Calendario","Visualiza tu preparación por semanas y distribuye práctica, recuperación y simulacros sin saturarte."],
+ achievements:["Logros","Reconoce avances útiles: constancia, recuperación de necesidades y progreso sostenido."],
+ premium:["DIAE Premium","Conoce qué incluye el acceso esencial y qué funciones de acompañamiento avanzado forman parte de Premium."],
+ profile:["Perfil","Ajusta tu preparación, accesibilidad, preferencias de lectura y privacidad."]
+};
+
+/* --- Sidebar con cierre real --- */
+function closeSidebar(){document.getElementById("sidebar")?.classList.remove("open");document.getElementById("sidebar-backdrop")?.classList.remove("active")}
+const _toggleSidebar552=window.toggleSidebar;
+window.toggleSidebar=function(){
+  const s=document.getElementById("sidebar");if(!s)return;
+  const open=!s.classList.contains("open");s.classList.toggle("open",open);
+  document.getElementById("sidebar-backdrop")?.classList.toggle("active",open);
+};
+document.addEventListener("pointerdown",e=>{
+  const s=document.getElementById("sidebar"),menu=document.querySelector(".menu-btn");
+  if(window.innerWidth<=1000&&s?.classList.contains("open")&&!s.contains(e.target)&&!menu?.contains(e.target))closeSidebar();
+},{capture:true});
+window.addEventListener("resize",()=>{if(window.innerWidth>1000)closeSidebar()});
+
+/* --- Loader armonioso y corto --- */
+const EXPERIENCE_MESSAGES=[
+ ["Preparando una experiencia adecuada para ti","Estamos organizando tu información de preparación."],
+ ["Ordenando tu siguiente paso","DIAE está priorizando lo más útil para este momento."],
+ ["Conectando tus avances","Estamos actualizando tu ruta con la evidencia disponible."],
+ ["Preparando tu espacio de estudio","Un momento: estamos dejando todo listo para continuar."],
+ ["Ajustando la experiencia a tu ritmo","Consideramos tu tiempo, nivel y preferencias de accesibilidad."],
+ ["Organizando tu sesión","Estamos evitando repeticiones innecesarias y priorizando lo importante."]
+];
+let loaderTimer=null;
+function showExperienceLoader(minMs=260){
+  const box=document.getElementById("experience-loader"),m=EXPERIENCE_MESSAGES[Math.floor(Math.random()*EXPERIENCE_MESSAGES.length)];
+  if(!box)return;document.getElementById("loader-message").textContent=m[0];document.getElementById("loader-submessage").textContent=m[1];
+  box.classList.add("active");box.setAttribute("aria-hidden","false");clearTimeout(loaderTimer);loaderTimer=setTimeout(hideExperienceLoader,Math.max(250,minMs));
+}
+function hideExperienceLoader(){const box=document.getElementById("experience-loader");box?.classList.remove("active");box?.setAttribute("aria-hidden","true")}
+const _go552=window.go;
+window.go=function(view,btn){
+  showExperienceLoader(280);const r=_go552(view,btn);closeSidebar();
+  const copy=SECTION_COPY[view];if(copy){document.getElementById("top-title").textContent=copy[0];document.getElementById("top-subtitle").textContent=copy[1]}
+  setTimeout(hideExperienceLoader,300);return r;
+};
+
+/* --- Tutorial guiado + centro de ayuda --- */
+const GUIDE_STORAGE="diae_guided_tour_completed_v1";
+const GLOSSARY=[
+ ["Banco oficial","Conjunto de preguntas de un cuadernillo oficial identificado por año, nivel y código."],
+ ["Simulacro","Intento completo bajo condiciones de examen. Solo los simulacros alimentan tu tendencia de puntaje."],
+ ["Diagnóstico","Primera línea base para personalizar tu ruta. No reemplaza ni altera un simulacro."],
+ ["Evidencia","Registro de una respuesta, su resultado, contexto y evolución posterior. Una sola evidencia no define por sí sola una fortaleza o necesidad."],
+ ["Foco de preparación","Aspecto pedagógico o disciplinar que DIAE utiliza para organizar tu preparación. No equivale automáticamente a una competencia completa del CNEB."],
+ ["Confianza de la evidencia","Indicador interno de cuánto respaldo existe para una estimación según cantidad y consistencia de observaciones."],
+ ["Necesidad de aprendizaje","Señal que requiere revisión o nueva evidencia. No es una etiqueta permanente sobre el docente."],
+ ["Recuperado","Estado alcanzado cuando existe evidencia posterior favorable después de un error."],
+ ["Consolidado","Recuperación sostenida en nuevas oportunidades de respuesta."],
+ ["Repetición espaciada","Volver a revisar una necesidad después de un intervalo, en vez de repetirla inmediatamente."],
+ ["Transferencia","Comprobar un criterio en otra situación o pregunta relacionada, para evitar depender de la memoria del reactivo."],
+ ["DIAE Hoy","Recomendación diaria que combina tu tiempo disponible y la evidencia acumulada."],
+ ["Cuaderno de aprendizaje","Espacio donde puedes revisar necesidades, evidencias, notas, recuperación y acciones siguientes."],
+ ["Preparación respecto a meta","Referencia de simulación comparada con la escala elegida. No es una predicción oficial de resultado."],
+ ["Consistencia","Estabilidad aproximada entre varios simulacros. Necesita más de un intento para ser interpretable."],
+ ["Clave oficial","Respuesta correcta publicada para el cuadernillo oficial. DIAE la mantiene separada de su explicación pedagógica."],
+ ["Distractor","Alternativa incorrecta diseñada para resultar plausible. Analizar por qué atrae ayuda a reconstruir el criterio de resolución."],
+ ["Retroalimentación","Información que te ayuda a comprender qué hiciste, qué criterio necesitabas y cómo mejorar en una nueva oportunidad."],
+ ["Marco curricular relacionado","Relación orientadora con el CNEB o programa curricular. No significa que una sola pregunta evalúe una competencia completa."],
+ ["Omisión","Pregunta que quedó sin respuesta. Puede deberse a tiempo, duda o decisión estratégica y conviene analizarla por separado."]
+];
+const GUIDE_ITEMS=[
+ ["Inicio","Resume tu ruta y te muestra una siguiente acción concreta. No necesitas interpretar todos los indicadores antes de estudiar."],
+ ["Simulacros","Aquí eliges año y nivel. Cada intento queda cerrado al finalizar y puede revisarse después desde Historial."],
+ ["Práctica","Sesiones más breves para entrenar. Sus resultados no reemplazan el último puntaje de simulacro."],
+ ["Necesidades de aprendizaje","Resume qué respuestas requieren nueva evidencia y qué necesidades ya avanzaron en recuperación."],
+ ["Plan de estudio","Organiza una propuesta semanal que se ajusta cuando cambian tus evidencias."],
+ ["Rendimiento","Separa puntaje, evidencia de preparación, consistencia y recuperación para evitar conclusiones apresuradas."],
+ ["DIAE Hoy","Construye una sesión de 10, 20 o 30 minutos según lo que conviene trabajar ahora."],
+ ["Historial","Conserva todas las sesiones. Puedes revisar un intento terminado, pero no cambiar respuestas."],
+ ["Cuaderno de aprendizaje","Permite comprender errores, revisar distractores, guardar notas y volver a practicar."],
+ ["Calendario","Presenta una vista mensual y una ruta de próximas semanas. En celular puedes deslizar horizontalmente sin perder legibilidad."],
+ ["Logros","Reconoce avances relacionados con constancia y aprendizaje; no utiliza puntos vacíos."],
+ ["DIAE Premium","Distingue funciones esenciales de acompañamiento avanzado. Durante la campaña actual el acceso está habilitado."],
+ ["Perfil y accesibilidad","Aquí puedes cambiar nivel, meta, tiempo, fecha objetivo, tamaño de texto, contraste, movimiento y apariencia."],
+ ["Marcadores y notas","Sirven para guardar preguntas importantes y registrar tu propio razonamiento sin alterar el contenido oficial."],
+ ["Búsqueda","Permite localizar preguntas, focos, conceptos, notas y recursos sin recorrer todas las secciones."],
+ ["Notificaciones","Te avisan de acciones útiles, como necesidades listas para repasar o cambios relevantes en tu ruta."],
+ ["Navegador de preguntas","Durante una evaluación muestra respondidas, pendientes y marcadas para que puedas volver rápidamente a cualquier reactivo."],
+ ["Marcar para revisar","Señala una pregunta para regresar antes de finalizar. No cambia tu respuesta ni afecta el puntaje."],
+ ["Anterior y Siguiente","Cambian de pregunta. Tu respuesta queda guardada automáticamente y puedes modificarla hasta finalizar el intento."],
+ ["Finalizar evaluación","Cierra el intento. Después de confirmar, las respuestas pasan al historial y ya no pueden editarse."],
+ ["Modo concentración","Reduce elementos secundarios durante la evaluación para facilitar lectura prolongada."],
+ ["Compartir progreso","Genera una tarjeta de avance sin necesidad de mostrar datos sensibles."],
+ ["Reporte PRO","Resume resultados, prioridades y acciones siguientes cuando esa función está disponible."],
+ ["Modo sin conexión","Permite continuar con información guardada localmente; la plataforma te indica el estado para evitar confusiones."]
+];
+function openGuideCenter(tab="guide"){
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Centro de ayuda DIAE</div><h2>Conoce la plataforma con confianza</h2><p>Puedes volver a esta guía cuando lo necesites. El tutorial no modifica tu progreso.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><div class="guide-tabs"><button onclick="renderGuideTab('guide')">Funciones</button><button onclick="renderGuideTab('glossary')">Glosario</button><button onclick="closeGeneric();startGuidedTour()">Iniciar tutorial guiado</button></div><div id="guide-tab-content"></div></div>`);
+  renderGuideTab(tab);
+}
+function renderGuideTab(tab){
+  const box=document.getElementById("guide-tab-content");if(!box)return;
+  if(tab==="glossary")box.innerHTML=`<div class="glossary-grid">${GLOSSARY.map(([t,d])=>`<div class="glossary-term"><strong>${esc(t)}</strong><p>${esc(d)}</p></div>`).join("")}</div>`;
+  else if(tab==="access")box.innerHTML=`<div class="guide-section"><div class="guide-item"><strong>Tamaño de texto</strong><p>Puedes aumentarlo desde Perfil. En celular DIAE utiliza una base tipográfica mayor para facilitar lectura prolongada.</p></div><div class="guide-item"><strong>Alto contraste</strong><p>Refuerza bordes y contraste cuando necesitas una lectura visual más marcada.</p></div><div class="guide-item"><strong>Reducir movimiento</strong><p>Disminuye animaciones y desplazamientos suaves.</p></div><div class="guide-item"><strong>Modo de lectura</strong><p>Prioriza legibilidad, espacios cómodos y una presentación adecuada para sesiones largas.</p></div></div>`;
+  else box.innerHTML=`<div class="guide-section">${GUIDE_ITEMS.map(([t,d])=>`<div class="guide-item"><strong>${esc(t)}</strong><p>${esc(d)}</p></div>`).join("")}</div>`;
+}
+const TOUR_STEPS=[
+ {selector:".sidebar",title:"Tu menú principal",text:"Desde aquí accedes a todas las áreas. En celular puedes cerrarlo con la X, tocando fuera del menú o eligiendo una sección."},
+ {selector:'[data-view="home"]',title:"Inicio",text:"Resume tu ruta y te propone el siguiente paso más útil."},
+ {selector:'[data-view="exams"]',title:"Simulacros",text:"Elige un banco oficial y resuélvelo bajo condiciones de examen. Los intentos cerrados quedan guardados."},
+ {selector:'[data-view="today"]',title:"DIAE Hoy",text:"Genera una sesión adaptada a tu tiempo y a la evidencia que ya existe."},
+ {selector:'[data-view="notebook"]',title:"Cuaderno de aprendizaje",text:"Aquí comprendes necesidades, revisas su evolución y guardas notas."},
+ {selector:'[data-view="history"]',title:"Historial",text:"Puedes volver a consultar cualquier intento finalizado sin editar sus respuestas."},
+ {selector:'[data-view="calendar"]',title:"Calendario",text:"Organiza tu preparación mensual y semanal. En celular puedes deslizar la cuadrícula."},
+ {selector:'[data-view="profile"]',title:"Perfil y accesibilidad",text:"Ajusta nivel, meta, tiempo, fecha, texto, contraste y otras preferencias."},
+ {selector:".top-actions",title:"Herramientas rápidas",text:"Desde aquí accedes a búsqueda, notificaciones, ayuda y otros controles disponibles."}
+];
+let tourIndex=0;
+function startGuidedTour(index=0){
+  closeGeneric();tourIndex=Math.max(0,index);document.getElementById("tour-layer")?.remove();
+  const layer=document.createElement("div");layer.id="tour-layer";layer.className="tour-layer";layer.innerHTML='<div class="tour-dim"></div><div class="tour-highlight"></div><div class="tour-card"></div>';document.body.appendChild(layer);
+  renderTourStep();
+}
+function renderTourStep(){
+  const step=TOUR_STEPS[tourIndex],layer=document.getElementById("tour-layer");if(!layer)return;
+  let el=document.querySelector(step.selector);
+  if(step.selector===".sidebar"&&window.innerWidth<=1000){document.getElementById("sidebar")?.classList.add("open");document.getElementById("sidebar-backdrop")?.classList.add("active");el=document.querySelector(".sidebar")}
+  if(!el){tourNext();return}
+  const r=el.getBoundingClientRect(),pad=6,h=layer.querySelector(".tour-highlight"),card=layer.querySelector(".tour-card");
+  h.style.left=Math.max(6,r.left-pad)+"px";h.style.top=Math.max(6,r.top-pad)+"px";h.style.width=Math.min(innerWidth-12,r.width+pad*2)+"px";h.style.height=Math.min(innerHeight-12,r.height+pad*2)+"px";
+  const below=r.bottom+16,cardTop=below+220<innerHeight?below:Math.max(14,r.top-230);card.style.left=Math.min(innerWidth-394,Math.max(14,r.left))+"px";card.style.top=cardTop+"px";
+  card.innerHTML=`<div class="tour-progress">Paso ${tourIndex+1} de ${TOUR_STEPS.length}</div><strong>${esc(step.title)}</strong><p>${esc(step.text)}</p><div class="tour-actions"><button class="btn btn-sm" onclick="endGuidedTour(false)">Salir</button><div style="display:flex;gap:6px">${tourIndex?'<button class="btn btn-sm" onclick="tourPrev()">Atrás</button>':""}<button class="btn btn-primary btn-sm" onclick="tourNext()">${tourIndex===TOUR_STEPS.length-1?"Finalizar":"Siguiente"}</button></div></div>`;
+}
+function tourNext(){if(tourIndex>=TOUR_STEPS.length-1){endGuidedTour(true);return}tourIndex++;renderTourStep()}
+function tourPrev(){if(tourIndex>0){tourIndex--;renderTourStep()}}
+function endGuidedTour(done=true){document.getElementById("tour-layer")?.remove();closeSidebar();if(done){localStorage.setItem(GUIDE_STORAGE,"1");toast("Tutorial completado. Puedes repetirlo desde Ayuda y guía.")}}
+window.addEventListener("resize",()=>{if(document.getElementById("tour-layer"))renderTourStep()});
+
+/* --- Onboarding con accesibilidad antes de terminar --- */
+window.openOnboarding=function(step=1){
+  const max=4;
+  genericModal(`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="onboard-title"><div class="modal-head"><div><div class="eyebrow">Tu experiencia en DIAE</div><h2 id="onboard-title">${step===1?"Cuéntanos qué preparas":step===2?"Define tu objetivo":step===3?"Organiza tu tiempo":"Haz que DIAE sea cómodo para ti"}</h2><p>${step===4?"Estas preferencias pueden cambiarse luego desde Perfil.":"Usaremos esta información para personalizar la ruta sin mezclar tus métricas."}</p></div>${user.onboarded?`<button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button>`:""}</div><div class="onboarding-steps">${Array.from({length:max},(_,i)=>`<span class="${i<step?"done":""}"></span>`).join("")}</div>
+  ${step===1?`<div class="choice-grid"><button class="choice ${user.level==="Nivel Inicial"?"active":""}" onclick="user.level='Nivel Inicial';user.specialty='Educación Inicial';save(LS.user,user);openOnboarding(1)"><strong>Educación Inicial</strong><span>Bancos disponibles según tu nivel</span></button><button class="choice ${user.level==="Primaria"?"active":""}" onclick="user.level='Primaria';user.specialty='Educación Primaria';save(LS.user,user);openOnboarding(1)"><strong>Educación Primaria</strong><span>Bancos disponibles según tu nivel</span></button></div>`:""}
+  ${step===2?`<div class="profile-form-grid"><div class="field"><label>Escala actual</label><select id="ob-current">${["Primera escala","Segunda escala","Tercera escala","Cuarta escala","Quinta escala","Sexta escala"].map(x=>`<option ${user.currentScale===x?"selected":""}>${x}</option>`).join("")}</select></div><div class="field"><label>Escala objetivo</label><select id="ob-target">${CONFIG.thresholds.map(x=>`<option ${user.targetScale===x.scale?"selected":""}>${x.scale}</option>`).join("")}</select></div></div>`:""}
+  ${step===3?`<div class="profile-form-grid"><div class="field"><label>Tiempo habitual por sesión</label><select id="ob-minutes">${[10,20,30,45,60].map(x=>`<option value="${x}" ${user.dailyMinutes==x?"selected":""}>${x} minutos</option>`).join("")}</select></div><div class="field"><label>Fecha objetivo</label><input id="ob-date" type="date" value="${esc(user.targetDate||"")}"></div></div>`:""}
+  ${step===4?`<div class="guide-section"><div class="setting-row"><div><strong>Tamaño de texto</strong><span>Elige una base cómoda para lectura prolongada.</span></div><select id="ob-font"><option value=".95">Compacto</option><option value="1" ${prefs.fontScale===1?"selected":""}>Normal</option><option value="1.1" ${prefs.fontScale>=1.05?"selected":""}>Grande</option><option value="1.2">Muy grande</option></select></div><div class="setting-row"><div><strong>Alto contraste</strong><span>Refuerza la diferencia entre texto, fondos y bordes.</span></div><input id="ob-contrast" type="checkbox" ${prefs.highContrast?"checked":""}></div><div class="setting-row"><div><strong>Reducir movimiento</strong><span>Útil si prefieres una interfaz con menos animaciones.</span></div><input id="ob-motion" type="checkbox" ${prefs.reducedMotion?"checked":""}></div></div>`:""}
+  <div class="result-actions">${step>1?`<button class="btn" onclick="saveOnboarding552(${step});openOnboarding(${step-1})">Atrás</button>`:""}${step<4?`<button class="btn btn-primary" onclick="saveOnboarding552(${step});openOnboarding(${step+1})">Continuar</button>`:`<button class="btn btn-primary" onclick="saveOnboarding552(4);finishOnboarding552()">Guardar y continuar</button>`}</div></div>`);
+};
+function saveOnboarding552(step){
+  if(step===2){user.currentScale=document.getElementById("ob-current")?.value||user.currentScale;user.targetScale=document.getElementById("ob-target")?.value||user.targetScale}
+  if(step===3){user.dailyMinutes=Number(document.getElementById("ob-minutes")?.value)||20;user.targetDate=document.getElementById("ob-date")?.value||""}
+  if(step===4){prefs.fontScale=Number(document.getElementById("ob-font")?.value)||1;prefs.highContrast=!!document.getElementById("ob-contrast")?.checked;prefs.reducedMotion=!!document.getElementById("ob-motion")?.checked;save(LS.prefs,prefs);applyPrefs()}
+  save(LS.user,user);
+}
+function finishOnboarding552(){
+  user.onboarded=true;save(LS.user,user);
+  if(typeof PRO_KEYS!=="undefined")save(PRO_KEYS.profile,{...proProfile(),level:user.level,specialty:user.specialty,currentScale:user.currentScale,targetScale:user.targetScale,dailyMinutes:user.dailyMinutes,examDate:user.targetDate,onboarded:true});
+  setActiveBank(bankForUser(),true);closeGeneric();bootIdentity();renderAll();
+  showExperienceLoader(480);
+  setTimeout(()=>{hideExperienceLoader();if(!localStorage.getItem(GUIDE_STORAGE))startGuidedTour()},520);
+}
+
+/* --- Calendario responsive y legible --- */
+let calendarCursor=new Date();
+window.renderCalendar=function(){
+  const el=document.getElementById("view-calendar");if(!el)return;
+  const events=generateCalendarEvents(),year=calendarCursor.getFullYear(),month=calendarCursor.getMonth(),first=new Date(year,month,1),last=new Date(year,month+1,0),start=(first.getDay()+6)%7,cells=[];
+  for(let i=0;i<start;i++)cells.push(null);for(let d=1;d<=last.getDate();d++)cells.push(new Date(year,month,d));while(cells.length%7)cells.push(null);
+  const title=new Intl.DateTimeFormat("es-PE",{month:"long",year:"numeric"}).format(calendarCursor);
+  el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Tu preparación en el tiempo</div><h1>${title.charAt(0).toUpperCase()+title.slice(1)}</h1><p>Consulta cómo se distribuyen práctica, recuperación y simulacros. En celular la cuadrícula se mantiene completa y puedes deslizarla horizontalmente para leerla sin comprimir los días.</p></div><div class="calendar-month-actions"><button class="btn" onclick="calendarCursor=new Date(${year},${month-1},1);renderCalendar()"><i class="ph ph-caret-left"></i> Mes anterior</button><button class="btn" onclick="calendarCursor=new Date();renderCalendar()">Hoy</button><button class="btn" onclick="calendarCursor=new Date(${year},${month+1},1);renderCalendar()">Mes siguiente <i class="ph ph-caret-right"></i></button></div></div>
+  <div class="card"><div class="calendar-scroll" role="region" aria-label="Calendario mensual desplazable" tabindex="0"><div class="calendar-scroll-inner"><div class="calendar-grid">${["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(x=>`<div class="cal-head">${x}</div>`).join("")}${cells.map(d=>{if(!d)return`<div class="cal-day empty"></div>`;const key=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-"),e=events[key],today=key===new Date().toISOString().slice(0,10);return`<div class="cal-day ${today?"today":""}"><div class="cal-num">${d.getDate()}</div>${e?`<div class="cal-event ${e.type||""}">${esc(e.label)}</div>`:""}</div>`}).join("")}</div></div></div><div class="calendar-legend"><span>Desliza ← → en pantallas pequeñas</span><span>Verde: práctica / prioridad</span><span>Azul: simulacro</span><span>Ámbar: revisión</span></div></div>
+  <div class="card" style="margin-top:16px"><div class="split-title" style="margin-top:0"><h2>Cómo usar este calendario</h2><button class="text-link" onclick="openPreparationSettings()">Cambiar fecha o tiempo</button></div><div class="grid grid-3"><div class="learning-signal"><span>Prioridad</span><p>Las necesidades pendientes pueden ocupar un día antes que contenido nuevo.</p></div><div class="learning-signal"><span>Recuperación</span><p>DIAE deja intervalos para comprobar si un criterio se mantiene con el paso del tiempo.</p></div><div class="learning-signal"><span>Simulacros</span><p>Se espacian para que tengas tiempo de revisar y recuperar antes del siguiente intento.</p></div></div></div>`;
+};
+
+/* --- Premium explicado para docentes --- */
+window.renderPremium=function(){
+  const el=document.getElementById("view-premium");if(!el)return;
+  const rows=[
+   ["Simulacros oficiales disponibles","Sí","Sí","Sí"],
+   ["Resultados esenciales y revisión","Sí","Sí","Sí"],
+   ["Accesibilidad y modos de lectura","Sí","Sí","Sí"],
+   ["Prácticas breves","Sí","Sí","Sí"],
+   ["Diagnóstico personalizado","—","Sí","Sí"],
+   ["DIAE Hoy y sesiones adaptativas","—","Sí","Sí"],
+   ["Cuaderno de aprendizaje avanzado","—","Sí","Sí"],
+   ["Recuperación y repetición espaciada","—","Sí","Sí"],
+   ["Analítica histórica avanzada","—","Sí","Sí"],
+   ["Reporte PRO","—","Sí","Sí"]
+  ];
+  el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Acceso y acompañamiento</div><h1>DIAE Premium</h1><p>DIAE mantiene una base útil y accesible. Premium reúne las funciones que personalizan la preparación, conectan evidencias entre sesiones y profundizan el acompañamiento. Durante la campaña actual tienes acceso completo.</p></div><span class="campaign-pill"><i class="ph-fill ph-gift"></i> Acceso completo por campaña</span></div>
+  <div class="grid grid-2"><div class="card"><span class="badge green">Esencial</span><h2 style="font:800 1.3rem Manrope;margin:10px 0">Prepararte sin quedar fuera</h2><p>Simulacros oficiales, práctica básica, revisión esencial y herramientas de accesibilidad forman la base de DIAE.</p></div><div class="card premium-highlight"><span class="badge">Premium</span><h2 style="font:800 1.3rem Manrope;margin:10px 0">Acompañamiento más profundo</h2><p>Premium añade personalización, adaptación, recuperación, analítica avanzada y herramientas para decidir qué estudiar después.</p></div></div>
+  <div class="card" style="margin-top:16px"><h3>Comparación clara</h3><p style="margin:6px 0 14px">La columna “Campaña actual” muestra lo que tienes disponible hoy. No se está publicando aquí un precio futuro.</p><div class="plan-table-wrap"><div class="plan-table"><div class="head">Función</div><div class="head">Esencial</div><div class="head">Premium</div><div class="head campaign">Campaña actual</div>${rows.map(r=>r.map((x,i)=>`<div class="${i===3?"campaign ":""}${x==="Sí"?"yes":""}">${x}</div>`).join("")).join("")}</div></div></div>
+  <div class="card" style="margin-top:16px"><h3>Qué no cambia</h3><div class="feature-list"><div class="feature"><i class="ph-fill ph-check-circle"></i> La accesibilidad no se utiliza como barrera de pago.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> Un simulacro oficial conserva sus preguntas y claves independientemente del plan.</div><div class="feature"><i class="ph-fill ph-check-circle"></i> Premium profundiza la preparación; no convierte funciones básicas en algo inutilizable.</div></div></div>`;
+};
+
+/* --- Historial de solo lectura + gráfica dinámica --- */
+function simulationSvg(sims){
+  if(!sims.length)return`<div class="empty"><p>Aún no hay simulacros para graficar.</p></div>`;
+  const w=Math.max(520,sims.length*100+60),h=190,pad=34,max=90,pts=sims.map((s,i)=>({x:pad+i*((w-pad*2)/Math.max(1,sims.length-1)),y:h-pad-(s.score/max)*(h-pad*2),s,i}));
+  const poly=pts.map(p=>`${p.x},${p.y}`).join(" ");
+  return`<div class="history-chart-wrap"><svg class="history-chart-svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="Evolución de puntajes de simulacro"><line x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}" stroke="var(--line)"/><line x1="${pad}" y1="${pad}" x2="${pad}" y2="${h-pad}" stroke="var(--line)"/><polyline points="${poly}" fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="gHist" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--brand)" stop-opacity=".2"/><stop offset="1" stop-color="var(--brand)" stop-opacity="0"/></linearGradient></defs><polygon points="${pad},${h-pad} ${poly} ${w-pad},${h-pad}" fill="url(#gHist)"/>${pts.map(p=>`<g class="history-point" onclick="openSessionReadonly(${p.s.id})"><circle cx="${p.x}" cy="${p.y}" r="6" fill="var(--surface)" stroke="var(--brand)" stroke-width="3"/><text x="${p.x}" y="${p.y-13}" text-anchor="middle" font-size="10" fill="currentColor">${p.s.score.toFixed(1)}</text><text x="${p.x}" y="${h-12}" text-anchor="middle" font-size="9" fill="var(--muted)">#${p.i+1}</text></g>`).join("")}</svg></div>`;
+}
+function openSessionReadonly(id){
+  const s=getSessions().find(x=>x.id===id);if(!s){toast("No se encontró este intento.","ph-warning");return}
+  const bank=Object.values(EXAM_BANKS).find(b=>b.examId===s.examId),questions=bank?.questions||QUESTIONS;
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Intento finalizado · solo lectura</div><h2>${esc(s.sessionLabel||SESSION_TYPES[s.sessionType]?.label||"Sesión")}</h2><p>${fmtDate(s.date)} · ${formatTime(s.totalTime||0)}. Este intento está cerrado y sus respuestas no pueden modificarse.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><div class="evidence-strip"><div class="evidence-kpi"><span>Correctas</span><strong>${s.correct}</strong></div><div class="evidence-kpi"><span>Incorrectas</span><strong>${s.incorrect}</strong></div><div class="evidence-kpi"><span>Omitidas</span><strong>${s.omitted}</strong></div><div class="evidence-kpi"><span>Precisión</span><strong>${s.precision}%</strong></div><div class="evidence-kpi"><span>${isSimulationSession(s)?"Puntaje":"Resultado"}</span><strong>${isSimulationSession(s)?s.score.toFixed(1):`${s.correct}/${s.questionCount}`}</strong></div></div><div>${(s.details||[]).map(d=>{const q=questions[d.id-1],chosen=d.answer==null?"Sin marcar":"ABC"[d.answer],correct="ABC"[d.correct];return`<details class="readonly-question"><summary>Pregunta ${d.id} · ${d.status==="correct"?"Correcta":d.status==="omitted"?"Omitida":"Incorrecta"}</summary><p style="margin:9px 0;font-size:.73rem;line-height:1.5">${esc(q?.stemText||"")}</p><div class="readonly-answer"><span class="chosen">Tu respuesta: <strong>${chosen}</strong></span><span class="correct">Clave: <strong>${correct}</strong></span><span>Tiempo registrado: ${formatTime(d.time||0)}</span></div></details>`}).join("")}</div></div>`);
+}
+window.renderHistory=function(){
+  const sessions=getSessions().filter(s=>s.examId===CONFIG.examId).slice().sort((a,b)=>new Date(b.date)-new Date(a.date)),sims=officialSessions().filter(s=>s.examId===CONFIG.examId).slice().sort((a,b)=>new Date(a.date)-new Date(b.date)),sum=evidenceSummary();
+  document.getElementById("view-history").innerHTML=`<div class="page-head"><div><div class="eyebrow">Tu recorrido</div><h1>Historial de preparación</h1><p>Consulta lo que hiciste en cada sesión. Los intentos finalizados son de solo lectura: puedes revisar respuestas y resultados, pero no modificarlos.</p></div><span class="badge">${sessions.length} sesiones</span></div><div class="grid grid-2"><div class="card"><h3>Evolución de simulacros</h3>${simulationSvg(sims)}<small style="color:var(--muted)">Toca un punto para abrir ese intento.</small></div><div class="card"><h3>Actividad acumulada</h3><div class="session-impact"><div><span>Sesiones</span><strong>${sessions.length}</strong></div><div><span>Evidencias</span><strong>${getEvidence().filter(e=>e.examId===CONFIG.examId).length}</strong></div><div><span>Recuperados</span><strong>${sum.recovered}</strong></div></div></div></div><div class="card" style="margin-top:16px"><h3>Sesiones</h3>${sessions.length?sessions.map(s=>`<div class="history-card"><div class="history-icon"><i class="ph ${SESSION_TYPES[s.sessionType]?.icon||"ph-circle"}"></i></div><div><h4>${esc(s.sessionLabel||SESSION_TYPES[s.sessionType]?.label||"Sesión")}</h4><p>${fmtDate(s.date)} · ${formatTime(s.totalTime||0)} · ${sessionImpactLabel(s)}</p><div class="learning-meta"><span class="badge">${s.correct}/${s.questionCount} correctas</span><span class="badge">${s.precision}% precisión</span>${isSimulationSession(s)?`<span class="badge green">${s.score.toFixed(1)}/90</span>`:""}</div></div><div class="history-score"><button class="btn btn-sm" onclick="openSessionReadonly(${s.id})"><i class="ph ph-eye"></i> Revisar intento</button></div></div>`).join(""):`<div class="empty"><p>Tu historial aparecerá después de la primera sesión.</p></div>`}</div>`;
+};
+
+/* --- Perfil: ayuda/tutorial como función permanente --- */
+const _renderProfileV3552=window.renderProfileV3;
+window.renderProfileV3=function(){
+  _renderProfileV3552();
+  const el=document.getElementById("view-profile");if(!el)return;
+  const card=document.createElement("div");card.className="card";card.style.marginTop="16px";card.innerHTML=`<div class="split-title" style="margin-top:0"><h3>Ayuda y aprendizaje de la plataforma</h3><span class="badge green">Siempre disponible</span></div><p style="margin:7px 0 14px">Puedes repetir el tutorial o consultar el glosario cuando algún término o función no resulte claro.</p><div class="exam-actions"><button class="btn btn-primary" onclick="startGuidedTour()"><i class="ph ph-path"></i> Repetir tutorial guiado</button><button class="btn" onclick="openGuideCenter('glossary')"><i class="ph ph-book-open"></i> Abrir glosario</button></div>`;el.appendChild(card);
+};
+
+/* --- Descripciones de topbar después de renders heredados --- */
+function humanizeCurrentSection(){
+  const copy=SECTION_COPY[currentView];if(!copy)return;
+  const view=document.getElementById("view-"+currentView),p=view?.querySelector(".page-head p");
+  if(p)p.textContent=copy[1];
+  if(document.getElementById("top-title"))document.getElementById("top-title").textContent=copy[0];
+  if(document.getElementById("top-subtitle"))document.getElementById("top-subtitle").textContent=copy[1];
+}
+const _renderAll552=window.renderAll;
+window.renderAll=function(){_renderAll552();humanizeCurrentSection()};
+
+/* --- Tutorial de primera vez para usuarios ya configurados --- */
+function maybeOfferGuidedTour(){
+  if(!user?.onboarded||localStorage.getItem(GUIDE_STORAGE)||document.querySelector(".overlay.active")||document.getElementById("exam-shell")?.classList.contains("active"))return;
+  setTimeout(()=>{if(!localStorage.getItem(GUIDE_STORAGE))genericModal(`<div class="modal modal-sm"><div class="modal-head"><div><div class="eyebrow">Bienvenido a DIAE</div><h2>¿Quieres conocer la plataforma en pocos minutos?</h2><p>El tutorial te mostrará qué hace cada área y cómo interpretar los términos principales. Solo aparece esta vez y puedes repetirlo cuando quieras.</p></div><button class="close" onclick="localStorage.setItem(GUIDE_STORAGE,'1');closeGeneric()"><i class="ph ph-x"></i></button></div><div class="result-actions"><button class="btn btn-primary" onclick="localStorage.setItem(GUIDE_STORAGE,'1');closeGeneric();startGuidedTour()">Iniciar tutorial</button><button class="btn" onclick="localStorage.setItem(GUIDE_STORAGE,'1');closeGeneric()">Ahora no</button></div></div>`)},700);
+}
+
+/* --- QA runtime guards y arranque --- */
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".nav button[data-view]").forEach(b=>b.addEventListener("click",closeSidebar));
+  setTimeout(maybeOfferGuidedTour,900);
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeSidebar();if(LecturaReader.active&&e.shiftKey)stopLectura()}});
+</script>
+
+
+<script id="diae-v553-polish">
+const NAV_GROUPS={
+ prepare:["today","plan","calendar"],
+ train:["exams","practice"],
+ learn:["errors","notebook"],
+ progress:["progress","history","achievements"],
+ more:["resources","premium","profile"]
+};
+function toggleNavGroup(group,force){
+  document.querySelectorAll(".nav-group").forEach(g=>{
+    const is=g.dataset.navGroup===group,open=is?(force??!g.classList.contains("open")):false;
+    g.classList.toggle("open",open);const sub=g.querySelector(".nav-submenu"),btn=g.querySelector(".nav-group-toggle");
+    if(sub)sub.hidden=!open;if(btn)btn.setAttribute("aria-expanded",String(open));
+  });
+}
+function openNavGroupForView(view){
+  const group=Object.entries(NAV_GROUPS).find(([,views])=>views.includes(view))?.[0];
+  if(group)toggleNavGroup(group,true);else document.querySelectorAll(".nav-group").forEach(g=>toggleNavGroup(g.dataset.navGroup,false));
+}
+const _go553=window.go;
+const _goImmediate553=(typeof _go552!=="undefined")?_go552:_go553;
+let tourActive=false;
+window.go=function(view,btn){
+  if(!tourActive)showExperienceLoader(1750);
+  const r=_go553(view,btn);openNavGroupForView(view);
+  if(!tourActive)setTimeout(hideExperienceLoader,1750);
+  return r;
+};
+
+/* Loader con mensaje secundario variable durante la transición */
+let loaderCycleTimer=null;
+let loaderHoldUntil=0;
+const LOADER_SECONDARY=[
+ "Organizando tu información de preparación.",
+ "Revisando tu ruta y el banco seleccionado.",
+ "Actualizando prioridades sin mezclar tus métricas.",
+ "Preparando una vista cómoda para continuar.",
+ "Conectando tu progreso con la siguiente acción."
+];
+const _showLoader553=window.showExperienceLoader;
+window.showExperienceLoader=function(minMs=1750){
+  const box=document.getElementById("experience-loader");if(!box)return;
+  const m=EXPERIENCE_MESSAGES[Math.floor(Math.random()*EXPERIENCE_MESSAGES.length)];
+  document.getElementById("loader-message").textContent=m[0];
+  document.getElementById("loader-submessage").textContent=m[1];
+  let track=box.querySelector(".loader-progress-track");
+  if(!track){
+    track=document.createElement("div");track.className="loader-progress-track";track.innerHTML="<span></span>";
+    box.querySelector(".experience-loader-card")?.appendChild(track);
+    const pulse=document.createElement("div");pulse.className="loader-pulse";pulse.innerHTML="<i></i><i></i><i></i>";box.querySelector(".experience-loader-card")?.appendChild(pulse);
+  }else{track.innerHTML="<span></span>"}
+  box.classList.add("active");box.setAttribute("aria-hidden","false");
+  loaderHoldUntil=Math.max(loaderHoldUntil,Date.now()+Math.max(1600,minMs));
+  clearInterval(loaderCycleTimer);let i=0;
+  loaderCycleTimer=setInterval(()=>{i=(i+1)%LOADER_SECONDARY.length;const sub=document.getElementById("loader-submessage");if(sub)sub.textContent=LOADER_SECONDARY[i]},620);
+  clearTimeout(loaderTimer);loaderTimer=setTimeout(hideExperienceLoader,Math.max(1600,minMs));
+};
+const _hideLoader553=window.hideExperienceLoader;
+window.hideExperienceLoader=function(){
+  const remaining=loaderHoldUntil-Date.now();
+  if(remaining>20){clearTimeout(loaderTimer);loaderTimer=setTimeout(hideExperienceLoader,remaining+15);return}
+  loaderHoldUntil=0;clearInterval(loaderCycleTimer);return _hideLoader553()
+};
+
+/* Las transiciones importantes conservan el mismo lenguaje visual */
+const _startTyped553=window.startTypedSession;
+window.startTypedSession=function(...args){
+  showExperienceLoader(1750);const r=_startTyped553(...args);setTimeout(hideExperienceLoader,1750);return r;
+};
+const _openReadonly553=window.openSessionReadonly;
+window.openSessionReadonly=function(...args){
+  showExperienceLoader(1650);const r=_openReadonly553(...args);setTimeout(hideExperienceLoader,1650);return r;
+};
+
+/* Tutorial guiado: explica la lógica real, no solo señala botones */
+const TOUR_STEPS_V553=[
+ {chapter:"Orientación",view:"home",selector:".personal-hero, .hero-card",title:"Tu punto de partida",text:"Inicio resume tu ruta. Lo más importante es la siguiente acción: DIAE intenta evitar que tengas que decidir entre todas las herramientas cada vez que ingresas.",tip:"Si no sabes por dónde comenzar, vuelve a Inicio."},
+ {chapter:"Navegación",selector:".nav-compact",title:"Menú organizado por propósito",text:"Las funciones están agrupadas en cinco bloques: preparación, entrenamiento, aprendizaje a partir de resultados, progreso y herramientas adicionales.",tip:"En celular puedes cerrarlo con la X, tocando fuera o entrando a una opción."},
+ {chapter:"Preparación",view:"today",selector:"#view-today .adaptive-hero, #view-today .page-head",title:"DIAE Hoy",text:"Esta sección responde una pregunta concreta: ¿qué conviene estudiar ahora? Usa tu tiempo disponible, necesidades pendientes y evidencia acumulada.",tip:"Las sesiones de 10, 20 y 30 minutos no afectan tu último puntaje de simulacro."},
+ {chapter:"Preparación",view:"plan",selector:"#view-plan .week-path, #view-plan .page-head",title:"Plan de estudio",text:"El plan distribuye acciones durante la semana y se reajusta conforme aparecen nuevas respuestas, recuperaciones o cambios en tu tiempo disponible.",tip:"No necesitas cumplir una agenda rígida; prioriza continuidad y recuperación."},
+ {chapter:"Entrenamiento",view:"exams",selector:"#view-exams .page-head",title:"Simulacros",text:"Aquí eliges el banco oficial y realizas intentos completos. Solo los simulacros alimentan la tendencia de puntaje y consistencia.",tip:"Un diagnóstico o una práctica nunca reemplazan tu último puntaje de simulacro."},
+ {chapter:"Entrenamiento",view:"practice",selector:"#view-practice .session-type-grid, #view-practice .page-head",title:"Práctica",text:"La práctica sirve para entrenar sin esperar una prueba completa. Puedes trabajar sesiones rápidas, temáticas, recuperación o adaptación.",tip:"En práctica importa aprender; en simulacro importa además medir el desempeño bajo condiciones de examen."},
+ {chapter:"Aprendizaje",view:"errors",selector:"#view-errors .page-head",title:"Necesidades de aprendizaje",text:"Una respuesta incorrecta no se convierte automáticamente en una etiqueta. DIAE la conserva como una necesidad que debe revisarse y comprobarse después.",tip:"La meta es pasar de error detectado a recuperación y consolidación."},
+ {chapter:"Aprendizaje",view:"notebook",selector:"#view-notebook .notebook-toolbar, #view-notebook .page-head",title:"Cuaderno de aprendizaje",text:"Aquí puedes buscar necesidades, comprender qué criterio estaba en juego, revisar evidencias, guardar notas y volver a practicar.",tip:"Úsalo cuando quieras entender por qué fallaste, no solo cuál era la clave."},
+ {chapter:"Progreso",view:"progress",selector:"#view-progress .evidence-strip, #view-progress .page-head",title:"Rendimiento",text:"Esta sección separa puntajes, evidencia de preparación, consistencia y recuperación. Así evita presentar una sola respuesta como una conclusión definitiva.",tip:"Observa también la confianza de la evidencia, no únicamente el porcentaje."},
+ {chapter:"Progreso",view:"history",selector:"#view-history .history-chart-wrap, #view-history .page-head",title:"Historial",text:"Cada sesión finalizada queda registrada. Puedes abrir un intento en modo solo lectura para revisar qué respondiste, pero no modificarlo.",tip:"Los puntos de la gráfica de simulacros también abren el intento correspondiente."},
+ {chapter:"Progreso",view:"calendar",selector:"#view-calendar .calendar-scroll, #view-calendar .page-head",title:"Calendario",text:"Organiza práctica, recuperación y simulacros en el tiempo. En celular el calendario conserva sus siete columnas y se desplaza horizontalmente para no comprimir el contenido.",tip:"Puedes cambiar tu fecha objetivo desde Perfil."},
+ {chapter:"Herramientas",view:"resources",selector:"#view-resources .page-head",title:"Recursos",text:"Reúne materiales y apoyos complementarios para profundizar criterios y estrategias de resolución.",tip:"El contenido oficial de las preguntas permanece separado de los recursos de apoyo."},
+ {chapter:"Acceso",view:"premium",selector:"#view-premium .plan-table-wrap, #view-premium .page-head",title:"DIAE Premium",text:"La comparación distingue una base esencial de funciones avanzadas de personalización, recuperación y analítica. Durante la campaña actual el acceso está habilitado.",tip:"La accesibilidad no se plantea como una barrera de pago."},
+ {chapter:"Personalización",view:"profile",selector:"#view-profile .grid, #view-profile .page-head",title:"Perfil y accesibilidad",text:"Aquí puedes cambiar nivel, escala objetivo, tiempo habitual, fecha, tamaño de texto, contraste, apariencia y reducción de movimiento.",tip:"Si algo se ve pequeño o incómodo, ajusta primero el tamaño de texto."},
+ {chapter:"Ayuda",selector:".top-actions",title:"La ayuda siempre queda disponible",text:"El tutorial no desaparece después del primer uso. Puedes repetirlo y abrir el glosario desde Ayuda y guía.",tip:"Si un término como evidencia, transferencia o consistencia no queda claro, consulta el glosario."}
+];
+window.TOUR_STEPS=TOUR_STEPS_V553;
+window.startGuidedTour=function(index=0){
+  closeGeneric();tourActive=true;tourIndex=Math.max(0,index);document.getElementById("tour-layer")?.remove();
+  const layer=document.createElement("div");layer.id="tour-layer";layer.className="tour-layer";layer.innerHTML='<div class="tour-dim"></div><div class="tour-highlight"></div><div class="tour-card"></div>';document.body.appendChild(layer);
+  renderTourStepV553();
+};
+window.renderTourStep=renderTourStepV553;
+function renderTourStepV553(){
+  const step=TOUR_STEPS_V553[tourIndex],layer=document.getElementById("tour-layer");if(!layer)return;
+  if(step.view&&currentView!==step.view){_goImmediate553(step.view);openNavGroupForView(step.view);hideExperienceLoader()}
+  if(window.innerWidth<=1000){
+    if(step.selector.includes(".nav-compact")){
+      document.getElementById("sidebar")?.classList.add("open");
+      document.getElementById("sidebar-backdrop")?.classList.add("active");
+    }else closeSidebar();
+  }
+  requestAnimationFrame(()=>positionTourV553(step,layer));
+}
+function positionTourV553(step,layer){
+  let el=null;
+  for(const selector of step.selector.split(",").map(x=>x.trim())){el=document.querySelector(selector);if(el)break}
+  if(!el){tourNext();return}
+  el.scrollIntoView({block:"center",behavior:"auto"});
+  const r=el.getBoundingClientRect(),pad=7,h=layer.querySelector(".tour-highlight"),card=layer.querySelector(".tour-card");
+  h.style.left=Math.max(5,r.left-pad)+"px";h.style.top=Math.max(5,r.top-pad)+"px";h.style.width=Math.min(innerWidth-10,r.width+pad*2)+"px";h.style.height=Math.min(innerHeight-10,r.height+pad*2)+"px";
+  const cardW=Math.min(430,innerWidth-24),canRight=r.right+cardW+24<innerWidth,canBelow=r.bottom+260<innerHeight;
+  card.style.width=cardW+"px";
+  card.style.left=(canRight?r.right+14:Math.min(innerWidth-cardW-12,Math.max(12,r.left)))+"px";
+  card.style.top=(canBelow?r.bottom+14:Math.max(12,Math.min(innerHeight-300,r.top-250)))+"px";
+  const pct=Math.round((tourIndex+1)/TOUR_STEPS_V553.length*100);
+  card.innerHTML=`<div class="tour-chapter">${esc(step.chapter)}</div><div class="tour-progress">Paso ${tourIndex+1} de ${TOUR_STEPS_V553.length}</div><div class="tour-progress-bar"><span style="width:${pct}%"></span></div><strong>${esc(step.title)}</strong><p>${esc(step.text)}</p><div class="tour-tip"><strong>Consejo:</strong> ${esc(step.tip)}</div><div class="tour-actions"><button class="btn btn-sm" onclick="endGuidedTour(false)">Salir</button><div style="display:flex;gap:6px">${tourIndex?'<button class="btn btn-sm" onclick="tourPrev()">Atrás</button>':""}<button class="btn btn-primary btn-sm" onclick="tourNext()">${tourIndex===TOUR_STEPS_V553.length-1?"Finalizar":"Siguiente"}</button></div></div>`;
+}
+window.tourNext=function(){if(tourIndex>=TOUR_STEPS_V553.length-1){endGuidedTour(true);return}tourIndex++;renderTourStepV553()};
+window.tourPrev=function(){if(tourIndex>0){tourIndex--;renderTourStepV553()}};
+window.endGuidedTour=function(done=true){
+  document.getElementById("tour-layer")?.remove();tourActive=false;closeSidebar();
+  if(done){localStorage.setItem(GUIDE_STORAGE,"1");toast("Tutorial completado. Puedes repetirlo cuando quieras desde Ayuda y guía.")}
+};
+
+/* El centro de ayuda prioriza el tutorial y el glosario */
+const _openGuide553=window.openGuideCenter;
+window.openGuideCenter=function(tab="guide"){
+  _openGuide553(tab);
+  const modal=document.querySelector("#generic-overlay .guide-modal");
+  if(modal){
+    const intro=modal.querySelector(".modal-head p");
+    if(intro)intro.textContent="Encuentra una explicación breve de cada función o recorre la plataforma paso a paso con el tutorial guiado.";
+  }
+};
+
+/* Navegación inicial compacta */
+document.addEventListener("DOMContentLoaded",()=>openNavGroupForView(currentView));
+</script>
+
 </body>
 </html>
