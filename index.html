@@ -503,6 +503,74 @@ body.modal-open{overflow:hidden!important}
 }
 </style>
 
+
+<style id="diae-v554-spacing-resources">
+/* Ritmo visual consistente */
+.profile-banner{align-items:flex-start!important;padding:16px 18px!important;gap:18px!important;margin:20px 0 24px!important}
+.profile-banner>div{min-width:0}
+.profile-banner strong{display:block!important;font-size:.82rem!important;line-height:1.38!important}
+.profile-banner span:not(.badge){display:block!important;margin-top:8px!important;font-size:.71rem!important;line-height:1.5!important}
+.profile-banner>.badge{flex:0 0 auto;align-self:center}
+.focus-card{padding:15px!important}
+.focus-card+.focus-card{margin-top:10px}
+.focus-card-head{margin-bottom:11px!important}
+.focus-card h4{line-height:1.35!important}
+.focus-card p{display:block!important;margin:6px 0 12px!important;line-height:1.5!important}
+.focus-card .progress{margin-top:2px}
+.focus-card .summary-row{margin-top:9px!important}
+.card>h2+.badge,.card>h3+.badge{margin-top:8px}
+.card>h2+p,.card>h3+p{margin-top:7px!important;line-height:1.58}
+.card>p+.exam-actions,.card>p+.result-actions{margin-top:15px!important}
+.card>.badge+h2,.card>.badge+h3{margin-top:12px!important}
+.split-title{gap:16px!important;align-items:center!important}
+.split-title+h2,.split-title+p{margin-top:8px!important}
+.learning-signal+.learning-signal{margin-top:9px}
+.task+.task{margin-top:8px}
+.session-type h3{margin:0!important;line-height:1.35}.session-type p{margin:0!important;line-height:1.55}
+.history-card h4+p{margin-top:6px!important}
+.result-route strong+p{margin-top:7px!important}
+.setting-row>div>strong{display:block;line-height:1.35}.setting-row>div>span{display:block;margin-top:4px;line-height:1.4}
+.guide-item strong+p,.glossary-term strong+p{margin-top:6px!important}
+.personal-stat span+strong{margin-top:7px!important}.personal-stat strong+small{margin-top:6px!important}
+.week-day strong+span{margin-top:4px!important}
+.evidence-kpi span+strong{margin-top:6px!important}
+
+/* Centro de Recursos */
+.resource-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:16px;align-items:stretch;margin-bottom:18px}
+.resource-hero-main{position:relative;overflow:hidden;border:1px solid var(--brand-line);background:linear-gradient(135deg,var(--brand-soft),transparent 72%),var(--surface);border-radius:21px;padding:24px}
+.resource-hero-main:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-110px;top:-120px;background:rgba(34,201,133,.08)}
+.resource-hero-main>*{position:relative;z-index:1}.resource-hero-main h2{font:800 1.55rem Manrope;margin:10px 0 8px}.resource-hero-main p{color:var(--muted);line-height:1.62;margin:0}
+.resource-overview{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.resource-mini{border:1px solid var(--line);background:var(--surface);border-radius:15px;padding:15px}.resource-mini span{font-size:.64rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:850}.resource-mini strong{display:block;font:850 1.25rem Manrope;margin-top:6px}.resource-mini small{display:block;color:var(--muted);font-size:.67rem;margin-top:4px;line-height:1.4}
+.resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.resource-card{position:relative;display:flex;flex-direction:column;min-height:260px;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:18px;overflow:hidden}
+.resource-card.featured{border-color:var(--brand-line);background:linear-gradient(145deg,var(--brand-soft),transparent 65%),var(--surface)}
+.resource-card .resource-icon{width:44px;height:44px;border-radius:13px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand);font-size:1.3rem;margin-bottom:14px}
+.resource-card .resource-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.resource-card h3{font:800 .94rem Manrope;margin:0;line-height:1.38}.resource-card p{font-size:.75rem;color:var(--muted);line-height:1.56;margin:8px 0 12px}
+.resource-card .resource-benefit{display:flex;align-items:flex-start;gap:7px;font-size:.68rem;line-height:1.45;margin:5px 0;color:var(--text)}
+.resource-card .resource-benefit i{color:var(--brand);margin-top:2px}.resource-card .exam-actions{margin-top:auto;padding-top:14px}
+.resource-badge{font-size:.6rem;font-weight:850;text-transform:uppercase;letter-spacing:.05em;padding:5px 7px;border-radius:999px;border:1px solid var(--brand-line);background:var(--brand-soft);white-space:nowrap}
+.resource-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:28px 0 14px}.resource-section-head h2{font:800 1.25rem Manrope;margin:0}.resource-section-head p{font-size:.72rem;color:var(--muted);margin:5px 0 0}
+.resource-toolbox{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.tool-chip{border:1px solid var(--line);background:var(--surface-2);border-radius:14px;padding:13px;text-align:left}.tool-chip i{font-size:1.15rem;color:var(--brand)}.tool-chip strong{display:block;font-size:.76rem;margin-top:8px}.tool-chip span{display:block;font-size:.65rem;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* Recursos interactivos */
+.strategy-timeline{display:grid;gap:9px;margin-top:15px}.strategy-phase{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);background:var(--surface-2);border-radius:13px;padding:11px}.strategy-phase .minute{font:850 .82rem Manrope;color:var(--brand)}.strategy-phase strong{display:block;font-size:.77rem}.strategy-phase span{display:block;font-size:.67rem;color:var(--muted);margin-top:3px;line-height:1.4}.strategy-phase .qty{font:800 .7rem Manrope}
+.resource-checklist{display:grid;gap:8px;margin-top:14px}.resource-check{display:grid;grid-template-columns:28px 1fr;gap:9px;align-items:start;border:1px solid var(--line);border-radius:11px;padding:10px;background:var(--surface-2)}.resource-check input{width:18px;height:18px;margin-top:1px}.resource-check strong{display:block;font-size:.74rem}.resource-check span{display:block;color:var(--muted);font-size:.65rem;margin-top:3px;line-height:1.4}
+.pattern-row{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px solid var(--line);padding:11px 0}.pattern-row:last-child{border-bottom:0}.pattern-row strong{font-size:.76rem}.pattern-row span{display:block;font-size:.67rem;color:var(--muted);margin-top:3px}.pattern-count{font:850 .8rem Manrope;color:var(--brand)}
+.focus-resource-list{display:grid;gap:8px;margin-top:14px}.focus-resource-item{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--surface-2)}.focus-resource-item-head{display:flex;justify-content:space-between;gap:10px}.focus-resource-item strong{font-size:.75rem}.focus-resource-item small{font-size:.63rem;color:var(--muted)}.focus-resource-item p{margin:5px 0 0;font-size:.66rem;color:var(--muted);line-height:1.42}
+.method-step{display:grid;grid-template-columns:38px 1fr;gap:11px;align-items:start;margin:9px 0}.method-step .step-n{width:34px;height:34px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:900}.method-step strong{display:block;font-size:.77rem}.method-step p{margin:3px 0 0;font-size:.68rem;color:var(--muted);line-height:1.45}
+@media(max-width:1000px){.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.resource-toolbox{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){
+ .profile-banner{gap:11px!important;padding:14px 15px!important}
+ .profile-banner>.badge{align-self:flex-start}
+ .resource-hero{grid-template-columns:1fr}.resource-overview{grid-template-columns:1fr 1fr}
+ .resource-grid{grid-template-columns:1fr}.resource-card{min-height:auto}
+ .resource-section-head{align-items:flex-start;flex-direction:column}
+ .strategy-phase{grid-template-columns:58px 1fr}.strategy-phase .qty{grid-column:2}
+}
+@media(max-width:390px){.resource-overview,.resource-toolbox{grid-template-columns:1fr}}
+</style>
+
 </head>
 <body><a class="skip-link" href="#view-home">Ir al contenido principal</a>
 <div class="app-bg"></div>
@@ -2921,6 +2989,116 @@ window.openGuideCenter=function(tab="guide"){
 
 /* Navegación inicial compacta */
 document.addEventListener("DOMContentLoaded",()=>openNavGroupForView(currentView));
+</script>
+
+
+<script id="diae-v554-resources">
+const RESOURCE_CHECK_KEY="diae_resource_final_review_checklist_v1";
+function resourceState(){
+  const s=typeof personalizedState==="function"?personalizedState():null;
+  const summary=typeof evidenceSummary==="function"?evidenceSummary():{observations:0,needs:0,recovered:0,consolidated:0,focuses:0};
+  const focuses=typeof evidenceProfileByFocus==="function"?evidenceProfileByFocus():[];
+  const sims=typeof officialSessions==="function"?officialSessions():[];
+  return {s,summary,focuses,sims,due:typeof dueRecoveryIds==="function"?dueRecoveryIds():[]};
+}
+function renderResources(){
+  const el=document.getElementById("view-resources");if(!el)return;
+  const rs=resourceState(),mins=user.dailyMinutes||20,weak=rs.focuses[0],simCount=rs.sims.length;
+  el.innerHTML=`<div class="page-head"><div><div class="eyebrow">Centro de Recursos DIAE</div><h1>Herramientas para estudiar con criterio</h1><p>Usa recursos prácticos para organizar un simulacro, analizar decisiones, recuperar necesidades y convertir tus resultados en acciones concretas.</p></div><span class="campaign-pill"><i class="ph-fill ph-crown"></i> Recursos Premium habilitados</span></div>
+  <div class="resource-hero"><div class="resource-hero-main"><span class="badge green">Recomendación para ti</span><h2>${weak?`Profundiza ${esc(weak.focus)}`:"Construye tu estrategia personal"}</h2><p>${weak?`Este foco reúne la evidencia que hoy requiere mayor atención. Puedes estudiarlo con una ficha guiada o convertirlo en una sesión adaptativa.`:"Todavía necesitamos más evidencia para recomendar un foco específico. Puedes comenzar con la estrategia de examen o una sesión adaptativa."}</p><div class="result-actions"><button class="btn btn-primary" onclick="${weak?"openFocusResource()":"openExamStrategyResource()"}"><i class="ph ph-arrow-right"></i> ${weak?"Abrir ficha de enfoque":"Preparar mi estrategia"}</button><button class="btn" onclick="previewAdaptivePlan(${mins})"><i class="ph ph-brain"></i> Sesión de ${mins} min</button></div></div>
+  <div class="resource-overview"><div class="resource-mini"><span>Evidencias</span><strong>${rs.summary.observations||0}</strong><small>Respuestas utilizadas para personalizar recursos.</small></div><div class="resource-mini"><span>Necesidades activas</span><strong>${rs.summary.needs||0}</strong><small>${rs.due.length} listas para repasar.</small></div><div class="resource-mini"><span>Recuperadas</span><strong>${rs.summary.recovered||0}</strong><small>${rs.summary.consolidated||0} consolidadas.</small></div><div class="resource-mini"><span>Simulacros</span><strong>${simCount}</strong><small>${simCount>1?"Ya existe tendencia para analizar.":"La tendencia necesita más intentos."}</small></div></div></div>
+
+  <div class="resource-section-head"><div><h2>Recursos de alto impacto</h2><p>Cada herramienta produce una acción concreta; no son páginas informativas vacías.</p></div><span class="badge green">Acceso completo</span></div>
+  <div class="resource-grid">
+    ${resourceCard("ph-timer","Estrategia de examen","Planifica las 3 horas del simulacro con hitos, revisión y margen final.","openExamStrategyResource()","Plan personal de 180 min",["Distribución por bloques","Puntos de control","Protocolo de cierre"],true)}
+    ${resourceCard("ph-brain","Método DIAE de resolución","Una secuencia práctica para leer el propósito, identificar evidencia y descartar distractores.","openResolutionMethodResource()","Método guiado",["4 pasos aplicables","Errores a evitar","Ejemplo con tu banco"],true)}
+    ${resourceCard("ph-target","Laboratorio de distractores","Observa patrones en las alternativas que te atraen cuando una respuesta no es correcta.","openDistractorLab()","Analítica personal",["Patrones recurrentes","Preguntas relacionadas","Práctica inmediata"],true)}
+    ${resourceCard("ph-notebook","Centro de recuperación","Convierte necesidades activas en revisión, práctica, recuperación y consolidación.","openRecoveryResource()","Recuperación activa",["Estados de aprendizaje","Pendientes de repaso","Acceso al Cuaderno"],true)}
+    ${resourceCard("ph-map-trifold","Mapa de preparación","Resume focos prioritarios, confianza de evidencia y siguiente acción en una sola vista.","openPreparationMapResource()","Mapa personalizado",["Fortalezas provisionales","Prioridades","Confianza disponible"],true)}
+    ${resourceCard("ph-cards-three","Fichas por foco","Estudia conceptos y criterios organizados a partir de los focos que aparecen en tus preguntas.","openFocusResource()","Fichas dinámicas",["Conceptos centrales","Preguntas asociadas","Práctica focalizada"],true)}
+  </div>
+
+  <div class="resource-section-head"><div><h2>Herramientas rápidas</h2><p>Apoyos que puedes utilizar antes, durante o después de una sesión.</p></div></div>
+  <div class="resource-toolbox">
+    <button class="tool-chip" onclick="openFinalReviewChecklist()"><i class="ph ph-check-square-offset"></i><strong>Checklist de cierre</strong><span>Qué revisar antes de finalizar un simulacro.</span></button>
+    <button class="tool-chip" onclick="previewAdaptivePlan(10)"><i class="ph ph-lightning"></i><strong>Sesión rentable · 10 min</strong><span>DIAE selecciona lo más útil con el tiempo disponible.</span></button>
+    <button class="tool-chip" onclick="openGuideCenter('glossary')"><i class="ph ph-book-open-text"></i><strong>Glosario DIAE</strong><span>Entiende evidencia, transferencia, consistencia y otros términos.</span></button>
+    <button class="tool-chip" onclick="go('history')"><i class="ph ph-clock-counter-clockwise"></i><strong>Revisar un intento</strong><span>Abre una sesión finalizada sin modificarla.</span></button>
+  </div>`;
+}
+function resourceCard(icon,title,desc,action,label,benefits,featured=false){
+  return `<article class="resource-card ${featured?"featured":""}"><div class="resource-top"><div class="resource-icon"><i class="ph ${icon}"></i></div><span class="resource-badge">${esc(label)}</span></div><h3>${esc(title)}</h3><p>${esc(desc)}</p>${benefits.map(x=>`<div class="resource-benefit"><i class="ph-fill ph-check-circle"></i><span>${esc(x)}</span></div>`).join("")}<div class="exam-actions"><button class="btn ${featured?"btn-primary":""}" onclick="${action}">Abrir recurso <i class="ph ph-arrow-right"></i></button></div></article>`;
+}
+function openExamStrategyResource(){
+  const total=60,totalMinutes=180,review=18,work=totalMinutes-review,perQ=(work/total).toFixed(1);
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Estrategia de examen</div><h2>Plan de 180 minutos</h2><p>Una distribución simple para proteger tiempo de revisión sin convertir el cronómetro en una fuente de ansiedad.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  <div class="evidence-strip"><div class="evidence-kpi"><span>Preguntas</span><strong>60</strong></div><div class="evidence-kpi"><span>Tiempo</span><strong>180 min</strong></div><div class="evidence-kpi"><span>Trabajo inicial</span><strong>${work} min</strong></div><div class="evidence-kpi"><span>Revisión</span><strong>${review} min</strong></div><div class="evidence-kpi"><span>Referencia</span><strong>${perQ} min</strong></div></div>
+  <div class="strategy-timeline">
+   <div class="strategy-phase"><div class="minute">0–40</div><div><strong>Primer bloque</strong><span>Resuelve con ritmo estable. Marca las preguntas que requieran una segunda lectura en vez de quedarte detenido demasiado tiempo.</span></div><div class="qty">≈ 14 preguntas</div></div>
+   <div class="strategy-phase"><div class="minute">40–82</div><div><strong>Segundo bloque</strong><span>Comprueba que no estés acelerando por el reloj. Prioriza propósito, evidencia y descarte de distractores.</span></div><div class="qty">≈ 15 preguntas</div></div>
+   <div class="strategy-phase"><div class="minute">82–123</div><div><strong>Tercer bloque</strong><span>Haz un chequeo breve de pendientes. No revises todavía todo el examen.</span></div><div class="qty">≈ 15 preguntas</div></div>
+   <div class="strategy-phase"><div class="minute">123–162</div><div><strong>Cuarto bloque</strong><span>Completa las preguntas restantes y evita dejar omisiones accidentales.</span></div><div class="qty">≈ 16 preguntas</div></div>
+   <div class="strategy-phase"><div class="minute">162–180</div><div><strong>Revisión final</strong><span>Primero pendientes y marcadas; luego cambios solo cuando tengas una razón clara, no por inseguridad general.</span></div><div class="qty">18 min</div></div>
+  </div><div class="result-route"><strong>Regla DIAE</strong><p>El tiempo por pregunta es una referencia de organización, no un límite rígido. Algunas situaciones compartidas necesitan más lectura y otras se resuelven con mayor rapidez.</p></div>
+  <div class="result-actions"><button class="btn btn-primary" onclick="closeGeneric();go('exams')">Ir a Simulacros</button><button class="btn" onclick="closeGeneric();openFinalReviewChecklist()">Ver checklist de cierre</button></div></div>`);
+}
+function openResolutionMethodResource(){
+  const q=QUESTIONS[0],tx=typeof evidenceTaxonomy==="function"?evidenceTaxonomy(q.id,activeBankKey):null;
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Método DIAE de resolución</div><h2>Propósito → evidencia → contraste → decisión</h2><p>Una secuencia para mantener el razonamiento centrado en lo que realmente pregunta el reactivo.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  <div class="method-step"><div class="step-n">1</div><div><strong>Ubica el propósito exacto</strong><p>Identifica qué debe favorecer, analizar, explicar, priorizar o evaluar la acción solicitada. No respondas todavía.</p></div></div>
+  <div class="method-step"><div class="step-n">2</div><div><strong>Busca la evidencia relevante del caso</strong><p>Separa información necesaria de detalles contextuales. En situaciones compartidas, vuelve al fragmento que sustenta la decisión.</p></div></div>
+  <div class="method-step"><div class="step-n">3</div><div><strong>Contrasta las tres alternativas</strong><p>No preguntes solamente cuál “suena bien”. Pregunta cuál satisface mejor el propósito y por qué las otras introducen un criterio menos pertinente.</p></div></div>
+  <div class="method-step"><div class="step-n">4</div><div><strong>Toma una decisión justificable</strong><p>Elige la alternativa que puedas defender con el caso. Si marcas para revisar, registra mentalmente qué duda específica quedó pendiente.</p></div></div>
+  <div class="card" style="margin-top:16px"><span class="badge green">Ejemplo de tu banco</span><h3 style="margin-top:10px">Pregunta ${q.id} · ${esc(tx?.focus||q.topic)}</h3><p>${esc(q.stemText.slice(0,280))}${q.stemText.length>280?"…":""}</p><button class="btn" onclick="closeGeneric();openSearchQuestion(${q.id})">Explorar esta pregunta</button></div></div>`);
+}
+function distractorStatsResource(){
+  const ev=typeof getEvidence==="function"?getEvidence().filter(e=>e.examId===CONFIG.examId&&e.status!=="correct"&&e.answer!=null):[];
+  const stats={A:0,B:0,C:0};
+  ev.forEach(e=>{const l=typeof e.answer==="number"?"ABC"[e.answer]:String(e.answer||"").toUpperCase();if(stats[l]!=null)stats[l]++});
+  return {ev,stats};
+}
+function openDistractorLab(){
+  const d=distractorStatsResource(),total=d.ev.length,top=Object.entries(d.stats).sort((a,b)=>b[1]-a[1])[0];
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Laboratorio de distractores</div><h2>Qué alternativas te atraen cuando fallas</h2><p>Este análisis no asume que una letra tenga un significado pedagógico por sí misma. Sirve para detectar recurrencias y volver a revisar los razonamientos concretos detrás de esas elecciones.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  <div class="evidence-strip"><div class="evidence-kpi"><span>Errores observados</span><strong>${total}</strong></div><div class="evidence-kpi"><span>Distractor A</span><strong>${d.stats.A}</strong></div><div class="evidence-kpi"><span>Distractor B</span><strong>${d.stats.B}</strong></div><div class="evidence-kpi"><span>Distractor C</span><strong>${d.stats.C}</strong></div><div class="evidence-kpi"><span>Más frecuente</span><strong>${total?top[0]:"—"}</strong></div></div>
+  ${total?`<div class="card" style="margin-top:15px"><h3>Cómo interpretarlo</h3><p>Que ${top[0]} aparezca ${top[1]} vez/veces no significa que “siempre elijas ${top[0]}”. Abre las preguntas y busca qué criterio compartían esas decisiones.</p>${d.ev.slice(0,8).map(e=>`<div class="pattern-row"><div><strong>Pregunta ${e.questionId||e.id}</strong><span>${esc(e.focus||e.topic||"Evidencia de respuesta")}</span></div><div class="pattern-count">${typeof e.answer==="number"?"ABC"[e.answer]:e.answer}</div></div>`).join("")}</div>`:`<div class="empty" style="margin-top:16px"><i class="ph ph-chart-donut"></i><h3>Aún no hay suficientes errores registrados</h3><p>El laboratorio empezará a ser útil después de responder preguntas en diagnóstico, simulacro o práctica.</p></div>`}
+  <div class="result-actions"><button class="btn btn-primary" onclick="closeGeneric();previewAdaptivePlan(${user.dailyMinutes||20})">Practicar con DIAE</button><button class="btn" onclick="closeGeneric();go('notebook')">Abrir Cuaderno</button></div></div>`);
+}
+function openRecoveryResource(){
+  const rs=resourceState(),active=Object.values(recoveryMap()).filter(r=>r.examId===CONFIG.examId&&r.stage<4),recovered=Object.values(recoveryMap()).filter(r=>r.examId===CONFIG.examId&&r.stage>=3);
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Centro de recuperación</div><h2>Del error a una respuesta más estable</h2><p>Una necesidad no desaparece porque viste la clave. DIAE busca nueva evidencia después de revisar y practicar.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  <div class="evidence-strip"><div class="evidence-kpi"><span>Activas</span><strong>${active.length}</strong></div><div class="evidence-kpi"><span>Listas para repaso</span><strong>${rs.due.length}</strong></div><div class="evidence-kpi"><span>Recuperadas</span><strong>${rs.summary.recovered||0}</strong></div><div class="evidence-kpi"><span>Consolidadas</span><strong>${rs.summary.consolidated||0}</strong></div><div class="evidence-kpi"><span>Total observado</span><strong>${Object.values(recoveryMap()).filter(r=>r.examId===CONFIG.examId).length}</strong></div></div>
+  <div style="margin-top:16px">${recoveryPipeline(4)}</div><div class="card" style="margin-top:16px"><h3>Qué hacer ahora</h3>${active.length?active.slice(0,6).map(r=>`<div class="pattern-row"><div><strong>Pregunta ${r.questionId}</strong><span>${r.stage===0?"Error detectado":r.stage===1?"Revisada":r.stage===2?"Practicada":"Recuperada"} · próxima revisión ${fmtDate(r.nextReviewAt)}</span></div><button class="btn btn-sm" onclick="closeGeneric();openReviewAt(${r.questionId})">Revisar</button></div>`).join(""):`<div class="empty"><p>No hay necesidades activas en este banco.</p></div>`}</div>
+  <div class="result-actions"><button class="btn btn-primary" ${active.length?"":"disabled"} onclick="closeGeneric();startErrorPractice()">Practicar pendientes</button><button class="btn" onclick="closeGeneric();go('notebook')">Abrir Cuaderno completo</button></div></div>`);
+}
+function openPreparationMapResource(){
+  const rs=resourceState(),focuses=rs.focuses||[],next=typeof nextPersonalAction==="function"?nextPersonalAction(rs.s||personalizedState()):null;
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Mapa de preparación</div><h2>Qué sabemos y qué falta comprobar</h2><p>El mapa combina estimación, cantidad de evidencias y confianza. Evita presentar una lectura provisional como una conclusión definitiva.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  ${focuses.length?`<div class="focus-resource-list">${focuses.slice(0,10).map(f=>`<div class="focus-resource-item"><div class="focus-resource-item-head"><strong>${esc(f.focus)}</strong><small>${f.estimate}% · confianza ${f.confidence}%</small></div><div class="progress" style="margin-top:8px"><span style="width:${f.estimate}%"></span></div><p>${f.total} evidencia(s). ${f.confidence<45?"Todavía conviene ampliar evidencia antes de interpretar este foco con firmeza.":f.estimate<60?"Actualmente requiere atención prioritaria.":"Evidencia favorable hasta el momento; conviene mantener comprobaciones posteriores."}</p></div>`).join("")}</div>`:`<div class="empty"><h3>El mapa necesita una línea base</h3><p>Completa el diagnóstico o una primera sesión para comenzar a construirlo.</p></div>`}
+  ${next?`<div class="result-route"><strong>Siguiente acción sugerida</strong><p>${esc(next.title)}. ${esc(next.text)}</p></div>`:""}
+  <div class="result-actions"><button class="btn btn-primary" onclick="closeGeneric();go('today')">Abrir DIAE Hoy</button><button class="btn" onclick="closeGeneric();go('progress')">Ver Rendimiento</button></div></div>`);
+}
+function openFocusResource(){
+  const focuses=typeof evidenceProfileByFocus==="function"?evidenceProfileByFocus():[];
+  const focus=focuses[0],questions=focus?QUESTIONS.filter(q=>(evidenceTaxonomy(q.id,activeBankKey)?.focus||q.topic)===focus.focus):QUESTIONS.slice(0,6);
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Fichas por foco</div><h2>${focus?esc(focus.focus):"Construye tu primera ficha"}</h2><p>${focus?`Estimación actual ${focus.estimate}% con ${focus.total} evidencia(s) y ${focus.confidence}% de confianza.`:"Todavía no hay un foco prioritario respaldado por evidencia. Puedes explorar preguntas del banco activo."}</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div>
+  <div class="focus-resource-list">${questions.slice(0,8).map(q=>{const tx=evidenceTaxonomy(q.id,activeBankKey)||{};return`<div class="focus-resource-item"><div class="focus-resource-item-head"><strong>Pregunta ${q.id} · ${esc(tx.concept||q.topic)}</strong><small>${esc(q.difficulty||"Media")}</small></div><p>${esc((tx.process||tx.focus||q.topic))}</p><div style="margin-top:8px"><button class="btn btn-sm" onclick="closeGeneric();openSearchQuestion(${q.id})">Estudiar pregunta</button></div></div>`}).join("")}</div>
+  <div class="result-actions"><button class="btn btn-primary" onclick="closeGeneric();startTypedSession('thematic',${JSON.stringify(questions.slice(0,10).map(q=>q.id))},{source:'resource-focus'})">Practicar este foco</button><button class="btn" onclick="closeGeneric();go('progress')">Ver perfil completo</button></div></div>`);
+}
+function openFinalReviewChecklist(){
+  const saved=load(RESOURCE_CHECK_KEY,{});
+  const items=[
+   ["pending","Revisé preguntas sin respuesta","Primero identifica omisiones accidentales."],
+   ["marked","Volví a las preguntas marcadas","Retoma solo las dudas que dejaste pendientes."],
+   ["stem","Leí nuevamente el propósito antes de cambiar una respuesta","No cambies una alternativa únicamente por inseguridad."],
+   ["shared","Revisé el texto o situación compartida cuando era necesario","Vuelve a la evidencia específica, no releas todo sin objetivo."],
+   ["grid","Comprobé que todas las preguntas tengan el estado esperado","Usa el navegador para detectar pendientes."],
+   ["time","Reservé tiempo para cerrar sin prisa","Evita que los últimos minutos se conviertan en decisiones precipitadas."]
+  ];
+  genericModal(`<div class="modal guide-modal"><div class="modal-head"><div><div class="eyebrow">Checklist de cierre</div><h2>Antes de finalizar un simulacro</h2><p>Una lista breve para reducir omisiones y cambios impulsivos en los últimos minutos.</p></div><button class="close" onclick="closeGeneric()"><i class="ph ph-x"></i></button></div><div class="resource-checklist">${items.map(([id,t,d])=>`<label class="resource-check"><input type="checkbox" ${saved[id]?"checked":""} onchange="saveResourceCheck('${id}',this.checked)"><div><strong>${esc(t)}</strong><span>${esc(d)}</span></div></label>`).join("")}</div><div class="result-actions"><button class="btn btn-primary" onclick="closeGeneric();go('exams')">Ir a Simulacros</button><button class="btn" onclick="resetResourceChecklist()">Reiniciar checklist</button></div></div>`);
+}
+function saveResourceCheck(id,value){const d=load(RESOURCE_CHECK_KEY,{});d[id]=!!value;save(RESOURCE_CHECK_KEY,d)}
+function resetResourceChecklist(){save(RESOURCE_CHECK_KEY,{});openFinalReviewChecklist();toast("Checklist reiniciado.")}
 </script>
 
 </body>
